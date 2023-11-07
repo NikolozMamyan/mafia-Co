@@ -1,6 +1,6 @@
 
 <!-- login.php -->
-
+<?php include '../views/header.php'; ?>
 <body>
   <div class="wrapper">
     <section class="form login">
@@ -20,11 +20,14 @@
           <input type="submit" name="submit" value="Continue to Chat">
         </div>
       </form>
-      <div class="link">Not yet signed up? <a href="signup.php">Signup now</a></div>
+      <div class="link">Not yet signed up? <a href="./signup.php">Signup now</a></div>
     </section>
   </div>
-  
-  <script src="../assets/js/pass-show-hide.js"></script>
-  <script src="../assets/js/login.js"></script>
+  <!-- function js -->
+<!-- <script src="C:/xampp/htdocs/application/mafia-Co/assets/js/pass-show-hide.js"></script> -->
+<!-- <script src="C:/xampp/htdocs/application/mafia-Co/assets/js/login.js"></script> -->
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 </body>
