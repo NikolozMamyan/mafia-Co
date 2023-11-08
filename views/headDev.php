@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
