@@ -1,4 +1,4 @@
 <?php 
-include_once "./views/header.php";
-include_once "./views/login.php";
+include_once ('_config.php');
+include_once(CONTROLLERS.'login.php');
 ?>
