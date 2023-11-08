@@ -1,6 +1,6 @@
 
 <!-- login.php -->
-
+<?php include("head.php");?>
 <body>
   <div class="wrapper">
     <section class="form login">

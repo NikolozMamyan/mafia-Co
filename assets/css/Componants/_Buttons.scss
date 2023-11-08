@@ -1,0 +1,12 @@
+.nav-button, a{
+    padding: 10px;
+    text-decoration: none;
+    background-color: $ColorPrincipal100;
+    color: $ColorPrincipal500;
+    @include font;
+}
+
+.navButton, a:hover{
+    background-color: $ColorPrincipal500;
+    color: $ColorPrincipal100;
+}
