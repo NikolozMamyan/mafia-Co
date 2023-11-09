@@ -1,2 +1,8 @@
+@import "./sass/Base/resets";
 @import "./sass/Utils/variables";
+@import "./sass/Utils/functions";
+@import "./sass/Utils/mixins";
+@import "./sass/Layout/header";
 @import "./sass/Layout/footer";
+@import "./sass/Component/button";
+@import "./sass/Pages/loginPage";
