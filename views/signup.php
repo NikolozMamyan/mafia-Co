@@ -1,66 +1,153 @@
 <!-- signup.php -->
 
-<?php include_once ('./head.php'); ?>
-<body class="d-flex align-items-center justify-content-center bg-light p-5">
-<?php //include(VIEWS.'header.php'); ?>
+<?php include_once('./head.php'); ?>
 
-  <div class="row justify-content-center p-5 wrapper">
-    <section class="form signup">
-      <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <div class="error-text"></div>
-        <div class="name-details">
-          <div class="field input">
-            <label>Nom</label>
-            <input type="text" name="fname" placeholder="Nom" required>
-          </div>
-          <div class="field input">
-            <label>Prénom</label>
-            <input type="text" name="lname" placeholder="Prénom" required>
-          </div>
-        </div>
-        <div class="field input">
-          <label>Adresse </label>
-          <input type="text" name="adress" placeholder="Adresse" required>
-        </div>
-        <div class="name-details">
-          <div class="field input">
-            <label>Code Postal</label>
-            <input type="text" name="fname" placeholder="Code Postal" required>
-          </div>
-          <div class="field input">
-            <label>Ville</label>
-            <input type="text" name="lname" placeholder="Ville" required>
-          </div>
-        </div>
+<body>
+  <?php //include(VIEWS.'header.php'); 
+  ?>
+  <main>
+    <div class="container align-items-center justify-content-center">
+      <div class="position-relative">
+        <img src="../assets/images/Car driving-bro.svg" alt="" class="img-fluid w-100">
+        <div class="position-absolute top-50 start-50 translate-middle ">
+          <div class="row justify-content-center p-5 bg-light wrapper__s  ">
+            <section>
+              <form class="row g-3 needs-validation" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
+                <!-- nom -->
+                <div class="col-md-6">
+                  <label for="validationCustom01" class="form-label">Nom</label>
+                  <input type="text" class="form-control" id="validationCustom01" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- prenom -->
+                <div class="col-md-6">
+                  <label for="validationCustom02" class="form-label">Prénom</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- adresse -->
+                <div class="col-md-6">
+                  <label for="validationCustom03" class="form-label">Adresse</label>
+                  <input type="text" class="form-control" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                <!-- code postal -->
+                <div class="col-md-2">
+                  <label for="validationCustom02" class="form-label">CP</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- ville -->
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Ville</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- telephone -->
+                <div class="col-md-6">
+                  <label for="validationCustom02" class="form-label">Téléphone</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- mail -->
+                <div class="col-md-6">
+                  <label for="validationCustom02" class="form-label">Mail</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <!-- mot de passe -->
+                <div class="col-md-6">
+                  <div class="input-group ">
+                    <label for="password" class="form-label ">Mot de passe</label>
+                    <div class="input-group ">
+                      <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" required>
+                      <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
 
-        <div class="field input">
-          <label>Adresse mail</label>
-          <input type="text" name="email" placeholder="Entrez votre Adresse mail" required>
+                  </div>
+                </div>
+                <!-- role (radio btn) -->
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                    <label class="form-check-label" for="validationFormCheck2">Conducteur/Passager</label>
+                  </div>
+                  <div class="form-check ">
+                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                    <label class="form-check-label" for="validationFormCheck3">Conducteur</label>
+                    <div class="invalid-feedback">More example invalid feedback text</div>
+                  </div>
+                  <div class="form-check ">
+                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                    <label class="form-check-label" for="validationFormCheck3">Passager</label>
+                    <div class="invalid-feedback">More example invalid feedback text</div>
+                  </div>
+                </div>
+                <!-- fichier photo -->
+                <div class="col-12">
+                  <label for="" class="form-label">Choisir une photo</label>
+                  <input type="file" class="form-control" aria-label="file example" required>
+                  <div class="invalid-feedback">Example invalid form file feedback</div>
+                </div>
+
+                <!-- terme et condition -->
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+                </div>
+                <!-- btn annuler -->
+                  <div class="col-4">
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                  </div>
+                  <!-- btn valider -->
+                  <div class="col-8">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                  </div>
+                
+                <!-- link login -->
+                <div class="link">Déjà inscrit? <a href="login.php">Connectez-vous </a></div>
+              </form>
+
+            </section>
+          </div>
         </div>
-        <div class="field input">
-          <label>Mot de passe</label>
-          <input type="password" name="password" placeholder="Entrez votre Mot de passe" required>
-          <i class="fas fa-eye"></i>
-        </div>
-        <div class="field image">
-          <label>Select Image</label>
-          <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
-        </div>
-        <div class="field button">
-          <input type="submit" name="submit" value="Connexion">
-        </div>
-      </form>
-      <div class="link">Déjà inscrit? <a href="login.php">Connectez-vous </a></div>
-    </section>
-  </div>
- 
-  
+      </div>
+    </div>
+  </main>
+
+
+
   <!-- environement js index -->
-  <?php //include(VIEWS.'footer.php') ;?>
-  <!-- <script src='<?php //echo ASSETS ;?>js/pass-show-hide.js'></script> -->
-  <!-- <script src='<?php //echo ASSETS ;?>js/login.js'></script> -->
+  <?php //include(VIEWS.'footer.php') ;
+  ?>
+  <!-- <script src='<?php //echo ASSETS ;
+                    ?>js/pass-show-hide.js'></script> -->
+  <!-- <script src='<?php //echo ASSETS ;
+                    ?>js/login.js'></script> -->
   <!-- environement js dev -->
-  <?php //include('./footer.php') ;?>
+  <?php //include('./footer.php') ;
+  ?>
   <script src="../assets/js/pass-show-hide.js"></script>
   <script src="../assets/js/signup.js"></script>
   <!-- bootstrap -->
