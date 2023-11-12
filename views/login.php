@@ -4,13 +4,14 @@ include('./headDev.php');
 
 <body>
   <main>
-    <div class="container align-items-center justify-content-center">
+    <div class="container align-items-center ">
       <div class="position-relative">
-        <img src="../assets/images/Car driving-bro.svg" alt="" class="img-fluid w-100">
+      <img src="../assets/images/Car driving-bro.svg" alt="" class="img-fluid w-100 desktop-image opacity__50">
+        <img src="../assets/images/Background car SVG.svg" alt="" class="img-fluid w-100 mobile-image opacity__50">
         <div class="position-absolute top-50 start-50 translate-middle ">
 
 
-          <div class="row justify-content-center p-5 wrapper__s bg__section--co ">
+          <div class="row justify-content-center p-5 wrapper__s bg__section--login ">
 
             <section class="col-md-5 d-flex align-items-center">
               <p class="resum">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
