@@ -3,9 +3,10 @@
 @import "./sass/Utils/variables";
 @import "./sass/Utils/functions";
 @import "./sass/Utils/mixins";
+@import "./sass/Layout/navBar";
 @import "./sass/Layout/header";
 @import "./sass/Layout/footer";
-@import "./sass/Component/button";
+@import "./sass/Component/Buttons";
 @import "./sass/Pages/loginPage";
 @import "./sass/Pages/signupPage";
 @import "./sass/Pages/modifySignupPage";

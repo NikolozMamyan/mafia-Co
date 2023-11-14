@@ -3,6 +3,9 @@ include('./headDev.php');
 ?>
 
 <body>
+<?php //include(VIEWS.'head.php'); 
+include('./header.php');
+?>
   <main class="d-flex justify-content-center align-items-center">
     <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
 

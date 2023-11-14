@@ -3,8 +3,10 @@
 <?php include_once('./headDev.php'); ?>
 
 <body>
-  <?php //include(VIEWS.'header.php'); 
-  ?>
+<?php //include(VIEWS.'head.php'); 
+include('./header.php');
+include('./navBar.php');
+?>
   <main class="d-flex justify-content-center align-items-center">
     <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
 

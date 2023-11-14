@@ -3,9 +3,11 @@
 <?php include_once('./headDev.php'); ?>
 
 <body>
-  <?php //include(VIEWS.'header.php'); 
-  ?>
-
+  <header>
+    <?php //include(VIEWS.'head.php'); 
+    include('./header.php');
+    ?>
+  </header>
   <main class="d-flex justify-content-center align-items-center ">
     <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
 
@@ -80,8 +82,8 @@
 
               </div>
             </div>
-             <!-- confirm mot de passe -->
-             <div class="col-lg-6 mb-3">
+            <!-- confirm mot de passe -->
+            <div class="col-lg-6 mb-3">
               <div class="input-group ">
                 <label for="password" class="form-label ps-3">Mot de passe</label>
                 <div class="input-group ">
@@ -157,7 +159,9 @@
     </div>
 
   </main>
+  <footer>
 
+  </footer>
 
 
   <!-- environement js index -->
