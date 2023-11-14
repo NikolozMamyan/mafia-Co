@@ -1,4 +1,16 @@
 @charset "UTF-8";
+body {
+  font-family: "Metropolis", sans-serif;
+  background-image: url("/assets/images/backgroud_car.svg");
+}
+
+ul li a {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  list-style: none;
+}
+
 #offcanvasNavbar {
   top: 48%;
   height: 32%;
@@ -68,6 +80,31 @@ header {
     bottom: 0;
   }
   .header {
+    display: none;
+  }
+}
+body {
+  font-family: "Metropolis", sans-serif;
+  background-image: url("/assets/images/backgroud_car.svg");
+}
+
+ul li a {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  list-style: none;
+}
+
+.container-fluid {
+  background-color: #4C3172;
+}
+
+h2 {
+  color: white;
+}
+
+@media only screen and (max-width: 555px) {
+  footer {
     display: none;
   }
 }
@@ -182,4 +219,9 @@ body {
 
 .opacity__50 {
   opacity: 50%;
+}
+
+#map {
+  height: 400px;
+  width: 500px;
 }/*# sourceMappingURL=main.css.map */

@@ -10,7 +10,7 @@ ul {
 
 @media (min-width: 576px) {
   .nav-bar-container {
-    @include pageHead;
+    @include mix__pageHead;
     top: 120px;
     bottom: auto;
     background-color: $ColorPrincipal100;
@@ -23,7 +23,7 @@ ul {
   }
 
   .nav-bar-container {
-    @include pageHead;
+    @include mix__pageHead;
     top: auto;
     bottom: 0;
     background-color: $ColorPrincipal100;

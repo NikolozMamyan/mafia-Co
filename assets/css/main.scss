@@ -1,5 +1,6 @@
 @import "./sass/Base/colors";
-@import "./sass/Base/font";
+@import "./sass/Base/fonts";
+@import "./sass/Base/resets";
 @import "./sass/Utils/variables";
 @import "./sass/Utils/functions";
 @import "./sass/Utils/mixins";
@@ -10,3 +11,4 @@
 @import "./sass/Pages/loginPage";
 @import "./sass/Pages/signupPage";
 @import "./sass/Pages/modifySignupPage";
+@import "./sass/Pages/profilePage";

@@ -3,7 +3,7 @@
     text-decoration: none;
     font-size: 8pt;
     color: $ColorPrincipal500;
-    @include font;
+    @include mix__font;
 }
 
 .nav-item a p{
