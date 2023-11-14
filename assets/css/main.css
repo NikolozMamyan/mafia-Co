@@ -153,4 +153,26 @@ label {
 
 p {
   color: #fff;
+}
+
+.selectH {
+  border: 1px solid violet;
+  background-color: violet;
+}
+
+.horaires {
+  color: aqua;
+  background-color: bisque;
+  margin: 0;
+  text-align: center;
+}
+
+.semaine {
+  padding: 15px;
+}
+
+.jour {
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px 0px;
 }/*# sourceMappingURL=main.css.map */
