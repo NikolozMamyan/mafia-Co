@@ -17,21 +17,24 @@ include('./headDev.php');
     </div>
   </div>
   <div class="row">
-    <div class="container">
-      <div class="row">
-        <div class="col">
+    <div class="container p-0 selectH">
+      <div class="container horaires">
+        Mes horaires
+      </div>
+      <div class="row semaine">
+        <div class="col  jour ">
         lundi
         </div>
-        <div class="col">
+        <div class="col  jour">
         lundi
         </div>
-        <div class="col">
+        <div class="col  jour">
         lundi
         </div>
-        <div class="col">
+        <div class="col  jour">
         lundi
         </div>
-        <div class="col">
+        <div class="col  jour">
         lundi
         </div>
       </div>

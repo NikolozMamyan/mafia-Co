@@ -187,41 +187,6 @@ body {
   color: #fff;
 }
 
-.w__signup {
-  width: 66%;
-}
-
-/* Afficher l'image desktop pour les écrans larges */
-@media (min-width: 768px) {
-  .destop-image {
-    content: "";
-    display: block;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/Car driving-bro.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-}
-/* Afficher l'image mobile pour les écrans étroits */
-@media (max-width: 767px) {
-  .destop-image {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/Background car SVG.svg");
-  }
-}
-.bg__section--signup {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.bg__section--lavande {
-  background: rgba(217, 205, 234, 0.8);
-}
-
-.opacity__50 {
-  opacity: 50%;
-}
-
-#map {
-  height: 400px;
-  width: 500px;
+p {
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */
