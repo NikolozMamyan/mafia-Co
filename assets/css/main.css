@@ -1,30 +1,18 @@
 @charset "UTF-8";
-body {
-  font-family: "Metropolis", sans-serif;
-  background-image: url("/assets/images/backgroud_car.svg");
-}
-
-ul li a {
-  font-size: 12px;
-  color: white;
-  text-decoration: none;
-  list-style: none;
-}
-
 #offcanvasNavbar {
   top: 48%;
   height: 32%;
   width: 60%;
 }
 
-ul {
+.nav__ul {
   color: #4C3172;
 }
 
 @media (min-width: 576px) {
   .nav-bar-container {
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     left: auto;
     display: inline;
@@ -41,7 +29,7 @@ ul {
   }
   .nav-bar-container {
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     left: auto;
     display: inline;
@@ -52,17 +40,6 @@ ul {
     background-color: #D9CDEA;
   }
 }
-header {
-  width: 100%;
-  position: fixed;
-  right: 0;
-  left: auto;
-  display: inline;
-  font-size: 16pt;
-  font-weight: bolder;
-  top: 0;
-}
-
 .header {
   background-color: #B69FD6;
 }
@@ -73,29 +50,11 @@ header {
 }
 
 @media (max-width: 576px) {
-  header {
-    top: auto;
-    right: auto;
-    left: 0;
-    bottom: 0;
-  }
   .header {
     display: none;
   }
 }
-body {
-  font-family: "Metropolis", sans-serif;
-  background-image: url("/assets/images/backgroud_car.svg");
-}
-
-ul li a {
-  font-size: 12px;
-  color: white;
-  text-decoration: none;
-  list-style: none;
-}
-
-.container-fluid {
+.footer__container-fluid {
   background-color: #4C3172;
 }
 
@@ -145,23 +104,12 @@ h2 {
     font-size: 12pt;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #f7f7f7;
-}
-
 .bg__section--login {
-  background: #3E285D;
+  background: #4C3172;
 }
 
 .wrapper__s {
+  width: 50vh;
   border-radius: 16px;
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
 }
@@ -179,14 +127,79 @@ body {
 }
 
 .resum {
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 20px;
 }
 
 .label__white {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 
-p {
-  color: #fff;
+.w__signup {
+  width: 66%;
+}
+
+/* Afficher l'image desktop pour les écrans larges */
+@media (min-width: 768px) {
+  .desktop-image {
+    content: "";
+    display: block;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/desktopBGcar_driving-bro.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    min-height: 68.8vh;
+  }
+}
+/* Afficher l'image mobile pour les écrans étroits */
+@media (max-width: 767px) {
+  .desktop-image {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/mobileBackground_car.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    min-height: 100vh;
+  }
+  .w__signup {
+    width: 100%;
+  }
+  .wrapper__s {
+    width: 35vh;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  }
+}
+.bg__section--signup {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.bg__section--lavande {
+  background: rgba(217, 205, 234, 0.8);
+}
+
+#map {
+  height: 400px;
+  width: 500px;
+}
+
+.selectH {
+  border: 1px solid violet;
+  background-color: violet;
+}
+
+.horaires {
+  color: aqua;
+  background-color: bisque;
+  margin: 0;
+  text-align: center;
+}
+
+.semaine {
+  padding: 15px;
+}
+
+.jour {
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px 0px;
 }/*# sourceMappingURL=main.css.map */

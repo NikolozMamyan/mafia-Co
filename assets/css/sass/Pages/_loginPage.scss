@@ -2,27 +2,28 @@
 //   box-shadow:0 0 0 3px red inset;
 // }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-  }
-   body{
-     background: #f7f7f7;
-   }
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     text-decoration: none;
+//     font-family: 'Poppins', sans-serif;
+//   }
+  //  body{
+  //    background: #f7f7f7;
+  //  }
    .bg__section--login{
-    background: #3E285D;
+    background: $ColorPrincipal500;
     
    }
    .wrapper__s{
+    width: 50vh;
      border-radius: 16px;
      box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                  0 32px 64px -48px rgba(0,0,0,0.5);
    }
    .bg__btn--submit{
-    background: #42C0FF;
+    background: $colorSecondary600;
    }
   
   .radius__left{
@@ -33,11 +34,11 @@
   }
   
   .resum{
-    color: #fff;
+    color: $colorWhite;
     font-size: 20px;
   }
   .label__white{
-    color: #fff;
+    color: $colorWhite;
   }
 .w__signup{
   width: 66%;
@@ -46,15 +47,15 @@
 /* Afficher l'image desktop pour les écrans larges */
 @media (min-width: 768px) {
   
-  .destop-image {
+  .desktop-image {
     content: "";
     display: block;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                  url("../images/Car driving-bro.svg");
+                  url("../images/desktopBGcar_driving-bro.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
-    height: 100vh; 
+    min-height: 68.8vh; 
     
   }
   
@@ -63,11 +64,22 @@
 /* Afficher l'image mobile pour les écrans étroits */
 @media (max-width: 767px) {
 
-  .destop-image {
+  .desktop-image {
     
     background-image:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-     url('../images/Background car SVG.svg');
-
-    
+     url('../images/mobileBackground_car.svg');
+     background-repeat: no-repeat;
+     background-size: auto;
+     background-position: center;
+     min-height: 100vh;
     }
+    .w__signup{
+      width: 100%;
+    }
+    .wrapper__s{
+      width: 35vh;
+       border-radius: 16px;
+       box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                   0 32px 64px -48px rgba(0,0,0,0.5);
+     }
 }

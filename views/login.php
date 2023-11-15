@@ -2,14 +2,16 @@
 include('./headDev.php');
 ?>
 
-<body>
+<body class="">
+  <header class=" ">
 <?php //include(VIEWS.'head.php'); 
 include('./header.php');
 ?>
-  <main class="d-flex justify-content-center align-items-center">
-    <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
+</header>
+  <main class="d-flex justify-content-center align-items-center desktop-image">
+    <div class=" container d-flex justify-content-center align-items-start m-0 p-0  ">
 
-      <div class="row w-50  wrapper__s bg__section--login m-3">
+      <div class="row wrapper__s bg__section--login ">
 
         <section class="col-md-5  align-self-center ">
           <p class="resum p-lg-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
@@ -49,6 +51,11 @@ include('./header.php');
     </div>
 
   </main>
+  <footer>
+  <?php //include(VIEWS.'head.php'); 
+include('./footer.php');
+?>
+</footer>
   <!-- environnement js index -->
   <?php //include(VIEWS.'footer.php') ;
   ?>

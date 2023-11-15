@@ -1,4 +1,4 @@
-<div class="nav-bar-container">
+<div class="nav-bar-container ">
       <nav class="navbar float-end p-0">
         <div class="container-fluid p-0">
           <div class="navbar-nav container-fluid p-0">
@@ -63,7 +63,7 @@
             </div>
             <div class="offcanvas-body">
               <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <ul>
+                <ul class="nav__ul">
                   <li class="nav-item onCanvas">
                     <a href="#">Mon Trajet</a>
                   </li>

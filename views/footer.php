@@ -1,11 +1,11 @@
 <?php 
 include('./headDev.php');
 ?>
-<footer>
-    <div class="container-fluid p-3">
+
+    <div class="container-fluid footer__container-fluid p-3">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
-                <img class="img-fluid mt-4" src="../assets/images/logo.svg" alt="Logo">
+                <img class="img-fluid mt-4" src="../assets/images/footer_logo.svg" alt="Logo">
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <h2>Services</h2>
@@ -33,5 +33,5 @@ include('./headDev.php');
             </div>
         </div>
     </div>
-</footer>
+
 

@@ -3,12 +3,14 @@
 <?php include_once('./headDev.php'); ?>
 
 <body>
+<header class="mb-5">
 <?php //include(VIEWS.'head.php'); 
 include('./header.php');
 include('./navBar.php');
 ?>
-  <main class="d-flex justify-content-center align-items-center">
-    <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
+</header>
+  <main class="d-flex justify-content-center align-items-center  ">
+    <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
 
       <div class="row w-50 wrapper__s bg__section--lavande">
 
@@ -143,7 +145,11 @@ include('./navBar.php');
       </div>
     </div>
   </main>
-
+  <footer>
+  <?php //include(VIEWS.'head.php'); 
+include('./footer.php');
+?>
+</footer>
 
 
   <!-- environement js index -->

@@ -3,13 +3,13 @@
 <?php include_once('./headDev.php'); ?>
 
 <body>
-  <header>
+  <header class=" mb-5">
     <?php //include(VIEWS.'head.php'); 
     include('./header.php');
     ?>
   </header>
-  <main class="d-flex justify-content-center align-items-center ">
-    <div class=" container d-flex justify-content-center align-items-center m-0 p-0 destop-image ">
+  <main class="d-flex justify-content-center align-items-center mb-5">
+    <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
 
       <div class="row w__signup wrapper__s bg__section--signup">
         <section>
@@ -160,8 +160,10 @@
 
   </main>
   <footer>
-
-  </footer>
+  <?php //include(VIEWS.'head.php'); 
+include('./footer.php');
+?>
+</footer>
 
 
   <!-- environement js index -->

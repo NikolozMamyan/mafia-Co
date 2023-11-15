@@ -4,13 +4,13 @@
   width: 60%;
 }
 
-ul {
+.nav__ul {
   color: $ColorPrincipal500;
 }
 
 @media (min-width: 576px) {
   .nav-bar-container {
-    @include mix__pageHead;
+    @include mix__pageMenu;
     top: 120px;
     bottom: auto;
     background-color: $ColorPrincipal100;
@@ -23,7 +23,7 @@ ul {
   }
 
   .nav-bar-container {
-    @include mix__pageHead;
+    @include mix__pageMenu;
     top: auto;
     bottom: 0;
     background-color: $ColorPrincipal100;
