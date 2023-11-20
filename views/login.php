@@ -8,24 +8,24 @@ include('./headDev.php');
 include('./header.php');
 ?>
 </header>
-  <main class="d-flex justify-content-center align-items-center desktop-image">
+  <main class="d-flex justify-content-center align-items-center mb-5 desktop-image">
     <div class=" container d-flex justify-content-center align-items-start m-0 p-0  ">
 
-      <div class="row wrapper__s bg__section--login ">
+      <div class="row wrapper__s bg__section--login w-md-50 ">
 
-        <section class="col-md-5  align-self-center ">
+        <section class="col-md-5  align-self-center section__resum ">
           <p class="resum p-lg-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
         </section>
 
-         <section class=" col-md-7 p-lg-3">
-         <form class="" action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
+         <section class=" col-md-7 p-lg-3 ">
+         <form class="my-5" action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
 
             <div class="mb-3">
               <label for="" class="form-label ps-3 label__white ">Adresse Mail</label>
               <input type="email" class="form-control rounded-pill" id="" aria-describedby="" placeholder="Entrez votre adresse mail" required>
             </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 ">
               <label for="password" class="form-label ps-3 label__white">Mot de passe</label>
               <div class="input-group ">
                 <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" required>

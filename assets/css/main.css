@@ -49,11 +49,6 @@
   height: 120px;
 }
 
-@media (max-width: 576px) {
-  .header {
-    display: none;
-  }
-}
 .footer__container-fluid {
   background-color: #4C3172;
 }
@@ -167,6 +162,9 @@ h2 {
     width: 35vh;
     border-radius: 16px;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  }
+  .section__resum {
+    display: none;
   }
 }
 .bg__section--signup {
