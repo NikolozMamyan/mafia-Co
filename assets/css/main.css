@@ -107,6 +107,15 @@ header {
     font-size: 12pt;
   }
 }
+.profilePic {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -240,5 +249,66 @@ body {
 
 #map {
   height: 400px;
-  width: 500px;
+  width: auto;
+}
+
+.leaflet-routing-container {
+  display: none;
+}
+
+.mapButton {
+  margin-top: 5px;
+  background-color: #D9CDEA;
+  border: 1px solid #4C3172;
+}
+
+.mapButton img {
+  height: 45px;
+}
+
+.mapButton:hover {
+  background-color: #6D46A4;
+}
+
+.mapButton .active {
+  background-color: #6D46A4;
+}
+
+.bg-P500 {
+  background-color: #4C3172;
+  color: #ffffff;
+}
+
+.bg-P200 {
+  background-color: #B69FD6;
+  color: #000000;
+}
+
+.bg-W {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.text-P500-border {
+  color: #4C3172;
+  border-top: 1px solid #4C3172;
+  border-bottom: 1px solid #4C3172;
+  margin-top: 2px;
+}
+
+.text-P500 {
+  color: #4C3172;
+}
+
+.bld {
+  font-weight: bold;
+}
+
+.bgimg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1000;
 }/*# sourceMappingURL=main.css.map */
