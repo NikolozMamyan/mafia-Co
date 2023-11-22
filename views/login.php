@@ -3,15 +3,15 @@ include('./headDev.php');
 ?>
 
 <body class="">
-  <header class=" ">
+  <header class="header header__login ">
 <?php //include(VIEWS.'head.php'); 
-include('./header.php');
+ include('./header.php');
 ?>
 </header>
-  <main class="d-flex justify-content-center align-items-center mb-5 desktop-image">
-    <div class=" container d-flex justify-content-center align-items-start m-0 p-0  ">
+  <main class="d-flex justify-content-center ">
+    <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
 
-      <div class="row wrapper__s bg__section--login w-md-50 ">
+      <div class="row wrapper__s bg__section--login w-md-50 mt-md-5 gx-md-3 gx-sm-0 ">
 
         <section class="col-md-5  align-self-center section__resum ">
           <p class="resum p-lg-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
@@ -20,7 +20,7 @@ include('./header.php');
          <section class=" col-md-7 p-lg-3 ">
          <form class="my-5" action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
 
-            <div class="mb-3">
+            <div class="mb-3 gx-sm-2">
               <label for="" class="form-label ps-3 label__white ">Adresse Mail</label>
               <input type="email" class="form-control rounded-pill" id="" aria-describedby="" placeholder="Entrez votre adresse mail" required>
             </div>
@@ -53,7 +53,7 @@ include('./header.php');
   </main>
   <footer>
   <?php //include(VIEWS.'head.php'); 
-include('./footer.php');
+ include('./footer.php');
 ?>
 </footer>
   <!-- environnement js index -->

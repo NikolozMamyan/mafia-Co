@@ -3,7 +3,7 @@
 <?php include_once('./headDev.php'); ?>
 
 <body>
-  <header class=" mb-5">
+  <header class=" mb-5 header ">
     <?php //include(VIEWS.'head.php'); 
     include('./header.php');
     ?>
@@ -14,8 +14,12 @@
       <div class="row w__signup wrapper__s bg__section--signup">
         <section>
           <form class="row needs-validation m-3" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
+            <!-- btn close -->
+            <div class="offset-11 col-1 mb-3 ">
+            <button type="button" class="btn-close align-self-end bg__btn--close " aria-label="Close"></button>
+            </div>
             <!-- nom -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="validationCustom01" class="form-label ps-3">Nom</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom01" value="" required>
               <span class="invalid-feedback">
@@ -23,7 +27,7 @@
               </span>
             </div>
             <!-- prenom -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="validationCustom02" class="form-label ps-3">Prénom</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom02" value="" required>
               <span class="invalid-feedback">
@@ -31,7 +35,7 @@
               </span>
             </div>
             <!-- adresse -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="validationCustom03" class="form-label ps-3">Adresse</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom03" required>
               <span class="invalid-feedback">
@@ -39,7 +43,7 @@
               </span>
             </div>
             <!-- code postal -->
-            <div class="col-lg-2 mb-3">
+            <div class="col-md-2  mb-3">
               <label for="validationCustom02" class="form-label ps-3">CP</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom02" value="" required>
               <span class="invalid-feedback">
@@ -47,7 +51,7 @@
               </span>
             </div>
             <!-- ville -->
-            <div class="col-lg-4 mb-3">
+            <div class="col-md-4  mb-3">
               <label for="validationCustom02" class="form-label ps-3">Ville</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom02" value="" required>
               <span class="invalid-feedback">
@@ -55,13 +59,13 @@
               </span>
             </div>
             <!-- telephone -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="" class="form-label ps-3">Téléphone</label>
               <input type="text" class="form-control rounded-pill" id="" value="">
 
             </div>
             <!-- mail -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="validationCustom02" class="form-label ps-3">Mail</label>
               <input type="text" class="form-control rounded-pill" id="validationCustom02" value="" required>
               <span class="invalid-feedback">
@@ -69,7 +73,7 @@
               </span>
             </div>
             <!-- mot de passe -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <div class="input-group ">
                 <label for="password" class="form-label ps-3">Mot de passe</label>
                 <div class="input-group ">
@@ -83,7 +87,7 @@
               </div>
             </div>
             <!-- confirm mot de passe -->
-            <div class="col-lg-6 mb-3">
+            <div class="col-md-6 mb-3">
               <div class="input-group ">
                 <label for="password" class="form-label ps-3">Mot de passe</label>
                 <div class="input-group ">
@@ -97,7 +101,7 @@
               </div>
             </div>
             <!-- role (radio btn) -->
-            <div class="col-lg-12 mb-3">
+            <div class="col-md-12 mb-3">
 
               <div class="form-check ">
 
@@ -120,14 +124,14 @@
 
             </div>
             <!-- fichier photo -->
-            <div class="col-lg-12 mb-3">
+            <div class="col-md-12 mb-3">
               <label for="" class="form-label ps-3">Choisir une photo</label>
               <input type="file" class="form-control rounded-pill" aria-label="file example" required>
               <!-- <div class="invalid-feedback">Example invalid form file feedback</div> -->
             </div>
 
             <!-- terme et condition -->
-            <div class="col-lg-12 mb-3 ps-4">
+            <div class="col-md-12 mb-3 ps-4">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                 <label class="form-check-label " for="invalidCheck2">
@@ -141,16 +145,16 @@
               </div>
             </div>
             <!-- btn annuler -->
-            <div class="col-lg-4 mb-3">
+            <div class="col-md-4 mb-3">
               <input class="btn w-100 btn-danger rounded-pill label__white" type="reset" value="Annuler">
             </div>
             <!-- btn valider -->
-            <div class="offset-lg-2 col-lg-6 mb-3">
+            <div class="offset-md-2 col-md-6 mb-3">
               <button class="btn w-100 rounded-pill bg__btn--submit label__white" type="submit">Connexion</button>
             </div>
 
             <!-- link login -->
-            <div class="link offset-lg-6 col-lg-6">Déjà inscrit? <a href="login.php">Connectez-vous </a>
+            <div class="link offset-md-6 col-md-6">Déjà inscrit? <a href="login.php">Connectez-vous </a>
             </div>
           </form>
 

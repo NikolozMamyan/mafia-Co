@@ -12,12 +12,12 @@
   //  body{
   //    background: #f7f7f7;
   //  }
-   .bg__section--login{
+  .bg__section--login{
     background: $ColorPrincipal500;
     
    }
    .wrapper__s{
-    width: 50vh;
+     width: 66vh;
      border-radius: 16px;
      box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                  0 32px 64px -48px rgba(0,0,0,0.5);
@@ -43,7 +43,9 @@
 .w__signup{
   width: 66%;
 }
-
+.bg__btn--close{
+  background-color: $ColorPrincipal500;
+}
 /* Afficher l'image desktop pour les écrans larges */
 @media (min-width: 768px) {
   
@@ -71,7 +73,7 @@
      background-repeat: no-repeat;
      background-size: auto;
      background-position: center;
-     min-height: 100vh;
+      min-height: 80vh;
     }
     .w__signup{
       width: 100%;
