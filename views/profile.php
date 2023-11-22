@@ -25,13 +25,13 @@
                 <div class="col-12 col-sm-6">
                     <div id="map"></div>
                     <div class="text-center">
-                        <button onclick="test(1)" class="mapButton active" id="btn1">
+                        <button onclick="setMapView('Location')" class="mapButton active" id="btnLocation">
                             <img src="../assets/images/Location.png">
                         </button>
-                        <button onclick="test(2)" class="mapButton" id="btn2">
+                        <button onclick="setMapView('Pinpoint')" class="mapButton" id="btnMapPinpoint">
                             <img src="../assets/images/MapPinpoint.png">
                         </button>
-                        <button onclick="test(3)" class="mapButton" id="btn3">
+                        <button onclick="setMapView('Place')" class="mapButton" id="btnPlaceMarker">
                             <img src="../assets/images/PlaceMarker.png">
                         </button>
                     </div>
