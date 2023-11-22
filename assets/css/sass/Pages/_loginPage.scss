@@ -9,82 +9,92 @@
 //     text-decoration: none;
 //     font-family: 'Poppins', sans-serif;
 //   }
-  //  body{
-  //    background: #f7f7f7;
-  //  }
-  .bg__section--login{
-    background: $ColorPrincipal500;
-    
-   }
-   .wrapper__s{
-     width: 66vh;
-     border-radius: 16px;
-     box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-                 0 32px 64px -48px rgba(0,0,0,0.5);
-   }
-   .bg__btn--submit{
-    background: $colorSecondary600;
-   }
-  
-  .radius__left{
-    border-radius: 25px 0 0 25px !important;
-  }
-  .radius__right{
-    border-radius: 0 25px 25px 0 !important;
-  }
-  
-  .resum{
-    color: $colorWhite;
-    font-size: 20px;
-  }
-  .label__white{
-    color: $colorWhite;
-  }
-.w__signup{
+//  body{
+//    background: #f7f7f7;
+//  }
+.bg__section--login {
+  background: $ColorPrincipal500;
+
+}
+
+.wrapper__s {
+  width: 66vh;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+.bg__btn--submit {
+  background: $colorSecondary600;
+}
+
+.radius__left {
+  border-radius: 25px 0 0 25px !important;
+}
+
+.radius__right {
+  border-radius: 0 25px 25px 0 !important;
+}
+
+.resum {
+  color: $colorWhite;
+  font-size: 20px;
+}
+
+.label__white {
+  color: $colorWhite;
+}
+
+.w__signup {
   width: 66%;
 }
-.bg__btn--close{
+
+.bg__btn--close {
   background-color: $ColorPrincipal500;
 }
+
 /* Afficher l'image desktop pour les écrans larges */
 @media (min-width: 768px) {
-  
+
   .desktop-image {
     content: "";
     display: block;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                  url("../images/desktopBGcar_driving-bro.svg");
+      url("../images/desktopBGcar_driving-bro.svg");
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center;
-    min-height: 68.8vh; 
-    
+    min-height: 68.8vh;
+
   }
-  
+
 }
 
 /* Afficher l'image mobile pour les écrans étroits */
 @media (max-width: 767px) {
 
   .desktop-image {
-    
-    background-image:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-     url('../images/mobileBackground_car.svg');
-     background-repeat: no-repeat;
-     background-size: auto;
-     background-position: center;
-      min-height: 80vh;
-    }
-    .w__signup{
-      width: 100%;
-    }
-    .wrapper__s{
-      width: 35vh;
-       border-radius: 16px;
-       box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-                   0 32px 64px -48px rgba(0,0,0,0.5);
-     }
-     .section__resum{
-      display: none;
-     }
+
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      url('../images/mobileBackground_car.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    min-height: 80vh;
+  }
+
+  .w__signup {
+    width: 100%;
+  }
+
+  .wrapper__s {
+    width: 35vh;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+      0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  }
+
+  .section__resum {
+    display: none;
+  }
 }

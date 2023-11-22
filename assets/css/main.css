@@ -49,6 +49,14 @@
   height: 120px;
 }
 
+@media (max-width: 576px) {
+  .header__login {
+    background-color: rgb(255, 255, 255);
+  }
+  .image__desktop--left, .image__desktop--right {
+    display: none;
+  }
+}
 .footer__container-fluid {
   background-color: #4C3172;
 }
@@ -173,6 +181,13 @@ h2 {
 }
 .bg__section--signup {
   background: rgba(255, 255, 255, 0.8);
+}
+
+.color__title {
+  color: #4C3172;
+  border-width: 2px 0;
+  border-color: #4C3172;
+  border-style: solid;
 }
 
 .bg__section--lavande {

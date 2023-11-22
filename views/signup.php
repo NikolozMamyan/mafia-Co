@@ -8,16 +8,26 @@
     include('./header.php');
     ?>
   </header>
-  <main class="d-flex justify-content-center align-items-center mb-5">
-    <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
+  <main>
+    <section class="containair-fluid">
+      <div class="row  ">
+        <!-- titre -->
+        <div class="col mb-3 text-center ">
+          <h2 class=" color__title">Formulaire d'inscription</h2>
+        </div>
+      </div>
+    </section>
 
-      <div class="row w__signup wrapper__s bg__section--signup">
-        <section>
-          <form class="row needs-validation m-3" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
+    <section class="d-flex justify-content-center align-items-center mb-5">
+      <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
+
+        <div class="row w__signup wrapper__s bg__section--signup">
+          <form class="row needs-validation " action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
             <!-- btn close -->
-            <div class="offset-11 col-1 mb-3 ">
-            <button type="button" class="btn-close align-self-end bg__btn--close " aria-label="Close"></button>
+            <div class="offset-11 col-1 mb-3 pt-2 align-self-end">
+              <button type="button" class="btn-close  bg__btn--close " aria-label="Close"></button>
             </div>
+
             <!-- nom -->
             <div class="col-md-6 mb-3">
               <label for="validationCustom01" class="form-label ps-3">Nom</label>
@@ -156,18 +166,28 @@
             <!-- link login -->
             <div class="link offset-md-6 col-md-6">Déjà inscrit? <a href="login.php">Connectez-vous </a>
             </div>
+
+
+
+
+
+
+
+
           </form>
 
-        </section>
+
+        </div>
       </div>
-    </div>
+    </section>
+
 
   </main>
   <footer>
-  <?php //include(VIEWS.'head.php'); 
-include('./footer.php');
-?>
-</footer>
+    <?php //include(VIEWS.'head.php'); 
+    include('./footer.php');
+    ?>
+  </footer>
 
 
   <!-- environement js index -->
