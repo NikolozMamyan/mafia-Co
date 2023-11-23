@@ -1,6 +1,3 @@
-<?php 
-include('./headDev.php');
-?>
 
     <div class="container-fluid footer__container-fluid p-3">
         <div class="row">

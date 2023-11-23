@@ -1,14 +1,15 @@
 <!-- signup.php -->
 
-<?php include_once('./headDev.php'); ?>
+<?php
+require_once(__DIR__ . '/../views/headDev.php');
+?>
 
 <body>
-<header class="mb-5">
-<?php //include(VIEWS.'head.php'); 
-include('./header.php');
-include('./navBar.php');
-?>
-</header>
+  <header class="mb-5">
+    <?php
+    require_once(__DIR__ . '/../views/header.php');
+    ?>
+  </header>
   <main class="d-flex justify-content-center align-items-center  ">
     <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
 
@@ -146,28 +147,15 @@ include('./navBar.php');
     </div>
   </main>
   <footer>
-  <?php //include(VIEWS.'head.php'); 
-include('./footer.php');
-?>
-</footer>
+    <?php
+    require_once(__DIR__ . '/../views/footer.php');
+    ?>
+  </footer>
 
 
-  <!-- environement js index -->
-  <?php //include(VIEWS.'footer.php') ;
-  ?>
-  <!-- <script src='<?php //echo ASSETS ;
-                    ?>js/pass-show-hide.js'></script> -->
-  <!-- <script src='<?php //echo ASSETS ;
-                    ?>js/login.js'></script> -->
-  <!-- environement js dev -->
-  <?php //include('./footer.php') ;
-  ?>
   <script src="../assets/js/pass-show-hide.js"></script>
   <script src="../assets/js/signup.js"></script>
-  <!-- bootstrap -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
-
+  
 </body>
 
 </html>
