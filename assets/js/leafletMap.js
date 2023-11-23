@@ -5,6 +5,11 @@ let myLon = 7.657688465425483;
 let radius = 2; //en km
 let radiusM = radius * 1000; // em metres
 
+/**
+ * API Pour Complétion
+ * Nominatim
+ */
+
 // initialize map
 let map = L.map("map", { zoomControl: false }).setView([myLat, myLon], 13);
 const layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -50,7 +55,7 @@ currLayer.addTo(map);
 const routing = L.Routing.control({
   addWaypoints: false,
   draggableWaypoints: false,
-  waypoints: [L.latLng(cciLat, cciLon), L.latLng(myLat, myLon + 0.02)],
+  waypoints: [L.latLng(cciLat, cciLon), L.latLng(myLat, myLon)],
   routeWhileDragging: true,
 });
 
@@ -76,11 +81,8 @@ const circle = L.circle([myLat, myLon], {
 // }
 
 const delLayers = () => {
-  console.log(marker);
-  console.log(routing);
-  console.log(circle);
   map.removeLayer(marker);
-  map.removeLayer(routing);
+  map.removeControl(routing);
   map.removeLayer(circle);
 };
 
