@@ -3,6 +3,13 @@
     width: auto;
 }
 
+.map-container{
+    z-index: 5;
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
 .leaflet-routing-container{
     display: none;
 }

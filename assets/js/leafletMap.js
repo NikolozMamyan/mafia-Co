@@ -1,7 +1,7 @@
-const cciLat = 48.5550278925866;
-const cciLon = 7.745056596296454;
-let myLat = 48.43017778308778;
-let myLon = 7.657688465425483;
+const cciLat = 48.5549148;
+const cciLon = 7.7449707;
+let myLat = 48.3825041;
+let myLon = 7.6978193;
 let radius = 2; //en km
 let radiusM = radius * 1000; // em metres
 
@@ -38,13 +38,13 @@ currLayer.addTo(map);
 //   waypoints: [L.latLng(cciLat, cciLon), L.latLng(cciLat, cciLon + 1)], //L.latLng(cciLat, cciLon)
 //   routeWhileDragging: true,
 // }).addTo(map);
-
+//
 // //popup CCI
 // const popup = L.popup()
 //   .setLatLng([cciLat, cciLon])
 //   .setContent("CCI Campus.")
 //   .openOn(map);
-
+//
 // const circle = L.circle([myLat, myLon], {
 //   color: "purple",
 //   fillColor: "purple",
@@ -75,7 +75,7 @@ const circle = L.circle([myLat, myLon], {
 //   } else if (btn === 3) {
 //     addToMap = circle;
 //   }
-
+//
 //   console.log(addToMap);
 //   return addToMap.addTo(map);
 // }
@@ -94,6 +94,7 @@ const pinpointLayer = () => {
 };
 const placeLayer = () => {
   circle.addTo(map);
+  marker.addTo(map);
 };
 
 const setMapView = (view) => {
