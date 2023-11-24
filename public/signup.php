@@ -184,8 +184,8 @@ require_once(__DIR__.'/../views/headDev.php');
     ?>
   </footer>
 
-  <script src="../assets/js/pass-show-hide.js"></script>
-  <script src="../assets/js/signup.js"></script>
+  <script src="./assets/js/pass-show-hide.js"></script>
+  <script src="./assets/js/signup.js"></script>
   
 </body>
 

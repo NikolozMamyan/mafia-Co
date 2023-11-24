@@ -56,5 +56,5 @@ require_once(__DIR__.'/../views/header.php');
 require_once(__DIR__.'/../views/footer.php');
 ?>
 </footer>
-  <script src="../assets/js/pass-show-hide.js"></script>
+  <script src="./assets/js/pass-show-hide.js"></script>
 </body>
