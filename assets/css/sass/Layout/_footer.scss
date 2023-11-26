@@ -1,13 +1,10 @@
-@import "../Utils/variables";
-@import "../Base/resets";
-
-.container-fluid {
-    background-color:$violetFonce;
+.footer__container-fluid {
+    background-color:$ColorPrincipal500;
     
 }
 
 
-h2{
+.h2{
     color: white;
 }
 

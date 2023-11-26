@@ -3,21 +3,36 @@
     border: 1px solid #4C3172;
     background-color: #4C3172;
     width: 320px;
-   
-   
-    
 }
+
+
 .container__menu {
     background-color:#B69FD6 ;
     padding: 30px;
     color: white;
-    width: auto;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     
+}
+.form-group {
+    position: relative;
+}
+.flag{
+    width: 30px;
+    position: absolute;
+    left: -35px;
+    top: 25px;
+}
+.fleche{
+    width: 10px;
+    position: absolute;
+    left: -25px;
+    top: 80px;
+
     
 }
+
 
 
 .horaires{
@@ -84,7 +99,7 @@
 .row__back{
     border: 1px solid #4C3172;
     background-color: #D9CDEA;
-    opacity: 30%;
+    opacity: 80%;
     
 }
 
