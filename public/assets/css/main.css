@@ -9,10 +9,13 @@
   color: #4C3172;
 }
 
+.bg__nav {
+  background-color: #D9CDEA;
+}
+
 @media (min-width: 576px) {
   .nav-bar-container {
     width: 100%;
-    position: absolute;
     right: 0;
     left: auto;
     display: inline;
@@ -29,12 +32,12 @@
   }
   .nav-bar-container {
     width: 100%;
-    position: absolute;
     right: 0;
     left: auto;
     display: inline;
     font-size: 16pt;
     font-weight: bolder;
+    position: fixed;
     top: auto;
     bottom: 0;
     background-color: #D9CDEA;
@@ -222,4 +225,55 @@ h2 {
   border: 1px solid white;
   text-align: center;
   padding: 10px 0px;
+}
+
+.custom-heigth {
+  min-height: 550px;
+}
+
+.bg__100 {
+  background-color: #D9CDEA;
+}
+
+.h__title--card {
+  height: 44px;
+}
+
+.bg__offCanvas {
+  background-color: #6D46A4;
+}
+
+.colors__offcanvas {
+  color: rgb(255, 255, 255);
+}
+
+.bg__input--chat {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 0;
+}
+
+.width__90 {
+  width: 80%;
+}
+
+.img__width {
+  width: 20px;
+}
+
+.bg__card--conducteurPassager {
+  background-color: #4C3172;
+}
+
+.bg__card--conducteur {
+  background-color: #6D46A4;
+}
+
+.bg__card--passager {
+  background-color: #8F6DC0;
+}
+
+@media (max-width: 768px) {
+  .custom-heigth {
+    min-height: 650px;
+  }
 }/*# sourceMappingURL=main.css.map */

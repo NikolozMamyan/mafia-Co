@@ -6,12 +6,22 @@ require_once(__DIR__.'/../views/headDev.php');
 ?>
 
 <body>
-  <header class=" mb-5 header ">
+  <header class=" header ">
     <?php 
     require_once(__DIR__.'/../views/header.php');
+    
     ?>
   </header>
   <main>
+  
+  <section class="container-fluid ">
+      <div class="row  ">
+        <!-- menu -->
+        <div class="col bg__nav mb-2">
+        <?php require_once(__DIR__ . '/../views/navBar.php');?>
+        </div>
+      </div>
+    </section>
     <section class="container-fluid ">
       <div class="row  ">
         <!-- titre -->

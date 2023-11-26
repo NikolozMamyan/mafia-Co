@@ -1,0 +1,22 @@
+
+// function pour determiner le class de la carte
+@function determine-card-class($param) {
+    @if $param == "conducteurPassager" {
+      @return "bg__card--conducteurPassager";
+    } @else if $param == "conducteur" {
+      @return "bg__card--conducteur";
+    } @else if $param == "passager" {
+      @return "bg__card--passager";
+    } @else {
+      @return "bg__card--passager"; //  classe par défaut 
+    }
+  }
+
+$card-class: determine-card-class($param);
+  
+//   .contact-card {
+    
+//     @extend .card; // Utilisez la classe de base Bootstrap pour la carte
+//     @extend $card-class;
+//   } 
+  
