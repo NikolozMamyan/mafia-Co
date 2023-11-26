@@ -69,6 +69,16 @@
   }
 
 }
+/* Afficher l'image mobile pour les écrans étroits */
+@media (max-width: 991px) {
+  .wrapper__s {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+      0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  }
+  
+}
 
 /* Afficher l'image mobile pour les écrans étroits */
 @media (max-width: 767px) {
@@ -87,12 +97,6 @@
     width: 100%;
   }
 
-  .wrapper__s {
-    width: 35vh;
-    border-radius: 16px;
-    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-      0 32px 64px -48px rgba(0, 0, 0, 0.5);
-  }
 
   .section__resum {
     display: none;

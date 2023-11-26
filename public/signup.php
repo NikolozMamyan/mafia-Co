@@ -16,7 +16,7 @@ require_once(__DIR__.'/../views/headDev.php');
       <div class="row  ">
         <!-- titre -->
         <div class="col mb-3 text-center ">
-          <h2 class=" color__title">Formulaire d'inscription</h2>
+          <h2 class=" color__title">Je m'inscris</h2>
         </div>
       </div>
     </section>
@@ -28,7 +28,7 @@ require_once(__DIR__.'/../views/headDev.php');
           <form class="row needs-validation w__signup wrapper__s bg__section--signup p-3" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
             <!-- btn close -->
             
-             <div class="offset-11 col-1    mb-3">
+             <div class="offset-11 col-1  mb-3 ">
               <button type="button" class="btn-close  bg__btn--close " aria-label="Close"></button>
             </div>
 
