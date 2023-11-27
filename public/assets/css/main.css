@@ -219,9 +219,14 @@
   width: 320px;
 }
 
+.color__title {
+  background-color: #4C3172;
+  color: white;
+}
+
 .container__menu {
-  background-color: #B69FD6;
-  padding: 30px;
+  background-color: rgba(217, 205, 234, 0.8);
+  padding: 50px;
   color: white;
   max-width: 900px;
   margin-left: auto;
@@ -300,6 +305,8 @@
 .row__commentaire {
   border: 2px solid #4C3172;
   height: 30px;
+  background-color: white;
+  color: #4C3172;
 }
 
 .btn__trajet {
@@ -320,7 +327,15 @@
   height: 100px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+  .container__menu {
+    max-width: 400px;
+  }
+  .col__t {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .semaine {
     gap: 10px;
   }
@@ -333,20 +348,13 @@
     justify-content: center;
   }
 }
-.body_contact {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .contact-info {
-  background-color: #B69FD6;
-  padding: 30px;
-  color: white;
   margin-top: 50px;
   margin-bottom: 50px;
-  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-info h2 {
@@ -358,7 +366,7 @@
 }
 
 .contact-info p {
-  color: white;
+  color: #4C3172;
 }
 
 .custom-heigth {

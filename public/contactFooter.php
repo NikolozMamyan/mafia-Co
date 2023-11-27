@@ -19,13 +19,16 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </div>
             </div>
         </section>
+        <div class="col mb-3 text-center ">
+          <h2 class=" color__title">Contactez nous</h2>
+        </div>
         <section class="d-flex justify-content-center align-items-center mb-5 ">
-            <div class="  desktop-image ">
-                <section class='body_contact mt-4'>
+            <div class=" desktop-image ">
+                <section class='wrapper__s bg__section--lavande p-3'>
                     <div class="container ">
                         <div class="row">
                             <!-- Colonne Email -->
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="contact-info">
                                     <h2>Email</h2>
                                     <h4>Contactez-nous</h4>
@@ -34,7 +37,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             </div>
 
                             <!-- Colonne Téléphone -->
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="contact-info">
                                     <h2>Téléphone</h2>
                                     <h4>Contactez-nous</h4>
@@ -43,7 +46,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             </div>
 
                             <!-- Colonne Adresse  -->
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="contact-info">
                                     <h2>Adresse</h2>
                                     <h4>Contactez-nous</h4>
@@ -53,11 +56,8 @@ require_once(__DIR__ . '/../views/headDev.php');
                         </div>
                     </div>
                 </section>
-
-
             </div>
         </section>
-        
     </main>
     <footer>
 

@@ -1,14 +1,17 @@
 
 .selectH{
-    border: 1px solid #4C3172;
-    background-color: #4C3172;
+    border: 1px solid $ColorPrincipal500;
+    background-color: $ColorPrincipal500;
     width: 320px;
 }
-
+.color__title{
+    background-color: $ColorPrincipal500;
+    color: white;
+}
 
 .container__menu {
-    background-color:#B69FD6 ;
-    padding: 30px;
+    background-color:$colorPrincipal200Opacity80;
+    padding: 50px;
     color: white;
     max-width: 900px;
     margin-left: auto;
@@ -36,12 +39,12 @@
 
 
 .horaires{
-    color: #4C3172;
+    color: $ColorPrincipal500;
     background-color: white;
     margin: 0;
     text-align: center;
     padding: 5px;
-    border: 1px solid #4C3172;
+    border: 1px solid $ColorPrincipal500;
     font-weight: bold;
     
     
@@ -62,8 +65,8 @@
 }
 
 .jour:hover{
-    background-color: #B69FD6;
-    color: #4C3172;
+    background-color: $ColorPrincipal200;
+    color: $ColorPrincipal500;
 }
 .inpLg{
     width: 300px;
@@ -85,20 +88,23 @@
     margin-right: auto;
 }
 .row__commentaire {
-    border: 2px solid #4C3172;
+    border: 2px solid $ColorPrincipal500;
     height: 30px;
+    background-color: white;
+    color: $ColorPrincipal500;
+    
     
 }
 .btn__trajet{
     border-radius: 20px;
-    border: 2px solid #4C3172;
+    border: 2px solid $ColorPrincipal500;
     width: 200px;
     color: white;
-    background-color: #42C0FF;
+    background-color: $colorSecondary600;
 }
 .row__back{
-    border: 1px solid #4C3172;
-    background-color: #D9CDEA;
+    border: 1px solid $ColorPrincipal500;
+    background-color: $ColorPrincipal100 ;
     opacity: 80%;
     
 }
@@ -109,7 +115,19 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    .container__menu {
+        max-width: 400px;
+
+    }
+.col__t{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
     .semaine{
         gap: 10px;
     }

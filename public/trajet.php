@@ -23,7 +23,7 @@ require_once(__DIR__ . '/../views/headDev.php');
       <div class="row  ">
         <!-- titre -->
         <div class="col mb-3 text-center ">
-          <h2 class=" color__title">Mofifier mon profil</h2>
+          <h2 class=" color__title">Mon trajet Regulier</h2>
         </div>
       </div>
     </section>
@@ -32,7 +32,7 @@ require_once(__DIR__ . '/../views/headDev.php');
         <section class='trajet my-5'>
           <div class="container container__menu ">
             <div class="row">
-              <div class="col ms-2">
+              <div class="col ms-2 col__t">
                 <div class="form-group">
                   <img src="../public/assets/images/flagG.svg" class='flag' alt="">
                   <label for="depart">Départ</label>
