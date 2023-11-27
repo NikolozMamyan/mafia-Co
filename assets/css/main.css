@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "Metropolis";
-  src: url("/assets/font/Metropolis-Medium.otf") format("truetype");
-}
 nav {
   z-index: 155;
 }
