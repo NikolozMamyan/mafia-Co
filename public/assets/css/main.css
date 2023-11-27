@@ -58,9 +58,6 @@
   .header__login {
     background-color: rgb(255, 255, 255);
   }
-  .image__desktop--left, .image__desktop--right {
-    display: none;
-  }
 }
 .footer__container-fluid {
   background-color: #4C3172;
@@ -282,6 +279,16 @@ h2 {
   width: 100%;
   height: auto;
   z-index: -1000;
+}
+
+.desktop-image-profile {
+  content: "";
+  display: block;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/desktopBGcar_driving-bro.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  min-height: 80vh;
 }
 
 .selectH {
