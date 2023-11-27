@@ -1,0 +1,21 @@
+@mixin mix__font{
+    font-family: 'Metropolis', sans-serif;
+}
+
+@mixin mix__pageMenu {
+    width: 100%;
+    // position: absolute;
+    right: 0;
+    left: auto;
+    display: inline;
+    font-size: 16pt;
+    font-weight: bolder;
+    z-index: 750;
+}
+// @mixin mix__pageHead {
+//     //width: 100%;
+    
+//     //display: inline;
+//     //font-size: 16pt;
+//     //font-weight: bolder;
+// }

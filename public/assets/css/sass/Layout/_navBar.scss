@@ -1,0 +1,35 @@
+#offcanvasNavbar{
+  top: 48%;
+  height: 32%;
+  width: 60%;
+}
+
+.nav__ul {
+  color: $ColorPrincipal500;
+}
+.bg__nav{
+  background-color:$ColorPrincipal100 ;
+}
+@media (min-width: 576px) {
+  .nav-bar-container {
+    @include mix__pageMenu;
+    
+    top: 120px;
+    bottom: auto;
+    background-color: $ColorPrincipal100;
+  }
+}
+
+@media (max-width:577px){
+  nav {
+    width: 100%
+  }
+
+  .nav-bar-container {
+    @include mix__pageMenu;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    background-color: $ColorPrincipal100;
+  }
+}

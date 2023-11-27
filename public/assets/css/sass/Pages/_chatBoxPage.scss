@@ -1,0 +1,41 @@
+.custom-heigth {
+    min-height: 550px;
+}
+.bg__100{
+    background-color:$ColorPrincipal100 ;    
+}
+.h__title--card{
+    height: 44px;
+}
+.bg__offCanvas{
+    background-color:$ColorPrincipal400 ;
+}
+.colors__offcanvas{
+    color: $colorWhite;
+}
+.bg__input--chat{
+    background-color: $colorWhiteOpacity80;
+    border-top: 0;
+}
+.width__90{
+    width: 80%;
+}
+.img__width{
+    width: 20px;
+}
+.bg__card--conducteurPassager{
+    background-color: $ColorPrincipal400;
+}
+.bg__card--conducteur{
+    background-color: $ColorPrincipal300;
+}
+.bg__card--passager{
+    background-color: $ColorPrincipal200;
+}
+
+
+@media (max-width: 768px) {
+    .custom-heigth {
+        min-height: 650px;
+    }
+}
