@@ -3,6 +3,10 @@ include('./headDev.php');
 ?>
 
 <body class="">
+<?php 
+include('./header.php');
+include('./navBar.php');
+?>
   <div class="row justify-content-center p-5 wrapper bg__section--co">
     <section class="col-md-5 d-flex align-items-center">
       <p class="resum">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>

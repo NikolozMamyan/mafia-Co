@@ -1,0 +1,72 @@
+#map { 
+    height: 400px; 
+    width: auto;
+}
+
+.map-container{
+    z-index: 5;
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
+.leaflet-routing-container{
+    display: none;
+}
+
+.mapButton{
+    margin-top: 5px;
+    background-color: $ColorPrincipal100;
+    border: 1px solid $ColorPrincipal500;
+}
+
+.mapButton img {
+    height: 45px;
+}
+
+.mapButton:hover{
+    background-color: $ColorPrincipal400;
+}
+
+.mapButton .active{
+    background-color: $ColorPrincipal400;
+}
+
+.bg-P500{
+    background-color: $ColorPrincipal500;
+    color: $white;
+}
+
+.bg-P200{
+    background-color: $ColorPrincipal200;
+    color: $black;
+}
+
+.bg-W{
+    background-color: $white;
+    color: $black;
+}
+
+.text-P500-border{
+    color: $ColorPrincipal500;
+    border-top: 1px solid $ColorPrincipal500;
+    border-bottom: 1px solid $ColorPrincipal500;
+    margin-top: 2px;
+}
+
+.text-P500{
+    color: $ColorPrincipal500;
+}
+
+.bld{
+    font-weight:bold;
+}
+
+.bgimg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1000;
+}

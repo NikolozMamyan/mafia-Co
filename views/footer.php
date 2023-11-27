@@ -2,13 +2,13 @@
 include('./headDev.php');
 ?>
 <footer>
-    <div class="container-fluid p-3">
+<div class="container-fluid footer__container-fluid p-4 ">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3">
-                <img class="img-fluid mt-4" src="../assets/images/logo.svg" alt="Logo">
+                <img class="img-fluid mt-4" src="../assets/images/footer_logo.svg" alt="Logo">
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h2>Services</h2>
+                <h2 class='h2'>Services</h2 >
                 <ul>
                     <li><a href="#">Web Design</a></li>
                     <li><a href="#">Développement</a></li>
@@ -16,7 +16,7 @@ include('./headDev.php');
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h2 class="">À propos</h2>
+                <h2 class='h2' class="">À propos</h2 >
                 <ul>
                     <li><a href="#">Entreprise</a></li>
                     <li><a href="#">Équipe</a></li>
@@ -24,7 +24,7 @@ include('./headDev.php');
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h2>Contact</h2>
+                <h2 class='h2'>Contact</h2>
                 <ul>
                     <li><a href="#">Email</a></li>
                     <li><a href="#">Adresse</a></li>
@@ -34,4 +34,3 @@ include('./headDev.php');
         </div>
     </div>
 </footer>
-
