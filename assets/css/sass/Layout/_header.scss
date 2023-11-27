@@ -1,26 +1,25 @@
-header {
-    @include pageHead;
-    top:0;
-  }
-  
+// header {
+//     @include mix__pageHead;
+//     // top:0;
+//   }
+
 .header {
-    background-color: $ColorPrincipal200;
+  background-color: $ColorPrincipal200;
 }
 
 .image {
   padding: 8px;
   height: 120px;
+
 }
 
 @media (max-width: 576px) {
-    header {
-      top:auto;
-      right: auto;
-      left: 0;
-      bottom: 0;
-    }
-  
-    .header{
-      display: none;
-    }  
+  .header__login {
+    background-color: $colorWhite;
+  }
+
+  .image__desktop--left,.image__desktop--right{
+    display: none;
+  }
+
 }

@@ -15,15 +15,15 @@ let map = L.map("map", { zoomControl: false }).setView([myLat, myLon], 13);
 const layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 // zoom controls on top-right
 const control = L.control
-  .zoom({
-    position: "topright",
-  })
-  .addTo(map);
+    .zoom({
+      position: "topright",
+    })
+    .addTo(map);
 
 // waypoint on CCI
 const marker = L.marker([myLat, myLon]);

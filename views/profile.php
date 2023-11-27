@@ -1,14 +1,22 @@
 <!-- profile.php -->
 <?php include('./headDev.php');?>
 <body class="container-fluid">
-<?php include('./header.php');
-      include('./navBar.php');?>
-    <img class="bgimg" src="../assets/images/Car driving-bro.svg" alt="fond">
+    <header class="mb-5 header">
+        <?php require_once('header.php'); ?>
+    </header>
+    <section class="container-fluid ">
+        <div class="row">
+            <!-- menu -->
+            <div class="col mb-3 bg__nav ">
+                <?php require_once(__DIR__ . '/../views/navBar.php'); ?>
+            </div>
+        </div>
+    </section>
 
     <main class="container">
         <div class="bg-P200 p-3 p-md-5 my-5">
             <div class="row">
-                <div class="col-12 col-md-6 bg-light p-0">
+                <section class="col-12 col-md-6 bg-light p-0">
                     <div class="row bg-P500 p-2 m-0">
                         <img class="col-auto profilePic" src="../assets/images/profilTemp.jpg" alt="photo">
                         <div class="col-auto mt-2">
@@ -23,8 +31,8 @@
                         <p class="text-center bg-P500 bld">Commentaire</p>
                         <p class="container text-P500">Je suis a l'arret x les matins a 7h00</p>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 p-0 px-md-4">
+                </section>
+                <section class="col-12 col-md-6 p-0 px-md-4">
                     <div class="map-container">
                         <div id="map"></div>
                     </div>
@@ -39,7 +47,7 @@
                             <img src="../assets/images/PlaceMarker.png">
                         </button>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </main>

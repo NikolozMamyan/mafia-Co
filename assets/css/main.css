@@ -1,26 +1,26 @@
-nav {
-  z-index: 155;
-}
-
 #offcanvasNavbar {
   top: 48%;
   height: 32%;
   width: 60%;
 }
 
-ul {
+.nav__ul {
   color: #4C3172;
+}
+
+.bg__nav {
+  background-color: #D9CDEA;
 }
 
 @media (min-width: 576px) {
   .nav-bar-container {
     width: 100%;
-    position: fixed;
     right: 0;
     left: auto;
     display: inline;
     font-size: 16pt;
     font-weight: bolder;
+    z-index: 750;
     top: 120px;
     bottom: auto;
     background-color: #D9CDEA;
@@ -32,28 +32,18 @@ ul {
   }
   .nav-bar-container {
     width: 100%;
-    position: fixed;
     right: 0;
     left: auto;
     display: inline;
     font-size: 16pt;
     font-weight: bolder;
+    z-index: 750;
+    position: fixed;
     top: auto;
     bottom: 0;
     background-color: #D9CDEA;
   }
 }
-header {
-  width: 100%;
-  position: fixed;
-  right: 0;
-  left: auto;
-  display: inline;
-  font-size: 16pt;
-  font-weight: bolder;
-  top: 0;
-}
-
 .header {
   background-color: #B69FD6;
 }
@@ -64,13 +54,10 @@ header {
 }
 
 @media (max-width: 576px) {
-  header {
-    top: auto;
-    right: auto;
-    left: 0;
-    bottom: 0;
+  .header__login {
+    background-color: rgb(255, 255, 255);
   }
-  .header {
+  .image__desktop--left, .image__desktop--right {
     display: none;
   }
 }
@@ -115,7 +102,8 @@ header {
   border-radius: 50%;
   width: 130px;
   height: 130px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 0;
 }
 
@@ -286,7 +274,7 @@ body {
 
 .bg-P500 {
   background-color: #4C3172;
-  color: #ffffff;
+  color: rgb(255, 255, 255);
 }
 
 .bg-P200 {
@@ -295,7 +283,7 @@ body {
 }
 
 .bg-W {
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   color: #000000;
 }
 
@@ -321,6 +309,4 @@ body {
   width: 100%;
   height: auto;
   z-index: -1000;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

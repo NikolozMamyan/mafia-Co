@@ -1,13 +1,14 @@
-@mixin font{
+@mixin mix__font{
     font-family: 'Metropolis', sans-serif;
 }
 
-@mixin pageHead {
+@mixin mix__pageMenu {
     width: 100%;
-    position: fixed;
+    // position: absolute;
     right: 0;
     left: auto;
     display: inline;
     font-size: 16pt;
     font-weight: bolder;
+    z-index: 750;
 }
