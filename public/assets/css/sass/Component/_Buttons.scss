@@ -1,0 +1,37 @@
+.nav-item a{
+    padding: 0;
+    text-decoration: none;
+    font-size: 8pt;
+    color: $ColorPrincipal500;
+    @include mix__font;
+}
+
+.nav-item a p{
+    margin: 0;
+}
+
+.nav-item a i{
+    font-size: 24pt;
+}
+
+.nav-item a:hover{
+    background-color: $ColorPrincipal500;
+    color: $ColorPrincipal100;
+}
+
+.onCanvas a{
+    text-decoration: underline;
+    padding: 2px;
+}
+
+.onCanvas a:hover{
+    background-color: white;
+    color: $ColorPrincipal400;
+}
+
+@media (min-width: 576px) {
+    .nav-item a{
+        padding: 10px;
+        font-size: 12pt;
+    }
+}
