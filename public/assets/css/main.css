@@ -261,15 +261,19 @@ h2 {
 }
 
 .bg__card--conducteurPassager {
-  background-color: #4C3172;
-}
-
-.bg__card--conducteur {
   background-color: #6D46A4;
 }
 
-.bg__card--passager {
+.bg__card--conducteur {
   background-color: #8F6DC0;
+}
+
+.bg__card--passager {
+  background-color: #B69FD6;
+}
+
+#contactsOffcanvas {
+  min-height: 500px;
 }
 
 @media (max-width: 768px) {
