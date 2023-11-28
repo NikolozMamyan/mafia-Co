@@ -56,17 +56,18 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <!-- Boutons d'icônes pour ouvrir les offcanvas sur mobile -->
                                     <div class=" d-md-none text-end">
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#contactsOffcanvas">
-                                            <i class="fas fa-comment"></i>
+                                        <i class="fas fa-address-card"></i>
                                         </button>
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#notificationsOffcanvas">
-                                            <i class="fas fa-bell"></i>
+                                        <i class="fas fa-sms"></i>
+                                            
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="card-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item ">Message 1</li>
+                                <div class="card-body d-flex column-reverse" id="messageList">
+                                    <ul class="list-group  text-align-end" id="messageContainer">
+                                        <li class="list-group-item  ">Message 1</li>
                                         <li class="list-group-item">Message 2</li>
                                         <!-- Ajoutez d'autres messages selon vos besoins -->
                                     </ul>
@@ -77,7 +78,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                             <h5 class="offcanvas-title" id="contactsOffcanvasLabel">Contacts</h5>
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
-                                        <div class="offcanvas-body">
+                                        <div class="offcanvas-body ">
                                             <!-- Contenu des contact ici -->
                                             <ul class="list-group bg__100">
                                                 <?php
@@ -162,7 +163,7 @@ require_once(__DIR__ . '/../views/headDev.php');
         require_once(__DIR__ . '/../views/footer.php');
         ?>
     </footer>
-
+    <!-- <script src="./assets/js/chat.js"></script> -->
 </body>
 
 </html>

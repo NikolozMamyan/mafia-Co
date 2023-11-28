@@ -32,8 +32,15 @@
 .bg__card--passager{
     background-color: $ColorPrincipal200;
 }
-
-
+#contactsOffcanvas{
+    min-height: 500px;
+}
+// #messageContainer {
+//     display: flex;
+//     flex-direction: column-reverse; 
+//     overflow-y: auto; 
+//     // height: auto; 
+// }
 @media (max-width: 768px) {
     .custom-heigth {
         min-height: 650px;

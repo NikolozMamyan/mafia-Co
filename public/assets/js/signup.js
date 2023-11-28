@@ -45,4 +45,31 @@
         form.classList.add('was-validated')
       }, false)
     })
-})()
+})();
+//provisoire bouton de redirection vers login
+document.addEventListener('DOMContentLoaded', function() {
+ 
+  const btnClose = document.querySelector('.btn-close');
+
+  if (btnClose) {
+      
+      btnClose.addEventListener('click', function() {
+          // Redirection au clic sur le bouton
+          window.location.href = '../public/login.php';
+      });
+  } 
+
+  // provisoire bouton de redirection vers login
+  const formulaireSignup = document.querySelector('.form__signup');
+
+  if (formulaireSignup) {
+      
+      formulaireSignup.addEventListener('submit', function(event) {
+          // Empêcher le comportement par défaut du formulaire (éviter une soumission normale)
+          event.preventDefault();
+
+          // Redirection après la soumission du formulaire
+          window.location.href = '../public/login.php';
+      });
+  } 
+});
