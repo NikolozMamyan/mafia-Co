@@ -47,66 +47,139 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 </div>
                             </div>
                         </div>
+                        <!-- Colonne du chat au milieu test ********************************************** -->
 
-                        <!-- Colonne du chat au milieu -->
+
+                        <!-- <div class="container content"> -->
                         <div class="col-md-6 chat__colunm">
-                            <div class=" card rounded-0 custom-heigth">
-                                <div class="card-header bg__100 h__title--card">
+                            <div class="row g-0">
+                                <!-- <div class=" col-md-6 col-sm-12 "> -->
+                                <div class=" card rounded-0 custom-heigth">
+                                <div class="card-header bg__100 h__title--card ">
+                                    <!-- <div class="card"> -->
+                                        <!-- <div class="card-header">Chat</div>
+                                        <div class="card-body height3"> -->
+                                            <!-- <ul class="chat-list"> -->
+                                                <!-- <li class="in">
+                                                    <div class="chat-img">
+                                                        <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                                    </div>
+                                                    <div class="chat-body">
+                                                        <div class="chat-message">
+                                                            <h5>Jimmy Willams</h5>
+                                                            <p>Raw denim heard of them tofu master cleanse</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="out">
+                                                    <div class="chat-img">
+                                                        <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                                                    </div>
+                                                    <div class="chat-body">
+                                                        <div class="chat-message">
+                                                            <h5>Serena</h5>
+                                                            <p>Next level veard</p>
+                                                        </div>
+                                                    </div>
+                                                </li> -->
+                                                <!-- <li class="in">
+                                                    <div class="chat-img">
+                                                        <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                                    </div>
+                                                    <div class="chat-body">
+                                                        <div class="chat-message">
+                                                            <h5 class="name">Jimmy Willams</h5>
+                                                            <p>Will stumptown scenes coffee viral.</p>
+                                                        </div>
+                                                    </div>
+                                                </li> -->
+                                                <!-- <li class="out">
+                                                    <div class="chat-img">
+                                                        <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                                                    </div>
+                                                    <div class="chat-body">
+                                                        <div class="chat-message">
+                                                            <h5>Serena</h5>
+                                                            <p>Tofu master best deal</p>
+                                                        </div>
+                                                    </div>
+                                                </li> -->
+                                            <!-- </ul> -->
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    <!-- Boutons d'icônes pour ouvrir les offcanvas sur mobile -->
-                                    <div class=" d-md-none text-end">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <!-- Colonne du chat au milieu test ********************************************** -->
+                        <!-- Colonne du chat au milieu -->
+                        <!-- <div class="col-md-6 chat__colunm">
+                            <div class=" card rounded-0 custom-heigth">
+                                <div class="card-header bg__100 h__title--card"> -->
+
+                        <!-- Boutons d'icônes pour ouvrir les offcanvas sur mobile -->
+                        <!-- <div class=" d-md-none text-end">
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#contactsOffcanvas">
-                                        <i class="fas fa-address-card"></i>
+                                            <i class="fas fa-address-card"></i>
                                         </button>
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#notificationsOffcanvas">
-                                        <i class="fas fa-sms"></i>
-                                            
+                                            <i class="fas fa-sms"></i>
+
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="card-body d-flex column-reverse" id="messageList">
-                                    <ul class="list-group  text-align-end" id="messageContainer">
-                                        <li class="list-group-item  ">Message 1</li>
-                                        <li class="list-group-item">Message 2</li>
-                                        <!-- Ajoutez d'autres messages selon vos besoins -->
-                                    </ul>
+                                    <ul class="list-group  text-align-end " id="messageContainer"> -->
+                        <?php
+                        //include('../views/cardChatRight.php');
+                        // include('../views/cardChatLeft.php');
+                        ?>
 
-                                    <!-- Offcanvas pour les contact -->
-                                    <div class="offcanvas offcanvas-start" tabindex="-1" id="contactsOffcanvas" aria-labelledby="contactsOffcanvasLabel">
+                        <!-- </ul> -->
+
+                        <!-- Offcanvas pour les contact -->
+                        <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="contactsOffcanvas" aria-labelledby="contactsOffcanvasLabel">
                                         <div class="offcanvas-header">
                                             <h5 class="offcanvas-title" id="contactsOffcanvasLabel">Contacts</h5>
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
-                                        <div class="offcanvas-body ">
-                                            <!-- Contenu des contact ici -->
-                                            <ul class="list-group bg__100">
-                                                <?php
+                                        <div class="offcanvas-body "> -->
+                        <!-- Contenu des contact ici -->
+                        <!-- <ul class="list-group bg__100"> -->
+                        <?php
 
-                                                for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardContact.php');
-                                                }
-                                                ?>
-                                            </ul>
+                        // for ($i = 0; $i < 3; $i++) {
+                        //    include('../views/cardContact.php');
+                        // }
+                        ?>
+                        <!-- </ul>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <!-- Offcanvas pour les notifications -->
-                                    <div class="offcanvas offcanvas-end" tabindex="-1" id="notificationsOffcanvas" aria-labelledby="notificationsOffcanvasLabel">
+                        <!-- Offcanvas pour les notifications -->
+                        <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="notificationsOffcanvas" aria-labelledby="notificationsOffcanvasLabel">
                                         <div class="offcanvas-header">
                                             <h5 class="offcanvas-title" id="notificationsOffcanvasLabel">Notifications</h5>
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
-                                        <div class="offcanvas-body ">
-                                            <!-- Contenu des notifications ici -->
-                                            <ul class="list-group ">
+                                        <div class="offcanvas-body "> -->
+                        <!-- Contenu des notifications ici -->
+                        <!-- <ul class="list-group ">
                                                 <p class="card-text p-0 m-0"><small class="text-muted">date complete</small></p>
 
                                                 <?php
 
-                                                for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardNotifyContact.php');
-                                                }
+                                                //for ($i = 0; $i < 3; $i++) {
+                                                //   include('../views/cardNotifyContact.php');
+                                                //}
                                                 ?>
                                             </ul>
                                         </div>
@@ -121,7 +194,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Colonne des notifications à droite -->
                         <div class="col-md-3 d-none d-md-block notify--mesages__colunm">
