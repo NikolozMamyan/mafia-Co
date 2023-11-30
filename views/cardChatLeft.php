@@ -1,23 +1,10 @@
-<li class="list-group-item p-0">
-    <div class="container-fluid ">
-        <div class="card bg__card--passager">
-            <div class="row g-0">
-                <div class="col-md-3 d-flex align-items-center px-2">
-                    <img src="../public/assets/images/portrait.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8 p-0">
-                    <div class="card-body p-0">
-                        <h6 class="card-title m-0">
-                            Nom Prenom
-                        </h6>
-                        <p class="card-text">
-                            <small class="text">
-                                ville
-                            </small>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<li class="d-flex flex-row justify-content-start mb-4">
+    <div>
+        <img src="../public/assets/images/portrait.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+        <div class="text-muted small text-nowrap mt-2">2:34 am</div>
+    </div>
+    <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+        <div class="font-weight-bold mb-1">Sharon Lessman</div>
+        Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
     </div>
 </li>
