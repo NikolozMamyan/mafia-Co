@@ -41,7 +41,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </div>
                 <div class="form-group">
                   <img src="../public/assets/images/flagR.svg" class='flag' alt="">
-                  <label for="depart">Départ</label>
+                  <label for="depart">Arrivé</label>
                   <input class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
                 </div>
               </div>
@@ -70,7 +70,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </div>
                 <div class="row row__small d-flex justify-content-center align-items-center ms-3">
                   <div class="col-6">
-                    <span for="finCours">Fin de cours</span>
+                    <span for="finCours">Début de cours</span>
                     <br>
                     <input class="rounded-pill inpSm" type="text" id="finCours" name="finCours">
                   </div>

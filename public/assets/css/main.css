@@ -75,7 +75,7 @@
   color: white;
 }
 
-@media only screen and (max-width: 555px) {
+@media only screen and (max-width: 577px) {
   .footer__container-fluid {
     display: none;
   }
@@ -313,7 +313,7 @@
 .container__menu {
   background-color: rgba(217, 205, 234, 0.8);
   padding: 50px;
-  color: white;
+  color: #4C3172;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
