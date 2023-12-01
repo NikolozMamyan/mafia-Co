@@ -1,5 +1,5 @@
 <li class="d-flex flex-row justify-content-end mb-4">
-    <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+    <div class="flex-shrink-1 bg__400 colors__offcanvas rounded py-2 px-3 mr-3">
         <div class="font-weight-bold mb-1">You</div>
         Lorem ipsum dolor sit
     </div>

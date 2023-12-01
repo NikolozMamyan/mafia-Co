@@ -5,14 +5,14 @@
 require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
-<body>
+<body class="body__chat">
     <header class=" header ">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main>
+    <main class="main__chat">
         <section class="container-fluid ">
             <div class="row  ">
                 <!-- menu -->
@@ -73,11 +73,16 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </div>
                                 </div>
 
-                                <div class="card-body " id="messageList">
+                                <div class="card-body card__body--chat" id="messageList">
                                     <ul class="list-group   " id="messageContainer">
                                         <?php
                                         include('../views/cardChatRight.php');
                                         include('../views/cardChatLeft.php');
+                                        include('../views/cardChatRight.php');
+                                        include('../views/cardChatLeft.php');
+                                        include('../views/cardChatRight.php');
+                                        include('../views/cardChatLeft.php');
+                                        
                                         ?>
 
                                     </ul>
@@ -132,7 +137,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </div>
                                 </div>
                                 <div class="card-footer bg__input--chat">
-                                    <form action="#" class="input-group  ">
+                                    <form action="#" class="input-group d-flex justify-content-center ">
 
                                         <input type="text" class="incoming_id" name="incoming_id" value="" hidden>
 
