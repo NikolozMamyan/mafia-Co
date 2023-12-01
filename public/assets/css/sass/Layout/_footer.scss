@@ -3,17 +3,20 @@
 
 .footer__container-fluid {
     background-color:$ColorPrincipal500;
-    
+ 
 }
-
-
-h2{
+.h2{
     color: white;
 }
+.stylel {
+    list-style-type: none;
+}
 
-
+.stylel li a {
+    color: white;
+}
 @media only screen and (max-width: 555px) {
-footer{
+    .footer__container-fluid{
     display: none;
 }
 }

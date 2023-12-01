@@ -63,12 +63,20 @@
   background-color: #4C3172;
 }
 
-h2 {
+.h2 {
+  color: white;
+}
+
+.stylel {
+  list-style-type: none;
+}
+
+.stylel li a {
   color: white;
 }
 
 @media only screen and (max-width: 555px) {
-  footer {
+  .footer__container-fluid {
     display: none;
   }
 }
@@ -297,25 +305,159 @@ h2 {
 }
 
 .selectH {
-  border: 1px solid violet;
-  background-color: violet;
+  border: 1px solid #4C3172;
+  background-color: #4C3172;
+  width: 320px;
+}
+
+.color__title {
+  background-color: #4C3172;
+  color: white;
+}
+
+.container__menu {
+  background-color: rgba(217, 205, 234, 0.8);
+  padding: 50px;
+  color: white;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group {
+  position: relative;
+}
+
+.flag {
+  width: 30px;
+  position: absolute;
+  left: -35px;
+  top: 25px;
+}
+
+.fleche {
+  width: 10px;
+  position: absolute;
+  left: -25px;
+  top: 80px;
 }
 
 .horaires {
-  color: aqua;
-  background-color: bisque;
+  color: #4C3172;
+  background-color: white;
   margin: 0;
   text-align: center;
+  padding: 5px;
+  border: 1px solid #4C3172;
+  font-weight: bold;
 }
 
 .semaine {
-  padding: 15px;
+  padding: 20px;
+  gap: 5px;
 }
 
 .jour {
   border: 1px solid white;
   text-align: center;
-  padding: 10px 0px;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  width: 10px;
+}
+
+.jour:hover {
+  background-color: #B69FD6;
+  color: #4C3172;
+}
+
+.inpLg {
+  width: 300px;
+  border: 1px solid black;
+}
+
+.inpSm {
+  width: 120px;
+  border: 1px solid black;
+}
+
+.row__small {
+  display: flex;
+  justify-content: center;
+}
+
+.commentaire {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row__commentaire {
+  border: 2px solid #4C3172;
+  height: 30px;
+  background-color: white;
+  color: #4C3172;
+}
+
+.btn__trajet {
+  border-radius: 20px;
+  border: 2px solid #4C3172;
+  width: 200px;
+  color: white;
+  background-color: #42C0FF;
+}
+
+.row__back {
+  border: 1px solid #4C3172;
+  background-color: #D9CDEA;
+  opacity: 80%;
+}
+
+.form__h {
+  height: 100px;
+}
+
+@media (max-width: 991px) {
+  .container__menu {
+    max-width: 400px;
+  }
+  .col__t {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .semaine {
+    gap: 10px;
+  }
+  .col.jour {
+    border-radius: 50%;
+    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.contact-info {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info h2 {
+  color: #4C3172;
+}
+
+.contact-info h4 {
+  color: #4C3172;
+}
+
+.contact-info p {
+  color: #4C3172;
 }
 
 .custom-heigth {
