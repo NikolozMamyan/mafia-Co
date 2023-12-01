@@ -22,13 +22,13 @@ require_once(__DIR__.'/../views/header.php');
 
             <div class="mb-3 gx-sm-2">
               <label for="" class="form-label ps-3 label__white ">Adresse Mail</label>
-              <input type="email" class="form-control rounded-pill" id="" aria-describedby="" placeholder="Entrez votre adresse mail" required>
+              <input type="email" class="form-control rounded-pill" id="" aria-describedby="" placeholder="Entrez votre adresse mail" >
             </div>
 
             <div class="input-group mb-3 ">
               <label for="password" class="form-label ps-3 label__white">Mot de passe</label>
               <div class="input-group ">
-                <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" required>
+                <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" >
                 <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span>
               </div>
               <div class="ps-3">

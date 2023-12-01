@@ -5,14 +5,14 @@
 require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
-<body>
+<body class="body__chat">
     <header class=" header ">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main>
+    <main class="main__chat">
         <section class="container-fluid ">
             <div class="row  ">
                 <!-- menu -->
@@ -33,6 +33,14 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <h6 class="colors__offcanvas">Contacts</h6>
                                 </div>
                                 <div class="card-body bg__100 p-0">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Search">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                     <!-- Contenu des contacts ici -->
                                     <ul class="list-group bg__100">
 
@@ -56,29 +64,45 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <!-- Boutons d'icônes pour ouvrir les offcanvas sur mobile -->
                                     <div class=" d-md-none text-end">
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#contactsOffcanvas">
-                                        <i class="fas fa-address-card"></i>
+                                            <i class="fas fa-address-card"></i>
                                         </button>
                                         <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#notificationsOffcanvas">
-                                        <i class="fas fa-sms"></i>
-                                            
+                                            <i class="fas fa-sms"></i>
+
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="card-body d-flex column-reverse" id="messageList">
-                                    <ul class="list-group  text-align-end" id="messageContainer">
-                                        <li class="list-group-item  ">Message 1</li>
-                                        <li class="list-group-item">Message 2</li>
-                                        <!-- Ajoutez d'autres messages selon vos besoins -->
+                                <div class="card-body card__body--chat" id="messageList">
+                                    <ul class="list-group   " id="messageContainer">
+                                        <?php
+                                        include('../views/cardChatRight.php');
+                                        include('../views/cardChatLeft.php');
+                                        include('../views/cardChatRight.php');
+                                        include('../views/cardChatLeft.php');
+                                        include('../views/cardChatRight.php');
+                                        include('../views/cardChatLeft.php');
+                                        
+                                        ?>
+
                                     </ul>
 
                                     <!-- Offcanvas pour les contact -->
                                     <div class="offcanvas offcanvas-start" tabindex="-1" id="contactsOffcanvas" aria-labelledby="contactsOffcanvasLabel">
                                         <div class="offcanvas-header">
                                             <h5 class="offcanvas-title" id="contactsOffcanvasLabel">Contacts</h5>
+
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
                                         <div class="offcanvas-body ">
+                                            <div class="input-group">
+                                                <input class="form-control" placeholder="Search">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-info">
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <!-- Contenu des contact ici -->
                                             <ul class="list-group bg__100">
                                                 <?php
@@ -94,13 +118,13 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <!-- Offcanvas pour les notifications -->
                                     <div class="offcanvas offcanvas-end" tabindex="-1" id="notificationsOffcanvas" aria-labelledby="notificationsOffcanvasLabel">
                                         <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="notificationsOffcanvasLabel">Notifications</h5>
+                                            <h5 class="offcanvas-title" id="notificationsOffcanvasLabel">Messages</h5>
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
                                         <div class="offcanvas-body ">
                                             <!-- Contenu des notifications ici -->
                                             <ul class="list-group ">
-                                                <p class="card-text p-0 m-0"><small class="text-muted">date complete</small></p>
+                                                <p class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></p>
 
                                                 <?php
 
@@ -113,7 +137,8 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </div>
                                 </div>
                                 <div class="card-footer bg__input--chat">
-                                    <form action="#" class="input-group  ">
+                                    <form action="#" class="input-group d-flex justify-content-center ">
+
                                         <input type="text" class="incoming_id" name="incoming_id" value="" hidden>
 
                                         <input type="text" name="message" class="width__90 radius__left" placeholder="Type a message here..." autocomplete="off">
@@ -127,11 +152,11 @@ require_once(__DIR__ . '/../views/headDev.php');
                         <div class="col-md-3 d-none d-md-block notify--mesages__colunm">
                             <div class="card rounded-0 custom-heigth">
                                 <div class="card-header bg__offCanvas">
-                                    <h6 class="colors__offcanvas">Notifications</h6>
+                                    <h6 class="colors__offcanvas">Messages</h6>
                                 </div>
                                 <div class="card-body bg__100">
                                     <!-- Contenu des notifications ici -->
-                                    <p class="card-text p-0 m-0"><small class="text-muted">date complete</small></p>
+                                    <p class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></p>
                                     <ul class="list-group">
                                         <?php
 
@@ -151,11 +176,6 @@ require_once(__DIR__ . '/../views/headDev.php');
 
             </div>
         </section>
-
-
-
-
-
 
     </main>
     <footer>

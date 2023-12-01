@@ -4,6 +4,13 @@
 .bg__100{
     background-color:$ColorPrincipal100 ;    
 }
+.bg__400{
+    background-color:$ColorPrincipal400 ;    
+}
+.bg__secondary--500{
+    background-color:$colorSecondary500 ;    
+}
+
 .h__title--card{
     height: 44px;
 }
@@ -32,17 +39,40 @@
 .bg__card--passager{
     background-color: $ColorPrincipal200;
 }
-#contactsOffcanvas{
-    min-height: 500px;
+#contactsOffcanvas,#notificationsOffcanvas{
+    top: 20%;
+    height: 70%;
+    width: 50%;
 }
-// #messageContainer {
-//     display: flex;
-//     flex-direction: column-reverse; 
-//     overflow-y: auto; 
-//     // height: auto; 
-// }
-@media (max-width: 768px) {
+.card__body--chat {
+    overflow-y: auto; 
+    max-height: 450px; 
+}
+@media (max-width: 576px) {
+    .body__chat {
+        margin: 0;
+        padding: 0;
+        height: 90%;
+        overflow: hidden;
+    }
+    .main__chat {
+        height: 100vh;
+        overflow-y: hidden;
+    }
+    .card__body--chat {
+        overflow-y: auto; 
+        max-height: 550px; 
+    }
     .custom-heigth {
         min-height: 650px;
+        max-height: 650px;
+    }
+    
+    .reduced-image-size {
+        max-width: 35px; 
+        height: auto; 
+    }
+    .reduced-text-size {
+        font-size: 0.8rem;
     }
 }

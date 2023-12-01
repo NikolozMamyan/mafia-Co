@@ -7,7 +7,7 @@
                 ><i class="fa-solid fa-user d-sm-none d-block"></i>
                 <p>Mon profil</p></a
               >
-              <a href="#" class="col col-sm-auto py-2 d-sm-none d-block"
+              <a href="../public/" class="col col-sm-auto py-2 d-sm-none d-block"
                 ><i class="fa-solid fa-bell d-sm-none d-block"></i>
                 <p>Notifications</p></a
               >
@@ -23,7 +23,7 @@
                 <p>Chat</p></a
               >
 
-              <a href="../public/" class="col-auto py-2 d-none d-sm-block"
+              <a href="../public/trajet.php" class="col-auto py-2 d-none d-sm-block"
                 ><i class="fa-solid fa-comment d-sm-none d-block"></i>
                 <p>Mon trajet</p></a
               >
@@ -31,7 +31,7 @@
                 ><i class="fa-solid fa-comment d-sm-none d-block"></i>
                 <p>Modifier le profil</p></a
               >
-              <a href="#" class="col-auto py-2 d-none d-sm-block"
+              <a href="../public/mentions.php" class="col-auto py-2 d-none d-sm-block"
                 ><i class="fa-solid fa-comment d-sm-none d-block"></i>
                 <p>Conditions générales</p></a
               >
