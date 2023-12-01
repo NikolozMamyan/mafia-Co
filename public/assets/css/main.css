@@ -252,7 +252,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
   transform: scale(1);
 }
 
-.bg__section--login {
+.bg__p--500 {
   background: #4C3172;
 }
 
