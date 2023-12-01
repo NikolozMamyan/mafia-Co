@@ -80,6 +80,10 @@ const circle = L.circle([myLat, myLon], {
 //   return addToMap.addTo(map);
 // }
 
+function centerLeafletMapOnMarker(map, marker) {
+  map.setView(marker.getLatLng(), 13);
+}
+
 const delLayers = () => {
   map.removeLayer(marker);
   map.removeControl(routing);
@@ -88,6 +92,8 @@ const delLayers = () => {
 
 const locationLayer = () => {
   marker.addTo(map);
+  centerLeafletMapOnMarker(map, marker)
+
 };
 const pinpointLayer = () => {
   routing.addTo(map);
@@ -95,6 +101,7 @@ const pinpointLayer = () => {
 const placeLayer = () => {
   circle.addTo(map);
   marker.addTo(map);
+  centerLeafletMapOnMarker(map, circle);
 };
 
 const setMapView = (view) => {

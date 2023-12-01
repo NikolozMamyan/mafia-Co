@@ -32,13 +32,32 @@
   background-color: $ColorPrincipal400;
 }
 
+.text-nodec{
+  text-decoration: none;
+}
+
 .bg-P500 {
   background-color: $ColorPrincipal500;
   color: $colorWhite;
 }
 
+.bg-P400 {
+  background-color: $ColorPrincipal400;
+  color: $colorWhite;
+}
+
+.bg-P300 {
+  background-color: $ColorPrincipal300;
+  color: $colorWhite;
+}
+
 .bg-P200 {
   background-color: $ColorPrincipal200;
+  color: $colorBlack;
+}
+
+.bg-P200-o {
+  background-color: $colorPrincipal200Opacity80;
   color: $colorBlack;
 }
 
