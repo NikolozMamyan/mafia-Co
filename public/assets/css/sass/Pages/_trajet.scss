@@ -1,20 +1,145 @@
+
 .selectH{
-    border: 1px solid violet;
-    background-color: violet;
+    border: 1px solid $ColorPrincipal500;
+    background-color: $ColorPrincipal500;
+    width: 320px;
 }
+.color__title{
+    background-color: $ColorPrincipal500;
+    color: white;
+}
+
+.container__menu {
+    background-color:$colorPrincipal200Opacity80;
+    padding: 50px;
+    color: white;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.form-group {
+    position: relative;
+}
+.flag{
+    width: 30px;
+    position: absolute;
+    left: -35px;
+    top: 25px;
+}
+.fleche{
+    width: 10px;
+    position: absolute;
+    left: -25px;
+    top: 80px;
+
+    
+}
+
+
 
 .horaires{
-    color: aqua;
-    background-color: bisque;
+    color: $ColorPrincipal500;
+    background-color: white;
     margin: 0;
     text-align: center;
+    padding: 5px;
+    border: 1px solid $ColorPrincipal500;
+    font-weight: bold;
+    
+    
 }
 .semaine{
-    padding: 15px;
+    padding: 20px;
+    gap: 5px;   
 }
-.jour{
+.jour {
     border: 1px solid white;
     text-align: center;
-    padding: 10px 0px;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    width: 10px;
 
 }
+
+.jour:hover{
+    background-color: $ColorPrincipal200;
+    color: $ColorPrincipal500;
+}
+.inpLg{
+    width: 300px;
+    border: 1px solid black; 
+}
+.inpSm{
+    width: 120px;
+    border: 1px solid black; 
+  
+}
+
+.row__small{
+    display: flex;
+    justify-content: center;
+}
+.commentaire{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row__commentaire {
+    border: 2px solid $ColorPrincipal500;
+    height: 30px;
+    background-color: white;
+    color: $ColorPrincipal500;
+    
+    
+}
+.btn__trajet{
+    border-radius: 20px;
+    border: 2px solid $ColorPrincipal500;
+    width: 200px;
+    color: white;
+    background-color: $colorSecondary600;
+}
+.row__back{
+    border: 1px solid $ColorPrincipal500;
+    background-color: $ColorPrincipal100 ;
+    opacity: 80%;
+    
+}
+
+.form__h{
+    height: 100px;
+}
+
+
+
+@media (max-width: 991px) {
+    .container__menu {
+        max-width: 400px;
+
+    }
+.col__t{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+    .semaine{
+        gap: 10px;
+    }
+    .col.jour {
+      border-radius: 50%;
+      width: 40px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  }
+  
+  

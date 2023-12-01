@@ -25,7 +25,7 @@ require_once(__DIR__ . '/../views/headDev.php');
       <div class=" container d-flex justify-content-center  m-0 p-auto desktop-image ">
 
 
-        <form class="row needs-validation w__signup wrapper__s bg__section--signup p-3" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
+        <form class="row needs-validation form__signup w__signup wrapper__s bg__section--signup p-3" action="#" method="POST" enctype="multipart/form-data" autocomplete="off" novalidate>
           <!-- btn close -->
 
           <div class="offset-11 col-1  mb-3 ">
@@ -164,7 +164,7 @@ require_once(__DIR__ . '/../views/headDev.php');
           </div>
           <!-- btn valider -->
           <div class="offset-md-2 col-md-6 mb-3">
-            <button class="btn w-100 rounded-pill bg__btn--submit label__white" type="submit">Connexion</button>
+            <button class="btn w-100 rounded-pill bg__btn--submit label__white" type="submit">Valider</button>
           </div>
 
           <!-- link login -->
