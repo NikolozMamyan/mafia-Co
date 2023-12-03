@@ -19,40 +19,34 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </div>
             </div>
         </section>
+
         <div class="col mb-3 text-center ">
-          <h2 class=" color__title">Contactez nous</h2>
+            <h2 class=" color__title">Contactez nous</h2>
         </div>
+
         <section class="d-flex justify-content-center align-items-center mb-5 ">
             <div class=" desktop-image ">
-                <section class='wrapper__s bg__section--lavande p-3'>
+                <section class='wrapper__s bg__section--lavande p-5 contact-info'>
                     <div class="container ">
                         <div class="row">
-                            <!-- Colonne Email -->
-                            <div class="col-md-12">
-                                <div class="contact-info">
-                                    <h2>Email</h2>
-                                    <h4>Contactez-nous</h4>
-                                    <p>Email : contact@exemple.com</p>
-                                </div>
-                            </div>
-
-                            <!-- Colonne Téléphone -->
-                            <div class="col-md-12">
-                                <div class="contact-info">
-                                    <h2>Téléphone</h2>
-                                    <h4>Contactez-nous</h4>
-                                    <p>Téléphone : +33 1 23 45 67 89</p>
-                                </div>
-                            </div>
-
-                            <!-- Colonne Adresse  -->
-                            <div class="col-md-12">
-                                <div class="contact-info">
-                                    <h2>Adresse</h2>
-                                    <h4>Contactez-nous</h4>
-                                    <p>Adresse : 123 Rue de l'Exemple, Ville, Pays</p>
-                                </div>
-                            </div>
+                            <!-- Formulaire de contact -->
+                            <div class="col-md-12 ">
+                                <h2>Contactez notre équipe</h2>
+                                <form action="" method="post">
+                                    <div class="form-group mt-5">
+                                        <label for="name">Nom</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group mt-5">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group mt-5">
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn  mt-5">Envoyer</button>
+                                </form>
                         </div>
                     </div>
                 </section>
@@ -60,7 +54,6 @@ require_once(__DIR__ . '/../views/headDev.php');
         </section>
     </main>
     <footer>
-
         <?php
         require_once(__DIR__ . '/../views/footer.php');
         ?>
