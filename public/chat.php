@@ -167,13 +167,9 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </ul>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 

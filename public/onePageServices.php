@@ -34,14 +34,14 @@ require_once(__DIR__ . '/../views/headDev.php');
         </section>
 
         <!-- Section Web Design -->
-        <section id="web-design-1" class=" section__onePage">
+        <section id="web-design-2" class=" section__onePage">
             <div class="container">
                 <h2>Web Design</h2>
                 <p>Votre contenu pour la section Web Design.</p>
             </div>
         </section>
         <!-- Section Web Design -->
-        <section id="web-design-1" class=" section__onePage">
+        <section id="web-design-3" class=" section__onePage">
             <div class="container">
                 <h2>Web Design</h2>
                 <p>Votre contenu pour la section Web Design.</p>
