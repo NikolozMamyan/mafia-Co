@@ -7,7 +7,7 @@
         </div>
     </section>
 
-            <div class="row w-100 ms-1">
+            <div class="row w-100 ms-1 ">
                 <?php
                 for ($i = 0; $i < 4; $i++) {
                     include("../views/notificationCard.php");

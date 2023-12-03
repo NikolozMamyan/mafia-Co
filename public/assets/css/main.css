@@ -121,7 +121,8 @@
   border-radius: 50%;
   width: 130px;
   height: 130px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 0;
 }
 
@@ -129,7 +130,8 @@
   border-radius: 50%;
   width: 90px;
   height: 90px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 0;
 }
 
@@ -166,10 +168,12 @@ input#search-bar:focus {
 }
 input#search-bar:focus::-webkit-input-placeholder {
   color: #B69FD6;
+  -webkit-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 input#search-bar:focus::-moz-placeholder {
+  -moz-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
 }
@@ -224,7 +228,8 @@ input#search-bar:focus::-moz-placeholder {
 }
 input[type=checkbox].checkbox-Primary {
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   background-color: rgb(255, 255, 255);
   margin: 0;
   font: inherit;
@@ -260,6 +265,11 @@ input[type=checkbox].checkbox-Primary:checked::before {
   width: 66vh;
   border-radius: 16px;
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+.radius__border--all {
+  border-radius: 16px;
+  border: 1px #6D46A4 solid;
 }
 
 .bg__btn--submit {
@@ -691,5 +701,56 @@ input[type=checkbox].checkbox-Primary:checked::before {
     font-size: 0.8rem;
   }
 }
+.contact-info {
+  margin-top: 30px;
+}
 
-/*# sourceMappingURL=main.css.map */
+.team-member {
+  margin-bottom: 30px;
+}
+
+.team-member p {
+  margin: 10px 0;
+}
+
+.team-member strong {
+  font-weight: bold;
+}
+
+.section__onePage {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/desktopBGcar_driving-bro.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header__onePage, .footer__onePage, .title__onePage, .navBar__onePage {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+}
+
+.header__onePage {
+  top: 0;
+}
+
+.footer__onePage {
+  bottom: 0;
+}
+
+.main__onePage {
+  margin-top: 90px; /* Ajustez cette marge en fonction de la hauteur de votre en-tête */
+}
+
+.navBar__onePage {
+  margin-top: 30px;
+}
+
+.title__onePage {
+  margin-top: 70px;
+}/*# sourceMappingURL=main.css.map */

@@ -26,12 +26,8 @@ require_once(__DIR__ . '/../views/headDev.php');
                 require_once ('../views/search.php');
                 ?>
             </section>
-            <br>
-            <section id="notification" class="col-12">
-                <?php
-                require_once ('../views/notifications.php');
-                ?>
-            </section>
+            
+            
 
         </div>
     </div>
@@ -43,7 +39,6 @@ require_once(__DIR__ . '/../views/headDev.php');
 </footer>
 <br>
 <script src="../public/assets/js/search.js"></script>
-
 </body>
 
 </html>
