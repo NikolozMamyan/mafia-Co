@@ -36,7 +36,7 @@
           <a href="../public/modifySignup.php" class="col-auto py-2 d-none d-sm-block"><i class="fa-solid fa-comment d-sm-none d-block"></i>
             <p>Modifier le profil</p>
           </a>
-          <a href="#" class="col-auto py-2 d-none d-sm-block"><i class="fa-solid fa-comment d-sm-none d-block"></i>
+          <a href="../public/conditionsGeneral.php" class="col-auto py-2 d-none d-sm-block"><i class="fa-solid fa-comment d-sm-none d-block"></i>
             <p>Conditions générales</p>
           </a>
           <a href="../public/index.php" class="col-auto py-2 d-none d-sm-block"><i class="fa-solid fa-comment d-sm-none d-block"></i>
@@ -61,7 +61,7 @@
                 <a href="../public/modifySignup.php">Modifier le profil</a>
               </li>
               <li class="nav-item onCanvas">
-                <a href="#">Conditions générales</a>
+                <a href="../public/conditionsGeneral.php">Conditions générales</a>
               </li>
               </li>
               <li class="nav-item onCanvas">

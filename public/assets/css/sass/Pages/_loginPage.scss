@@ -79,12 +79,14 @@
     border-radius: 16px;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
       0 32px 64px -48px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      
   }
   
 }
 
 /* Afficher l'image mobile pour les écrans étroits */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
 
   .desktop-image {
 
