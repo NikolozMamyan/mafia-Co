@@ -21,7 +21,7 @@ require_once(__DIR__ . '/../views/headDev.php');
             </div>
         </section>
         <div class="col mb-3 text-center ">
-          <h2 class=" color__title">Informations légales sur notre site</h2>
+          <h2 class=" color__title">Nos services</h2>
         </div>
         <section class="d-flex justify-content-center align-items-center mb-5 ">
             <div class=" desktop-image ">

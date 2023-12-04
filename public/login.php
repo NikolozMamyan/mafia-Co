@@ -11,10 +11,10 @@ require_once(__DIR__.'/../views/header.php');
   <main class="d-flex justify-content-center ">
     <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
 
-      <div class="row wrapper__s bg__p--500 w-md-50 mt-md-5 gx-md-3 gx-sm-0 ">
+      <div class="row wrapper__s bg__p--500 w-md-50 mt-5  gx-sm-0 ">
 
         <section class="col-md-5  align-self-center section__resum ">
-          <p class="resum p-lg-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
+          <p class="resum p-md-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
         </section>
 
          <section class=" col-md-7 p-lg-3 ">

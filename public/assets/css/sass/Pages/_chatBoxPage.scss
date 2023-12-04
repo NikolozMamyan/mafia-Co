@@ -1,6 +1,4 @@
-.custom-heigth {
-    min-height: 550px;
-}
+
 .bg__100{
     background-color:$ColorPrincipal100 ;    
 }
@@ -45,14 +43,21 @@
     width: 50%;
 }
 .card__body--chat {
-    overflow-y: auto; 
-    max-height: 450px; 
+    overflow-y:scroll ; 
 }
-@media (max-width: 576px) {
+
+@media screen and (max-width: 765px) {
+    .card-footer.bg__input--chat {
+        position: fixed;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media screen and (max-width:766px) {
     .body__chat {
         margin: 0;
         padding: 0;
-        height: 90%;
         overflow: hidden;
     }
     .main__chat {
@@ -60,13 +65,9 @@
         overflow-y: hidden;
     }
     .card__body--chat {
-        overflow-y: auto; 
-        max-height: 550px; 
+         max-height: calc(100vh - 300px); 
     }
-    .custom-heigth {
-        min-height: 650px;
-        max-height: 650px;
-    }
+    
     
     .reduced-image-size {
         max-width: 35px; 
@@ -75,4 +76,21 @@
     .reduced-text-size {
         font-size: 0.8rem;
     }
+    
+}
+
+@media screen and (min-width:361px) and (max-width: 992px) {
+    
+    .card-footer.bg__input--chat {
+        bottom: 0;
+    }
+    
+}
+
+@media (max-width:576px) {
+    
+    .card-footer.bg__input--chat {
+        bottom: 70px;
+    } 
+    
 }
