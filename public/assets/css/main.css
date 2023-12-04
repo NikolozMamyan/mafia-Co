@@ -269,6 +269,11 @@ input[type=checkbox].checkbox-Primary:checked::before {
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
 }
 
+.radius__border--all {
+  border-radius: 16px;
+  border: 1px #6D46A4 solid;
+}
+
 .bg__btn--submit {
   background: #42C0FF;
 }
@@ -705,4 +710,60 @@ input[type=checkbox].checkbox-Primary:checked::before {
   .reduced-text-size {
     font-size: 0.8rem;
   }
+<<<<<<< HEAD
+}
+.contact-info {
+  margin-top: 30px;
+}
+
+.team-member {
+  margin-bottom: 30px;
+}
+
+.team-member p {
+  margin: 10px 0;
+}
+
+.team-member strong {
+  font-weight: bold;
+}
+
+.section__onePage {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/desktopBGcar_driving-bro.svg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header__onePage, .footer__onePage, .title__onePage, .navBar__onePage {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+}
+
+.header__onePage {
+  top: 0;
+}
+
+.footer__onePage {
+  bottom: 0;
+}
+
+.main__onePage {
+  margin-top: 90px; /* Ajustez cette marge en fonction de la hauteur de votre en-tête */
+}
+
+.navBar__onePage {
+  margin-top: 30px;
+}
+
+.title__onePage {
+  margin-top: 70px;
+=======
+>>>>>>> a56e300abcb084749a04a22e5ff113198df98bdd
 }/*# sourceMappingURL=main.css.map */
