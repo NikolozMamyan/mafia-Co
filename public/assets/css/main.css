@@ -316,10 +316,11 @@ input[type=checkbox].checkbox-Primary:checked::before {
     width: 100%;
     border-radius: 16px;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    padding: 20px;
   }
 }
 /* Afficher l'image mobile pour les écrans étroits */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
   .desktop-image {
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/mobileBackground_car.svg");
     background-repeat: no-repeat;
@@ -615,10 +616,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
   color: white;
 }
 
-.custom-heigth {
-  min-height: 550px;
-}
-
 .bg__100 {
   background-color: #D9CDEA;
 }
@@ -675,15 +672,20 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 .card__body--chat {
-  overflow-y: auto;
-  max-height: 450px;
+  overflow-y: scroll;
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 765px) {
+  .card-footer.bg__input--chat {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+@media screen and (max-width: 766px) {
   .body__chat {
     margin: 0;
     padding: 0;
-    height: 90%;
     overflow: hidden;
   }
   .main__chat {
@@ -691,12 +693,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
     overflow-y: hidden;
   }
   .card__body--chat {
-    overflow-y: auto;
-    max-height: 550px;
-  }
-  .custom-heigth {
-    min-height: 650px;
-    max-height: 650px;
+    max-height: calc(100vh - 300px);
   }
   .reduced-image-size {
     max-width: 35px;
@@ -704,6 +701,16 @@ input[type=checkbox].checkbox-Primary:checked::before {
   }
   .reduced-text-size {
     font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 361px) and (max-width: 992px) {
+  .card-footer.bg__input--chat {
+    bottom: 0;
+  }
+}
+@media (max-width: 576px) {
+  .card-footer.bg__input--chat {
+    bottom: 70px;
   }
 }
 .contact-info {
@@ -758,6 +765,4 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .title__onePage {
   margin-top: 70px;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

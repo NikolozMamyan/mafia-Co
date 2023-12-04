@@ -41,7 +41,6 @@ require_once(__DIR__ . '/../views/headDev.php');
         require_once(__DIR__ . '/../views/footer.php');
         ?>
     </footer>
-    <br>
     <script src="../public/assets/js/search.js"></script>
 
 </body>

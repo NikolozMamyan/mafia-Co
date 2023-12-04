@@ -22,16 +22,17 @@ require_once(__DIR__ . '/../views/headDev.php');
             </div>
         </section>
         <section class="d-flex justify-content-center align-items-center mb-5">
-            <div class="container d-flex justify-content-center m-0 p-auto desktop-image">
-                <div class="container-fluid mytestclass">
+            <div class="container d-flex justify-content-center g-0 m-0 p-auto desktop-image">
+
+                <div class="container-fluid bg__100">
                     <div class="row g-0">
                         <!-- Colonne des contacts à gauche -->
-                        <div class="col-md-3 d-none d-md-block contact__colunm">
-                            <div class="card rounded-0 custom-heigth ">
+                        <div class="col-md-3 d-none d-md-block contact__colunm ">
+                            <div class="card rounded-0  ">
                                 <div class="card-header bg__offCanvas">
                                     <h6 class="colors__offcanvas">Contacts</h6>
                                 </div>
-                                <div class="card-body bg__100 p-0">
+                                <div class="card-body  p-0 ">
                                     <div class="input-group">
                                         <input class="form-control" placeholder="Search">
                                         <div class="input-group-btn">
@@ -41,7 +42,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         </div>
                                     </div>
                                     <!-- Contenu des contacts ici -->
-                                    <ul class="list-group bg__100">
+                                    <ul class="list-group ">
 
                                         <?php
 
@@ -56,8 +57,8 @@ require_once(__DIR__ . '/../views/headDev.php');
                         </div>
 
                         <!-- Colonne du chat au milieu -->
-                        <div class="col-md-6 chat__colunm">
-                            <div class=" card rounded-0 custom-heigth">
+                        <div class="col-md-6 chat__colunm ">
+                            <div class=" card rounded-0 ">
                                 <div class="card-header bg__100 h__title--card">
 
                                     <!-- Boutons d'icônes pour ouvrir les offcanvas sur mobile -->
@@ -149,7 +150,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
                         <!-- Colonne des notifications à droite -->
                         <div class="col-md-3 d-none d-md-block notify--mesages__colunm">
-                            <div class="card rounded-0 custom-heigth">
+                            <div class="card rounded-0 ">
                                 <div class="card-header bg__offCanvas">
                                     <h6 class="colors__offcanvas">Messages</h6>
                                 </div>
