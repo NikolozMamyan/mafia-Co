@@ -123,8 +123,7 @@
   border-radius: 50%;
   width: 130px;
   height: 130px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   padding: 0;
 }
 
@@ -132,8 +131,7 @@
   border-radius: 50%;
   width: 90px;
   height: 90px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   padding: 0;
 }
 
@@ -170,12 +168,10 @@ input#search-bar:focus {
 }
 input#search-bar:focus::-webkit-input-placeholder {
   color: #B69FD6;
-  -webkit-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 input#search-bar:focus::-moz-placeholder {
-  -moz-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
 }
@@ -230,8 +226,7 @@ input#search-bar:focus::-moz-placeholder {
 }
 input[type=checkbox].checkbox-Primary {
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   background-color: rgb(255, 255, 255);
   margin: 0;
   font: inherit;
@@ -710,7 +705,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
   .reduced-text-size {
     font-size: 0.8rem;
   }
-<<<<<<< HEAD
 }
 .contact-info {
   margin-top: 30px;
@@ -764,6 +758,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .title__onePage {
   margin-top: 70px;
-=======
->>>>>>> a56e300abcb084749a04a22e5ff113198df98bdd
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

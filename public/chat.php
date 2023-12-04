@@ -23,8 +23,7 @@ require_once(__DIR__ . '/../views/headDev.php');
         </section>
         <section class="d-flex justify-content-center align-items-center mb-5">
             <div class="container d-flex justify-content-center m-0 p-auto desktop-image">
-
-                <div class="container-fluid custom-height ">
+                <div class="container-fluid mytestclass">
                     <div class="row g-0">
                         <!-- Colonne des contacts à gauche -->
                         <div class="col-md-3 d-none d-md-block contact__colunm">
@@ -82,7 +81,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         include('../views/cardChatLeft.php');
                                         include('../views/cardChatRight.php');
                                         include('../views/cardChatLeft.php');
-                                        
+
                                         ?>
 
                                     </ul>

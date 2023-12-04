@@ -45,7 +45,7 @@
     width: 50%;
 }
 .card__body--chat {
-    overflow-y: auto; 
+    overflow-y: auto;
     max-height: 450px; 
 }
 @media (max-width: 576px) {
@@ -60,7 +60,7 @@
         overflow-y: hidden;
     }
     .card__body--chat {
-        overflow-y: auto; 
+        overflow-y: auto;
         max-height: 550px; 
     }
     .custom-heigth {
