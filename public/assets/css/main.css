@@ -65,6 +65,7 @@
 
 .h2 {
   color: white;
+  margin-left: 20px;
 }
 
 .stylel {
@@ -458,6 +459,8 @@ input[type=checkbox].checkbox-Primary:checked::before {
   border: 1px solid #4C3172;
   background-color: #4C3172;
   width: 320px;
+  margin-top: 30px;
+  height: 160px;
 }
 
 .color__title {
@@ -476,6 +479,19 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .form-group {
   position: relative;
+}
+
+.label_desc {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.cour_start {
+  margin-left: 5px;
+}
+
+.cour_end {
+  margin-left: 15px;
 }
 
 .flag {
@@ -505,6 +521,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 .semaine {
   padding: 20px;
   gap: 5px;
+  margin-top: 10px;
 }
 
 .jour {
@@ -582,32 +599,24 @@ input[type=checkbox].checkbox-Primary:checked::before {
   }
   .col.jour {
     border-radius: 50%;
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
 .contact-info {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 80px;
 }
 
 .contact-info h2 {
   color: #4C3172;
 }
 
-.contact-info h4 {
-  color: #4C3172;
-}
-
-.contact-info p {
-  color: #4C3172;
+.btn {
+  background-color: #42C0FF;
+  color: white;
 }
 
 .custom-heigth {
@@ -700,6 +709,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
   .reduced-text-size {
     font-size: 0.8rem;
   }
+<<<<<<< HEAD
 }
 .contact-info {
   margin-top: 30px;
@@ -753,4 +763,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .title__onePage {
   margin-top: 70px;
+=======
+>>>>>>> a56e300abcb084749a04a22e5ff113198df98bdd
 }/*# sourceMappingURL=main.css.map */
