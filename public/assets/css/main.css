@@ -590,6 +590,9 @@ input[type=checkbox].checkbox-Primary:checked::before {
   .container__menu {
     max-width: 400px;
   }
+  .selectH {
+    margin-left: -10px;
+  }
   .col__t {
     display: flex;
     flex-direction: column;
@@ -605,6 +608,17 @@ input[type=checkbox].checkbox-Primary:checked::before {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media (max-width: 390px) {
+  .trajet {
+    max-width: 370px;
+  }
+  .selectH {
+    margin-left: -25px;
+  }
+  .row__small {
+    font-size: 14px;
   }
 }
 .contact-info {
@@ -710,7 +724,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
   .reduced-text-size {
     font-size: 0.8rem;
   }
-<<<<<<< HEAD
 }
 .contact-info {
   margin-top: 30px;
@@ -764,6 +777,4 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .title__onePage {
   margin-top: 70px;
-=======
->>>>>>> a56e300abcb084749a04a22e5ff113198df98bdd
 }/*# sourceMappingURL=main.css.map */
