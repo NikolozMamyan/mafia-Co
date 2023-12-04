@@ -33,16 +33,16 @@ require_once(__DIR__ . '/../views/headDev.php');
           <div class="container container__menu ">
             <div class="row">
               <div class="col ms-2 col__t">
-                <div class="form-group">
-                  <img src="../public/assets/images/flagG.svg" class='flag' alt="">
+                <div class="form__group">
+                  <img src="../public/assets/images/flagG.svg" class='flag' alt="Drapeau Vert">
                   <label for="depart" class="label_desc">Départ</label>
                   <input class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
-                  <img src="../public/assets/images/fleche.png" class='fleche' alt="">
+                  <img src="../public/assets/images/fleche.png" class='fleche' alt="Fleche noire">
                 </div>
-                <div class="form-group">
-                  <img src="../public/assets/images/flagR.svg" class='flag' alt="">
+                <div class="form__group">
+                  <img src="../public/assets/images/flagR.svg" class='flag' alt="Drapeau Rogue">
                   <label for="arrive" class="label_desc">Arrivé</label>
-                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="arrive" name="depart">
+                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="arrive" name="arrive">
                 </div>
               </div>
               <div class="col ">

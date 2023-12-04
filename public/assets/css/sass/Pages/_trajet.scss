@@ -20,7 +20,7 @@
     margin-right: auto;
     
 }
-.form-group {
+.form__group {
     position: relative;
 }
 .label_desc{
@@ -36,20 +36,17 @@
 .flag{
     width: 30px;
     position: absolute;
-    left: -35px;
-    top: 25px;
+    margin-left: -40px;
+    margin-top: 35px;
 }
 .fleche{
     width: 10px;
     position: absolute;
-    left: -25px;
-    top: 80px;
+    left: -30px;
+    top: 100px;
 
     
 }
-
-
-
 .horaires{
     color: $ColorPrincipal500;
     background-color: white;
@@ -57,9 +54,7 @@
     text-align: center;
     padding: 5px;
     border: 1px solid $ColorPrincipal500;
-    font-weight: bold;
-    
-    
+    font-weight: bold;    
 }
 .semaine{
     padding: 20px;
@@ -76,7 +71,6 @@
     width: 10px;
 
 }
-
 .jour:hover{
     background-color: $ColorPrincipal200;
     color: $ColorPrincipal500;
@@ -90,7 +84,6 @@
     border: 1px solid black; 
   
 }
-
 .row__small{
     display: flex;
     justify-content: center;

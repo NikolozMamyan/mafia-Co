@@ -64,16 +64,17 @@
 }
 
 .h2 {
-  color: white;
-  margin-left: 20px;
+  margin-left: 30px;
+  text-decoration: none;
+}
+
+.h2:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .stylel {
   list-style-type: none;
-}
-
-.stylel li a {
-  color: white;
 }
 
 @media only screen and (max-width: 577px) {
@@ -472,7 +473,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
   margin-right: auto;
 }
 
-.form-group {
+.form__group {
   position: relative;
 }
 
@@ -492,15 +493,15 @@ input[type=checkbox].checkbox-Primary:checked::before {
 .flag {
   width: 30px;
   position: absolute;
-  left: -35px;
-  top: 25px;
+  margin-left: -40px;
+  margin-top: 35px;
 }
 
 .fleche {
   width: 10px;
   position: absolute;
-  left: -25px;
-  top: 80px;
+  left: -30px;
+  top: 100px;
 }
 
 .horaires {
@@ -609,7 +610,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
   color: #4C3172;
 }
 
-.btn {
+.btn__bg-s600 {
   background-color: #42C0FF;
   color: white;
 }

@@ -6,27 +6,27 @@
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-4 text-center">
-            <h2 class='h2'>Services</h2 >
-            <ul class="stylel">
-                <li><a href="#">Web Design</a></li>
-                <li><a href="#">Développement</a></li>
-                <li><a href="#">Hébergement</a></li>
+            <a class='h2 text-light'>Services</a >
+            <ul class="stylel mt-2">
+                <li class="text-light">Web Design</li>
+                <li class="text-light">Développement</li>
+                <li class="text-light">Hébergement</li>
             </ul class="stylel">
         </div>
         <div class="col-md-4 text-center">
-            <h2 class='h2'>À propos</h2 >
-            <ul class="stylel">
-                <li><a href="#">Entreprise</a></li>
-                <li><a href="#">Équipe</a></li>
-                <li><a href="#">Mentions légales</a></li>
+        <a class='h2 text-light'>Apropos</a >
+            <ul class="stylel mt-2">
+                <li class="text-light">Entreprise</li>
+                <li class="text-light">Équipe</li>
+                <li class="text-light">Mentions légales</li>
             </ul class="stylel">
         </div>
         <div class="col-md-4 text-center">
-            <h2 class='h2'>Contact</h2>
-            <ul class="stylel">
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Adresse</a></li>
-                <li><a href="#">Numéro</a></li>
+        <a class='h2 text-light'>Contact</a >
+            <ul class="stylel mt-2">
+                <li class="text-light">Email</li>
+                <li class="text-light">Adresse</li>
+                <li class="text-light">Numéro</li>
             </ul class="stylel">
         </div>
     </div>

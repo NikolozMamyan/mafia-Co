@@ -45,7 +45,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         <label for="message">Message</label>
                                         <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn  mt-5">Envoyer</button>
+                                    <button type="submit" class="btn btn__bg-s600  mt-5">Envoyer</button>
                                 </form>
                         </div>
                     </div>
