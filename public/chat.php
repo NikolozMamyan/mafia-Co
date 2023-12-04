@@ -167,13 +167,9 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </ul>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -183,7 +179,7 @@ require_once(__DIR__ . '/../views/headDev.php');
         require_once(__DIR__ . '/../views/footer.php');
         ?>
     </footer>
-    <!-- <script src="./assets/js/chat.js"></script> -->
+    <script src="./assets/js/chat.js"></script>
 </body>
 
 </html>

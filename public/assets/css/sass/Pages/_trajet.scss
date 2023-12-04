@@ -3,6 +3,8 @@
     border: 1px solid $ColorPrincipal500;
     background-color: $ColorPrincipal500;
     width: 320px;
+    margin-top: 30px;
+  height: 160px;
 }
 .color__title{
     background-color: $ColorPrincipal500;
@@ -12,14 +14,24 @@
 .container__menu {
     background-color:$colorPrincipal200Opacity80;
     padding: 50px;
-    color: white;
+    color: $ColorPrincipal500;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     
 }
-.form-group {
+.form__group {
     position: relative;
+}
+.label_desc{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.cour_start{
+    margin-left: 5px;
+}
+.cour_end{
+    margin-left: 15px;
 }
 .flag{
     width: 30px;
@@ -52,6 +64,7 @@
 .semaine{
     padding: 20px;
     gap: 5px;   
+    margin-top: 10px;
 }
 .jour {
     border: 1px solid white;
@@ -133,8 +146,8 @@
     }
     .col.jour {
       border-radius: 50%;
-      width: 40px;
-      height: 50px;
+      width: 50px;
+      height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;

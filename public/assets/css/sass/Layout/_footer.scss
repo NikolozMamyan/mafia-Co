@@ -7,6 +7,7 @@
 }
 .h2{
     color: white;
+    margin-left: 20px;
 }
 .stylel {
     list-style-type: none;
@@ -15,7 +16,7 @@
 .stylel li a {
     color: white;
 }
-@media only screen and (max-width: 555px) {
+@media only screen and (max-width: 577px) {
     .footer__container-fluid{
     display: none;
 }

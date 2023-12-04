@@ -33,16 +33,16 @@ require_once(__DIR__ . '/../views/headDev.php');
           <div class="container container__menu ">
             <div class="row">
               <div class="col ms-2 col__t">
-                <div class="form-group">
+                <div class="form__group">
                   <img src="../public/assets/images/flagG.svg" class='flag' alt="">
-                  <label for="depart">Départ</label>
+                  <label for="depart" class="label_desc">Départ</label>
                   <input class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
                   <img src="../public/assets/images/fleche.png" class='fleche' alt="">
                 </div>
-                <div class="form-group">
+                <div class="form__group">
                   <img src="../public/assets/images/flagR.svg" class='flag' alt="">
-                  <label for="depart">Départ</label>
-                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
+                  <label for="arrive" class="label_desc">Arrivé</label>
+                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="arrive" name="depart">
                 </div>
               </div>
               <div class="col ">
@@ -70,12 +70,12 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </div>
                 <div class="row row__small d-flex justify-content-center align-items-center ms-3">
                   <div class="col-6">
-                    <span for="finCours">Fin de cours</span>
+                    <span for="finCours" class="cour_start">Début de cours</span>
                     <br>
                     <input class="rounded-pill inpSm" type="text" id="finCours" name="finCours">
                   </div>
                   <div class="col-6">
-                    <span for="finCours2">Fin de cours</span>
+                    <span for="finCours2" class="cour_end">Fin de cours</span>
                     <br>
                     <input class="rounded-pill inpSm" type="text" id="finCours2" name="finCours2">
                   </div>
