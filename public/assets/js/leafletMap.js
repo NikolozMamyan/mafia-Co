@@ -2,7 +2,7 @@ const cciLat = 48.5549148;
 const cciLon = 7.7449707;
 let myLat = 48.3825041;
 let myLon = 7.6978193;
-let radius = 2; //en km
+let radius = 5; //en km
 let radiusM = radius * 1000; // em metres
 
 /**
@@ -15,15 +15,15 @@ let map = L.map("map", { zoomControl: false }).setView([myLat, myLon], 13);
 const layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 // zoom controls on top-right
 const control = L.control
-    .zoom({
-      position: "topright",
-    })
-    .addTo(map);
+  .zoom({
+    position: "topright",
+  })
+  .addTo(map);
 
 // waypoint on CCI
 const marker = L.marker([myLat, myLon]);
@@ -92,8 +92,7 @@ const delLayers = () => {
 
 const locationLayer = () => {
   marker.addTo(map);
-  centerLeafletMapOnMarker(map, marker)
-
+  centerLeafletMapOnMarker(map, marker);
 };
 const pinpointLayer = () => {
   routing.addTo(map);
