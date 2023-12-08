@@ -34,22 +34,54 @@ require_once(__DIR__ . '/../views/headDev.php');
                 <div class="container">
                     <div class="bg-P200 p-3 p-md-5 my-5">
                         <div class="row">
-                            <section class="col-12 col-md-6 bg-light p-0">
+                            <section class="col-12 col-md-6 p-0">
                                 <div class="row bg-P500 p-2 m-0">
-                                    <img class="col-auto profilePic" src="./assets/images/profilTemp.jpg" alt="photo">
-                                    <div class="col-auto mt-2">
-                                        <p>Conducteur/Passager</p>
-                                        <p>John Doe</p>
-                                        <p>Strasbourg-67150</p>
+                                    <div class="card  bg-P500 ">
+                                        <div class="row ">
+                                            <div class="col-3 d-flex align-items-center px-2">
+                                                <img class="col-auto profilePic  " src="./assets/images/portrait.png" alt="photo">
+                                            </div>
+                                            <div class="col-9  ">
+                                                <div class="card-body ">
+                                                    <h6 class="card-title m-0">
+                                                        <p>Conducteur/Passager</p>
+                                                        <p>John Doe</p>
+                                                    </h6>
+                                                    <p class="card-text">
+                                                        <small class="text text-truncate reduced-text-size">
+                                                            Strasbourg-67150
+                                                        </small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-none d-sm-block">
+                                <div class="d-none bg-light d-sm-block p-4">
                                     <p class="text-center text-P500-border bld">Mon Trajet Regulier</p>
                                     <p class="container text-P500">Je pars de Colmar du lundi au vendredi pour me rendre au CCI Campus à Strasbourg. Mes cours commencent à 8h00 et se terminent à 17h.</p>
                                     <p class="text-center bg-P500 bld">Commentaire</p>
                                     <p class="container text-P500">Je suis a l'arret x les matins a 7h00</p>
                                 </div>
+                                <div class="pt-2">
+                                    <input class="btn btn-danger" type="button" value="Déconnexion">
+                                    <input class="btn btn-info" type="button" value="Modifier profil">
+                                </div>
+
                             </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <section class="col-12 col-md-6 p-0 px-md-4">
                                 <div class="map-container">
                                     <div id="map"></div>
