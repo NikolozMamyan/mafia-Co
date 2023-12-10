@@ -50,23 +50,28 @@ require_once(__DIR__ . '/../views/headDev.php');
                   <div class="container horaires">
                     Mes horaires
                   </div>
-                  <div class="row semaine ">
-                    <div class="col jour ">
-                      Lun.
-                    </div>
-                    <div class="col jour">
-                      Mar.
-                    </div>
-                    <div class="col jour">
-                      Mer.
-                    </div>
-                    <div class="col jour">
-                      Jeu.
-                    </div>
-                    <div class="col jour">
-                      Ven.
-                    </div>
-                  </div>
+                  <div class="row semaine">
+  <div class="col">
+    <input type="button" value="Lun." class="jour-button">
+  </div>
+  <div class="col">
+    <input type="button" value="Mar." class="jour-button">
+  </div>
+  <div class="col">
+    <input type="button" value="Mer." class="jour-button">
+  </div>
+  <div class="col">
+    <input type="button" value="Jeu." class="jour-button">
+  </div>
+  <div class="col">
+    <input type="button" value="Ven." class="jour-button">
+  </div>
+  <div class="col">
+    <input type="button" value="Sam." class="jour-button">
+  </div>
+</div>
+
+                 
                 </div>
                 <div class="row row__small d-flex justify-content-center align-items-center">
                   <div class="col-6">

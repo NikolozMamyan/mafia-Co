@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row justify-content-center mt-4">
-        <div class="col-md-4 text-center">
+        <div class="col-sm-4 text-center">
             <a href="../public/serviceFooter.php" class='h2 text-light'>Services</a >
             <ul class="stylel mt-2">
                 <li class="text-light">Web Design</li>
@@ -13,7 +13,7 @@
                 <li class="text-light">Hébergement</li>
             </ul class="stylel">
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-sm-4 text-center">
         <a href="../public/aproposFooter.php" class='h2 text-light'>Apropos</a >
             <ul class="stylel mt-2">
                 <li class="text-light">Entreprise</li>
@@ -21,7 +21,7 @@
                 <li class="text-light">Mentions légales</li>
             </ul class="stylel">
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-sm-4 text-center">
         <a href="../public/contactFooter.php" class='h2 text-light'>Contact</a >
             <ul class="stylel mt-2">
                 <li class="text-light">Email</li>

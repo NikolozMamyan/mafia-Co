@@ -2,9 +2,9 @@
 .selectH{
     border: 1px solid $ColorPrincipal500;
     background-color: $ColorPrincipal500;
-    width: 320px;
     margin-top: 30px;
-  height: 160px;
+    height: 180px;
+
 }
 .color__title{
     background-color: $ColorPrincipal500;
@@ -15,10 +15,8 @@
     background-color:$colorPrincipal200Opacity80;
     padding: 50px;
     color: $ColorPrincipal500;
-    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    
 }
 .form__group {
     position: relative;
@@ -56,25 +54,30 @@
     border: 1px solid $ColorPrincipal500;
     font-weight: bold;    
 }
-.semaine{
-    padding: 20px;
-    gap: 5px;   
-    margin-top: 10px;
-}
-.jour {
+.semaine {
+    display: flex;
+   flex-wrap: nowrap;
+   padding: 10px;
+   margin-top: 30px;
+    
+  }
+  .jour-button{
     border: 1px solid white;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    color: white; 
     font-weight: bold;
-    width: 10px;
-
-}
-.jour:hover{
+    background: none;
+    padding: 25px;
+    width: 50px;
+    cursor: pointer;
+  }
+  
+ .jour-button:hover {
     background-color: $ColorPrincipal200;
     color: $ColorPrincipal500;
-}
+  }
 .inpLg{
     width: 300px;
     border: 1px solid black; 
@@ -123,11 +126,9 @@
 
 @media (max-width: 991px) {
     .container__menu {
-        max-width: 400px;
+        max-width: 600px;
     }
-    .selectH{
-        margin-left: -10px;
-    }
+
 .col__t{
     display: flex;
     flex-direction: column;
@@ -135,30 +136,37 @@
 
 }
 
+}
+  
+  @media (max-width: 768px) {
+    .jour-button{
+        border-radius: 50%;
 
-    .semaine{
-        gap: 10px;
     }
-    .col.jour {
-      border-radius: 50%;
-      width: 50px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
+    .container__menu {
+        max-width: 460px;
+    }
+    .semaine {
+      width: 21%; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
+    }
+  }
+  
+  @media (max-width: 530px) {
+    .selectH{
+        width: 400px;
+    }
+    .jour-button {
+      width: 50px; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
+      height: 50px;
+      padding: 15px; /* Ajuste la marge interne pour éviter que le texte ne se déborde */
     }
   }
   
   @media (max-width: 390px) {
-    .trajet{
-        max-width: 370px;
+    .jour-button {
+      width: 50px; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
+      height: 60px;
+      padding: 6px; /* Ajuste la marge interne pour éviter que le texte ne se déborde */
     }
-    .selectH{
-        margin-left: -25px;
-    }
-    .row__small{
-     font-size: 14px;
-    }
-
   }
+  
