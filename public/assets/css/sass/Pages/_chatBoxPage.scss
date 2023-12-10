@@ -40,21 +40,18 @@
 #contactsOffcanvas,#notificationsOffcanvas{
     top: 20%;
     height: 70%;
-    width: 50%;
+    width: 60%;
 }
 .card__body--chat {
     overflow-y:scroll ; 
 }
-
-@media screen and (max-width: 765px) {
-    .card-footer.bg__input--chat {
-        position: fixed;
-        left: 0;
-        right: 0;
-    }
+.btn__width{
+  height: auto;
 }
 
-@media screen and (max-width:766px) {
+
+
+@media screen and (max-width:768px) {
     .body__chat {
         margin: 0;
         padding: 0;
@@ -75,6 +72,11 @@
     }
     .reduced-text-size {
         font-size: 0.8rem;
+    }
+    .card-footer.bg__input--chat {
+        position: fixed;
+        left: 0;
+        right: 0;
     }
     
 }

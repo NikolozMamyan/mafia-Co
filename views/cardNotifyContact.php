@@ -6,12 +6,12 @@
             </div>
             <div class="col-9  p-0">
                 <div class="card-body p-0  position-relative">
-                    <h6 class="card-title  m-0">
+                    <h2 class="card-title title__card--h2 m-0">
                         <span class="text-truncate reduced-text-size">Nom Prenom</span>
                         <span class="position-absolute top-50 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
-                    </h6>
+                    </h2>
 
                 </div>
             </div>

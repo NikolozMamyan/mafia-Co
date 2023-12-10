@@ -43,10 +43,10 @@ require_once(__DIR__ . '/../views/headDev.php');
                                             </div>
                                             <div class="col-9  ">
                                                 <div class="card-body ">
-                                                    <h2 class="card-title m-0 title__card--h2">
+                                                    <h6 class="card-title m-0">
                                                         <p>Conducteur/Passager</p>
                                                         <p>John Doe</p>
-                                                    </h2>
+                                                    </h6>
                                                     <p class="card-text">
                                                         <small class="text text-truncate reduced-text-size">
                                                             Strasbourg-67150
@@ -63,24 +63,11 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <p class="text-center bg-P500 bld">Commentaire</p>
                                     <p class="container text-P500">Je suis a l'arret x les matins a 7h00</p>
                                 </div>
-                                <div class=" btn__text">
-                                    <div class="row pt-2 ">
-                                        <button class="btn btn-danger ms-2 col-5">Suppréssion de compte</button>
-                                        <button class="btn btn-info ms-2 col-5">Modifier profil</button>
-                                    </div>
-                                    <div class="  pt-2 d-flex justify-content-end">
-                                        <button class="btn btn-danger">Déconnexion</button>
-                                    </div>
+                                <div class="pt-2">
+                                    <input class="btn btn-info" type="button" value="Ajouter contact">
+                                    <input class="btn btn-info" type="button" value="Contacter">
                                 </div>
-                                <div class=" btn__icon">
-                                    <div class="row pt-2 ">
-                                        <button class="btn btn-danger col-2 ms-2"><i class="fa-solid fa-trash-can"></i></button>
-                                        <button class="btn btn-info col-2 ms-2"><i class="fas fa-edit"></i></button>
-                                    </div>
-                                    <div class="  pt-2 d-flex justify-content-end">
-                                        <button class="btn btn-danger pt-2 mb-2"><i class="fa fa-sign-out"></i></button>
-                                    </div>
-                                </div>
+
                             </section>
 
 

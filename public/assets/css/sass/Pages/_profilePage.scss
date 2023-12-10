@@ -32,7 +32,7 @@
   background-color: $ColorPrincipal400;
 }
 
-.text-nodec{
+.text-nodec {
   text-decoration: none;
 }
 
@@ -93,13 +93,29 @@
 .desktop-image-profile {
   content: "";
   display: block;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)),
     url("../images/desktopBGcar_driving-bro.svg");
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
   min-height: 80vh;
+}
+
+.btn__text {
+  display: block;
+}
+
+.btn__icon {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .btn__text {
+    display: none;
+  }
+
+  .btn__icon {
+    display: block;
+  }
 }
