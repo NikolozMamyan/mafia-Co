@@ -123,7 +123,8 @@
   border-radius: 50%;
   width: 130px;
   height: 130px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 0;
 }
 
@@ -131,7 +132,8 @@
   border-radius: 50%;
   width: 90px;
   height: 90px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 0;
 }
 
@@ -148,17 +150,17 @@
   display: block;
   margin: 0;
   background: #B69FD6;
-  border-radius: 9999px;
+  border-radius: 5px;
 }
 
 input#search-bar {
   margin: 0 auto;
   width: 100%;
   height: 45px;
-  padding: 0 20px;
+  padding: 0 10px;
   font-size: 1rem;
-  border: 2px solid #B69FD6;
-  border-radius: 9999px;
+  border: 1px solid #B69FD6;
+  border-radius: 5px;
   outline: none;
 }
 input#search-bar:focus {
@@ -168,12 +170,21 @@ input#search-bar:focus {
 }
 input#search-bar:focus::-webkit-input-placeholder {
   color: #B69FD6;
+  -webkit-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 input#search-bar:focus::-moz-placeholder {
+  -moz-transition: opacity 0.45s ease;
   transition: opacity 0.45s ease;
   opacity: 0;
+}
+
+#filtersList {
+  position: relative;
+  bottom: 3px;
+  border: 1px solid #B69FD6;
+  border-top: 0px;
 }
 
 .search-btn {
@@ -226,7 +237,8 @@ input#search-bar:focus::-moz-placeholder {
 }
 input[type=checkbox].checkbox-Primary {
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   background-color: rgb(255, 255, 255);
   margin: 0;
   font: inherit;
@@ -665,7 +677,8 @@ input[type=checkbox].checkbox-Primary:checked::before {
   background-color: #B69FD6;
 }
 
-#contactsOffcanvas, #notificationsOffcanvas {
+#contactsOffcanvas,
+#notificationsOffcanvas {
   top: 20%;
   height: 70%;
   width: 50%;
