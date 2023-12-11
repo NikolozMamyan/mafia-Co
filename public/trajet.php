@@ -68,7 +68,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                     </div>
                   </div>
                 </div>
-                <div class="row row__small d-flex justify-content-center align-items-center ms-3">
+                <div class="row row__small d-flex justify-content-center align-items-center">
                   <div class="col-6">
                     <span for="finCours" class="cour_start">Début de cours</span>
                     <br>
