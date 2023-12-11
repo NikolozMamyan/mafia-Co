@@ -1,6 +1,6 @@
 <div class="container-fluid footer__container-fluid p-3">
     <div class="row d-flex justify-content-center">
-        <div class="col-12 d-flex justify-content-center ms-2">
+        <div class="col-12 d-flex justify-content-center ms-5">
             <img class="img-fluid" src="../public/assets/images/footer_logo.svg" alt="Logo">
         </div>
     </div>

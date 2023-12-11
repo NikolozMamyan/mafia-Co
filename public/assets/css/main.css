@@ -460,8 +460,9 @@ input[type=checkbox].checkbox-Primary:checked::before {
 .selectH {
   border: 1px solid #4C3172;
   background-color: #4C3172;
+  width: 320px;
   margin-top: 30px;
-  height: 180px;
+  height: 160px;
 }
 
 .color__title {
@@ -473,6 +474,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
   background-color: rgba(217, 205, 234, 0.8);
   padding: 50px;
   color: #4C3172;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -519,23 +521,19 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 .semaine {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 10px;
-  margin-top: 30px;
+  padding: 20px;
+  gap: 5px;
+  margin-top: 10px;
 }
 
 .jour-button {
   border: 1px solid white;
-  display: flex;
-  justify-content: center;
   text-align: center;
-  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-weight: bold;
-  background: none;
-  padding: 25px;
-  width: 50px;
-  cursor: pointer;
+  background-color: #4C3172;
+  color: white;
 }
 
 .jour-button:hover {
@@ -591,40 +589,35 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 @media (max-width: 991px) {
   .container__menu {
-    max-width: 600px;
+    max-width: 500px;
   }
   .col__t {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-}
-@media (max-width: 768px) {
+  .semaine {
+    gap: 10px;
+  }
   .jour-button {
     border-radius: 50%;
-  }
-  .container__menu {
-    max-width: 460px;
-  }
-  .semaine {
-    width: 21%; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
-  }
-}
-@media (max-width: 530px) {
-  .selectH {
-    width: 400px;
-  }
-  .jour-button {
-    width: 50px; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
-    height: 50px;
-    padding: 15px; /* Ajuste la marge interne pour éviter que le texte ne se déborde */
+    width: 55px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
   }
 }
 @media (max-width: 390px) {
-  .jour-button {
-    width: 50px; /* Ajuste la largeur des jours pour qu'ils tiennent sur une seule ligne */
-    height: 60px;
-    padding: 6px; /* Ajuste la marge interne pour éviter que le texte ne se déborde */
+  .trajet {
+    max-width: 370px;
+  }
+  .selectH {
+    margin-left: -25px;
+  }
+  .row__small {
+    font-size: 14px;
   }
 }
 .contact-info {
