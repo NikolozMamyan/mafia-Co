@@ -1,1 +1,3 @@
-<?php include(VIEWS.'login.php') ; ?>
+<?php
+//include(\Couchbase\View::);
+
