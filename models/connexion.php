@@ -20,7 +20,8 @@ class MaConnexion
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
     }
-    public function dbConnect() {
+    public function dbConnect()
+    {
         return $this->connexion;
     }
 
