@@ -5,7 +5,7 @@
         <button class="search-btn btn_more wrapper" type="button" onclick="searchFilters()"><i class="fa-solid fa-sliders">&nbsp;</i><span class="d-none d-md-inline">Plus de Critères</span></button>
     </div>
 
-    <div class="d-none p-2" id="filtersList">
+    <div class="d-none mx-3 p-2 bg-P200-o rounded" id="filtersList">
         <ul class="list-unstyled d-flex flex-wrap flex-md-nowrap">
             <li class="mx-2">
                 <label class="d-flex flex-nowrap">
