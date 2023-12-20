@@ -31,9 +31,11 @@ class Map
         $distanceAdjustment = 1 / self::calculerDistanceLongitude($lat);
         $distance = ($distance + 1) * $distanceAdjustment;
 
-        $q = $db->prepare("SELECT * FROM utilisateurs "
-            . "WHERE (latUtilisateur BETWEEN :lat1 AND :lat2) "
-            . "AND (lonUtilisateur BETWEEN :lon1 AND :lon2)");
+        $q = $db->prepare("SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, latitude, longitude FROM utilisateurs "
+            . "JOIN points ON utilisateurs.idPoint = points.idPoint "
+            . "WHERE (points.latitude BETWEEN :lat1 AND :lat2) "
+            . "AND (points.longitude BETWEEN :lon1 AND :lon2) "
+            . "AND idRole != 1 AND compteActif = 1");
         $q->bindValue(':lat1', strval($lat - $distance), PDO::PARAM_STR);
         $q->bindValue(':lat2', strval($lat + $distance), PDO::PARAM_STR);
         $q->bindValue(':lon1', strval($lon - $distance), PDO::PARAM_STR);
@@ -62,18 +64,18 @@ class Map
      * @param array $usersPoints points des utilisateurs a vérifier
      * @return array distance entre les points
      */
-    public function haversineDistanceList(array $myPoints, array $usersPoints): array
+    public function haversineDistanceList(array $myPoints, array $usersPoints, float $maxDistance): array
     {
         $distances = [];
 
         foreach ($myPoints as $myLatLon) {
             foreach ($usersPoints as $userLatLon) {
                 // Convertir degres en radiants
-                $lat1 = deg2rad($myLatLon['lat']);
-                $lon1 = deg2rad($myLatLon['lon']);
+                $lat1 = deg2rad($myLatLon['latitude']);
+                $lon1 = deg2rad($myLatLon['longitude']);
 
-                $lat2 = deg2rad($userLatLon['lat']);
-                $lon2 = deg2rad($userLatLon['lon']);
+                $lat2 = deg2rad($userLatLon['latitude']);
+                $lon2 = deg2rad($userLatLon['longitude']);
 
                 // Calcul des différences de latitude et de longitude
                 $dlat = $lat2 - $lat1;
@@ -86,25 +88,12 @@ class Map
                 // Calcul de la distance
                 $distance = self::EARTH_RADIUS * $c;
 
-                // Ajouter la distance à la liste des distances
-                $distances[] = $distance;
+                if ($distance < $maxDistance) {
+                    // Ajouter la distance à la liste des distances
+                    $distances[] = $distance;
+                }
             }
         }
         return $distances;
-    }
-
-    public function getClosestPoints($distanceList, $maxDistance): array
-    {
-        $orderDistancesList = [];
-        sort($distanceList);
-        foreach ($distanceList as $value) {
-            if ($value <= $maxDistance) {
-                $orderDistancesList[] = $value;
-            } else {
-                break;
-            }
-        }
-
-        return $orderDistancesList;
     }
 }
