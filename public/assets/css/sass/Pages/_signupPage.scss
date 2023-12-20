@@ -1,10 +1,25 @@
-.bg__section--signup{
-  background:$colorWhiteOpacity80;
-  
- }
+
  .color__title{
   color: $ColorPrincipal500;
   border-width: 2px 0 ;
   border-color:  $ColorPrincipal500 ;
   border-style: solid;
+ }
+ .title__signup{
+  color: $ColorPrincipal500;
+  border-bottom: solid 1px $ColorPrincipal500;
+
+ }
+ .border{
+  border: 2px solid red;
+ }
+ .bg__roundP--100{
+  background-color: $colorPrincipal100Opacity80;
+
+  border-radius: 5px ;
+ }
+
+ .flag__style{
+    width: 25px;
+    height: 25px;
  }

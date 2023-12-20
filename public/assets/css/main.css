@@ -10,7 +10,7 @@
 }
 
 .bg__nav {
-  background-color: #D9CDEA;
+  background-color: rgb(217, 205, 234);
 }
 
 @media (min-width: 576px) {
@@ -24,7 +24,7 @@
     z-index: 750;
     top: 120px;
     bottom: auto;
-    background-color: #D9CDEA;
+    background-color: rgb(217, 205, 234);
   }
 }
 @media (max-width: 577px) {
@@ -42,7 +42,7 @@
     position: fixed;
     top: auto;
     bottom: 0;
-    background-color: #D9CDEA;
+    background-color: rgb(217, 205, 234);
   }
 }
 .header {
@@ -100,7 +100,7 @@
 
 .nav-item a:hover {
   background-color: #4C3172;
-  color: #D9CDEA;
+  color: rgb(217, 205, 234);
 }
 
 .onCanvas a {
@@ -371,15 +371,30 @@ input[type=checkbox].checkbox-Primary:checked::before {
     display: none;
   }
 }
-.bg__section--signup {
-  background: rgba(255, 255, 255, 0.8);
-}
-
 .color__title {
   color: #4C3172;
   border-width: 2px 0;
   border-color: #4C3172;
   border-style: solid;
+}
+
+.title__signup {
+  color: #4C3172;
+  border-bottom: solid 1px #4C3172;
+}
+
+.border {
+  border: 2px solid red;
+}
+
+.bg__roundP--100 {
+  background-color: rgba(232, 223, 245, 0.8);
+  border-radius: 5px;
+}
+
+.flag__style {
+  width: 25px;
+  height: 25px;
 }
 
 .bg__section--lavande {
@@ -404,7 +419,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .mapButton {
   margin-top: 5px;
-  background-color: #D9CDEA;
+  background-color: rgb(217, 205, 234);
   border: 1px solid #4C3172;
 }
 
@@ -626,7 +641,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 
 .row__back {
   border: 1px solid #4C3172;
-  background-color: #D9CDEA;
+  background-color: rgb(217, 205, 234);
   opacity: 80%;
 }
 
@@ -683,7 +698,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 .bg__100 {
-  background-color: #D9CDEA;
+  background-color: rgb(217, 205, 234);
 }
 
 .bg__400 {
@@ -735,18 +750,21 @@ input[type=checkbox].checkbox-Primary:checked::before {
 #notificationsOffcanvas {
   top: 20%;
   height: 70%;
-  width: 60%;
+  width: 50%;
 }
 
 .card__body--chat {
   overflow-y: scroll;
 }
 
-.btn__width {
-  height: auto;
+@media screen and (max-width: 765px) {
+  .card-footer.bg__input--chat {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 766px) {
   .body__chat {
     margin: 0;
     padding: 0;
@@ -765,11 +783,6 @@ input[type=checkbox].checkbox-Primary:checked::before {
   }
   .reduced-text-size {
     font-size: 0.8rem;
-  }
-  .card-footer.bg__input--chat {
-    position: fixed;
-    left: 0;
-    right: 0;
   }
 }
 @media screen and (min-width: 361px) and (max-width: 992px) {
