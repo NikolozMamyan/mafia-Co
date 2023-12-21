@@ -69,13 +69,13 @@ class Map
         $distances = [];
 
         foreach ($myPoints as $myLatLon) {
-            foreach ($usersPoints as $userLatLon) {
+            foreach ($usersPoints as $currUser) {
                 // Convertir degres en radiants
                 $lat1 = deg2rad($myLatLon['latitude']);
                 $lon1 = deg2rad($myLatLon['longitude']);
 
-                $lat2 = deg2rad($userLatLon['latitude']);
-                $lon2 = deg2rad($userLatLon['longitude']);
+                $lat2 = deg2rad($currUser['latitude']);
+                $lon2 = deg2rad($currUser['longitude']);
 
                 // Calcul des différences de latitude et de longitude
                 $dlat = $lat2 - $lat1;
@@ -90,7 +90,8 @@ class Map
 
                 if ($distance < $maxDistance) {
                     // Ajouter la distance à la liste des distances
-                    $distances[] = $distance;
+                    //$distances[] = $distance;
+                    array_push($distances, ['distance' => $distance, 'idUtilisateur' => $currUser['idUtilisateur']]);
                 }
             }
         }
