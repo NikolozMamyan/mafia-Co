@@ -301,7 +301,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 .radius__border--all {
-  border-radius: 16px;
+  border-radius: 5px;
   border: 1px #6D46A4 solid;
 }
 
@@ -310,11 +310,11 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 .radius__left {
-  border-radius: 25px 0 0 25px !important;
+  border-radius: 5px 0 0 5px !important;
 }
 
 .radius__right {
-  border-radius: 0 25px 25px 0 !important;
+  border-radius: 0 5px 5px 0 !important;
 }
 
 .resum {
@@ -397,6 +397,34 @@ input[type=checkbox].checkbox-Primary:checked::before {
   height: 25px;
 }
 
+.btn-group-toggle label {
+  margin-bottom: 0;
+}
+
+.btn__color {
+  background-color: #c5c2c2;
+  color: #fff;
+}
+
+.btn__color.checked {
+  background-color: #4C3172;
+  color: #fff;
+}
+
+.test {
+  border: 2px solid red;
+}
+
+.title__h3 {
+  font-size: 1.05rem;
+  color: #4C3172;
+}
+
+@media (max-width: 455px) {
+  .btn__media {
+    flex-direction: column;
+  }
+}
 .bg__section--lavande {
   background: rgba(217, 205, 234, 0.8);
 }

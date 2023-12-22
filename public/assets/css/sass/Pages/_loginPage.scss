@@ -24,7 +24,7 @@
     0 32px 64px -48px rgba(0, 0, 0, 0.5);
 }
 .radius__border--all{
-  border-radius: 16px;
+  border-radius: 5px;
   border: 1px $ColorPrincipal400 solid;
 }
 .bg__btn--submit {
@@ -32,11 +32,11 @@
 }
 
 .radius__left {
-  border-radius: 25px 0 0 25px !important;
+  border-radius: 5px 0 0 5px !important;
 }
 
 .radius__right {
-  border-radius: 0 25px 25px 0 !important;
+  border-radius: 0 5px 5px 0 !important;
 }
 
 .resum {

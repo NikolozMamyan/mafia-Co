@@ -73,3 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   } 
 });
+function toggleCheckboxStyle(checkbox) {
+  var label = checkbox.parentElement;
+
+  if (checkbox.checked) {
+    label.classList.add('checked');
+  } else {
+    label.classList.remove('checked');
+  }
+}

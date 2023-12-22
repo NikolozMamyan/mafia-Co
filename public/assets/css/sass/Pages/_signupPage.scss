@@ -23,3 +23,27 @@
     width: 25px;
     height: 25px;
  }
+ .btn-group-toggle label {
+   margin-bottom: 0;
+ }
+ 
+ .btn__color{
+   background-color:#c5c2c2;
+   color: #fff;
+ }
+ 
+ .btn__color.checked {
+   background-color: $ColorPrincipal500;
+   color: #fff;
+ }
+ .test{
+   border :2px solid red;
+ }
+.title__h3{
+   font-size: 1.05rem;
+   color: $ColorPrincipal500;
+}
+@media (max-width: 455px) { 
+  .btn__media{flex-direction: column ;}
+  
+ }
