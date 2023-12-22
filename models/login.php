@@ -1,3 +1,7 @@
 <?php
-include "connexion.php";
 
+namespace models;
+
+class Login extends Model
+{
+}

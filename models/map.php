@@ -1,8 +1,14 @@
 <?php
 
-require_once('connexion.php');
+namespace models;
 
-class Map
+require_once('Model.php');
+require_once('Dals/Db.php');
+
+use \models\DB;
+use \PDO;
+
+class Map extends Model
 {
     const EARTH_RADIUS = 6371;
     const EARTH_CIRCUMFERENCE = self::EARTH_RADIUS * 2 * M_PI;
@@ -16,7 +22,7 @@ class Map
     public function getCloseUsers($lat, $lon, $distance): bool|array
     {
         // Initialisation de la connexion
-        $db = new Connexion();
+        $db = new DB();
 
         // Validation des données d'entrée
         $lat = filter_var($lat, FILTER_VALIDATE_FLOAT);

@@ -1,5 +1,8 @@
 <?php
-require_once '../models/map.php';
+
+use models\Map;
+
+require_once '../models/Map.php';
 
 $map = new Map();
 
