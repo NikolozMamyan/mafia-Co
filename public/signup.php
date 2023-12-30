@@ -5,11 +5,9 @@
 require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
-<body>
-    <header class=" mb-5 header ">
-        <?php
-        require_once(__DIR__ . '/../views/header.php');
-        ?>
+<body id="signupPage">
+    <header >
+        <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
     </header>
     <main>
         <section class="container-fluid ">
@@ -247,16 +245,16 @@ require_once(__DIR__ . '/../views/headDev.php');
                     </div>
                 </section>
                 <!-- btn annuler -->
-                <div class="col-md-4 mb-3 ">
-                    <input class="btn w-100 btn-danger rounded-pill label__white" type="reset" value="Annuler">
+                <div class="col-md-5 d-flex justify-content-md-start mt-3 ">
+                    <input class="btn w-100 w-md-50  btn-danger btn__btn--submit " type="reset" value="Annuler">
                 </div>
                 <!-- btn valider -->
-                <div class="offset-md-2 col-md-6 mb-3">
-                    <button class="btn w-100 rounded-pill bg__btn--submit label__white" type="submit">Valider</button>
+                <div class="col-md-5 d-flex justify-content-md-end my-3">
+                    <button class="btn w-100 w-md-50 btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
                 </div>
 
                 <!-- link login -->
-                <div class="link offset-md-6 col-md-6">Déjà inscrit? <a href="login.php">Connectez-vous </a>
+                <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="login.php">Connectez-vous </a>
                 </div>
             </form>
 
@@ -271,9 +269,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
     </main>
     <footer>
-        <?php
-        require_once(__DIR__ . '/../views/footer.php');
-        ?>
+      <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>

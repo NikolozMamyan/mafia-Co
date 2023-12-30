@@ -5,119 +5,77 @@ require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
 <body>
-    <header class=" header ">
+    <header class="container">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main>
-        <section class="container-fluid ">
-            <div class="row  ">
-                <!-- menu -->
-                <div class="col mb-3 bg__nav ">
-                    <?php require_once(__DIR__ . '/../views/navBar.php'); ?>
-                </div>
+    <main id="main-profil" class="container">
+        <h1 class="page-title">Mon profil</h1>
+
+        <!----------- Partie Bonjour ------------>
+
+        <section id="hello-user">
+            <img src="assets/images/covoiturage-cci-photo-profil-default-100x100.webp" alt="photo de profil de [user_name]">
+            <div>
+                <p>Bonjour [user_name]</p>
+                <p>Vous avez <a href=""><i class="covoiturage-messaging"></i>[nbr_message] messages</a> et <a href=""><i class="covoiturage-notification"></i>[nbr_notifications] notifications</a> non lus.</p>
             </div>
+
+            <!-- Prévoyez une condition s'il y a 0 messages et 0 notifications avec une autre phrase du coup ! -->
         </section>
-        <section class="container-fluid ">
-            <div class="row  ">
-                <!-- titre -->
-                <div class="col text-center my-3 px-0">
-                    <h2 class="bg-P500 pb-1">Mon profile</h2>
-                </div>
+
+        <section id="user-details">
+            <!----------- Vos informations personnelles ------------>
+            <div id="user-infos">
+                <a class="edit-icon" href=""><i class="covoiturage-pencil"></i></a>
+                <h2>Vos informations personnelles</h2>
+
+                <h3>Votre nom et prénom</h3>
+                <p>[user_name_surname]</p>
+
+                <h3>Votre adresse email</h3>
+                <p>[user_email]</p>
+
+                <!-- <h3>Votre mot de passe</h3>
+                <p>************</p> -->
+
+                <h3>Votre domicile</h3>
+                <p>[user_address]</p>
+
+                <h3>Votre statut de covoitureur</h3>
+                <p>[user_statut]</p>
             </div>
+
+            <!----------- Votre trajet quotidien ------------>
+
+            <div id="user-itinerary">
+                <a class="edit-icon" href=""><i class="covoiturage-pencil"></i></a>
+                <h2>Votre trajet quotidien</h2>
+                <p>Je pars de [user_city] [user_week_days] pour me rendre au CCI Campus de [cci_city]. Mes cours commencent à [start_class_hour] et se terminent à [end_class_hour].</p>
+
+                <h3>Votre périmètre</h3>
+                <p>Vous êtes prêt à chercher des covoitureurs dans un périmètre de [user_perimeter] autour de votre domicile.</p>
+
+                <h3>Vos commentaires</h3>
+                <p>[user_comments]</p>
+            </div>
+
         </section>
-        <section class="d-flex justify-content-center align-items-center mb-5">
-            <div class="container d-flex justify-content-center m-0 p-auto desktop-image-profile">
 
-                <div class="container">
-                    <div class="bg-P200 p-3 p-md-5 my-5">
-                        <div class="row">
-                            <section class="col-12 col-md-6 p-0">
-                                <div class="row bg-P500 p-2 m-0">
-                                    <div class="card  bg-P500 ">
-                                        <div class="row ">
-                                            <div class="col-3 d-flex align-items-center px-2">
-                                                <img class="col-auto profilePic  " src="./assets/images/portrait.png" alt="photo">
-                                            </div>
-                                            <div class="col-9  ">
-                                                <div class="card-body ">
-                                                    <h2 class="card-title m-0 title__card--h2">
-                                                        <p>Conducteur/Passager</p>
-                                                        <p>John Doe</p>
-                                                    </h2>
-                                                    <p class="card-text">
-                                                        <small class="text text-truncate reduced-text-size">
-                                                            Strasbourg-67150
-                                                        </small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-none bg-light d-sm-block p-4">
-                                    <p class="text-center text-P500-border bld">Mon Trajet Regulier</p>
-                                    <p class="container text-P500">Je pars de Colmar du lundi au vendredi pour me rendre au CCI Campus à Strasbourg. Mes cours commencent à 8h00 et se terminent à 17h.</p>
-                                    <p class="text-center bg-P500 bld">Commentaire</p>
-                                    <p class="container text-P500">Je suis a l'arret x les matins a 7h00</p>
-                                </div>
-                                <div class=" btn__text">
-                                    <div class="row pt-2 ">
-                                        <button class="btn btn-danger ms-2 col-5">Suppréssion de compte</button>
-                                        <button class="btn btn-info ms-2 col-5">Modifier profil</button>
-                                    </div>
-                                    <div class="  pt-2 d-flex justify-content-end">
-                                        <button class="btn btn-danger">Déconnexion</button>
-                                    </div>
-                                </div>
-                                <div class=" btn__icon">
-                                    <div class="row pt-2 ">
-                                        <button class="btn btn-danger col-2 ms-2"><i class="fa-solid fa-trash-can"></i></button>
-                                        <button class="btn btn-info col-2 ms-2"><i class="fas fa-edit"></i></button>
-                                    </div>
-                                    <div class="  pt-2 d-flex justify-content-end">
-                                        <button class="btn btn-danger pt-2 mb-2"><i class="fa fa-sign-out"></i></button>
-                                    </div>
-                                </div>
-                            </section>
+        <!----------- Carte ------------>
 
+        <section id="user-map">
+            <ul>
+                <!-- Faire changer la classe active en JS -->
+                <li><button id="view-home" class="active"><i class="covoiturage-home"></i>Visualiser mon domicile</button></li>
+                <li><button id="view-itinerary"><i class="covoiturage-itinerary"></i>Visualiser mon itinéraire</button></li>
+                <li><button id="view-perimeter"><i class="covoiturage-address"></i>Visualiser mon périmètre</button></li>
+            </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-                            <section class="col-12 col-md-6 p-0 px-md-4">
-                                <div class="map-container">
-                                    <div id="map"></div>
-                                </div>
-                                <div class="text-center">
-                                    <button onclick="setMapView('Location')" class="mapButton active" id="btnLocation">
-                                        <img src="./assets/images/Location.png">
-                                    </button>
-                                    <button onclick="setMapView('Pinpoint')" class="mapButton" id="btnMapPinpoint">
-                                        <img src="./assets/images/MapPinpoint.png">
-                                    </button>
-                                    <button onclick="setMapView('Place')" class="mapButton" id="btnPlaceMarker">
-                                        <img src="./assets/images/PlaceMarker.png">
-                                    </button>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
+            <!-- Ajouter la carte à la place de mon img -->
+            <img src="assets/images/covoiturage-cci-google-map.webp" alt="carte google map">
         </section>
 
 
