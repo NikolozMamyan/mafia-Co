@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
 <body id="signupPage">
-    <header >
+    <header>
         <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
     </header>
     <main>
@@ -85,30 +85,22 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 </span>
                             </div>
                             <!-- mot de passe -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 ">
                                 <div class="input-group ">
-                                    <label for="password" class="form-label ps-3">Mot de passe</label>
-                                    <div class="input-group ">
-                                        <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" required>
-                                        <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span>
-                                        <span class="invalid-feedback">
-                                            Le mot de passe est invalide !
-                                        </span>
-                                    </div>
+                                    <label for="your-password">votre mot de passe
+                                        <input type="password" name="your-password" placeholder="Entrez ici votre mot de passe" />
+                                        <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
+                                    </label>
 
                                 </div>
                             </div>
                             <!-- confirm mot de passe -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 ">
                                 <div class="input-group ">
-                                    <label for="password" class="form-label ps-3">Mot de passe</label>
-                                    <div class="input-group ">
-                                        <input type="password" class="form-control " id="password" name="password" placeholder="Password" required>
-                                        <!-- <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span> -->
-                                        <span class="invalid-feedback">
-                                            Le mot de passe est invalide !
-                                        </span>
-                                    </div>
+                                    <label for="your-password">votre mot de passe  
+                                        <input type="password" name="your-password" placeholder="Confirmé votre mot de passe" />
+                                        <button id="show-hide-password"></button>
+                                    </label>
 
                                 </div>
                             </div>
@@ -163,6 +155,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                 <!-- section itineraire hebdo-->
                 <section class="col-md-5 border bg__roundP--100  ">
                     <div class="row mb-3 ">
+                    <h3 class="d-flex justify-content-center title__h3 mt-2">Votre point de départ et d'arrivé</h3>
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Départ</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
@@ -246,11 +239,11 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </section>
                 <!-- btn annuler -->
                 <div class="col-md-5 d-flex justify-content-md-start mt-3 ">
-                    <input class="btn w-100 w-md-50  btn-danger btn__btn--submit " type="reset" value="Annuler">
+                    <input class="btn w-25 w-md-50  btn-danger btn__btn--submit " type="reset" value="Annuler">
                 </div>
                 <!-- btn valider -->
                 <div class="col-md-5 d-flex justify-content-md-end my-3">
-                    <button class="btn w-100 w-md-50 btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
+                    <button class="btn w-50 w-md-50 btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
                 </div>
 
                 <!-- link login -->
@@ -269,7 +262,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
     </main>
     <footer>
-      <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+        <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>

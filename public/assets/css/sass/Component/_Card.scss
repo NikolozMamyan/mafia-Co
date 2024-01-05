@@ -25,7 +25,13 @@
 .title__card--h2 {
   font-size: small;
 }
-
+.a__unstyled{
+  text-decoration: none;
+  
+}
+.a__unstyled li {
+  font-size: 0.8em;
+}
 @media (max-width: 768px) {
   .profilePic {
     border-radius: 50%;

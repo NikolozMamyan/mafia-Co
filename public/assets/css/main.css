@@ -106,14 +106,6 @@ table {
   color: #FFF;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 100%;
-  width: var(--taille-container);
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
 /* Boutons et liens
 --------------------------------------------- */
 a, button, input[type=submit] {
@@ -537,6 +529,14 @@ div#copyright {
   font-size: small;
 }
 
+.a__unstyled {
+  text-decoration: none;
+}
+
+.a__unstyled li {
+  font-size: 0.8em;
+}
+
 @media (max-width: 768px) {
   .profilePic {
     border-radius: 50%;
@@ -708,6 +708,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 #landing-page form label {
+  display: inline;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 90%;
@@ -841,15 +842,38 @@ section#col-droite img {
   color: #fff;
 }
 
+#signupPage form input[type=text], input[type=password], input[type=file] {
+  background-color: #fff;
+  border: 0;
+  padding: 1.2em 1em;
+  display: block;
+  width: 100%;
+  margin: 0.6em auto 2em;
+  border-radius: 4px;
+}
+
+button#show-hide-password-signup {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  height: 92%;
+  font-size: 2.6rem;
+  border: 0;
+  padding: 0 0.5em;
+  background-color: transparent;
+}
+
 .test {
   border: 2px solid red;
 }
 
 .btn__btn--submit {
+  margin-top: 2em;
   color: white;
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .bg__btn--submit {
@@ -872,6 +896,11 @@ section#col-droite img {
 }
 .bg__section--lavande {
   background: rgba(217, 205, 234, 0.8);
+}
+
+.bg-P500 {
+  background-color: #4C3172;
+  color: rgb(255, 255, 255);
 }
 
 /* Page Mon profil

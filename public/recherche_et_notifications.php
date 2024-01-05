@@ -1,27 +1,19 @@
 <!-- search -->
 <?php
+
 require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
 <body>
-    <header class=" header ">
+    <header class="container">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main>
-        <section class="container-fluid ">
-            <div class="row  ">
-                <!-- menu -->
-                <div class="col mb-3 bg__nav ">
-                    <?php require_once(__DIR__ . '/../views/navBar.php'); ?>
-                </div>
-            </div>
-        </section>
-        <div class="d-flex justify-content-center align-items-center mb-5">
-            <div class="d-flex row justify-content-center m-0 p-auto desktop-image-profile w-100">
-                <section id="recherche" class="col-12">
+    <main id="main-profil" class="container">
+        <h1 class="page-title">Mes recherches et notifications</h1>
+        <section id="recherche" class="col-12 my-3 ">
                     <?php
                     require_once('../views/search.php');
                     ?>
@@ -33,16 +25,17 @@ require_once(__DIR__ . '/../views/headDev.php');
                     ?>
                 </section>
 
-            </div>
-        </div>
+       
     </main>
+
     <footer>
         <?php
         require_once(__DIR__ . '/../views/footer.php');
         ?>
     </footer>
-    <script src="../public/assets/js/search.js"></script>
 
+
+    <script src="../public/assets/js/search.js"></script>
 </body>
 
 </html>
