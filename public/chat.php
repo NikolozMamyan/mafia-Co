@@ -6,21 +6,15 @@ require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
 <body class="body__chat">
-    <header class=" header ">
+    <header class=" container ">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main class="main__chat">
-        <section class="container-fluid ">
-            <div class="row  ">
-                <!-- menu -->
-                <div class="col mb-3 bg__nav ">
-                    <?php require_once(__DIR__ . '/../views/navBar.php'); ?>
-                </div>
-            </div>
-        </section>
+    <main id="main-profil" class="container">
+        <h1 class="page-title">Ma messagerie</h1>
+        
         <section class="d-flex justify-content-center align-items-center mb-5">
             <div class="container d-flex justify-content-center g-0 m-0 p-auto desktop-image">
 

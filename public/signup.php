@@ -20,7 +20,7 @@ require_once(__DIR__ . '/../views/headDev.php');
         </section>
         <div class="container-fluid">
 
-            <form class="border row m-2 d-flex justify-content-md-around">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around">
                 <!-- btn close -->
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
@@ -238,12 +238,12 @@ require_once(__DIR__ . '/../views/headDev.php');
                     </div>
                 </section>
                 <!-- btn annuler -->
-                <div class="col-md-5 d-flex justify-content-md-start mt-3 ">
-                    <input class="btn w-25 w-md-50  btn-danger btn__btn--submit " type="reset" value="Annuler">
+                <div class="col-md-5 col-12 d-flex justify-content-md-start mt-3 ">
+                    <input class="btn   btn-danger btn__btn--submit " type="reset" value="Annuler">
                 </div>
                 <!-- btn valider -->
-                <div class="col-md-5 d-flex justify-content-md-end my-3">
-                    <button class="btn w-50 w-md-50 btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
+                <div class="col-md-5 col-12 d-flex justify-content-md-end my-3">
+                    <button class="btn btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
                 </div>
 
                 <!-- link login -->

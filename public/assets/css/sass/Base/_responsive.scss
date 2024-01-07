@@ -227,3 +227,16 @@
 	    text-align: center;
 	}
 }
+@media (min-width: 768px) {
+	/* Pour les écrans de taille moyenne (desktop et tablette) */
+	.btn__btn--submit {
+		width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	/* Pour les écrans mobiles */
+	.btn__btn--submit {
+		width: 100%;
+	}
+}

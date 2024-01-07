@@ -311,6 +311,18 @@ a, button, input[type=submit] {
     text-align: center;
   }
 }
+@media (min-width: 768px) {
+  /* Pour les écrans de taille moyenne (desktop et tablette) */
+  .btn__btn--submit {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  /* Pour les écrans mobiles */
+  .btn__btn--submit {
+    width: 100%;
+  }
+}
 /* Titres
 --------------------------------------------- */
 h1 {
@@ -1284,56 +1296,14 @@ a.edit-icon:hover, a.edit-icon:focus {
     bottom: 70px;
   }
 }
-.contact-info {
-  margin-top: 30px;
+.terms {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.team-member {
-  margin-bottom: 30px;
-}
-
-.team-member p {
-  margin: 10px 0;
-}
-
-.team-member strong {
-  font-weight: bold;
-}
-
-.section__onePage {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/desktopBGcar_driving-bro.svg");
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.header__onePage, .footer__onePage, .title__onePage, .navBar__onePage {
-  text-align: center;
-  position: fixed;
-  width: 100%;
-}
-
-.header__onePage {
-  top: 0;
-}
-
-.footer__onePage {
-  bottom: 0;
-}
-
-.main__onePage {
-  margin-top: 90px; /* Ajustez cette marge en fonction de la hauteur de votre en-tête */
-}
-
-.navBar__onePage {
-  margin-top: 30px;
-}
-
-.title__onePage {
-  margin-top: 70px;
+.terms h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=main.css.map */

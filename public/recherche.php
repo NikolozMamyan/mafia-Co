@@ -13,19 +13,14 @@ require_once(__DIR__ . '/../views/headDev.php');
     </header>
     <main id="main-profil" class="container">
         <h1 class="page-title">Mes recherches et notifications</h1>
-        <section id="recherche" class="col-12 my-3 ">
-                    <?php
-                    require_once('../views/search.php');
-                    ?>
-                </section>
-                <br>
-                <section id="notification" class="col-12">
-                    <?php
-                    require_once('../views/notifications.php');
-                    ?>
-                </section>
+        <section id="recherche" class="col-12 ">
+            <?php
+            require_once('../views/search.php');
+            ?>
+        </section>
 
-       
+
+
     </main>
 
     <footer>
