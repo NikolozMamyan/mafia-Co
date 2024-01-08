@@ -1269,9 +1269,17 @@ a.edit-icon:hover, a.edit-icon:focus {
 
 #contactsOffcanvas,
 #notificationsOffcanvas {
-  top: 20%;
-  height: 70%;
-  width: 50%;
+  top: 14%;
+  height: calc(100vh - 265px);
+  width: calc(100vh - 545px);
+}
+
+.card__border--none {
+  border: none;
+}
+
+.container__border {
+  background-color: var(--secondary-color);
 }
 
 .card__body--chat {
@@ -1290,7 +1298,7 @@ a.edit-icon:hover, a.edit-icon:focus {
     font-size: 0.8rem;
   }
   .body__chat h1,
-  footer {
+  .body__chat footer {
     display: none;
   }
 }

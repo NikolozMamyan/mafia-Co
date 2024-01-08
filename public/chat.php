@@ -12,21 +12,21 @@ require_once(__DIR__ . '/../views/headDev.php');
 
         ?>
     </header>
-    <main id="" class="container">
+    <main id="chatBox" class="container">
         <h1 class="page-title">Ma messagerie</h1>
         
         <section class="d-flex justify-content-center align-items-center mb-5">
             <div class="container d-flex justify-content-center g-0 m-0 p-auto desktop-image">
 
-                <div class="container-fluid bg__100">
+                <div class="container-fluid container__border">
                     <div class="row g-0">
                         <!-- Colonne des contacts à gauche -->
                         <div class="col-md-3 d-none d-md-block contact__colunm ">
-                            <div class="card rounded-0  ">
-                                <div class="card-header bg__offCanvas">
-                                    <h6 class="colors__offcanvas">Contacts</h6>
+                            <div class="card rounded-0 card__border--none ">
+                                <div class="card-header bg__offCanvas h__title--card">
+                                    <h2 class="colors__offcanvas">Contacts</h2>
                                 </div>
-                                <div class="card-body bg__100">
+                                <div class="card-body container__border">
                                     <div class="input-group">
                                         <input class="form-control" placeholder="Search">
                                         <div class="input-group-btn">
@@ -94,7 +94,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <!-- Offcanvas pour les contact -->
                                     <div class="offcanvas offcanvas-start" tabindex="-1" id="contactsOffcanvas" aria-labelledby="contactsOffcanvasLabel">
                                         <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="contactsOffcanvasLabel">Contacts</h5>
+                                            <h2 class="offcanvas-title" id="contactsOffcanvasLabel">Contacts</h2>
 
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
@@ -133,7 +133,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <!-- Offcanvas pour les notifications -->
                                     <div class="offcanvas offcanvas-end" tabindex="-1" id="notificationsOffcanvas" aria-labelledby="notificationsOffcanvasLabel">
                                         <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="notificationsOffcanvasLabel">Messages</h5>
+                                            <h2 class="offcanvas-title" id="notificationsOffcanvasLabel">Messages</h2>
                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                         </div>
                                         <div class="offcanvas-body ">
@@ -164,12 +164,12 @@ require_once(__DIR__ . '/../views/headDev.php');
                         </div>
 
                         <!-- Colonne des notifications à droite -->
-                        <div class="col-md-3 d-none d-md-block notify--mesages__colunm">
-                            <div class="card rounded-0 ">
-                                <div class="card-header bg__offCanvas">
-                                    <h6 class="colors__offcanvas">Messages</h6>
+                        <div class="col-md-3 d-none d-md-block notify--mesages__colunm ">
+                            <div class="card rounded-0 card__border--none">
+                                <div class="card-header bg__offCanvas h__title--card">
+                                    <h2 class="colors__offcanvas">Messages</h2>
                                 </div>
-                                <div class="card-body bg__100">
+                                <div class="card-body container__border">
                                     <!-- Contenu des notifications ici -->
                                     <span class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></span>
                                     <ul class="list-group">
