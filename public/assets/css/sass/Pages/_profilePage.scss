@@ -219,6 +219,28 @@ background-color: var(--primary-color);
   vertical-align: middle;
 }
 
+#deconnexion a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+  color: #ffffff;
+}
+
+#deconnexion a:link {
+  color: #ffffff;
+  outline: none;
+  text-decoration: none;
+}
+
+
+#deconnexion a:hover {
+  outline: none;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: var(--primary-color);
+}
+
+
 /** A ENLEVER UNE FOIS L'IFRAME SETUP */
 
 #user-map img {

@@ -1,0 +1,65 @@
+/*NavBar Dashboard*/
+
+.header__dashboard{
+    position: relative;
+    margin-left: 165px;
+    width: auto;
+    background-color: #6D46A4;
+    height: 100px;
+}
+.logo__dashboard{
+    display: none;
+    position: absolute;
+    margin: 20px;
+}
+.navBar__dashboard{
+display: flex;
+justify-content: space-between;
+margin-left: 50px;
+margin-right: 50px;
+
+}
+.search__bar{
+    position: relative;
+}
+.search__dashbaord {
+    background:none;
+    position: absolute;
+    left: 10px;
+    border: none;
+    top: 22px;
+}
+.search__dashbaord img{
+    width: 20px;
+}
+.inp__dashboard{
+     border: white;
+    height: 55px;
+    margin-top: 8px;
+    width: 380px;
+    border-radius: 10px;
+    text-align:center;
+}
+.admin__dashboard {
+    display: flex;
+}
+
+.user__details {
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: end;
+    color: white;
+}
+.name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+.avatar{
+padding: 15px;
+  margin-left: -20px;
+}
+/*NavBar Dashboard Fin*/
+

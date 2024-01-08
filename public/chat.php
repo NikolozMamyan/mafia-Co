@@ -12,7 +12,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
         ?>
     </header>
-    <main id="main-profil" class="container">
+    <main id="" class="container">
         <h1 class="page-title">Ma messagerie</h1>
         
         <section class="d-flex justify-content-center align-items-center mb-5">
