@@ -12,99 +12,214 @@
 //  body{
 //    background: #f7f7f7;
 //  }
-.bg__p--500 {
-  background: $ColorPrincipal500;
+//old
+// .bg__p--500 {
+//   background: $ColorPrincipal500;
 
-}
+// }
 
-.wrapper__s {
-  width: 66vh;
-  border-radius: 16px;
-  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-    0 32px 64px -48px rgba(0, 0, 0, 0.5);
-}
-.radius__border--all{
-  border-radius: 16px;
-  border: 1px $ColorPrincipal400 solid;
-}
-.bg__btn--submit {
-  background: $colorSecondary600;
-}
+// .wrapper__s {
+//   width: 66vh;
+//   border-radius: 16px;
+//   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+//     0 32px 64px -48px rgba(0, 0, 0, 0.5);
+// }
+// .radius__border--all{
+//   border-radius: 5px;
+//   border: 1px $ColorPrincipal400 solid;
+// }
+// .bg__btn--submit {
+//   background: $colorSecondary600;
+// }
 
-.radius__left {
-  border-radius: 25px 0 0 25px !important;
-}
+// .radius__left {
+//   border-radius: 5px 0 0 5px !important;
+// }
 
-.radius__right {
-  border-radius: 0 25px 25px 0 !important;
-}
+// .radius__right {
+//   border-radius: 0 5px 5px 0 !important;
+// }
 
-.resum {
-  color: $colorWhite;
-  font-size: 20px;
-}
+// .resum {
+//   color: $colorWhite;
+//   font-size: 20px;
+// }
 
-.label__white {
-  color: $colorWhite;
-}
+// .label__white {
+//   color: $colorWhite;
+// }
 
-.w__signup {
-  width: 66%;
-}
+// .w__signup {
+//   width: 66%;
+// }
 
-.bg__btn--close {
-  background-color: $ColorPrincipal500;
-}
+// .bg__btn--close {
+//   background-color: $ColorPrincipal500;
+// }
 
-/* Afficher l'image desktop pour les écrans larges */
-@media (min-width: 768px) {
+// /* Afficher l'image desktop pour les écrans larges */
+// @media (min-width: 768px) {
 
-  .desktop-image {
-    content: "";
-    display: block;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-      url("../images/desktopBGcar_driving-bro.svg");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
-    min-height: 68.8vh;
+//   .desktop-image {
+//     content: "";
+//     display: block;
+//     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+//       url("../images/desktopBGcar_driving-bro.svg");
+//     background-repeat: no-repeat;
+//     background-size: auto;
+//     background-position: center;
+//     min-height: 68.8vh;
 
 
-  }
+//   }
 
-}
-/* Afficher l'image mobile pour les écrans étroits */
-@media (max-width: 991px) {
-  .wrapper__s {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-      0 32px 64px -48px rgba(0, 0, 0, 0.5);
-      padding: 20px;
+// }
+// /* Afficher l'image mobile pour les écrans étroits */
+// @media (max-width: 991px) {
+//   .wrapper__s {
+//     width: 100%;
+//     border-radius: 16px;
+//     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+//       0 32px 64px -48px rgba(0, 0, 0, 0.5);
+//       padding: 20px;
       
-  }
+//   }
   
+// }
+
+// /* Afficher l'image mobile pour les écrans étroits */
+// @media (max-width: 576px) {
+
+//   .desktop-image {
+
+//     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+//       url('../images/mobileBackground_car.svg');
+//     background-repeat: no-repeat;
+//     background-size: auto;
+//     background-position: center;
+//     min-height: 80vh;
+//   }
+
+//   .w__signup {
+//     width: 100%;
+//   }
+
+
+//   .section__resum {
+//     display: none;
+//   }
+// }
+#landing-page main {
+	max-width: 100%;
 }
 
-/* Afficher l'image mobile pour les écrans étroits */
-@media (max-width: 576px) {
+#landing-page header {
+	margin-bottom: 4em;
+}
 
-  .desktop-image {
+#landing-page header img {
+    width: clamp(200px, 65vw, 280px);
+	
+}
 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-      url('../images/mobileBackground_car.svg');
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
-    min-height: 80vh;
-  }
+#landing-page h1 {
+	margin-bottom: 0.5em;
+	text-transform: initial;
+	font-size: var(--h1-size);
+	color: var(--primary-color);
+}
 
-  .w__signup {
+#landing-page p:first-of-type {
+	font-size: 120%;
+}
+
+#landing-page form {
+	margin: 4em auto 5em 0;
+	width: 500px;
+	max-width: 100%;
+}
+
+#landing-page form label {
+    display: inline;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 90%;
+}
+
+#landing-page form input {
+    background-color: #F5F5F5;
+    border: 0;
+    padding: 1.2em 1em;
+    display: block;
     width: 100%;
-  }
+    margin: 0.6em auto 2em;
+    border-radius: 4px;
+}
 
+#landing-page form input[type="password"] {
+    margin-bottom: 0;
+}
 
-  .section__resum {
-    display: none;
-  }
+#landing-page input[type="submit"] {
+	margin-top: 2em;
+	border-radius: 4px;
+    background-color: var(--primary-color);
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+label[for="your-password"] {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+label[for="your-password"] a {
+    text-align: right;
+    color: grey;
+    text-decoration: none;
+    text-transform: initial;
+    font-size: 90%;
+    font-style: italic;
+}
+
+label[for="your-password"] input {
+	grid-column: span 2;
+}
+
+button#show-hide-password {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    height: 65%;
+    font-size: 2.6rem;
+    border: 0;
+    padding: 0 0.5em;
+    background-color: transparent;
+}
+
+#landing-page footer {
+	line-height: 2;
+    font-size: 1.2rem;
+    color: #AFAFAF;
+}
+
+#landing-page footer a {
+    color: #AFAFAF;
+    text-decoration: none;
+}
+
+section#col-droite {
+	background-color: var(--primary-color);
+	background-image: url('../images/covoiturage-cci-background-landing-page-1200x1200.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: grid;
+    align-content: end;
+    height: 100%;
+}
+
+section#col-droite img {
+    margin-left: -6em;
 }

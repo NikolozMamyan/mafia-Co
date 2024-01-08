@@ -6,21 +6,15 @@ require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
 <body class="body__chat">
-    <header class=" header ">
+    <header class=" container ">
         <?php
         require_once(__DIR__ . '/../views/header.php');
 
         ?>
     </header>
-    <main class="main__chat">
-        <section class="container-fluid ">
-            <div class="row  ">
-                <!-- menu -->
-                <div class="col mb-3 bg__nav ">
-                    <?php require_once(__DIR__ . '/../views/navBar.php'); ?>
-                </div>
-            </div>
-        </section>
+    <main id="" class="container">
+        <h1 class="page-title">Ma messagerie</h1>
+        
         <section class="d-flex justify-content-center align-items-center mb-5">
             <div class="container d-flex justify-content-center g-0 m-0 p-auto desktop-image">
 
@@ -32,7 +26,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 <div class="card-header bg__offCanvas">
                                     <h6 class="colors__offcanvas">Contacts</h6>
                                 </div>
-                                <div class="card-body  p-0 ">
+                                <div class="card-body bg__100">
                                     <div class="input-group">
                                         <input class="form-control" placeholder="Search">
                                         <div class="input-group-btn">
@@ -41,18 +35,28 @@ require_once(__DIR__ . '/../views/headDev.php');
                                             </button>
                                         </div>
                                     </div>
-                                    <!-- Contenu des contacts ici -->
-                                    <ul class="list-group ">
+                                    <!-- Contenu resutat recherche contact -->
+                                    <span class="card-text p-0 m-0"><small class="text-muted">Resultat</small></span>
+                                    <ul class="list-group">
+                                        <?php
 
+                                        for ($i = 0; $i < 3; $i++) {
+                                            include('../views/cardSearchContact.php');
+                                        }
+                                        ?>
+                                    </ul>
+                                    <!-- Contenu liste contact -->
+                                    <span class="card-text p-0 m-0"><small class="text-muted">Mes contact</small></span>
+                                    <ul class="list-group">
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
                                             include('../views/cardContact.php');
                                         }
                                         ?>
-
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
 
@@ -82,7 +86,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         include('../views/cardChatLeft.php');
                                         include('../views/cardChatRight.php');
                                         include('../views/cardChatLeft.php');
-                                        
+
                                         ?>
 
                                     </ul>
@@ -103,8 +107,19 @@ require_once(__DIR__ . '/../views/headDev.php');
                                                     </button>
                                                 </div>
                                             </div>
-                                            <!-- Contenu des contact ici -->
-                                            <ul class="list-group bg__100">
+                                            <!-- Contenu resutat recherche contact -->
+                                            <span class="card-text p-0 m-0"><small class="text-muted">Resultat</small></span>
+                                            <ul class="list-group">
+                                                <?php
+
+                                                for ($i = 0; $i < 3; $i++) {
+                                                    include('../views/cardSearchContact.php');
+                                                }
+                                                ?>
+                                            </ul>
+                                            <!-- Contenu liste contact -->
+                                            <span class="card-text p-0 m-0"><small class="text-muted">Mes contact</small></span>
+                                            <ul class="list-group">
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
@@ -124,7 +139,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         <div class="offcanvas-body ">
                                             <!-- Contenu des notifications ici -->
                                             <ul class="list-group ">
-                                                <p class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></p>
+                                                <span class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></span>
 
                                                 <?php
 
@@ -156,7 +171,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 </div>
                                 <div class="card-body bg__100">
                                     <!-- Contenu des notifications ici -->
-                                    <p class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></p>
+                                    <span class="card-text p-0 m-0"><small class="text-muted">date messages recent</small></span>
                                     <ul class="list-group">
                                         <?php
 

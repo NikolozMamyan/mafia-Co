@@ -2,18 +2,55 @@
 //     @include mix__pageHead;
 //     // top:0;
 //   }
+// old
+// .header {
+//   background-color: $ColorPrincipal200;
+// }
 
-.header {
-  background-color: $ColorPrincipal200;
+// .image {
+//   padding: 8px;
+//   height: 120px;
+// }
+
+// @media (max-width: 576px) {
+//   .header__login {
+//     background-color: $colorWhite;
+//   }
+// }
+// new
+/* Header
+--------------------------------------------- */
+
+header {
+  padding-top: 1em;
 }
 
-.image {
-  padding: 8px;
-  height: 120px;
+#logo-header img {
+  width: 260px;
+  margin: 0 auto;
 }
 
-@media (max-width: 576px) {
-  .header__login {
-    background-color: $colorWhite;
-  }
+header nav ul {
+  text-align: center;
+  display: flex;
+}
+
+header nav ul a {
+  text-decoration: none;
+}
+
+header nav ul i {
+line-height: 1;
+position: relative;
+}
+
+span.number-bubble {
+line-height: 1;
+position: absolute;
+font-style: normal;
+border-radius: 50px;
+}
+
+header nav ul img {
+border-radius: 50px;
 }

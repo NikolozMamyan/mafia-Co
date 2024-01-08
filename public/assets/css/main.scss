@@ -1,10 +1,15 @@
 @import "./sass/Base/colors";
 @import "./sass/Base/fonts";
+@import "./sass/Base/resets";
+@import "./sass/Base/responsive";
+@import "./sass/Base/titres";
 @import "./sass/Utils/variables";
 @import "./sass/Utils/functions";
 @import "./sass/Utils/mixins";
 @import "./sass/Layout/navBar";
+@import "./sass/Layout/navBarDashboard";
 @import "./sass/Layout/header";
+@import "./sass/Layout/sideBarDashboard";
 @import "./sass/Layout/footer";
 @import "./sass/Component/Buttons";
 @import "./sass/Component/Card";
@@ -18,3 +23,4 @@
 @import "./sass/Pages/contactFooter";
 @import "./sass/Pages/chatBoxPage";
 @import "./sass/Pages/mentions";
+@import "./sass/Pages/dashboard";

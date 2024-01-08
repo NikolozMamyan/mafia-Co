@@ -69,7 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
           event.preventDefault();
 
           // Redirection après la soumission du formulaire
-          window.location.href = '../public/login.php';
+          // window.location.href = '../public/login.php';
       });
   } 
 });
+function toggleCheckboxStyle(checkbox) {
+  var label = checkbox.parentElement;
+
+  if (checkbox.checked) {
+    label.classList.add('checked');
+  } else {
+    label.classList.remove('checked');
+  }
+}
