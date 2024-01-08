@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../bootstrap/app.php';
+
 function base_path(string $path = ''): string
 {
     // Add auto /
@@ -7,5 +9,5 @@ function base_path(string $path = ''): string
         $path = '/' . $path;
     }
 
-    return __DIR__ . '/../' . $path;
+    return APP_BASE_PATH . $path;
 }

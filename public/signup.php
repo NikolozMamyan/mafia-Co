@@ -1,11 +1,8 @@
 <!-- signup.php -->
 
 <?php
-require_once __DIR__ . '/../helpers/path_functions.php';
 require_once(__DIR__ . '/../views/headDev.php');
-require_once base_path('Controllers/AuthController.php');
-$controller = new Controllers\AuthController();
-$controller->register();
+require_once(__DIR__ . '/../controllers/AuthController.php');
 ?>
 
 <body id="signupPage">
@@ -23,7 +20,7 @@ $controller->register();
         </section>
         <div class="container-fluid">
 
-            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php echo ($actionUrl) ?>" method="POST">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST">
                 <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
 
@@ -134,7 +131,7 @@ $controller->register();
                             <!-- fichier photo -->
                             <div class="col-md-12 mb-3">
                                 <label for="" class="form-label ps-3">Choisir une photo</label>
-                                <input type="file" class="form-control " name="photo" aria-label="file example" required>
+                                <input type="file" class="form-control " name="photo" aria-label="file example">
                                 <!-- <div class="invalid-feedback">Example invalid form file feedback</div> -->
                             </div>
 
@@ -143,7 +140,7 @@ $controller->register();
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="CGU" value="" id="invalidCheck2" required>
                                     <label class="form-check-label " for="invalidCheck2">
-                                    Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
+                                        Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
                                     </label>
                                     <span class="invalid-feedback">
                                         <span class="invalid-feedback">
@@ -270,7 +267,7 @@ $controller->register();
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>
-    <script src="./assets/js/signup.js"></script>
+    <!-- <script src="./assets/js/signup.js"></script> -->
 
 </body>
 

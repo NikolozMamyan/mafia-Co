@@ -14,9 +14,9 @@ use DB;
 class AuthController extends Controller
 {
     const URL_HANDLER = '/handlers/auth-handler.php';
-    const URL_REGISTER = '/register.php';
+    const URL_REGISTER = '/signup.php';
     const URL_LOGIN = '/login.php';
-    const URL_AFTER_LOGIN = '/home.php';
+    const URL_AFTER_LOGIN = '/';
     const URL_AFTER_LOGOUT = '/';
 
     public function login(): void
