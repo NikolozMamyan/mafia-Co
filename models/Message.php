@@ -4,11 +4,11 @@ namespace models;
 
 class Message extends Model
 {
-    private $idMessage;
-    private $contenuMessage;
-    private $dateTimeMessage;
-    private $idUtilisateur;
-    private $idUtilisateurDestinataire;
+    protected int $idMessage;
+    protected string $contenuMessage;
+    protected string $dateTimeMessage;
+    protected int $idUtilisateur;
+    protected int $idUtilisateurDestinataire;
 
     // Constructeur
     public function __construct($contenuMessage, $idUtilisateur, $idUtilisateurDestinataire)
@@ -69,5 +69,17 @@ class Message extends Model
     public function setIdUtilisateurDestinataire($idUtilisateurDestinataire)
     {
         $this->idUtilisateurDestinataire = $idUtilisateurDestinataire;
+    }
+
+    // Méthode pour obtenir les données sous forme de tableau
+    public function toArray()
+    {
+        return [
+            'idMessage' => $this->idMessage,
+            'contenuMessage' => $this->contenuMessage,
+            'dateTimeMessage' => $this->dateTimeMessage,
+            'idUtilisateur' => $this->idUtilisateur,
+            'idUtilisateurDestinataire' => $this->idUtilisateurDestinataire,
+        ];
     }
 }

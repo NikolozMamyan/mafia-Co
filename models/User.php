@@ -20,6 +20,9 @@ class User extends Model
     protected string $villeUtilisateur;
     protected float $latUtilisateur;
     protected float $lonUtilisateur;
+    protected array $contacts;
+    protected array $notifications;
+    protected array $trajets;
 
     // Getter pour idUtilisateur
     public function getIdUtilisateur()
@@ -199,6 +202,39 @@ class User extends Model
     public function setLonUtilisateur($lonUtilisateur)
     {
         $this->lonUtilisateur = $lonUtilisateur;
+    }
+
+    // Méthodes pour gérer les contacts
+    public function ajouterContact($contact)
+    {
+        $this->contacts[] = $contact;
+    }
+
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
+
+    // Méthodes pour gérer les notifications
+    public function ajouterNotification($notification)
+    {
+        $this->notifications[] = $notification;
+    }
+
+    public function getNotifications()
+    {
+        return $this->notifications;
+    }
+
+    // Méthodes pour gérer les trajets
+    public function ajouterTrajet($trajet)
+    {
+        $this->trajets[] = $trajet;
+    }
+
+    public function getTrajets()
+    {
+        return $this->trajets;
     }
 
     // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
