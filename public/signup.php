@@ -139,7 +139,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                                     <label class="form-check-label " for="invalidCheck2">
-                                        Agree to terms and conditions
+                                    Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
                                     </label>
                                     <span class="invalid-feedback">
                                         <span class="invalid-feedback">
@@ -239,11 +239,11 @@ require_once(__DIR__ . '/../views/headDev.php');
                 </section>
                 <!-- btn annuler -->
                 <div class="col-md-5 col-12 d-flex justify-content-md-start mt-3 ">
-                    <input class="btn   btn-danger btn__btn--submit " type="reset" value="Annuler">
+                    <input class="btn btn-danger btn__btn--submit " type="reset" value="Annuler">
                 </div>
                 <!-- btn valider -->
                 <div class="col-md-5 col-12 d-flex justify-content-md-end my-3">
-                    <button class="btn btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
+                    <input class="btn btn__btn--submit bg__btn--submit " type="submit" value="Valider">
                 </div>
 
                 <!-- link login -->

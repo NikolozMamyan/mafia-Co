@@ -1,9 +1,11 @@
 .bg__100 {
   background-color: $ColorPrincipal100;
 }
+
 .bg__400 {
   background-color: $ColorPrincipal400;
 }
+
 .bg__secondary--500 {
   background-color: $colorSecondary500;
 }
@@ -11,63 +13,56 @@
 .h__title--card {
   height: 44px;
 }
+
 .bg__offCanvas {
   background-color: $ColorPrincipal400;
 }
+
 .colors__offcanvas {
   color: $colorWhite;
 }
+
 .bg__input--chat {
   background-color: $colorWhiteOpacity80;
   border-top: 0;
 }
+
 .width__90 {
   width: 80%;
 }
+
 .img__width {
   width: 20px;
 }
+
 .bg__card--conducteurPassager {
   background-color: $ColorPrincipal400;
 }
+
 .bg__card--conducteur {
   background-color: $ColorPrincipal300;
 }
+
 .bg__card--passager {
   background-color: $ColorPrincipal200;
 }
+
 #contactsOffcanvas,
 #notificationsOffcanvas {
   top: 20%;
   height: 70%;
   width: 50%;
 }
+
 .card__body--chat {
   overflow-y: scroll;
 }
 
-@media screen and (max-width: 765px) {
-  .card-footer.bg__input--chat {
-    position: fixed;
-    left: 0;
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 766px) {
-  .body__chat {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  .main__chat {
-    height: 100vh;
-    overflow-y: hidden;
-  }
+@media screen and (max-width: 767px) {
   .card__body--chat {
     max-height: calc(100vh - 300px);
   }
-
+  
   .reduced-image-size {
     max-width: 35px;
     height: auto;
@@ -75,16 +70,44 @@
   .reduced-text-size {
     font-size: 0.8rem;
   }
+  .body__chat h1,
+  footer {
+    display: none;
+  }
+
 }
 
-@media screen and (min-width: 361px) and (max-width: 992px) {
-  .card-footer.bg__input--chat {
-    bottom: 0;
-  }
-}
+// @media screen and (max-width: 765px) {
+//   .card-footer.bg__input--chat {
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//   }
+// }
 
-@media (max-width: 576px) {
-  .card-footer.bg__input--chat {
-    bottom: 70px;
-  }
-}
+// @media screen and (max-width: 766px) {
+//   .body__chat {
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden;
+//   }
+//   .main__chat {
+//     height: 100vh;
+//     overflow-y: hidden;
+//   }
+
+
+  
+// }
+
+// @media screen and (min-width: 361px) and (max-width: 992px) {
+//   .card-footer.bg__input--chat {
+//     bottom: 0;
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .card-footer.bg__input--chat {
+//     bottom: 70px;
+//   }
+// }

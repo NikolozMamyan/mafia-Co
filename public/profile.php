@@ -26,7 +26,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
             <!-- Prévoyez une condition s'il y a 0 messages et 0 notifications avec une autre phrase du coup ! -->
         </section>
-        <button id="" class="mb-5 btn-danger">Déconnexion</button>
+        <button id="deconnexion" class="mb-5 btn-danger" ><a href="index.php">Déconnexion</a></button>
         <section id="user-details">
             <!----------- Vos informations personnelles ------------>
             <div id="user-infos">
