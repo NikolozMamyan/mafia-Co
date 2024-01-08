@@ -20,6 +20,17 @@
     margin-right: auto;
     
 }
+.swap-container {
+  display: flex;
+  flex-direction: column;
+ order: 1;
+}
+
+.swap {
+order: 1;
+}
+
+
 .form__group {
     position: relative;
 }
