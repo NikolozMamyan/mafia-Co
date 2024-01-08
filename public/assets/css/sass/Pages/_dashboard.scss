@@ -1,0 +1,129 @@
+
+
+
+
+/*title-userCreate*/
+.flex__title{
+    display: flex;
+    justify-content: space-evenly;
+}
+.title{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.user__create{
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    width: 200px;
+    color: white;
+    border-radius: 5px;
+    background-color: #6D46A4;
+}
+
+/*title-userCreate Fin*/
+
+/*users Dashboard*/
+.container__center{
+    display: flex;
+    justify-content: center;
+   
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.users__table  td{
+    border-collapse: collapse;
+    padding: 35px;
+}
+
+.table__head  th{
+    
+    text-align: left;
+    padding: 40px;
+    background-color: #FBFBFB;
+    border-bottom: 2px solid #DFE1E6;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .header__dashboard{
+        height: 150px;
+        margin: auto;
+    }
+    .sidebar__dashboard{
+        height: 86vh;
+        margin-top: 150px;
+    }
+    .users__table td{
+        padding: 15px;
+    }
+    .table__head  th{
+        padding: 15px;
+    
+    }
+    
+      }
+    
+      @media only screen and (max-width: 768px) {
+    
+        
+        .logo__dashboard {
+            width: 150px;
+            display:unset;
+        }
+        
+        .navBar__dashboard {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: end;
+            margin-right: 80px;
+          
+        }
+        
+    .search__dashboard{
+        top: 13px;
+    }
+    .inp__dashboard{
+        height: 30px;
+        width: 280px;
+    }
+    .sidebar__dashboard{
+        display: flex;
+        align-items:flex-end;
+        width: 30px;
+    }
+ 
+    .deconnexion{
+    margin-right: 10px;
+        
+    }
+    .flex__title{
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    
+    }
+    .users__table  td{
+        padding: 25px;
+    }
+    
+    .table__head  th{
+        padding: 10px;
+    }
+    .sidebar__dashboard span{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    .display__none{
+        display: none;
+    }
+    
+      }
+    
