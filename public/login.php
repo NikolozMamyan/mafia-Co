@@ -1,62 +1,44 @@
-<?php 
-require_once(__DIR__.'/../views/headDev.php');
+<?php
+require_once(__DIR__ . '/../views/headDev.php');
 ?>
 
-<body class="">
-  <header class="header header__login ">
-<?php 
-require_once(__DIR__.'/../views/header.php');
-?>
-</header>
-  <main class="d-flex justify-content-center ">
-    <div class=" container d-flex justify-content-center align-items-start m-0 p-0 desktop-image ">
+<body id="landing-page">
 
-      <div class="row wrapper__s bg__p--500 w-md-50 mt-5  gx-sm-0 ">
+  <!-- Partie écran de gauche -->
+  <section id="col-gauche">
+    <header >
+      <img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" />
+    </header>
 
-        <section class="col-md-5  align-self-center section__resum ">
-          <p class="resum p-md-5">Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant.</p>
-        </section>
+    <main>
+      <h1>Besoin d'un covoiturage pour aller sur le CCI Campus ?</h1>
+      <p>Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant !</p>
+      <p id="message-inscription">Pas encore inscrit ? <a href="signup.php">Créez votre compte en quelques minutes !</a></p>
 
-         <section class=" col-md-7 p-lg-3 ">
-         <form class="my-5 form__login" action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form class="form__login"  action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <label  for="your-email">Votre adresse email
+          <input type="email" name="your-email" placeholder="Entrez ici votre adresse email" />
+        </label>
+        <label for="your-password">Votre mot de passe
+          <a href="">Mot de passe oublié ?</a>
+          <input type="password" name="your-password" placeholder="Entrez ici votre mot de passe" />
+          <button id="show-hide-password"><i class="covoiturage-eye"></i></button>
+        </label>
+        <input type="submit" name="submit" value="Connexion" />
+      </form>
+    </main>
 
-            <div class="mb-3 gx-sm-2">
-              <label for="" class="form-label ps-3 label__white ">Adresse Mail</label>
-              <input type="email" class="form-control rounded-pill" id="" aria-describedby="" placeholder="Entrez votre adresse mail" >
-            </div>
+    <footer>
+      <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+    </footer>
 
-            <div class="input-group mb-3 ">
-              <label for="password" class="form-label ps-3 label__white">Mot de passe</label>
-              <div class="input-group ">
-                <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" >
-                <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span>
-              </div>
-              <div class="ps-3">
-                <a href="#">Mot de passe oublié</a>
-              </div>
-            </div>
+  </section>
 
-            <div class="offset-md-6 col-md-6 mb-2 ">
-              <button type="submit" name="submit" class="btn btn-md w-100 rounded-pill bg__btn--submit label__white">Connexion</button>
-              
-            </div>
-
-            <div class="offset-md-2 col-md-10">
-              <p class="label__white">Pas encore inscrit ? <a href="signup.php">S'inscrire maintenant</a></p>
-            </div>
-
-          </form>
-        </section> 
-
-      </div>
-    </div>
-
-  </main>
-  <footer>
-  <?php 
-require_once(__DIR__.'/../views/footer.php');
-?>
-</footer>
+  <!-- Partie écran de droite -->
+  <section id="col-droite" class="desktop-only">
+    <img src="assets/images/covoiturage-cci-campus-alsace-illustration-covoiturage-people.svg" alt="illustration personnages en covoiturage" />
+  </section>
+  <!-- js -->
   <script src="./assets/js/pass-show-hide.js"></script>
   <script src="./assets/js/login.js"></script>
 </body>

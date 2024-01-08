@@ -1,34 +1,18 @@
-<div class="container-fluid footer__container-fluid p-3">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 d-flex justify-content-center ms-2">
-            <img class="img-fluid" src="../public/assets/images/footer_logo.svg" alt="Logo">
-        </div>
-    </div>
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-4 text-center">
-            <a href="../public/serviceFooter.php" class='h2 text-light'>Services</a >
-            <ul class="stylel mt-2">
-                <li class="text-light">Web Design</li>
-                <li class="text-light">Développement</li>
-                <li class="text-light">Hébergement</li>
-            </ul class="stylel">
-        </div>
-        <div class="col-md-4 text-center">
-        <a href="../public/aproposFooter.php" class='h2 text-light'>Apropos</a >
-            <ul class="stylel mt-2">
-                <li class="text-light">Entreprise</li>
-                <li class="text-light">Équipe</li>
-                <li class="text-light">Mentions légales</li>
-            </ul class="stylel">
-        </div>
-        <div class="col-md-4 text-center">
-        <a href="../public/contactFooter.php" class='h2 text-light'>Contact</a >
-            <ul class="stylel mt-2">
-                <li class="text-light">Email</li>
-                <li class="text-light">Adresse</li>
-                <li class="text-light">Numéro</li>
-            </ul class="stylel">
-        </div>
+<div class="container">
+    <img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-blanche.svg" alt="logo cci covoiturage défonce blanche" />
+    <p>CCI Covoiturage est une plateforme de covoiturage dédiée aux campus CCI en Alsace (Strasbourg, Colmar, Mulhouse).</p>
+
+    <nav id="nav-footer">
+        <ul>
+            <li><a href="../public/profile.php"><i class="covoiturage-account"></i>Mon profil</a></li>
+            <li><a href="../public/chat.php"><i class="covoiturage-messaging"></i>Ma messagerie</a></li>
+            <li><a href="../public/notification.php"><i class="covoiturage-notification"></i>Mes notifications</a></li>
+            <li><a href="../public/recherche.php"><i class="covoiturage-search"></i>Rechercher</a></li>
+            <li><a href="../public/contactSupport.php"><i class="covoiturage-support"></i>Support technique</a></li>
+        </ul>
+    </nav>
+
+    <div id="copyright">
+        <a href="conditionsGeneral.php">Conditions générales d'utilisation</a> • <a href="mentionLegale.php">Mentions légales</a> • © CCI Covoiturage 2023
     </div>
 </div>
-

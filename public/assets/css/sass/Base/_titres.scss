@@ -1,0 +1,24 @@
+/* Titres
+--------------------------------------------- */
+
+h1 {
+	font-size: var(--h1-size);
+	color: var(--primary-color);
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: var(--h2-size);
+	color: var(--primary-color);
+}
+
+h3 {
+	font-size: var(--h3-size);
+}
+
+h1.page-title {
+	margin-top: 2em;
+    text-align: center;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 0.5em;
+}
