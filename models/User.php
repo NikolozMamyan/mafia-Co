@@ -15,8 +15,8 @@ class User extends Model
     protected string $motDePasseUtilisateur;
     protected string $photoUtilisateur;
     protected bool $compteActif;
-    protected string $dateInscriptionUtilisateur;
-    protected string $derniereModificationUtilisateur;
+    protected DateTime $dateInscriptionUtilisateur;
+    protected DateTime $derniereModificationUtilisateur;
     protected string $roleUtilisateur;
     protected string $zipcodeUtilisateur;
     protected string $villeUtilisateur;

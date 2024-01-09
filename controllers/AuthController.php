@@ -62,9 +62,11 @@ class AuthController extends Controller
             'radio-stacked' => $role,
             'photo' => $photo,
         ];
-
+        dd(!$this->validateCredentials($password, $passwordConfirm));
         // Validation
-        // TODO <------------
+        if (!$this->validateCredentials($password, $passwordConfirm)) {
+            redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
+        }
 
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
@@ -139,13 +141,6 @@ class AuthController extends Controller
         $login = $_POST['login'] ?? '';
         $password = $_POST['password'] ?? '';
 
-        // Validation
-        if (!$this->validateCredentials($password)) {
-            errors("Le champs d'e-mail doit avoir au moins 6 charactères.");
-            errors("Le champs de mot de passe doit avoir au moins 8 charactères");
-            redirectAndExit(self::URL_LOGIN);
-        }
-
         // Check DB
         $users = DB::fetch("SELECT * FROM Utilisateurs WHERE emailUtilisateur = :login;", ['login' => $login]);
         if ($users === false) {
@@ -168,15 +163,21 @@ class AuthController extends Controller
         redirectAndExit(self::URL_LOGIN);
     }
 
-    public function validateCredentials(string $password): bool
+    public function validateCredentials(string $password, string $passwordConfirm): bool
     {
         // Validation
-        if (strlen($password) < 8) {
+        if (
+            strlen($password) <= 8 or
+            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_+[\]{}|;:,.<>?]{2}).{8}$/', $password) or
+            $password !== $passwordConfirm
+        ) {
             return false;
         }
 
+
         return true;
     }
+
 
     public function logout(): void
     {
