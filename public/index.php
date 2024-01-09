@@ -1,3 +1,2 @@
-<?php 
-require_once(__DIR__.'/../public/login.php');
-?>
+<?php
+require_once(__DIR__ . '/../public/loginRedirect.php');

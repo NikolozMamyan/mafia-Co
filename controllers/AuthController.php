@@ -18,7 +18,7 @@ class AuthController extends Controller
     const URL_HANDLER = '/applications/mafia-Co/public/handlers/auth-handler.php';
     const URL_REGISTER = '/applications/mafia-Co/public/signupRedirect.php';
     const URL_LOGIN = '/applications/mafia-Co/public/index.php';
-    const URL_AFTER_LOGIN = '/applications/mafia-Co/public';
+    const URL_AFTER_LOGIN = '/applications/mafia-Co/public/Profile.php';
     const URL_AFTER_LOGOUT = '/applications/mafia-Co/public';
 
     public function login(): void
@@ -83,7 +83,7 @@ class AuthController extends Controller
             ['labelRole' => $role]
         )[0];
 
-        $idPoint = AuthController::getIdPoint($zip, $city, 0.0, 0.0);
+        $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
 
         if (!$idPoint) {
             $pointResult = DB::statement(
@@ -92,11 +92,11 @@ class AuthController extends Controller
                 [
                     'zip' => $zip,
                     'city' => $city,
-                    'latitude' => 0.0,
-                    'longitude' => 0.0,
+                    'latitude' => '0.0',
+                    'longitude' => '0.0',
                 ]
             );
-            $idPoint = AuthController::getIdPoint($zip, $city, 0.0, 0.0);
+            $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
         }
 
 
@@ -147,7 +147,7 @@ class AuthController extends Controller
         }
 
         // Check DB
-        $users = DB::fetch("SELECT * FROM users WHERE email = :login;", ['login' => $login]);
+        $users = DB::fetch("SELECT * FROM Utilisateurs WHERE emailUtilisateur = :login;", ['login' => $login]);
         if ($users === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_LOGIN);
@@ -158,8 +158,8 @@ class AuthController extends Controller
             $user = $users[0];
 
             // Version 2: with password hashing
-            if (password_verify($password, $user['password'])) {
-                $_SESSION[Auth::getSessionUserIdKey()] = $user['id'];
+            if (password_verify($password, $user['motDePasseUtilisateur'])) {
+                $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
                 redirectAndExit(self::URL_AFTER_LOGIN);
             }
         }

@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 
   <!-- Partie écran de gauche -->
   <section id="col-gauche">
-    <header >
+    <header>
       <img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" />
     </header>
 
@@ -15,13 +15,14 @@ require_once(__DIR__ . '/../views/headDev.php');
       <p>Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant !</p>
       <p id="message-inscription">Pas encore inscrit ? <a href="signup.php">Créez votre compte en quelques minutes !</a></p>
 
-      <form class="form__login"  action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <label  for="your-email">Votre adresse email
-          <input type="email" name="your-email" placeholder="Entrez ici votre adresse email" />
+      <form class="form__login" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <input type="text" name="action" value="check" hidden>
+        <label for="login">Votre adresse email
+          <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
         </label>
-        <label for="your-password">Votre mot de passe
+        <label for="password">Votre mot de passe
           <a href="">Mot de passe oublié ?</a>
-          <input type="password" name="your-password" placeholder="Entrez ici votre mot de passe" />
+          <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
           <button id="show-hide-password"><i class="covoiturage-eye"></i></button>
         </label>
         <input type="submit" name="submit" value="Connexion" />

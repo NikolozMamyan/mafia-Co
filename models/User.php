@@ -2,6 +2,8 @@
 
 namespace models;
 
+use DateTime;
+
 class User extends Model
 {
     protected int $idUtilisateur;

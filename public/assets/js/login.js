@@ -26,19 +26,19 @@
 //     xhr.send(formData);
 // }
 
-document.addEventListener('DOMContentLoaded', function() {
- 
-  // provisoire bouton de redirection vers profile
-  const formulaireLogin = document.querySelector('.form__login');
+// document.addEventListener('DOMContentLoaded', function() {
 
-  if (formulaireLogin) {
-      
-    formulaireLogin.addEventListener('submit', function(event) {
-          // Empêcher le comportement par défaut du formulaire (éviter une soumission normale)
-          event.preventDefault();
+//   // provisoire bouton de redirection vers profile
+//   const formulaireLogin = document.querySelector('.form__login');
 
-          // Redirection après la soumission du formulaire
-          window.location.href = '../public/profile.php';
-      });
-  } 
-});
+//   if (formulaireLogin) {
+
+//     formulaireLogin.addEventListener('submit', function(event) {
+//           // Empêcher le comportement par défaut du formulaire (éviter une soumission normale)
+//           event.preventDefault();
+
+//           // Redirection après la soumission du formulaire
+//           window.location.href = '../public/profile.php';
+//       });
+//   }
+// });
