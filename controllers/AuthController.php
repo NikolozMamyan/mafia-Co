@@ -21,6 +21,9 @@ class AuthController extends Controller
     const URL_AFTER_LOGIN = '/applications/mafia-Co/public/Profile.php';
     const URL_AFTER_LOGOUT = '/applications/mafia-Co/public';
 
+    const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
+    const MAX_PICTURE_SIZE = 1000000;
+
     public function login(): void
     {
         $actionUrl = self::URL_HANDLER;
@@ -46,7 +49,7 @@ class AuthController extends Controller
         $password = $_POST['password'] ?? '';
         $passwordConfirm = $_POST['password-confirm'] ?? '';
         $role = $_POST['radio-stacked'] ?? '';
-        $photo = $_POST['photo'] ?? '';
+        $photo = $_FILES['photo']['name'] ?? '';
         $CGU = $_POST['CGU'] ?? false;
 
         $_SESSION['old'] = [
@@ -64,9 +67,10 @@ class AuthController extends Controller
         ];
 
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm)) {
+        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo)) {
             redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
         }
+
 
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
@@ -100,9 +104,6 @@ class AuthController extends Controller
             );
             $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
         }
-
-
-
 
         // Create new user
         $result = DB::statement(
@@ -163,26 +164,63 @@ class AuthController extends Controller
         redirectAndExit(self::URL_LOGIN);
     }
 
-    public function validateCredentials(string $password, string $passwordConfirm): bool
-    {
-        // Validation
-        if (
-            strlen($password) <= 8 or
-            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_+[\]{}|;:,.<>?]{2}).{8}$/', $password) or
-            $password !== $passwordConfirm
-        ) {
-            return false;
-        }
-
-
-        return true;
-    }
-
-
     public function logout(): void
     {
         session_destroy();
         redirectAndExit(self::URL_AFTER_LOGOUT);
+    }
+
+    protected function validateCredentials(string $password, string $passwordConfirm): bool
+    {
+        // Validation
+        if (
+            strlen($password) < 8 or
+            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8}$/', $password) or
+            $password !== $passwordConfirm
+        ) {
+            return false;
+        }
+        return true;
+    }
+
+    protected function ValidatePicture($photo)
+    {
+        $targetDir = __DIR__ . "/../uploads/"; // Specify the directory where you want to store the uploaded files
+        $targetFile = $targetDir . basename($photo);
+        $uploadOk = true;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Check if the file already exists
+        if (file_exists($targetFile)) {
+            errors("Sorry, the file already exists.");
+            $uploadOk = false;
+        }
+
+        // Check the file size (you can adjust this value)
+        if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {
+            errors("Sorry, your file is too large.");
+            $uploadOk = false;
+        }
+
+        // Allow only certain file formats (you can customize this list)
+        if (!in_array($imageFileType, self::ALLOWED_EXTENSIONS)) {
+            errors("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
+            $uploadOk = false;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk === false) {
+            errors("Sorry, your file was not uploaded.");
+        } else {
+            // If everything is fine, try to upload the file
+            if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                echo ("The file " . htmlspecialchars(basename($photo)) . " has been uploaded.");
+                return true;
+            } else {
+                errors("Sorry, there was an error uploading your file.");
+            }
+        }
+        return false;
     }
 
     protected static function getIdPoint($zip, $city, string $latitude, string $longitude)

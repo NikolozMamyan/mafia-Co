@@ -20,7 +20,7 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
         </section>
         <div class="container-fluid">
 
-            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data">
                 <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
 
