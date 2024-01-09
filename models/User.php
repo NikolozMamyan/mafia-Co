@@ -4,129 +4,259 @@ namespace models;
 
 class User extends Model
 {
-    public int $userId;
-    public string $lastName;
-    public string $firstName;
-    public string $userAdress;
-    public string $userTel;
-    public string $userEmail;
-    private string $userPassword;
-    private string $userPic;
-    private bool $userIsActive;
-    private string $userSignupDate;
-    private string $userLastModifyDate;
-    private string $userRole;
-    private string $userCity;
-    private string $userZip;
-    private string $userLat;
-    private string $userLon;
+    protected int $idUtilisateur;
+    protected string $nomUtilisateur;
+    protected string $prenomUtilisateur;
+    protected string $adresseUtilisateur;
+    protected string $telUtilisateur;
+    protected string $emailUtilisateur;
+    protected string $motDePasseUtilisateur;
+    protected string $photoUtilisateur;
+    protected bool $compteActif;
+    protected string $dateInscriptionUtilisateur;
+    protected string $derniereModificationUtilisateur;
+    protected string $roleUtilisateur;
+    protected string $zipcodeUtilisateur;
+    protected string $villeUtilisateur;
+    protected float $latUtilisateur;
+    protected float $lonUtilisateur;
+    protected array $contacts;
+    protected array $notifications;
+    protected int $trajet;
 
-    // Getter and Setter for userPassword
-    public function getUserPassword(): string
+    // Getter pour idUtilisateur
+    public function getIdUtilisateur()
     {
-        return $this->userPassword;
+        return $this->idUtilisateur;
     }
 
-    public function setUserPassword(string $userPassword): void
+    // Setter pour idUtilisateur
+    public function setIdUtilisateur($idUtilisateur)
     {
-        $this->userPassword = $userPassword;
+        $this->idUtilisateur = $idUtilisateur;
     }
 
-    // Getter and Setter for userPic
-    public function getUserPic(): string
+    // Getter pour nomUtilisateur
+    public function getNomUtilisateur()
     {
-        return $this->userPic;
+        return $this->nomUtilisateur;
     }
 
-    public function setUserPic(string $userPic): void
+    // Setter pour nomUtilisateur
+    public function setNomUtilisateur($nomUtilisateur)
     {
-        $this->userPic = $userPic;
+        $this->nomUtilisateur = $nomUtilisateur;
     }
 
-    // Getter and Setter for userIsActive
-    public function isUserIsActive(): bool
+    // Getter pour adresseUtilisateur
+    public function getAdresseUtilisateur()
     {
-        return $this->userIsActive;
+        return $this->adresseUtilisateur;
     }
 
-    public function setUserIsActive(bool $userIsActive): void
+    // Setter pour adresseUtilisateur
+    public function setAdresseUtilisateur($adresseUtilisateur)
     {
-        $this->userIsActive = $userIsActive;
+        $this->adresseUtilisateur = $adresseUtilisateur;
     }
 
-    // Getter and Setter for userSignupDate
-    public function getUserSignupDate(): string
+    // Getter pour telUtilisateur
+    public function getTelUtilisateur()
     {
-        return $this->userSignupDate;
+        return $this->telUtilisateur;
     }
 
-    public function setUserSignupDate(string $userSignupDate): void
+    // Setter pour telUtilisateur
+    public function setTelUtilisateur($telUtilisateur)
     {
-        $this->userSignupDate = $userSignupDate;
-    }
-    // Getter and Setter for userLastModifyDate
-    public function getUserLastModifyDate(): string
-    {
-        return $this->userLastModifyDate;
+        $this->telUtilisateur = $telUtilisateur;
     }
 
-    public function setUserLastModifyDate(string $userLastModifyDate): void
+    // Getter pour emailUtilisateur
+    public function getEmailUtilisateur()
     {
-        $this->userLastModifyDate = $userLastModifyDate;
+        return $this->emailUtilisateur;
     }
 
-    // Getter and Setter for userRole
-    public function getUserRole(): string
+    // Setter pour emailUtilisateur
+    public function setEmailUtilisateur($emailUtilisateur)
     {
-        return $this->userRole;
+        $this->emailUtilisateur = $emailUtilisateur;
     }
 
-    public function setUserRole(string $userRole): void
+    // Getter pour motDePasseUtilisateur
+    public function getMotDePasseUtilisateur()
     {
-        $this->userRole = $userRole;
+        return $this->motDePasseUtilisateur;
     }
 
-    // Getter and Setter for userCity
-    public function getUserCity(): string
+    // Setter pour motDePasseUtilisateur
+    public function setMotDePasseUtilisateur($motDePasseUtilisateur)
     {
-        return $this->userCity;
+        $this->motDePasseUtilisateur = $motDePasseUtilisateur;
     }
 
-    public function setUserCity(string $userCity): void
+    // Getter pour photoUtilisateur
+    public function getPhotoUtilisateur()
     {
-        $this->userCity = $userCity;
+        return $this->photoUtilisateur;
     }
 
-    // Getter and Setter for userZip
-    public function getUserZip(): string
+    // Setter pour photoUtilisateur
+    public function setPhotoUtilisateur($photoUtilisateur)
     {
-        return $this->userZip;
+        $this->photoUtilisateur = $photoUtilisateur;
     }
 
-    public function setUserZip(string $userZip): void
+    // Getter pour compteActif
+    public function getCompteActif()
     {
-        $this->userZip = $userZip;
+        return $this->compteActif;
     }
 
-    // Getter and Setter for userLat
-    public function getUserLat(): string
+    // Setter pour compteActif
+    public function setCompteActif($compteActif)
     {
-        return $this->userLat;
+        $this->compteActif = $compteActif;
     }
 
-    public function setUserLat(string $userLat): void
+    // Getter pour dateInscriptionUtilisateur
+    public function getDateInscriptionUtilisateur()
     {
-        $this->userLat = $userLat;
+        return $this->dateInscriptionUtilisateur;
     }
 
-    // Getter and Setter for userLon
-    public function getUserLon(): string
+    // Setter pour dateInscriptionUtilisateur
+    public function setDateInscriptionUtilisateur($dateInscriptionUtilisateur)
     {
-        return $this->userLon;
+        $this->dateInscriptionUtilisateur = $dateInscriptionUtilisateur;
     }
 
-    public function setUserLon(string $userLon): void
+    // Getter pour derniereModificationUtilisateur
+    public function getDerniereModificationUtilisateur()
     {
-        $this->userLon = $userLon;
+        return $this->derniereModificationUtilisateur;
+    }
+
+    // Setter pour derniereModificationUtilisateur
+    public function setDerniereModificationUtilisateur($derniereModificationUtilisateur)
+    {
+        $this->derniereModificationUtilisateur = $derniereModificationUtilisateur;
+    }
+
+    // Getter pour roleUtilisateur
+    public function getRoleUtilisateur()
+    {
+        return $this->roleUtilisateur;
+    }
+
+    // Setter pour roleUtilisateur
+    public function setRoleUtilisateur($roleUtilisateur)
+    {
+        $this->roleUtilisateur = $roleUtilisateur;
+    }
+
+    // Getter pour zipcodeUtilisateur
+    public function getZipcodeUtilisateur()
+    {
+        return $this->zipcodeUtilisateur;
+    }
+
+    // Setter pour zipcodeUtilisateur
+    public function setZipcodeUtilisateur($zipcodeUtilisateur)
+    {
+        $this->zipcodeUtilisateur = $zipcodeUtilisateur;
+    }
+
+    // Getter pour villeUtilisateur
+    public function getVilleUtilisateur()
+    {
+        return $this->villeUtilisateur;
+    }
+
+    // Setter pour villeUtilisateur
+    public function setVilleUtilisateur($villeUtilisateur)
+    {
+        $this->villeUtilisateur = $villeUtilisateur;
+    }
+
+    // Getter pour latUtilisateur
+    public function getLatUtilisateur()
+    {
+        return $this->latUtilisateur;
+    }
+
+    // Setter pour latUtilisateur
+    public function setLatUtilisateur($latUtilisateur)
+    {
+        $this->latUtilisateur = $latUtilisateur;
+    }
+
+    // Getter pour lonUtilisateur
+    public function getLonUtilisateur()
+    {
+        return $this->lonUtilisateur;
+    }
+
+    // Setter pour lonUtilisateur
+    public function setLonUtilisateur($lonUtilisateur)
+    {
+        $this->lonUtilisateur = $lonUtilisateur;
+    }
+
+    // Méthodes pour gérer les contacts
+    public function ajouterContact($contact)
+    {
+        $this->contacts[] = $contact;
+    }
+
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
+
+    // Méthodes pour gérer les notifications
+    public function ajouterNotification($notification)
+    {
+        $this->notifications[] = $notification;
+    }
+
+    public function getNotifications()
+    {
+        return $this->notifications;
+    }
+
+    // Méthodes pour gérer les trajets
+    public function ajouterTrajet($trajet)
+    {
+        $this->trajet = $trajet;
+    }
+
+    public function getTrajets()
+    {
+        return $this->trajet;
+    }
+
+    // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
+    public function toArray()
+    {
+        return [
+            'idUtilisateur' => $this->idUtilisateur,
+            'nomUtilisateur' => $this->nomUtilisateur,
+            'prenomUtilisateur' => $this->prenomUtilisateur,
+            'adresseUtilisateur' => $this->adresseUtilisateur,
+            'telUtilisateur' => $this->telUtilisateur,
+            'emailUtilisateur' => $this->emailUtilisateur,
+            'motDePasseUtilisateur' => $this->motDePasseUtilisateur,
+            'photoUtilisateur' => $this->photoUtilisateur,
+            'compteActif' => $this->compteActif,
+            'dateInscriptionUtilisateur' => $this->dateInscriptionUtilisateur,
+            'derniereModificationUtilisateur' => $this->derniereModificationUtilisateur,
+            'roleUtilisateur' => $this->roleUtilisateur,
+            'zipcodeUtilisateur' => $this->zipcodeUtilisateur,
+            'villeUtilisateur' => $this->villeUtilisateur,
+            'latUtilisateur' => $this->latUtilisateur,
+            'lonUtilisateur' => $this->lonUtilisateur,
+        ];
     }
 }

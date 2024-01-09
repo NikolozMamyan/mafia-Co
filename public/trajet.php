@@ -33,38 +33,43 @@ require_once(__DIR__ . '/../views/headDev.php');
           <div class="container container__menu ">
             <div class="row">
               <div class="col ms-2 col__t">
+                <form action="" method="POST" class="swap-container">
+                 
                 <div class="form__group">
-                  <img src="../public/assets/images/flagG.svg" class='flag' alt="Drapeau Vert">
-                  <label for="depart" class="label_desc">Départ</label>
-                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
-                  <img src="../public/assets/images/fleche.png" class='fleche' alt="Fleche noire">
-                </div>
-                <div class="form__group">
-                  <img src="../public/assets/images/flagR.svg" class='flag' alt="Drapeau Rogue">
-                  <label for="arrive" class="label_desc">Arrivé</label>
-                  <input class="form-control rounded-pill mb-5 inpLg" type="text" id="arrive" name="arrive">
-                </div>
+    <img src="../public/assets/images/flagG.svg" class='flag' alt="Drapeau Vert">
+    <label for="depart" class="label_desc">Départ</label>
+    <input value="ss" class="form-control rounded-pill mb-5 inpLg" type="text" id="depart" name="depart">
+     <!-- Utilisez un bouton au lieu de l'image -->
+      <img src="../public/assets/images/fleche.png" class="fleche" alt="Fleche noire">
+   
+  </div>
+  <div class="form__group">
+    <img src="../public/assets/images/flagR.svg" class='flag' alt="Drapeau Rogue">
+    <label for="arrive" class="label_desc">Arrivé</label>
+    <input class="form-control rounded-pill mb-5 inpLg" type="text" id="arrive" name="arrive">
+  </div>
               </div>
+
               <div class="col ">
                 <div class="container mb-5 p-0 selectH">
                   <div class="container horaires">
                     Mes horaires
                   </div>
-                  <div class="row semaine ">
-                    <div class="col jour ">
-                      Lun.
+                  <div class="row semaine">
+                    <div class="col-2 col-md-2">
+                      <input type="button" value="Lun." class="jour-button">
                     </div>
-                    <div class="col jour">
-                      Mar.
+                    <div class="col-2 col-md-2">
+                      <input type="button" value="Mar." class="jour-button">
                     </div>
-                    <div class="col jour">
-                      Mer.
+                    <div class="col-2 col-md-2">
+                      <input type="button" value="Mer." class="jour-button">
                     </div>
-                    <div class="col jour">
-                      Jeu.
+                    <div class="col-2 col-md-2">
+                      <input type="button" value="Jeu." class="jour-button">
                     </div>
-                    <div class="col jour">
-                      Ven.
+                    <div class="col-2 col-md-2">
+                      <input type="button" value="Ven." class="jour-button">
                     </div>
                   </div>
                 </div>
@@ -72,15 +77,18 @@ require_once(__DIR__ . '/../views/headDev.php');
                   <div class="col-6">
                     <span for="finCours" class="cour_start">Début de cours</span>
                     <br>
-                    <input class="rounded-pill inpSm" type="text" id="finCours" name="finCours">
+                    <div class="cs-form">
+                      <input type="time" class="form-control rounded-pill" value="10:05 AM" />
+                    </div>
                   </div>
                   <div class="col-6">
                     <span for="finCours2" class="cour_end">Fin de cours</span>
                     <br>
-                    <input class="rounded-pill inpSm" type="text" id="finCours2" name="finCours2">
+                    <div class="cs-form">
+                      <input type="time" class="form-control rounded-pill" value="10:05 AM" />
+                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -91,29 +99,28 @@ require_once(__DIR__ . '/../views/headDev.php');
                   <p>Commentaire</p>
                 </div>
               </div>
-              <div class="row row__back ">
+              <div class="row row__back">
                 <div class="col-lg-12 mb-2">
-                  <input type="text" class="form__h form-control  mt-1" placeholder="Entrez votre texte ici">
+                  <textarea class="form__h form-control mt-1" placeholder="Entrez votre texte ici"></textarea>
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-lg-12 d-flex justify-content-end">
-                  <button type="button" class="btn__trajet">Crée mon trajet</button>
+                  <button type="submit" class="btn__trajet">Crée mon trajet</button>
                 </div>
               </div>
+              </form>
             </div>
           </section>
+        </div>
       </div>
-    </section>
-
     </div>
-    </section>
-
-  </main>
-  <footer>
-
-    <?php
-    require_once(__DIR__ . '/../views/footer.php');
-    ?>
-  </footer>
+  </section>
+</main>
+<footer>
+  <?php
+  require_once(__DIR__ . '/../views/footer.php');
+  ?>
+</footer>
+<script src="./assets/js/trajet.js"></script>
 </body>

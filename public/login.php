@@ -16,7 +16,7 @@ require_once(__DIR__ . '/../views/headDev.php');
       <p id="message-inscription">Pas encore inscrit ? <a href="signup.php">Créez votre compte en quelques minutes !</a></p>
 
       <form class="form__login"  action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <label for="your-email">Votre adresse email
+        <label  for="your-email">Votre adresse email
           <input type="email" name="your-email" placeholder="Entrez ici votre adresse email" />
         </label>
         <label for="your-password">Votre mot de passe

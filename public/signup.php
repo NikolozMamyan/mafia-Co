@@ -1,12 +1,12 @@
 <!-- signup.php -->
 
 <?php
-
 require_once(__DIR__ . '/../views/headDev.php');
+require_once(__DIR__ . '/../controllers/AuthController.php');
 ?>
 
 <body id="signupPage">
-    <header >
+    <header>
         <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
     </header>
     <main>
@@ -20,7 +20,8 @@ require_once(__DIR__ . '/../views/headDev.php');
         </section>
         <div class="container-fluid">
 
-            <form class="border row m-2 d-flex justify-content-md-around">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST">
+                <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
@@ -33,7 +34,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- nom -->
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01" class="form-label ps-3">Nom</label>
-                                <input type="text" class="form-control " id="validationCustom01" value="" required>
+                                <input type="text" class="form-control " id="validationCustom01" name="firstName" value="" required>
                                 <span class="invalid-feedback">
                                     Le nom est obligatoire !
                                 </span>
@@ -41,7 +42,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- prenom -->
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom02" class="form-label ps-3">Prénom</label>
-                                <input type="text" class="form-control " id="validationCustom02" value="" required>
+                                <input type="text" class="form-control " id="validationCustom02" name="lastName" value="" required>
                                 <span class="invalid-feedback">
                                     Le Prénom est obligatoire !
                                 </span>
@@ -49,7 +50,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- adresse -->
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom03" class="form-label ps-3">Adresse</label>
-                                <input type="text" class="form-control " id="validationCustom03" required>
+                                <input type="text" class="form-control " id="validationCustom03" name="address" required>
                                 <span class="invalid-feedback">
                                     L'adresse est obligatoire !
                                 </span>
@@ -57,7 +58,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- code postal -->
                             <div class="col-md-2  mb-3">
                                 <label for="validationCustom02" class="form-label ps-3">CP</label>
-                                <input type="text" class="form-control " id="validationCustom02" value="" required>
+                                <input type="text" class="form-control " id="validationCustom02" name="zip" value="" required>
                                 <span class="invalid-feedback">
                                     Le code postal est obligatoire !
                                 </span>
@@ -65,7 +66,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- ville -->
                             <div class="col-md-4  mb-3">
                                 <label for="validationCustom02" class="form-label ps-3">Ville</label>
-                                <input type="text" class="form-control " id="validationCustom02" value="" required>
+                                <input type="text" class="form-control " id="validationCustom02" name="city" value="" required>
                                 <span class="invalid-feedback">
                                     La ville est obligatoire !
                                 </span>
@@ -73,42 +74,34 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- telephone -->
                             <div class="col-md-6 mb-3">
                                 <label for="" class="form-label ps-3">Téléphone</label>
-                                <input type="text" class="form-control " id="" value="">
+                                <input type="text" class="form-control " id="" name="tel" value="">
 
                             </div>
                             <!-- mail -->
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom02" class="form-label ps-3">Mail</label>
-                                <input type="text" class="form-control " id="validationCustom02" value="" required>
+                                <input type="text" class="form-control " id="validationCustom02" name="email" value="" required>
                                 <span class="invalid-feedback">
                                     L'adresse email est obligatoire !
                                 </span>
                             </div>
                             <!-- mot de passe -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 ">
                                 <div class="input-group ">
-                                    <label for="password" class="form-label ps-3">Mot de passe</label>
-                                    <div class="input-group ">
-                                        <input type="password" class="form-control radius__left" id="password" name="password" placeholder="Password" required>
-                                        <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span>
-                                        <span class="invalid-feedback">
-                                            Le mot de passe est invalide !
-                                        </span>
-                                    </div>
+                                    <label for="your-password">votre mot de passe
+                                        <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" />
+                                        <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
+                                    </label>
 
                                 </div>
                             </div>
                             <!-- confirm mot de passe -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 ">
                                 <div class="input-group ">
-                                    <label for="password" class="form-label ps-3">Mot de passe</label>
-                                    <div class="input-group ">
-                                        <input type="password" class="form-control " id="password" name="password" placeholder="Password" required>
-                                        <!-- <span class="input-group-text toggle-password radius__right"><i class="fa fa-eye"></i></span> -->
-                                        <span class="invalid-feedback">
-                                            Le mot de passe est invalide !
-                                        </span>
-                                    </div>
+                                    <label for="your-confirm">votre mot de passe
+                                        <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" />
+                                        <button id="show-hide-password"></button>
+                                    </label>
 
                                 </div>
                             </div>
@@ -138,16 +131,16 @@ require_once(__DIR__ . '/../views/headDev.php');
                             <!-- fichier photo -->
                             <div class="col-md-12 mb-3">
                                 <label for="" class="form-label ps-3">Choisir une photo</label>
-                                <input type="file" class="form-control " aria-label="file example" required>
+                                <input type="file" class="form-control " name="photo" aria-label="file example">
                                 <!-- <div class="invalid-feedback">Example invalid form file feedback</div> -->
                             </div>
 
                             <!-- terme et condition -->
                             <div class="col-md-12 mb-3 ps-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                    <input class="form-check-input" type="checkbox" name="CGU" value="" id="invalidCheck2" required>
                                     <label class="form-check-label " for="invalidCheck2">
-                                        Agree to terms and conditions
+                                        Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
                                     </label>
                                     <span class="invalid-feedback">
                                         <span class="invalid-feedback">
@@ -163,6 +156,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                 <!-- section itineraire hebdo-->
                 <section class="col-md-5 border bg__roundP--100  ">
                     <div class="row mb-3 ">
+                        <h3 class="d-flex justify-content-center title__h3 mt-2">Votre point de départ et d'arrivé</h3>
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Départ</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
@@ -245,12 +239,12 @@ require_once(__DIR__ . '/../views/headDev.php');
                     </div>
                 </section>
                 <!-- btn annuler -->
-                <div class="col-md-5 d-flex justify-content-md-start mt-3 ">
-                    <input class="btn w-100 w-md-50  btn-danger btn__btn--submit " type="reset" value="Annuler">
+                <div class="col-md-5 col-12 d-flex justify-content-md-start mt-3 ">
+                    <input class="btn btn-danger btn__btn--submit " type="reset" value="Annuler">
                 </div>
                 <!-- btn valider -->
-                <div class="col-md-5 d-flex justify-content-md-end my-3">
-                    <button class="btn w-100 w-md-50 btn__btn--submit bg__btn--submit  " type="submit">Valider</button>
+                <div class="col-md-5 col-12 d-flex justify-content-md-end my-3">
+                    <input class="btn btn__btn--submit bg__btn--submit " type="submit" value="Valider">
                 </div>
 
                 <!-- link login -->
@@ -269,11 +263,11 @@ require_once(__DIR__ . '/../views/headDev.php');
 
     </main>
     <footer>
-      <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+        <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>
-    <script src="./assets/js/signup.js"></script>
+    <!-- <script src="./assets/js/signup.js"></script> -->
 
 </body>
 
