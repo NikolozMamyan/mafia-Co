@@ -62,7 +62,7 @@ class AuthController extends Controller
             'radio-stacked' => $role,
             'photo' => $photo,
         ];
-        dd(!$this->validateCredentials($password, $passwordConfirm));
+
         // Validation
         if (!$this->validateCredentials($password, $passwordConfirm)) {
             redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
