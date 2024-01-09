@@ -343,52 +343,6 @@ h1.page-title {
   padding-bottom: 0.5em;
 }
 
-#offcanvasNavbar {
-  top: 48%;
-  height: 32%;
-  width: 60%;
-}
-
-.nav__ul {
-  color: #4C3172;
-}
-
-.bg__nav {
-  background-color: rgb(217, 205, 234);
-}
-
-@media (min-width: 576px) {
-  .nav-bar-container {
-    width: 100%;
-    right: 0;
-    left: auto;
-    display: inline;
-    font-size: 16pt;
-    font-weight: bolder;
-    z-index: 750;
-    top: 120px;
-    bottom: auto;
-    background-color: rgb(217, 205, 234);
-  }
-}
-@media (max-width: 577px) {
-  nav {
-    width: 100%;
-  }
-  .nav-bar-container {
-    width: 100%;
-    right: 0;
-    left: auto;
-    display: inline;
-    font-size: 16pt;
-    font-weight: bolder;
-    z-index: 750;
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    background-color: rgb(217, 205, 234);
-  }
-}
 /* Header
 --------------------------------------------- */
 header {
@@ -874,6 +828,22 @@ section#col-droite img {
   background: rgba(217, 205, 234, 0.8);
 }
 
+#map {
+  height: 400px;
+  width: auto;
+}
+
+.map-container {
+  z-index: 5;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.leaflet-routing-container {
+  display: none;
+}
+
 /* Page Mon profil
 --------------------------------------------- */
 #hello-user {
@@ -903,16 +873,17 @@ section#col-droite img {
   line-height: 1.5;
 }
 
-#user-infos, #user-itinerary {
+#user-infos,
+#user-itinerary {
   background-color: var(--secondary-color);
-  border: 2px solid #DDD5E8;
+  border: 2px solid #ddd5e8;
   border-radius: 4px;
   padding: 2em 1em;
 }
 
 a.edit-icon {
   background-color: var(--primary-color);
-  color: #FFF;
+  color: #fff;
   border-radius: 50px;
   font-size: 2rem;
   padding: 0.3em;
@@ -920,7 +891,8 @@ a.edit-icon {
   line-height: 1;
 }
 
-a.edit-icon:hover, a.edit-icon:focus {
+a.edit-icon:hover,
+a.edit-icon:focus {
   background-color: var(--text-color);
 }
 
@@ -955,10 +927,11 @@ a.edit-icon:hover, a.edit-icon:focus {
   text-transform: uppercase;
   font-weight: 500;
   background-color: #a4a4a4;
-  color: #FFF;
+  color: #fff;
 }
 
-#user-map button:not(.active):hover, #user-map button:not(.active):focus {
+#user-map button:not(.active):hover,
+#user-map button:not(.active):focus {
   background-color: #6e6e6e;
 }
 
@@ -970,13 +943,6 @@ a.edit-icon:hover, a.edit-icon:focus {
   font-size: 130%;
   margin-right: 0.5em;
   vertical-align: middle;
-}
-
-/** A ENLEVER UNE FOIS L'IFRAME SETUP */
-#user-map img {
-  min-height: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .selectH {

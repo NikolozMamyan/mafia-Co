@@ -1,18 +1,18 @@
-// #map {
-//   height: 400px;
-//   width: auto;
-// }
+#map {
+  height: 400px;
+  width: auto;
+}
 
-// .map-container {
-//   z-index: 5;
-//   position: relative;
-//   top: auto;
-//   left: auto;
-// }
+.map-container {
+  z-index: 5;
+  position: relative;
+  top: auto;
+  left: auto;
+}
 
-// .leaflet-routing-container {
-//   display: none;
-// }
+.leaflet-routing-container {
+  display: none;
+}
 
 // .mapButton {
 //   margin-top: 5px;
@@ -131,7 +131,7 @@
 }
 
 #hello-user img {
-border-radius: 50px;
+  border-radius: 50px;
 }
 
 #hello-user p:first-of-type {
@@ -140,25 +140,26 @@ border-radius: 50px;
 }
 
 #hello-user p:last-of-type {
-margin: 0.5em 0;
+  margin: 0.5em 0;
 }
 
 #user-details {
-display: grid;
-gap: 1em;
-line-height: 1.5;
+  display: grid;
+  gap: 1em;
+  line-height: 1.5;
 }
 
-#user-infos, #user-itinerary {
+#user-infos,
+#user-itinerary {
   background-color: var(--secondary-color);
-  border: 2px solid #DDD5E8;
+  border: 2px solid #ddd5e8;
   border-radius: 4px;
   padding: 2em 1em;
 }
 
 a.edit-icon {
   background-color: var(--primary-color);
-  color: #FFF;
+  color: #fff;
   border-radius: 50px;
   font-size: 2rem;
   padding: 0.3em;
@@ -166,21 +167,21 @@ a.edit-icon {
   line-height: 1;
 }
 
-a.edit-icon:hover, a.edit-icon:focus {
+a.edit-icon:hover,
+a.edit-icon:focus {
   background-color: var(--text-color);
-
 }
 
 #user-details h2 {
-margin: 0 auto 1em;
+  margin: 0 auto 1em;
 }
 
 #user-details h3 {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #user-details p {
-margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 #user-map {
@@ -188,9 +189,9 @@ margin-top: 0.5em;
 }
 
 #user-map ul {
-display: grid;
-gap: 0.4em;
-margin-bottom: 2em;
+  display: grid;
+  gap: 0.4em;
+  margin-bottom: 2em;
 }
 
 #user-map button {
@@ -202,26 +203,20 @@ margin-bottom: 2em;
   text-transform: uppercase;
   font-weight: 500;
   background-color: #a4a4a4;
-  color: #FFF;
+  color: #fff;
 }
 
-#user-map button:not(.active):hover, #user-map button:not(.active):focus {
-background-color: #6e6e6e;
+#user-map button:not(.active):hover,
+#user-map button:not(.active):focus {
+  background-color: #6e6e6e;
 }
 
 #user-map button.active {
-background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 #user-map button i {
   font-size: 130%;
   margin-right: 0.5em;
   vertical-align: middle;
-}
-
-/** A ENLEVER UNE FOIS L'IFRAME SETUP */
-
-#user-map img {
-min-height: 400px;
-object-fit: cover;
 }

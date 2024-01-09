@@ -68,18 +68,15 @@ require_once(__DIR__ . '/../views/headDev.php');
 
         <section id="user-map">
             <ul>
-                <!-- Faire changer la classe active en JS -->
-                <li><button id="view-home" class="active"><i class="covoiturage-home"></i>Visualiser mon domicile</button></li>
-                <li><button id="view-itinerary"><i class="covoiturage-itinerary"></i>Visualiser mon itinéraire</button></li>
-                <li><button id="view-perimeter"><i class="covoiturage-address"></i>Visualiser mon périmètre</button></li>
+                <li><button id="view-home" class="active" onclick="setMapView('Location')"><i class="covoiturage-home"></i>Visualiser mon domicile</button></li>
+                <li><button id="view-itinerary" onclick="setMapView('Pinpoint')"><i class="covoiturage-itinerary"></i>Visualiser mon itinéraire</button></li>
+                <li><button id="view-perimeter" onclick="setMapView('Place')"><i class="covoiturage-address"></i>Visualiser mon périmètre</button></li>
             </ul>
-
-            <!-- Ajouter la carte à la place de mon img -->
-            <img src="assets/images/covoiturage-cci-google-map.webp" alt="carte google map">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
         </section>
 
-
-        <!--  -->
     </main>
 
     <footer>
@@ -92,6 +89,7 @@ require_once(__DIR__ . '/../views/headDev.php');
     <script src="./assets/leaflet_files/leaflet/leaflet.js"></script>
     <script src="./assets/leaflet_files/leaflet-routing/leaflet-routing-machine.js"></script>
     <script src="./assets/js/leafletMap.js"></script>
+    <script src="./assets/js/profile.js"></script>
 </body>
 
 </html>

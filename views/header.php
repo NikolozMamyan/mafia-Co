@@ -1,6 +1,6 @@
 <nav>
     <a id="logo-header" href=""><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></a>
-    <ul>
+    <ul style="z-index: 10;">
         <li><a href=""><i class="covoiturage-search"></i>Rechercher</a></li>
         <li id="menu-item-messagerie"><a href=""><i class="covoiturage-messaging"><span class="number-bubble">x</span></i>Messagerie</a></li>
         <li id="menu-item-notifications"><a href=""><i class="covoiturage-notification"><span class="number-bubble">x</span></i>Notifications</a></li>
