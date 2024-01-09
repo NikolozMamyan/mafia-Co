@@ -110,17 +110,17 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
 
                                 <div class="form-check ">
 
-                                    <input type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" required>
+                                    <input type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" value="Conducteur / Passager" required>
                                     <label class="form-check-label" for="validationFormCheck1">Conducteur/Passager</label>
 
                                 </div>
                                 <div class="form-check ">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="Conducteur" required>
                                     <label class="form-check-label" for="validationFormCheck2">Conducteur</label>
 
                                 </div>
                                 <div class="form-check ">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="Passager" required>
                                     <label class="form-check-label" for="validationFormCheck3">Passager</label>
                                     <span class="invalid-feedback">
                                         Le choix du role est obligatoire !

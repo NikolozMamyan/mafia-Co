@@ -7,17 +7,19 @@ require_once __DIR__ . '/../helpers/path_functions.php';
 require_once __DIR__ . '/../helpers/Auth.php';
 require_once __DIR__ . '/../helpers/redirect_functions.php';
 require_once __DIR__ . '/../helpers/session_functions.php';
+require_once(__DIR__ . '/../models/Dals/Db.php');
+
 
 use Auth;
 use DB;
 
 class AuthController extends Controller
 {
-    const URL_HANDLER = '/handlers/auth-handler.php';
-    const URL_REGISTER = '/signup.php';
-    const URL_LOGIN = '/login.php';
-    const URL_AFTER_LOGIN = '/';
-    const URL_AFTER_LOGOUT = '/';
+    const URL_HANDLER = '/applications/mafia-Co/public/handlers/auth-handler.php';
+    const URL_REGISTER = '/applications/mafia-Co/public/signupRedirect.php';
+    const URL_LOGIN = '/applications/mafia-Co/public/index.php';
+    const URL_AFTER_LOGIN = '/applications/mafia-Co/public';
+    const URL_AFTER_LOGOUT = '/applications/mafia-Co/public';
 
     public function login(): void
     {
@@ -81,23 +83,29 @@ class AuthController extends Controller
             ['labelRole' => $role]
         )[0];
 
-        $pointResult = DB::statement(
-            "INSERT INTO Points(nomVille, codePostalVille, latitude, longitude)"
-                . " VALUE(:city, :zip, :latitude, :longitude);",
-            [
-                'zip' => $zip,
-                'city' => $city,
-                'latitude' => null,
-                'longitude' => null,
-            ]
-        );
-        var_dump($pointResult);
-        exit;
+        $idPoint = AuthController::getIdPoint($zip, $city, 0.0, 0.0);
+
+        if (!$idPoint) {
+            $pointResult = DB::statement(
+                "INSERT INTO Points(nomVille, codePostalVille, latitude, longitude)"
+                    . " VALUE(:city, :zip, :latitude, :longitude);",
+                [
+                    'zip' => $zip,
+                    'city' => $city,
+                    'latitude' => 0.0,
+                    'longitude' => 0.0,
+                ]
+            );
+            $idPoint = AuthController::getIdPoint($zip, $city, 0.0, 0.0);
+        }
+
+
+
 
         // Create new user
         $result = DB::statement(
-            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idRole);",
+            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur,idPoint, idRole)"
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idPoint, :idRole);",
             [
                 'firstName' => $firstName,
                 'lastName' => $lastName,
@@ -106,7 +114,8 @@ class AuthController extends Controller
                 'email' => $email,
                 'password' => $password,
                 'photo' => $photo,
-                'idRole' => $idRole,
+                'idPoint' => $idPoint,
+                'idRole' => $idRole['idRole'],
             ]
         );
         if ($result === false) {
@@ -173,5 +182,19 @@ class AuthController extends Controller
     {
         session_destroy();
         redirectAndExit(self::URL_AFTER_LOGOUT);
+    }
+
+    protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
+    {
+        $idPoint = DB::fetch(
+            "SELECT idPoint FROM Points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
+            [
+                'zip' => $zip,
+                'city' => $city,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+            ]
+        )[0];
+        return $idPoint['idPoint'];
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../models/Dals/Db.php';
+
 class Auth
 {
     const SESSION_KEY = 'current_user_id';
@@ -12,8 +14,8 @@ class Auth
 
         if (self::$user === null and $id) {
             self::$user = DB::fetch(
-                "SELECT * FROM users WHERE id = :id LIMIT 1",
-                ['id' => $id]
+                "SELECT * FROM Utilisateurs WHERE idUtilisateur = :idUtilisateur LIMIT 1",
+                ['idUtilisateur' => $id]
             );
 
             if (self::$user === false) {
@@ -37,7 +39,7 @@ class Auth
         if (!Auth::getCurrentUser()) {
             // Not Auth Or account not exists
             errors('Vous devez être connecté pour accèder à cette page.');
-            redirectAndExit('/login.php');
+            redirectAndExit('/applications/mafia-Co/public/login.php');
         }
     }
 
@@ -45,7 +47,7 @@ class Auth
     {
         // Check user is guest (invité)
         if (Auth::getCurrentUser()) {
-            redirectAndExit('/home.php');
+            redirectAndExit('/applications/mafia-Co/public/Profile.php');
         }
     }
 
