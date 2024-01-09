@@ -347,52 +347,6 @@ h1.page-title {
   padding-bottom: 0.5em;
 }
 
-#offcanvasNavbar {
-  top: 48%;
-  height: 32%;
-  width: 60%;
-}
-
-.nav__ul {
-  color: #4C3172;
-}
-
-.bg__nav {
-  background-color: rgb(217, 205, 234);
-}
-
-@media (min-width: 576px) {
-  .nav-bar-container {
-    width: 100%;
-    right: 0;
-    left: auto;
-    display: inline;
-    font-size: 16pt;
-    font-weight: bolder;
-    z-index: 750;
-    top: 120px;
-    bottom: auto;
-    background-color: rgb(217, 205, 234);
-  }
-}
-@media (max-width: 577px) {
-  nav {
-    width: 100%;
-  }
-  .nav-bar-container {
-    width: 100%;
-    right: 0;
-    left: auto;
-    display: inline;
-    font-size: 16pt;
-    font-weight: bolder;
-    z-index: 750;
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    background-color: rgb(217, 205, 234);
-  }
-}
 /*NavBar Dashboard*/
 .header__dashboard {
   position: relative;
@@ -1042,6 +996,22 @@ button#show-hide-password-signup {
   background: rgba(217, 205, 234, 0.8);
 }
 
+#map {
+  height: 400px;
+  width: auto;
+}
+
+.map-container {
+  z-index: 5;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.leaflet-routing-container {
+  display: none;
+}
+
 .bg-P500 {
   background-color: #4C3172;
   color: rgb(255, 255, 255);
@@ -1169,10 +1139,8 @@ a.edit-icon:focus {
 }
 
 /** A ENLEVER UNE FOIS L'IFRAME SETUP */
-#user-map img {
-  min-height: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
+.map-container #map {
+  height: 400px;
 }
 
 .selectH {
@@ -1412,9 +1380,17 @@ a.edit-icon:focus {
 
 #contactsOffcanvas,
 #notificationsOffcanvas {
-  top: 20%;
-  height: 70%;
-  width: 50%;
+  top: 14%;
+  height: calc(100vh - 265px);
+  width: calc(100vh - 545px);
+}
+
+.card__border--none {
+  border: none;
+}
+
+.container__border {
+  background-color: var(--secondary-color);
 }
 
 .card__body--chat {
@@ -1433,7 +1409,7 @@ a.edit-icon:focus {
     font-size: 0.8rem;
   }
   .body__chat h1,
-  footer {
+  .body__chat footer {
     display: none;
   }
 }

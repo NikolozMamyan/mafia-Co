@@ -241,9 +241,6 @@ a.edit-icon:focus {
   color: var(--primary-color);
 }
 
-/** A ENLEVER UNE FOIS L'IFRAME SETUP */
-
-#user-map img {
-  min-height: 400px;
-  object-fit: cover;
+.map-container #map {
+  height: 400px;
 }
