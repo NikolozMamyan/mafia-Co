@@ -22,7 +22,7 @@ class User extends Model
     protected float $lonUtilisateur;
     protected array $contacts;
     protected array $notifications;
-    protected array $trajets;
+    protected int $trajet;
 
     // Getter pour idUtilisateur
     public function getIdUtilisateur()
@@ -229,12 +229,12 @@ class User extends Model
     // Méthodes pour gérer les trajets
     public function ajouterTrajet($trajet)
     {
-        $this->trajets[] = $trajet;
+        $this->trajet = $trajet;
     }
 
     public function getTrajets()
     {
-        return $this->trajets;
+        return $this->trajet;
     }
 
     // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
