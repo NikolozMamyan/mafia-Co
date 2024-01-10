@@ -79,10 +79,10 @@ class AuthController extends Controller
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
-            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            dd('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_REGISTER);
         } elseif (count($users) >= 1) {
-            errors('Cette adresse email est déjà utilisée.');
+            dd('Cette adresse email est déjà utilisée.');
             redirectAndExit(self::URL_REGISTER);
         }
 
@@ -101,7 +101,7 @@ class AuthController extends Controller
             'adresseUtilisateur' => $_POST['address'] ?? '',
             'telUtilisateur' => $_POST['tel'] ?? '',
             'emailUtilisateur' => $_POST['email'] ?? '',
-            'motDePasseUtilisateur' => $_POST['password'] ?? '',
+            'motDePasseUtilisateur' => $password,
             'photoUtilisateur' => $photo = $_FILES['photo']['name'] ?? '',
             'compteActif' => false,
             'dateInscriptionUtilisateur' => date('Y-m-d H:i:s'),
@@ -109,26 +109,24 @@ class AuthController extends Controller
             'roleUtilisateur' => $idRole['idRole'],
             'zipcodeUtilisateur' => $_POST['zip'] ?? '',
             'villeUtilisateur' => $_POST['city'] ?? '',
-            'latUtilisateur' => '',
-            'lonUtilisateur' => '',
+            'latUtilisateur' => '0',
+            'lonUtilisateur' => '0',
         ];
 
         $user->hydrate($userData);
 
-        dd($user);
-
         if (!$idPoint) {
             $pointResult = DB::statement(
-                "INSERT INTO Points(nomVille, codePostalVille, latitude, longitude)"
+                "INSERT INTO points (nomVille, codePostalVille, latitude, longitude)"
                     . " VALUE(:city, :zip, :latitude, :longitude);",
                 [
-                    'zip' => $zip,
-                    'city' => $city,
-                    'latitude' => '0.0',
-                    'longitude' => '0.0',
+                    'zip' => $user->getZipcodeUtilisateur(),
+                    'city' => $user->getVilleUtilisateur(),
+                    'latitude' => $user->getLatUtilisateur(),
+                    'longitude' => $user->getLonUtilisateur(),
                 ]
             );
-            $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
+            $idPoint = AuthController::getIdPoint($user->getZipcodeUtilisateur(), $user->getVilleUtilisateur(), $user->getLatUtilisateur(), $user->getLonUtilisateur());
         }
 
         // Create new user
@@ -136,13 +134,13 @@ class AuthController extends Controller
             "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur,idPoint, idRole)"
                 . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idPoint, :idRole);",
             [
-                'firstName' => $firstName,
-                'lastName' => $lastName,
-                'address' => $address,
-                'tel' => $tel,
-                'email' => $email,
-                'password' => $password,
-                'photo' => $photo,
+                'firstName' => $user->getPrenomUtilisateur(),
+                'lastName' => $user->getNomUtilisateur(),
+                'address' => $user->getAdresseUtilisateur(),
+                'tel' => $user->getTelUtilisateur(),
+                'email' => $user->getEmailUtilisateur(),
+                'password' => $user->getMotDePasseUtilisateur(),
+                'photo' => $user->getPhotoUtilisateur(),
                 'idPoint' => $idPoint,
                 'idRole' => $idRole['idRole'],
             ]
@@ -169,7 +167,7 @@ class AuthController extends Controller
         $password = $_POST['password'] ?? '';
 
         // Check DB
-        $users = DB::fetch("SELECT * FROM Utilisateurs WHERE emailUtilisateur = :login;", ['login' => $login]);
+        $users = DB::fetch("SELECT * FROM utilisateurs WHERE compteActif = 1 AND emailUtilisateur = :login;", ['login' => $login]);
         if ($users === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_LOGIN);
@@ -182,6 +180,20 @@ class AuthController extends Controller
             // Version 2: with password hashing
             if (password_verify($password, $user['motDePasseUtilisateur'])) {
                 $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
+
+                $userData = [
+                    'nomUtilisateur' => $users['nomUtilisateur'],
+                    'prenomUtilisateur' => $users['prenomUtilisateur'],
+                    'adresseUtilisateur' => $users['adresseUtilisateur'],
+                    'telUtilisateur' => $users['telUtilisateur'],
+                    'emailUtilisateur' => $users['emailUtilisateur'],
+                    'motDePasseUtilisateur' => $users['motDePasseUtilisateur'],
+                    'photoUtilisateur' => $users['photoUtilisateur'],
+                    'dateInscriptionUtilisateur' => $users['dateInscriptionUtilisateur'],
+                    'derniereModificationUtilisateur' => $users['derniereModificationUtilisateur'],
+                ];
+                $user->hydrate($userData);
+
                 redirectAndExit(self::URL_AFTER_LOGIN);
             }
         }
@@ -217,32 +229,32 @@ class AuthController extends Controller
 
         // Check if the file already exists
         if (file_exists($targetFile)) {
-            errors("Sorry, the file already exists.");
+            dd("Sorry, the file already exists.");
             $uploadOk = false;
         }
 
         // Check the file size (you can adjust this value)
         if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {
-            errors("Sorry, your file is too large.");
+            dd("Sorry, your file is too large.");
             $uploadOk = false;
         }
 
         // Allow only certain file formats (you can customize this list)
         if (!in_array($imageFileType, self::ALLOWED_EXTENSIONS)) {
-            errors("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
+            dd("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
             $uploadOk = false;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk === false) {
-            errors("Sorry, your file was not uploaded.");
+            dd("Sorry, your file was not uploaded.");
         } else {
             // If everything is fine, try to upload the file
             if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
                 echo ("The file " . htmlspecialchars(basename($photo)) . " has been uploaded.");
                 return true;
             } else {
-                errors("Sorry, there was an error uploading your file.");
+                dd("Sorry, there was an error uploading your file.");
             }
         }
         return false;
@@ -251,14 +263,17 @@ class AuthController extends Controller
     protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
     {
         $idPoint = DB::fetch(
-            "SELECT idPoint FROM Points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
+            "SELECT idPoint FROM points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
             [
                 'zip' => $zip,
                 'city' => $city,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
             ]
-        )[0];
-        return $idPoint['idPoint'];
+        );
+        if ($idPoint) {
+            return $idPoint[0]['idPoint'];
+        }
+        return false;
     }
 }

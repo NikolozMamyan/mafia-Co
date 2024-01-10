@@ -10,7 +10,6 @@ class Notification extends Model
     protected int $idUtilisateurNotif;
     protected DateTime $dateNotification;
     protected bool $isReadNotification;
-    protected DateTime $dateReadNotification;
 
     public function __construct($idUtilisateur, $idUtilisateurNotif)
     {
@@ -18,7 +17,6 @@ class Notification extends Model
         $this->idUtilisateurNotif = $idUtilisateurNotif;
         $this->dateNotification = date('Y-m-d H:i:s');
         $this->isReadNotification = false;
-        $this->dateReadNotification = null;
     }
 
     // Getters
@@ -40,17 +38,5 @@ class Notification extends Model
     public function getIsReadNotification()
     {
         return $this->isReadNotification;
-    }
-
-    public function getDateReadNotification()
-    {
-        return $this->dateReadNotification;
-    }
-
-
-    public function setIsReadNotification()
-    {
-        $this->isReadNotification = true;
-        $this->dateReadNotification = date('Y-m-d H:i:s');
     }
 }

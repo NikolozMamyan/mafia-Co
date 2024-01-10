@@ -3,9 +3,9 @@
 class DB
 {
     private const SERVEUR = "localhost";
-    private const UTILISATEUR = "ccicovoiturageuser";
-    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb(";
-    private const NOM_BASE_DE_DONNEES = "ccicovoiturage";
+    private const UTILISATEUR = "ccicovoiturage_user";
+    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb";
+    private const NOM_BASE_DE_DONNEES = "cciCovoiturage";
     private static ?PDO $db = null; // "?PDO" allowed only on PHP 8.1+
 
     public static function getDB()

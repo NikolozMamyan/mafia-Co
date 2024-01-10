@@ -17,13 +17,13 @@ class User extends Model
     protected string $motDePasseUtilisateur;
     protected string $photoUtilisateur;
     protected bool $compteActif;
-    protected DateTime $dateInscriptionUtilisateur;
-    protected DateTime $derniereModificationUtilisateur;
+    protected string $dateInscriptionUtilisateur;
+    protected string $derniereModificationUtilisateur;
     protected string $roleUtilisateur;
     protected string $zipcodeUtilisateur;
     protected string $villeUtilisateur;
-    protected float $latUtilisateur;
-    protected float $lonUtilisateur;
+    protected string $latUtilisateur;
+    protected string $lonUtilisateur;
     protected array $contacts;
     protected array $notifications;
     protected int $trajet;
@@ -38,6 +38,18 @@ class User extends Model
     public function setIdUtilisateur($idUtilisateur)
     {
         $this->idUtilisateur = $idUtilisateur;
+    }
+
+    // Getter pour PrenomUtilisateur
+    public function getPrenomUtilisateur()
+    {
+        return $this->nomUtilisateur;
+    }
+
+    // Setter pour PrenomUtilisateur
+    public function setPrenomUtilisateur($nomUtilisateur)
+    {
+        $this->nomUtilisateur = $nomUtilisateur;
     }
 
     // Getter pour nomUtilisateur
