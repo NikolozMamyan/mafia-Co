@@ -222,7 +222,7 @@ class AuthController extends Controller
 
     protected function ValidatePicture($photo)
     {
-        $targetDir = __DIR__ . "/../uploads/"; // Specify the directory where you want to store the uploaded files
+        $targetDir = __DIR__ . "/../storage/"; // Specify the directory where you want to store the uploaded files
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
