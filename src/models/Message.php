@@ -2,6 +2,7 @@
 
 namespace models;
 
+use DB;
 use DateTime;
 
 /**
@@ -16,11 +17,11 @@ use DateTime;
  */
 class Message extends Model
 {
-    protected static string $childTableName = 'Message';
+    protected static string $childTableName = 'Messages';
 
     protected ?int $idMessage;
     protected ?string $contenuMessage;
-    protected ?DateTime $dateTimeMessage;
+    protected ?string $dateTimeMessage;
     protected ?int $idUtilisateur;
     protected ?int $idUtilisateurDestinataire;
     protected ?int $isReadMessage;
@@ -38,7 +39,7 @@ class Message extends Model
     public function __construct(
         ?int $idMessage = null,
         ?string $contenuMessage = null,
-        ?DateTime $dateTimeMessage = null,
+        ?string $dateTimeMessage = null,
         ?int $idUtilisateur = null,
         ?int $idUtilisateurDestinataire = null,
         ?int $isReadMessage = null
@@ -86,7 +87,7 @@ class Message extends Model
     /**
      * @return DateTime|null
      */
-    public function getDateTimeMessage(): ?DateTime
+    public function getDateTimeMessage(): ?string
     {
         return $this->dateTimeMessage;
     }
@@ -94,7 +95,7 @@ class Message extends Model
     /**
      * @param DateTime|null $dateTimeMessage
      */
-    public function setDateTimeMessage(?DateTime $dateTimeMessage): void
+    public function setDateTimeMessage(?string $dateTimeMessage): void
     {
         $this->dateTimeMessage = $dateTimeMessage;
     }
@@ -145,5 +146,30 @@ class Message extends Model
     public function setIsReadMessage(?int $isReadMessage): void
     {
         $this->isReadMessage = $isReadMessage;
+    }
+
+    /**
+     * Méthode pour obtenir les derniers messages entre un utilisateur et ses contacts
+     *
+     * @param int $userId ID de l'utilisateur
+     * @return array Liste des derniers messages
+     */
+    public function getLatestMessagesForUser(int $userId, int $limit = 10): array
+    {
+        $query = "SELECT * FROM Messages WHERE idUtilisateurDestinataire = :userId OR idUtilisateur = :userId ORDER BY dateTimeMessage DESC LIMIT :limit";
+
+        $params = [
+            ':userId' => $userId,
+            ':limit' => $limit,
+        ];
+
+        $messages = DB::fetchAll($query, $params);
+
+        // Convertir les dates de chaînes en objets DateTime
+        foreach ($messages as &$message) {
+            $message['dateTimeMessage'] = new DateTime($message['dateTimeMessage']);
+        }
+
+        return $messages;
     }
 }

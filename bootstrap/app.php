@@ -1,3 +1,4 @@
+<!-- bootstrap/app.php -->
 <?php
 
 // Base app path (on filesystem)

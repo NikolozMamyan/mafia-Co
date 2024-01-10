@@ -1,20 +1,10 @@
 <?php
 
-namespace Controllers;
-
-require_once 'Controller.php';
-require_once __DIR__ . '/../helpers/path_functions.php';
-require_once __DIR__ . '/../helpers/class/Auth.php';
-require_once __DIR__ . '/../helpers/redirect_functions.php';
-require_once __DIR__ . '/../helpers/session_functions.php';
-require_once(__DIR__ . '/../helpers/class/Db.php');
-
-require_once __DIR__ . '/../models/User.php';
-
+namespace App\Controllers;
 
 use Auth;
 use DB;
-use models\User;
+use App\models\User;
 
 class AuthController extends Controller
 {
@@ -41,7 +31,7 @@ class AuthController extends Controller
 
     public function store(): void
     {
-        $user = new User();
+        
 
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
@@ -115,7 +105,7 @@ class AuthController extends Controller
 
         $user->hydrate($userData);
 
-        dd($user);
+        // dd($user);
 
         if (!$idPoint) {
             $pointResult = DB::statement(

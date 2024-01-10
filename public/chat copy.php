@@ -2,7 +2,22 @@
 
 <?php
 require_once(__DIR__ . '/bootstrap/app.php');
-require_once(__DIR__ . '/views/headDev.php');
+require_once(__DIR__ . '/../views/headDev.php');
+?>
+<?php
+
+// // Initialiser les contrôleurs
+// $messageController = new MessageController();
+// $contactController = new ContactController();
+
+// // Récupérer les derniers messages pour l'utilisateur
+// $userId = 1;
+// $latestMessages = $messageController->getLatestMessages($userId);
+
+// // Récupérer les contacts de l'utilisateur
+// $userContacts = $contactController->getContacts($userId);
+
+
 ?>
 
 <body class="body__chat">
@@ -14,7 +29,7 @@ require_once(__DIR__ . '/views/headDev.php');
     </header>
     <main id="chatBox" class="container">
         <h1 class="page-title">Ma messagerie</h1>
-        
+
         <section class="d-flex justify-content-center align-items-center mb-5">
             <div class="container d-flex justify-content-center g-0 m-0 p-auto desktop-image">
 
@@ -48,12 +63,12 @@ require_once(__DIR__ . '/views/headDev.php');
                                     <!-- Contenu liste contact -->
                                     <span class="card-text p-0 m-0"><small class="text-muted">Mes contact</small></span>
                                     <ul class="list-group">
-                                        <?php
+                                        <ul class="list-group">
+                                            <?php foreach ($userContacts as $contact) : ?>
+                                                <?php include('../views/cardContact.php'); ?>
+                                            <?php endforeach; ?>
+                                        </ul>
 
-                                        for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardContact.php');
-                                        }
-                                        ?>
                                     </ul>
                                 </div>
 
@@ -78,17 +93,11 @@ require_once(__DIR__ . '/views/headDev.php');
                                 </div>
 
                                 <div class="card-body card__body--chat" id="messageList">
-                                    <ul class="list-group   " id="messageContainer">
-                                        <?php
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
-
-                                        ?>
-
+                                    <ul class="list-group">
+                                        <?php foreach ($latestMessages as $message) : ?>
+                                            <?php include('../views/cardChatLeft.php'); ?>
+                                            <?php include('../views/cardChatRight.php'); ?>
+                                        <?php endforeach; ?>
                                     </ul>
 
                                     <!-- Offcanvas pour les contact -->
@@ -120,13 +129,11 @@ require_once(__DIR__ . '/views/headDev.php');
                                             <!-- Contenu liste contact -->
                                             <span class="card-text p-0 m-0"><small class="text-muted">Mes contact</small></span>
                                             <ul class="list-group">
-                                                <?php
-
-                                                for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardContact.php');
-                                                }
-                                                ?>
+                                                <?php foreach ($userContacts as $contact) : ?>
+                                                    <?php include('../views/cardContact.php'); ?>
+                                                <?php endforeach; ?>
                                             </ul>
+
                                         </div>
                                     </div>
 
