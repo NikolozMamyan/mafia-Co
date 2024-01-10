@@ -52,11 +52,8 @@ try {
 ?>
 <!-- Partie HTML -->
 <div class='col-sm-6 ms-3 order-3 '>
-<h2 class='mt-5 text-start'>Tableau de bord</h2>
-<div class='d-flex gap-5 mt-5 text-center'>
-<p>Total d'utilisateurs <br> <?php echo $nombre_utilisateurs; ?></p>
-<p>Total d'itinéraires <br>  <?php echo $nombre_itineraires; ?></p>
-<p>Total de messages <br>  <?php echo $nombre_messages; ?></p>
+<h2 class='mt-5'>Gérer un trajet</h2>
+
 </div>
 
 </div>

@@ -1,12 +1,20 @@
-SET AUTOCOMMIT = 0;
-
 START TRANSACTION;
+
+SET
+    AUTOCOMMIT = 0;
 
 DROP DATABASE IF EXISTS cciCovoiturage;
 
 CREATE DATABASE cciCovoiturage DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE cciCovoiturage;
+
+CREATE TABLE JourSemaine (
+    idJourSemaine INT AUTO_INCREMENT,
+    labelJourSemaine VARCHAR(8),
+    labelJourSemaineCourt VARCHAR(3),
+    PRIMARY KEY (idJourSemaine)
+);
 
 CREATE TABLE Points (
     idPoint INT AUTO_INCREMENT,
@@ -27,7 +35,6 @@ CREATE TABLE Itineraire (
     idItineraire INT AUTO_INCREMENT,
     adresseDepart VARCHAR(50),
     adresseArrivee VARCHAR(50),
-    jourSemaine INT(8),
     debutCours TIME,
     finCours TIME,
     nbrPlaceDispo INT(8),
@@ -53,11 +60,21 @@ CREATE TABLE Utilisateurs (
     compteActif BOOLEAN NOT NULL DEFAULT false,
     dateInscriptionUtilisateur DATE DEFAULT NOW(),
     derniereModificationUtilisateur DATETIME DEFAULT NOW(),
+    idItineraire INT DEFAULT NULL,
     idRole INT NOT NULL,
     idPoint INT NOT NULL,
     PRIMARY KEY (idUtilisateur),
     FOREIGN KEY (idRole) REFERENCES Roles(idRole),
-    FOREIGN KEY (idPoint) REFERENCES Points(idPoint)
+    FOREIGN KEY (idPoint) REFERENCES Points(idPoint),
+    FOREIGN KEY (idItineraire) REFERENCES Itineraire(idItineraire)
+);
+
+CREATE TABLE ItineraireJourSemaine (
+    idItineraire INT,
+    idJourSemaine INT,
+    PRIMARY KEY (idItineraire, idJourSemaine),
+    FOREIGN KEY (idItineraire) REFERENCES Itineraire(idItineraire),
+    FOREIGN KEY (idJourSemaine) REFERENCES JourSemaine(idJourSemaine)
 );
 
 CREATE TABLE Messages (
@@ -80,39 +97,30 @@ CREATE TABLE Contactes (
     FOREIGN KEY (idContacte) REFERENCES Utilisateurs(idUtilisateur)
 );
 
-CREATE TABLE CreationItineraire (
-    idUtilisateur INT,
-    idItineraire INT,
-    PRIMARY KEY (idUtilisateur, idItineraire),
-    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur),
-    FOREIGN KEY (idItineraire) REFERENCES Itineraire(idItineraire)
-);
-
 CREATE TABLE Notifications (
     idUtilisateur INT,
     idUtilisateurNotif INT,
     dateNotification DATETIME DEFAULT NOW(),
     isReadNotification BOOLEAN NOT NULL DEFAULT false,
-    dateReadNotification DATETIME,
     PRIMARY KEY (idUtilisateur, idUtilisateurNotif),
     FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur),
     FOREIGN KEY (idUtilisateurNotif) REFERENCES Utilisateurs(idUtilisateur)
 );
 
-CREATE TABLE JourSemaine (
-    idJourSemaine INT,
-    labelJourSemaine VARCHAR(8),
-    labelJourSemaineCourt VARCHAR(3)
-);
-
-INSERT INTO `Roles` (idRole, labelRole)
+INSERT INTO
+    `Roles` (idRole, labelRole)
 VALUES
     (1, 'Admin'),
     (2, 'Conducteur'),
     (3, 'Passager'),
     (4, 'Conducteur / Passager');
 
-INSERT INTO `JourSemaine` (idJourSemaine, labelJourSemaine, labelJourSemaineCourt)
+INSERT INTO
+    `JourSemaine` (
+        idJourSemaine,
+        labelJourSemaine,
+        labelJourSemaineCourt
+    )
 VALUES
     (1, 'Lundi', 'Lun'),
     (2, 'Mardi', 'Mar'),
@@ -121,35 +129,46 @@ VALUES
     (5, 'Vendredi', 'Ven');
 
 -- Création des Utilisateurs
-DROP USER IF EXISTS 'ccicovoiturage_user'@'localhost';
+DROP USER IF EXISTS 'ccicovoiturage_user' @'localhost';
 
-CREATE USER 'ccicovoiturage_user'@'localhost' IDENTIFIED BY 'GT9.9%spZ*656Mb';
+CREATE USER 'ccicovoiturage_user' @'localhost' IDENTIFIED BY 'GT9.9%spZ*656Mb';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user'@'localhost';
+GRANT
+SELECT
+,
+INSERT
+,
+UPDATE
+,
+    DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user' @'localhost';
 
-DROP USER IF EXISTS 'ccicovoiturage_sqlbackup'@'localhost';
+DROP USER IF EXISTS 'ccicovoiturage_sqlbackup' @'localhost';
 
-CREATE USER 'ccicovoiturage_sqlbackup'@'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
+CREATE USER 'ccicovoiturage_sqlbackup' @'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
 
-GRANT SELECT, LOCK TABLES, SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
+GRANT
+SELECT
+,
+    LOCK TABLES,
+    SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup' @'localhost';
 
-DELIMITER |
-CREATE OR REPLACE TRIGGER USERMODIFDATEBEFOREUPDATE BEFORE UPDATE ON Utilisateurs
-FOR EACH ROW BEGIN
-    SET NEW.derniereModificationUtilisateur = NOW();
-END |
-CREATE OR REPLACE TRIGGER TRAJETMODIFDATEBEFOREUPDATE BEFORE UPDATE ON Itineraire
-FOR EACH ROW BEGIN
-    SET NEW.derniereModificationTrajet = NOW();
-END |
-CREATE OR REPLACE TRIGGER NOTIFICATIONREADDATEBEFOREUPDATE BEFORE UPDATE ON Notifications
-FOR EACH ROW BEGIN
-    IF NEW.isReadNotification <> OLD.isReadNotification THEN
-        SET NEW.dateReadNotification = NOW();
-    END IF;
-END |
-DELIMITER ;
+DELIMITER | CREATE
+OR REPLACE TRIGGER USERMODIFDATEBEFOREUPDATE BEFORE
+UPDATE
+    ON Utilisateurs FOR EACH ROW BEGIN
+SET
+    NEW.derniereModificationUtilisateur = NOW();
+
+END | CREATE
+OR REPLACE TRIGGER TRAJETMODIFDATEBEFOREUPDATE BEFORE
+UPDATE
+    ON Itineraire FOR EACH ROW BEGIN
+SET
+    NEW.derniereModificationTrajet = NOW();
+
+END | DELIMITER;
 
 COMMIT;
 
-SET AUTOCOMMIT = 1;
+SET
+    AUTOCOMMIT = 1;

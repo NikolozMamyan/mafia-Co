@@ -2,7 +2,7 @@
         <div class="sidebar__dashboard">
         
         <ul class="menu__dashboard">
-            <li><a href="#"> <img src="../assets/iconsDashboard/Dashboard.svg" alt="Home"><span> Dashboard</span></a></li>
+            <li><a href="../dashboard/index.php"> <img src="../assets/iconsDashboard/Dashboard.svg" alt="Home"><span> Dashboard</span></a></li>
             <li><a href="#"> <img src="../assets/iconsDashboard/people.svg" alt="Utilisateurs"> <span> Utilisateurs</span></a></li>
             <li><a href="#"> <img src="../assets/iconsDashboard/folder-open.svg" alt="Trajets"> <span> Trajets</span></a></li>
             <li><a href="#"> <img src="../assets/iconsDashboard/message.svg" alt="Message"> <span> Messages</span></a></li>
