@@ -2,13 +2,15 @@
 
 namespace models;
 
+use DateTime;
+
 class Notification extends Model
 {
     protected int $idUtilisateur;
     protected int $idUtilisateurNotif;
-    protected string $dateNotification;
+    protected DateTime $dateNotification;
     protected bool $isReadNotification;
-    protected string $dateReadNotification;
+    protected DateTime $dateReadNotification;
 
     public function __construct($idUtilisateur, $idUtilisateurNotif)
     {

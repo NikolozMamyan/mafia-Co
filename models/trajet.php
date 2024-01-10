@@ -2,6 +2,8 @@
 
 namespace models;
 
+use DateTime;
+
 class Trajet extends Model
 {
     protected int $idTrajet;
@@ -12,8 +14,8 @@ class Trajet extends Model
     protected string $finCours;
     protected int $nbrPlaceDispo;
     protected string $infoComplementaire;
-    protected string $dateCreation;
-    protected string $derniereModificationTrajet;
+    protected DateTime $dateCreation;
+    protected DateTime $derniereModificationTrajet;
     protected string $zipcodeDepart;
     protected string $villeDepart;
     protected float $latDepart;
