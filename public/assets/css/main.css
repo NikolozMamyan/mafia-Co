@@ -393,75 +393,6 @@ h1.page-title {
     background-color: rgb(217, 205, 234);
   }
 }
-/*NavBar Dashboard*/
-.header__dashboard {
-  position: relative;
-  margin-left: 165px;
-  width: auto;
-  background-color: #6D46A4;
-  height: 100px;
-}
-
-.logo__dashboard {
-  display: none;
-  position: absolute;
-  margin: 20px;
-}
-
-.navBar__dashboard {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-.search__bar {
-  position: relative;
-}
-
-.search__dashbaord {
-  background: none;
-  position: absolute;
-  left: 10px;
-  border: none;
-  top: 22px;
-}
-
-.search__dashbaord img {
-  width: 20px;
-}
-
-.inp__dashboard {
-  border: white;
-  height: 55px;
-  margin-top: 8px;
-  width: 380px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.admin__dashboard {
-  display: flex;
-}
-
-.user__details {
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: end;
-  color: white;
-}
-
-.name {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.avatar {
-  padding: 15px;
-  margin-left: -20px;
-}
-
-/*NavBar Dashboard Fin*/
 /* Header
 --------------------------------------------- */
 header {
@@ -498,69 +429,6 @@ header nav ul img {
   border-radius: 50px;
 }
 
-/*Menu Dashboard*/
-.sidebar__dashboard {
-  height: 100vh;
-  background-color: white;
-  position: fixed;
-  list-style: none;
-  width: 170px;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.deconnexion {
-  margin-bottom: 80px;
-}
-
-.logo {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.menu__dashboard {
-  margin-top: 50px;
-  gap: 30px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.menu__dashboard li {
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.menu__dashboard a {
-  color: black;
-  text-decoration: none;
-}
-
-.menu__dashboard a:hover {
-  color: #6D46A4;
-}
-
-.logout {
-  padding: 15px;
-  color: black;
-  text-align: center;
-  list-style: none;
-  cursor: pointer;
-  border-top: 1px solid #fff;
-  margin-top: auto;
-  margin-bottom: 30px;
-  transition: background-color 0.3s;
-}
-
-.logout:hover {
-  color: #6D46A4;
-}
-
-/*Menu Dashboard-Fin*/
 /* Footer
 --------------------------------------------- */
 footer {
@@ -1446,113 +1314,192 @@ a.edit-icon:hover, a.edit-icon:focus {
   margin-bottom: 10px;
 }
 
-/*title-userCreate*/
+/*NavBar Dashboard*/
+.header__dashboard {
+  position: relative;
+  margin-left: 165px;
+  width: auto;
+  background-color: #6D46A4;
+  height: 80px;
+}
+
+.logo__dashboard {
+  width: 170px;
+  position: absolute;
+  left: -165px;
+  top: 20px;
+}
+
+.navBar__dashboard {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.search__dashboard {
+  position: relative;
+}
+
+.btnSearch__dashboard {
+  background: none;
+  position: absolute;
+  left: 10px;
+  border: none;
+  top: 15px;
+}
+
+.btn__search img {
+  width: 20px;
+}
+
+.inp__dashboard {
+  border: white;
+  height: 45px;
+  width: 380px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.admin__dashboard {
+  display: flex;
+  margin-top: -15px;
+}
+
+.admin__details {
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: end;
+  color: white;
+}
+
+.admin__name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.admin__avatar {
+  padding: 15px;
+  margin-left: -20px;
+}
+
+/*NavBar Dashboard Fin*/
+.sidebar__dashboard {
+  list-style: none;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.menu__dashboard {
+  margin-left: 0px;
+  list-style: none;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__dashboard li {
+  padding: 15px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu__dashboard a:hover {
+  color: #6D46A4;
+}
+
+.deconnexion__dashboard {
+  margin-top: 20px;
+  margin-left: 0px;
+}
+
+.users__table td {
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.table__head th {
+  text-align: left;
+  padding: 10px;
+  background-color: #FBFBFB;
+  border-bottom: 2px solid #DFE1E6;
+}
+
 .flex__title {
   display: flex;
   justify-content: space-evenly;
 }
 
-.title {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.user__create {
+.user__create__dashboard {
   text-align: center;
   cursor: pointer;
-  padding: 15px;
+  padding: 10px;
   width: 200px;
   color: white;
   border-radius: 5px;
   background-color: #6D46A4;
 }
 
-/*title-userCreate Fin*/
-/*users Dashboard*/
-.container__center {
-  display: flex;
-  justify-content: center;
-}
-
-.pagination {
+.pagination__dashboard {
   display: flex;
   justify-content: center;
   gap: 20px;
   font-weight: bold;
 }
 
-.users__table td {
-  border-collapse: collapse;
-  padding: 35px;
-}
-
-.table__head th {
-  text-align: left;
-  padding: 40px;
-  background-color: #FBFBFB;
-  border-bottom: 2px solid #DFE1E6;
-}
-
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 874px) {
   .header__dashboard {
     height: 150px;
     margin: auto;
   }
-  .sidebar__dashboard {
-    height: 86vh;
-    margin-top: 150px;
-  }
-  .users__table td {
-    padding: 15px;
-  }
-  .table__head th {
-    padding: 15px;
-  }
-}
-@media only screen and (max-width: 768px) {
   .logo__dashboard {
-    width: 150px;
-    display: unset;
+    left: 20px;
+    top: 25px;
+    width: 140px;
   }
   .navBar__dashboard {
     display: flex;
     flex-direction: column-reverse;
     align-items: end;
-    margin-right: 80px;
-  }
-  .search__dashboard {
-    top: 13px;
-  }
-  .inp__dashboard {
-    height: 30px;
-    width: 280px;
-  }
-  .sidebar__dashboard {
-    display: flex;
-    align-items: flex-end;
-    width: 30px;
-  }
-  .deconnexion {
-    margin-right: 10px;
-  }
-  .flex__title {
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-  }
-  .users__table td {
-    padding: 25px;
   }
   .table__head th {
-    padding: 10px;
+    padding: 20px;
+  }
+  .btnSearch__dashboard {
+    top: 10px;
+  }
+  .inp__dashboard {
+    height: 35px;
+    width: 300px;
   }
   .sidebar__dashboard span {
     display: none;
   }
-  .logo {
+  .display__none__dashboard {
     display: none;
   }
-  .display__none {
-    display: none;
+  .deconnexion__dashboard {
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .menu__dashboard, .sidebar__dashboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    list-style: none;
+  }
+  .logo__dashboard {
+    width: 140px;
   }
 }/*# sourceMappingURL=main.css.map */
