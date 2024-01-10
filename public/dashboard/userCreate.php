@@ -6,41 +6,17 @@ require_once(__DIR__ . '/../../views/headDev.php');
 
 
 <body>
-<!-- <header class="header">
-        <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logoHeader">
-            <nav class="nav__bar">
-                <form action="" class="search__bar">
-                    <button class="btn__search">
-                        <img class="" type="submit" src="../assets/iconsDashboard/loupe.svg">
-                    </button>
-                    <input type="text"  class="inp" placeholder="Rechercher un utilisateur">
-                </form>
-                <div class="user-card">
-                    <div class="user-details">
-                        <span class="name">John Doe </span>
-                        <br>
-                        <span >Amin</span>
-                    </div>
-                    <div class="avatar">
-                        <img src="../assets/iconsDashboard/Profile Icon.png" alt="Avatar">
-                    </div>
-                    </div>
-            </nav>
-    </header>
-    <main>
-    <div class="sidebar">
-        <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logo">
-        <ul class="menu">
-            <li><a href="index.php"> <img src="../assets/iconsDashboard/Dashboard.svg" alt="Home"><span> Dashboard</span></a></li>
-            <li><a href="utilisateurs.php"> <img src="../assets/iconsDashboard/people.svg" alt="Utilisateurs"> <span> Utilisateurs</span></a></li>
-            <li><a href="#"> <img src="../assets/iconsDashboard/folder-open.svg" alt="Trajets"> <span> Trajets</span></a></li>
-            <li><a href="#"> <img src="../assets/iconsDashboard/message.svg" alt="Message"> <span> Messages</span></a></li>
-            <li><a href="#"> <img src="../assets/iconsDashboard/setting-2.svg" alt="Parametres"> <span> Parametres</span></a></li>
-        </ul>
-        <li class="deconnexion" ><a href="#"> <img  src="../assets/iconsDashboard/logout.svg" alt="Deconnexion"> <span> Deconnexion</span></a></li>
-    </div>
-</main>
-<section  class='container mt-5'>
+<?php
+
+include_once "../../views/header__dashboard.php";
+?>
+<section class='container-fluid row'>
+
+
+<?php
+include_once "../../views/menu__dashboard.php";
+?>
+<div class='col-sm-6 ms-3 order-3'>
 <form action="traitement.php" method="post" enctype="multipart/form-data" class="registration-form">
     <div class="user__create ">
         <label for="nom">Nom :</label>
@@ -97,8 +73,8 @@ require_once(__DIR__ . '/../../views/headDev.php');
 
    
 </form>
-
+</div>
 
 </section>
 </body>
-</html> -->
+</html>

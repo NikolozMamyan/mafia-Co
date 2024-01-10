@@ -34,7 +34,7 @@ try {
     $nombre_utilisateurs = $resultat_utilisateurs->fetch(PDO::FETCH_ASSOC)['nombre_utilisateurs'];
 
     // Requête SQL pour obtenir le nombre total d'itinéraires
-    $requete_itineraires = "SELECT COUNT(*) AS nombre_itineraires FROM creationitineraire";
+    $requete_itineraires = "SELECT COUNT(*) AS nombre_itineraires FROM Itineraire";
     $resultat_itineraires = $db->query($requete_itineraires);
     $nombre_itineraires = $resultat_itineraires->fetch(PDO::FETCH_ASSOC)['nombre_itineraires'];
 

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     
     try {
         $stmtDeleteUser->execute();
-        header("Location: index.php");
+        header("Location: utilisateurs.php");
     } catch (PDOException $e) {
         echo "Erreur lors de la suppression de l'utilisateur : " . $e->getMessage();
     }

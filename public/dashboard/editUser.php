@@ -23,12 +23,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     // Si l'utilisateur n'existe pas, redirigez vers index.php
     if (!$user) {
-        header("Location: index.php");
+        header("Location: utilisateurs.php");
         exit();
     }
 } else {
     // Si l'identifiant de l'utilisateur n'est pas fourni, redirigez vers index.php
-    header("Location: index.php");
+    header("Location: utilisateurs.php");
     exit();
 }
 
@@ -78,14 +78,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtUpdateUtilisateur->execute();
 
         // Redirigez l'utilisateur vers index.php après la mise à jour
-        header("Location: index.php");
+        header("Location: utilisateurs.php");
         exit();
     } catch (PDOException $e) {
         echo "Erreur de mise à jour : " . $e->getMessage();
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href='../assets/css/main.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+<?php
 
+include_once "../../views/header__dashboard.php";
+?>
+<section class='container-fluid row'>
+<?php
+include_once "../../views/menu__dashboard.php";
+?>
+<div class='col-sm-6 ms-3 order-3 '>
 <!-- Formulaire HTML -->
 <form method="post" action="" enctype="multipart/form-data" class="registration-form">
     <div class="user__create">
@@ -123,3 +143,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" class="form-submit-button">Enregistrer les modifications</button>
     </div>
 </form>
+</div>
+</section>
