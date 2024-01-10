@@ -2,6 +2,8 @@
 
 namespace models;
 
+require_once __DIR__ . '/Model.php';
+
 use DateTime;
 
 class User extends Model

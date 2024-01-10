@@ -9,7 +9,9 @@ abstract class Model
     public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
-            $this->data[$key] = $value ?? null;
+            if (property_exists($this, $key)) {
+                $this->$key = $value;
+            }
         }
     }
 }

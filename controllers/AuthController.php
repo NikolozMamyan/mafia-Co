@@ -9,9 +9,12 @@ require_once __DIR__ . '/../helpers/redirect_functions.php';
 require_once __DIR__ . '/../helpers/session_functions.php';
 require_once(__DIR__ . '/../helpers/class/Db.php');
 
+require_once __DIR__ . '/../models/User.php';
+
 
 use Auth;
 use DB;
+use models\User;
 
 class AuthController extends Controller
 {
@@ -38,6 +41,8 @@ class AuthController extends Controller
 
     public function store(): void
     {
+        $user = new User();
+
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
         $lastName = $_POST['lastName'] ?? '';
@@ -71,7 +76,6 @@ class AuthController extends Controller
             redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
         }
 
-
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
@@ -90,6 +94,28 @@ class AuthController extends Controller
         )[0];
 
         $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
+
+        $userData = [
+            'nomUtilisateur' => $_POST['firstName'] ?? '',
+            'prenomUtilisateur' => $_POST['lastName'] ?? '',
+            'adresseUtilisateur' => $_POST['address'] ?? '',
+            'telUtilisateur' => $_POST['tel'] ?? '',
+            'emailUtilisateur' => $_POST['email'] ?? '',
+            'motDePasseUtilisateur' => $_POST['password'] ?? '',
+            'photoUtilisateur' => $photo = $_FILES['photo']['name'] ?? '',
+            'compteActif' => false,
+            'dateInscriptionUtilisateur' => date('Y-m-d H:i:s'),
+            'derniereModificationUtilisateur' => date('Y-m-d H:i:s'),
+            'roleUtilisateur' => $idRole['idRole'],
+            'zipcodeUtilisateur' => $_POST['zip'] ?? '',
+            'villeUtilisateur' => $_POST['city'] ?? '',
+            'latUtilisateur' => '',
+            'lonUtilisateur' => '',
+        ];
+
+        $user->hydrate($userData);
+
+        dd($user);
 
         if (!$idPoint) {
             $pointResult = DB::statement(
@@ -174,8 +200,7 @@ class AuthController extends Controller
     {
         // Validation
         if (
-            strlen($password) < 8 or
-            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8}$/', $password) or
+            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8,}$/', $password) or
             $password !== $passwordConfirm
         ) {
             return false;
