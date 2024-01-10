@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Db.php';
-
 class Auth
 {
     const SESSION_KEY = 'current_user_id';
@@ -39,7 +37,7 @@ class Auth
         if (!Auth::getCurrentUser()) {
             // Not Auth Or account not exists
             errors('Vous devez être connecté pour accèder à cette page.');
-            redirectAndExit('/applications/mafia-Co/public/login.php');
+            redirectAndExit('/login.php');
         }
     }
 
@@ -47,7 +45,7 @@ class Auth
     {
         // Check user is guest (invité)
         if (Auth::getCurrentUser()) {
-            redirectAndExit('/applications/mafia-Co/public/Profile.php');
+            redirectAndExit('/Profile.php');
         }
     }
 
