@@ -2,10 +2,12 @@
 
 namespace models;
 
-require_once __DIR__ . '/Model.php';
 
 class Point extends Model
 {
+
+    protected static string $childTableName  = 'Point';
+
     protected ?int $idPoint;
     protected ?string $nomVille;
     protected ?string $codePostalVille;
@@ -18,6 +20,8 @@ class Point extends Model
         ?float $latitude, 
         ?float $longitude
     ) {
+
+        parent::__construct();
         $this->nomVille = $nomVille;
         $this->codePostalVille = $codePostalVille;
         $this->latitude = $latitude;
@@ -33,7 +37,7 @@ class Point extends Model
     // Setter method for idPoint
     public function setidPoint($idPoint): void
     {
-        $this->idPoint = $idPoint;
+        $this->setFields('idPoint', $idPoint);
     }
 
     // Getter method for nomVille
@@ -45,7 +49,7 @@ class Point extends Model
     // Setter method for nomVille
     public function setNomVille($nomVille): void
     {
-        $this->nomVille = $nomVille;
+        $this->setFields('nomVille', $nomVille);
     }
 
     // Getter method for codePostalVille
@@ -57,7 +61,7 @@ class Point extends Model
     // Setter method for codePostalVille
     public function setCodePostalVille($codePostalVille): void
     {
-        $this->codePostalVille = $codePostalVille;
+        $this->setFields('codePostalVille', $codePostalVille);
     }
 
     // Getter method for latitude
@@ -69,7 +73,7 @@ class Point extends Model
     // Setter method for latitude
     public function setLatitude($latitude): void
     {
-        $this->latitude = $latitude;
+        $this->setFields('latitude', $latitude);
     }
 
     // Getter method for longitude
@@ -81,8 +85,18 @@ class Point extends Model
     // Setter method for longitude
     public function setLongitude($longitude): void
     {
-        $this->longitude = $longitude;
+        $this->setFields('longitude', $longitude);
     }
 
+    // Méthode pour obtenir les données du point sous forme de tableau
+    public function toArray(): array
+    {
+        $pointArray = parent::toArray();
+
+        // Ajouter des propriétés spécifiques pour Point
+        // $pointArray['specificProperty'] = $this->specificProperty;  // Vous pouvez ajouter des propriétés spécifiques ici
+
+        return $pointArray;
+    }
     
 }
