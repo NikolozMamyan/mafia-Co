@@ -4,248 +4,205 @@ namespace models;
 
 require_once __DIR__ . '/Model.php';
 
-use DateTime;
+use DateTime; // Import DateTime class for handling date/time
+use DB; // Assuming there's a DB class for database operations
 
 class User extends Model
 {
-    protected int $idUtilisateur;
-    protected string $nomUtilisateur;
-    protected string $prenomUtilisateur;
-    protected string $adresseUtilisateur;
-    protected string $telUtilisateur;
-    protected string $emailUtilisateur;
-    protected string $motDePasseUtilisateur;
-    protected string $photoUtilisateur;
-    protected bool $compteActif;
-    protected DateTime $dateInscriptionUtilisateur;
-    protected DateTime $derniereModificationUtilisateur;
-    protected string $roleUtilisateur;
-    protected string $zipcodeUtilisateur;
-    protected string $villeUtilisateur;
-    protected float $latUtilisateur;
-    protected float $lonUtilisateur;
-    protected array $contacts;
-    protected array $notifications;
-    protected int $trajet;
+    // Database table name
+    const TABLE_NAME = 'Utilisateurs';
+    // Date format for created_at field
+    const CREATED_AT_FORMAT = 'Y-m-d H:i:s';
 
-    // Getter pour idUtilisateur
-    public function getIdUtilisateur()
+    // Properties corresponding to database columns
+    protected ?int $idUtilisateur;
+    protected ?string $nomUtilisateur;
+    protected ?string $prenomUtilisateur;
+    protected ?string $adresseUtilisateur;
+    protected ?string $telUtilisateur;
+    protected ?string $emailUtilisateur;
+    protected ?string $motDePasseUtilisateur;
+    protected ?string $photoUtilisateur;
+    protected ?int $compteActif;
+    protected ?string $dateInscriptionUtilisateur;
+    protected ?string $derniereModificationUtilisateur;
+    protected ?int $idItineraire;
+    protected ?int $idRole;
+    protected ?int $idPoint;
+
+    // Array to track changed fields for updates
+    protected array $changedFields = [];
+
+    // Constructor for creating User objects
+    public function __construct(
+        ?string $nomUtilisateur,
+        ?string $prenomUtilisateur,
+        ?string $adresseUtilisateur,
+        ?string $telUtilisateur,
+        ?string $emailUtilisateur,
+        ?string $motDePasseUtilisateur,
+        ?string $photoUtilisateur,
+        ?int $compteActif,
+        ?int $idRole,
+        ?int $idPoint,
+        string|DateTime|null $dateInscriptionUtilisateur = null,
+        string|DateTime|null $derniereModificationUtilisateur = null,
+    ) {
+        // Initializing object properties
+        $this->nomUtilisateur = $nomUtilisateur;
+        $this->prenomUtilisateur = $prenomUtilisateur;
+        $this->adresseUtilisateur = $adresseUtilisateur;
+        $this->telUtilisateur = $telUtilisateur;
+        $this->emailUtilisateur = $emailUtilisateur;
+        $this->motDePasseUtilisateur = $motDePasseUtilisateur;
+        $this->photoUtilisateur = $photoUtilisateur;
+        $this->compteActif = $compteActif;
+        $this->idRole = $idRole;
+        $this->idPoint = $idPoint;
+        $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
+        $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
+    }
+
+
+
+    // Getter method for idUtilisateur
+    public function getIdUtilisateur(): ?int
     {
         return $this->idUtilisateur;
     }
 
-    // Setter pour idUtilisateur
-    public function setIdUtilisateur($idUtilisateur)
-    {
-        $this->idUtilisateur = $idUtilisateur;
-    }
-
-    // Getter pour nomUtilisateur
-    public function getNomUtilisateur()
+    // Getter method for nomUtilisateur
+    public function getNomUtilisateur(): ?string
     {
         return $this->nomUtilisateur;
     }
 
-    // Setter pour nomUtilisateur
-    public function setNomUtilisateur($nomUtilisateur)
+    // Setter method for nomUtilisateur
+    public function setNomUtilisateur(?string $nomUtilisateur): void
     {
-        $this->nomUtilisateur = $nomUtilisateur;
+        $this->setFields('nomUtilisateur', $nomUtilisateur);
     }
 
-    // Getter pour adresseUtilisateur
-    public function getAdresseUtilisateur()
+    public function getPrenomUtilisateur(): ?string
+    {
+        return $this->prenomUtilisateur;
+    }
+
+    public function setPrenomUtilisateur(?string $prenomUtilisateur): void
+    {
+        $this->setFields('prenomUtilisateur', $prenomUtilisateur);
+    }
+
+    public function getAdresseUtilisateur(): ?string
     {
         return $this->adresseUtilisateur;
     }
 
-    // Setter pour adresseUtilisateur
-    public function setAdresseUtilisateur($adresseUtilisateur)
+    public function setAdresseUtilisateur(?string $adresseUtilisateur): void
     {
-        $this->adresseUtilisateur = $adresseUtilisateur;
+        $this->setFields('adresseUtilisateur', $adresseUtilisateur);
     }
 
-    // Getter pour telUtilisateur
-    public function getTelUtilisateur()
+    public function getTelUtilisateur(): ?string
     {
         return $this->telUtilisateur;
     }
 
-    // Setter pour telUtilisateur
-    public function setTelUtilisateur($telUtilisateur)
+    public function setTelUtilisateur(?string $telUtilisateur): void
     {
-        $this->telUtilisateur = $telUtilisateur;
+        $this->setFields('telUtilisateur', $telUtilisateur);
     }
 
-    // Getter pour emailUtilisateur
-    public function getEmailUtilisateur()
+    public function getEmailUtilisateur(): ?string
     {
         return $this->emailUtilisateur;
     }
 
-    // Setter pour emailUtilisateur
-    public function setEmailUtilisateur($emailUtilisateur)
+    public function setEmailUtilisateur(?string $emailUtilisateur): void
     {
-        $this->emailUtilisateur = $emailUtilisateur;
+        $this->setFields('emailUtilisateur', $emailUtilisateur);
     }
 
-    // Getter pour motDePasseUtilisateur
-    public function getMotDePasseUtilisateur()
+    public function getMotDePasseUtilisateur(): ?string
     {
         return $this->motDePasseUtilisateur;
     }
 
-    // Setter pour motDePasseUtilisateur
-    public function setMotDePasseUtilisateur($motDePasseUtilisateur)
+    public function setMotDePasseUtilisateur(?string $motDePasseUtilisateur): void
     {
-        $this->motDePasseUtilisateur = $motDePasseUtilisateur;
+        $this->setFields('motDePasseUtilisateur', $motDePasseUtilisateur);
     }
 
-    // Getter pour photoUtilisateur
-    public function getPhotoUtilisateur()
+    public function getPhotoUtilisateur(): ?string
     {
         return $this->photoUtilisateur;
     }
 
-    // Setter pour photoUtilisateur
-    public function setPhotoUtilisateur($photoUtilisateur)
+    public function setPhotoUtilisateur(?string $photoUtilisateur): void
     {
-        $this->photoUtilisateur = $photoUtilisateur;
+        $this->setFields('photoUtilisateur', $photoUtilisateur);
     }
 
-    // Getter pour compteActif
-    public function getCompteActif()
+    public function getCompteActif(): ?int
     {
         return $this->compteActif;
     }
 
-    // Setter pour compteActif
-    public function setCompteActif($compteActif)
+    public function isCompteActif(): bool
     {
-        $this->compteActif = $compteActif;
+        return $this->getCompteActif() == 1;
     }
 
-    // Getter pour dateInscriptionUtilisateur
-    public function getDateInscriptionUtilisateur()
+    public function setCompteActif(?int $compteActif): void
+    {
+        $this->setFields('compteActif', $compteActif);
+    }
+
+    public function getDateInscriptionUtilisateur(): ?string
     {
         return $this->dateInscriptionUtilisateur;
     }
 
-    // Setter pour dateInscriptionUtilisateur
-    public function setDateInscriptionUtilisateur($dateInscriptionUtilisateur)
-    {
-        $this->dateInscriptionUtilisateur = $dateInscriptionUtilisateur;
-    }
-
-    // Getter pour derniereModificationUtilisateur
-    public function getDerniereModificationUtilisateur()
+    public function getDerniereModificationUtilisateur(): ?string
     {
         return $this->derniereModificationUtilisateur;
     }
 
-    // Setter pour derniereModificationUtilisateur
-    public function setDerniereModificationUtilisateur($derniereModificationUtilisateur)
+    public function getIdItineraire(): ?int
     {
-        $this->derniereModificationUtilisateur = $derniereModificationUtilisateur;
+        return $this->idItineraire;
     }
 
-    // Getter pour roleUtilisateur
-    public function getRoleUtilisateur()
+    public function setIdItineraire(?int $idItineraire): void
     {
-        return $this->roleUtilisateur;
+        $this->setFields('idItineraire', $idItineraire);
     }
 
-    // Setter pour roleUtilisateur
-    public function setRoleUtilisateur($roleUtilisateur)
+    public function getIdRole(): ?int
     {
-        $this->roleUtilisateur = $roleUtilisateur;
+        return $this->idRole;
     }
 
-    // Getter pour zipcodeUtilisateur
-    public function getZipcodeUtilisateur()
+    public function setIdRole(?int $idRole): void
     {
-        return $this->zipcodeUtilisateur;
+        $this->setFields('idRole', $idRole);
     }
 
-    // Setter pour zipcodeUtilisateur
-    public function setZipcodeUtilisateur($zipcodeUtilisateur)
+    public function getIdPoint(): ?int
     {
-        $this->zipcodeUtilisateur = $zipcodeUtilisateur;
+        return $this->idPoint;
     }
 
-    // Getter pour villeUtilisateur
-    public function getVilleUtilisateur()
+    public function setIdPoint(?int $idPoint): void
     {
-        return $this->villeUtilisateur;
-    }
-
-    // Setter pour villeUtilisateur
-    public function setVilleUtilisateur($villeUtilisateur)
-    {
-        $this->villeUtilisateur = $villeUtilisateur;
-    }
-
-    // Getter pour latUtilisateur
-    public function getLatUtilisateur()
-    {
-        return $this->latUtilisateur;
-    }
-
-    // Setter pour latUtilisateur
-    public function setLatUtilisateur($latUtilisateur)
-    {
-        $this->latUtilisateur = $latUtilisateur;
-    }
-
-    // Getter pour lonUtilisateur
-    public function getLonUtilisateur()
-    {
-        return $this->lonUtilisateur;
-    }
-
-    // Setter pour lonUtilisateur
-    public function setLonUtilisateur($lonUtilisateur)
-    {
-        $this->lonUtilisateur = $lonUtilisateur;
-    }
-
-    // Méthodes pour gérer les contacts
-    public function ajouterContact($contact)
-    {
-        $this->contacts[] = $contact;
-    }
-
-    public function getContacts()
-    {
-        return $this->contacts;
-    }
-
-    // Méthodes pour gérer les notifications
-    public function ajouterNotification($notification)
-    {
-        $this->notifications[] = $notification;
-    }
-
-    public function getNotifications()
-    {
-        return $this->notifications;
-    }
-
-    // Méthodes pour gérer les trajets
-    public function ajouterTrajet($trajet)
-    {
-        $this->trajet = $trajet;
-    }
-
-    public function getTrajets()
-    {
-        return $this->trajet;
+        $this->setFields('idPoint', $idPoint);
     }
 
     // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
+    // Method to convert object data to an associative array
     public function toArray()
     {
         return [
-            'idUtilisateur' => $this->idUtilisateur,
             'nomUtilisateur' => $this->nomUtilisateur,
             'prenomUtilisateur' => $this->prenomUtilisateur,
             'adresseUtilisateur' => $this->adresseUtilisateur,
@@ -254,13 +211,74 @@ class User extends Model
             'motDePasseUtilisateur' => $this->motDePasseUtilisateur,
             'photoUtilisateur' => $this->photoUtilisateur,
             'compteActif' => $this->compteActif,
+            'idRole' => $this->idRole,
+            'idPoint' => $this->idPoint,
             'dateInscriptionUtilisateur' => $this->dateInscriptionUtilisateur,
             'derniereModificationUtilisateur' => $this->derniereModificationUtilisateur,
-            'roleUtilisateur' => $this->roleUtilisateur,
-            'zipcodeUtilisateur' => $this->zipcodeUtilisateur,
-            'villeUtilisateur' => $this->villeUtilisateur,
-            'latUtilisateur' => $this->latUtilisateur,
-            'lonUtilisateur' => $this->lonUtilisateur,
+            'idItineraire' => $this->idItineraire,
         ];
+    }
+
+    // Method to save or update the user data in the database
+    public function save($forced = false): int|false
+    {
+        if ($this->idUtilisateur ?? null) {
+            // Update
+            if ($forced) {
+                return DB::update(self::TABLE_NAME, $this->toArray(), $this->idUtilisateur);
+            } elseif ($this->changedFields) {
+                $toArray = $this->toArray();
+                $updates = [];
+                foreach ($this->changedFields as $key) {
+                    if (array_key_exists($key, $toArray)) {
+                        $updates[$key] = $toArray[$key];
+                    }
+                }
+
+                return DB::update(self::TABLE_NAME, $updates, $this->idUtilisateur);
+            }
+        } else {
+            // Insert
+            return DB::insert(self::TABLE_NAME, $this->toArray());
+        }
+
+        return 0;
+    }
+
+    // Method to delete the user data from the database
+    public function delete(): int|false
+    {
+        return self::staticDelete($this->idUtilisateur);
+    }
+
+    // Static method to delete a user by ID from the database
+    public static function staticDelete(int $id): int|false
+    {
+        return DB::statement(
+            "DELETE FROM Utilisateurs WHERE idUtilisateur = :id",
+            ['id' => $id],
+        );
+    }
+
+    // Protected method to track changed fields
+    protected function setFields($name, $value)
+    {
+        if (property_exists($this, $name) and isset($this->$name) and $this->$name != $value) {
+            $this->changedFields[] = $name;
+        }
+
+        $this->$name = $value;
+    }
+
+    // Protected method to prepare the created_at field
+    protected function prepareCreatedAt(string|DateTime|null $created_at): string
+    {
+        if (!$created_at) {
+            $created_at = date(self::CREATED_AT_FORMAT);
+        } elseif ($created_at instanceof DateTime) {
+            $created_at = $created_at->format(self::CREATED_AT_FORMAT);
+        }
+
+        return $created_at;
     }
 }
