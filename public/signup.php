@@ -2,7 +2,7 @@
 
 <?php
 require_once(__DIR__ . '/../views/headDev.php');
-require_once(__DIR__ . '/../controllers/AuthController.php');
+require_once(__DIR__ . '/../src/controllers/AuthController.php');
 ?>
 
 <body id="signupPage">
@@ -51,6 +51,10 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom03" class="form-label ps-3">Adresse</label>
                                 <input type="text" class="form-control " id="validationCustom03" name="address" required>
+                                <span>
+                                    <ul id="address-target">
+                                    </ul>
+                                </span>
                                 <span class="invalid-feedback">
                                     L'adresse est obligatoire !
                                 </span>
@@ -100,7 +104,6 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                                 <div class="input-group ">
                                     <label for="your-confirm">votre mot de passe
                                         <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" />
-                                        <button id="show-hide-password"></button>
                                     </label>
 
                                 </div>
@@ -138,7 +141,7 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                             <!-- terme et condition -->
                             <div class="col-md-12 mb-3 ps-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="CGU" value="" id="invalidCheck2" required>
+                                    <input class="form-check-input" type="checkbox" name="CGU" value="1" id="invalidCheck2" required>
                                     <label class="form-check-label " for="invalidCheck2">
                                         Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
                                     </label>
@@ -186,19 +189,19 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                         <h3 class="d-flex justify-content-center title__h3 mt-2">Choisir les jours de la semaine</h3>
                         <div class="btn-group-toggle d-flex flex-colunm flex-lg-row flex-md-column btn__media justify-content-center pt-md-2" data-toggle="buttons">
                             <label class="btn btn__color m-1">
-                                <input type="checkbox" name="days[]" value="lundi" onchange="toggleCheckboxStyle(this)"> Lundi
+                                <input type="checkbox" name="days[]" id="days" value="lundi" onchange="toggleCheckboxStyle(this)"> Lundi
                             </label>
                             <label class="btn btn__color m-1">
-                                <input type="checkbox" name="days[]" value="mardi" onchange="toggleCheckboxStyle(this)"> Mardi
+                                <input type="checkbox" name="days[]" id="days" value="mardi" onchange="toggleCheckboxStyle(this)"> Mardi
                             </label>
                             <label class="btn btn__color m-1">
-                                <input type="checkbox" name="days[]" value="mercredi" onchange="toggleCheckboxStyle(this)"> Mercredi
+                                <input type="checkbox" name="days[]" id="days" value="mercredi" onchange="toggleCheckboxStyle(this)"> Mercredi
                             </label>
                             <label class="btn btn__color m-1">
-                                <input type="checkbox" name="days[]" value="jeudi" onchange="toggleCheckboxStyle(this)"> Jeudi
+                                <input type="checkbox" name="days[]" id="days" value="jeudi" onchange="toggleCheckboxStyle(this)"> Jeudi
                             </label>
                             <label class="btn btn__color m-1">
-                                <input type="checkbox" name="days[]" value="vendredi" onchange="toggleCheckboxStyle(this)"> Vendredi
+                                <input type="checkbox" name="days[]" id="days" value="vendredi" onchange="toggleCheckboxStyle(this)"> Vendredi
                             </label>
                         </div>
                         <!-- time picker -->
@@ -210,20 +213,20 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                                 <!-- Première colonne -->
                                 <div class="col-6 align-self-end ">
                                     <div class="text-center">
-                                        <label class="" for="time">Début</label>
+                                        <label class="" for="timeStart">Début</label>
                                     </div>
                                     <div class="text-center">
-                                        <input class="" type="time" id="time" name="time">
+                                        <input class="" type="time" id="timeStart" name="timeStart">
                                     </div>
                                 </div>
 
                                 <!-- Deuxième colonne -->
                                 <div class="col-6 align-self-start">
                                     <div class="text-center">
-                                        <label class="" for="time">Fin</label>
+                                        <label class="" for="timeEnd">Fin</label>
                                     </div>
                                     <div class="text-center">
-                                        <input class="" type="time" id="time" name="time">
+                                        <input class="" type="time" id="timeEnd" name="timeEnd">
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +236,7 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                                 <h3 class="d-flex justify-content-center title__h3 mt-2">Info complémentaire</h3>
                             </div>
                             <div class="row m-2">
-                                <textarea name="" id="" cols="30" rows="6"></textarea>
+                                <textarea name="comment" id="" cols="30" rows="6"></textarea>
                             </div>
                         </div>
                     </div>

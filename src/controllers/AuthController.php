@@ -1,19 +1,10 @@
 <?php
 
-namespace Controllers;
-
-require_once 'Controller.php';
-require_once __DIR__ . '/../helpers/path_functions.php';
-require_once __DIR__ . '/../helpers/class/Auth.php';
-require_once __DIR__ . '/../helpers/redirect_functions.php';
-require_once __DIR__ . '/../helpers/session_functions.php';
-require_once(__DIR__ . '/../helpers/class/Db.php');
-
-require_once __DIR__ . '/../models/User.php';
-
+namespace App\Controllers;
 
 use Auth;
 use DB;
+use models\Point;
 use models\User;
 
 class AuthController extends Controller
@@ -41,8 +32,6 @@ class AuthController extends Controller
 
     public function store(): void
     {
-        $user = new User();
-
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
         $lastName = $_POST['lastName'] ?? '';
@@ -57,6 +46,14 @@ class AuthController extends Controller
         $photo = $_FILES['photo']['name'] ?? '';
         $CGU = $_POST['CGU'] ?? false;
 
+        $latitude = $_POST['latitude'] ?? '';
+        $longitude = $_POST['longitude'] ?? '';
+
+        $days = $_POST['days'] ?? [];
+        $timeStart = $_POST['timeStart'];
+        $timeEnd = $_POST['timeEnd'];
+        $comment = $_POST['comment'] ?? '';
+
         $_SESSION['old'] = [
             'firstName' => $firstName,
             'lastName' => $lastName,
@@ -69,10 +66,14 @@ class AuthController extends Controller
             'password-confirm' => $passwordConfirm,
             'radio-stacked' => $role,
             'photo' => $photo,
+            'days' => $days,
+            'timeStart' => $timeStart,
+            'timeEnd' => $timeEnd,
+            'comment' => $comment,
         ];
 
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo)) {
+        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
             redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
         }
 
@@ -93,41 +94,9 @@ class AuthController extends Controller
             ['labelRole' => $role]
         )[0];
 
-        $idPoint = AuthController::getIdPoint($zip, $city, '0.0', '0.0');
+        $point = $this->getOrSetPoint($zip, $city, $latitude, $longitude);
 
-        $userData = [
-            'nomUtilisateur' => $_POST['firstName'] ?? '',
-            'prenomUtilisateur' => $_POST['lastName'] ?? '',
-            'adresseUtilisateur' => $_POST['address'] ?? '',
-            'telUtilisateur' => $_POST['tel'] ?? '',
-            'emailUtilisateur' => $_POST['email'] ?? '',
-            'motDePasseUtilisateur' => $password,
-            'photoUtilisateur' => $photo = $_FILES['photo']['name'] ?? '',
-            'compteActif' => false,
-            'dateInscriptionUtilisateur' => date('Y-m-d H:i:s'),
-            'derniereModificationUtilisateur' => date('Y-m-d H:i:s'),
-            'roleUtilisateur' => $idRole['idRole'],
-            'zipcodeUtilisateur' => $_POST['zip'] ?? '',
-            'villeUtilisateur' => $_POST['city'] ?? '',
-            'latUtilisateur' => '0',
-            'lonUtilisateur' => '0',
-        ];
-
-        $user->hydrate($userData);
-
-        if (!$idPoint) {
-            $pointResult = DB::statement(
-                "INSERT INTO points (nomVille, codePostalVille, latitude, longitude)"
-                    . " VALUE(:city, :zip, :latitude, :longitude);",
-                [
-                    'zip' => $user->getZipcodeUtilisateur(),
-                    'city' => $user->getVilleUtilisateur(),
-                    'latitude' => $user->getLatUtilisateur(),
-                    'longitude' => $user->getLonUtilisateur(),
-                ]
-            );
-            $idPoint = AuthController::getIdPoint($user->getZipcodeUtilisateur(), $user->getVilleUtilisateur(), $user->getLatUtilisateur(), $user->getLonUtilisateur());
-        }
+        $user = new User($firstName, $lastName, $address, $tel, $email, $password, $photo, 0, $idRole['idRole'], $point->getIdPoint());
 
         // Create new user
         $result = DB::statement(
@@ -141,8 +110,8 @@ class AuthController extends Controller
                 'email' => $user->getEmailUtilisateur(),
                 'password' => $user->getMotDePasseUtilisateur(),
                 'photo' => $user->getPhotoUtilisateur(),
-                'idPoint' => $idPoint,
-                'idRole' => $idRole['idRole'],
+                'idPoint' => $user->getIdPoint(),
+                'idRole' => $user->getIdRole(),
             ]
         );
         if ($result === false) {
@@ -222,7 +191,7 @@ class AuthController extends Controller
 
     protected function ValidatePicture($photo)
     {
-        $targetDir = __DIR__ . "/../storage/"; // Specify the directory where you want to store the uploaded files
+        $targetDir = __DIR__ . "/../storage/";
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -262,6 +231,7 @@ class AuthController extends Controller
 
     protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
     {
+        $point = new Point($city, $zip, $latitude, $longitude);
         $idPoint = DB::fetch(
             "SELECT idPoint FROM points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
             [
@@ -272,8 +242,51 @@ class AuthController extends Controller
             ]
         );
         if ($idPoint) {
-            return $idPoint[0]['idPoint'];
+            return;
         }
         return false;
+    }
+
+    protected function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
+    {
+        $point = $this->getPointById($zip, $city, $latitude, $longitude);
+        if (!$point) {
+            $this->insertPoint($zip, $city, $latitude, $longitude);
+            $point = $this->getPointById($zip, $city, $latitude, $longitude);
+        }
+        return $point;
+    }
+
+    protected function getPointById($zip, $city, string $latitude, string $longitude): Point|false
+    {
+        $point = DB::fetch(
+            "SELECT * FROM points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
+            [
+                'zip' => $zip,
+                'city' => $city,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+            ]
+        );
+        if ($point === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_REGISTER);
+        }
+        if (empty($point)) {
+            return false;
+        }
+
+        return Point::hydrate($point[0], 'Point');
+    }
+
+    protected function insertPoint($zip, $city, string $latitude, string $longitude): void
+    {
+        $point = new Point(
+            $city,
+            $zip,
+            $latitude,
+            $longitude,
+        );
+        $point->save();
     }
 }

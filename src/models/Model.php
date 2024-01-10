@@ -4,14 +4,16 @@ namespace models;
 
 abstract class Model
 {
-    protected $data = [];
-
-    public function hydrate(array $data)
+    public static function hydrate(array $data, string $className): object
     {
-        foreach ($data as $key => $value) {
-            if (property_exists($this, $key)) {
-                $this->$key = $value;
+        $object = new $className();
+
+        foreach ($data as $property => $value) {
+            if (property_exists($className, $property)) {
+                $object->$property = $value;
             }
         }
+
+        return $object;
     }
 }
