@@ -42,7 +42,7 @@ $stmt->bindParam(':pointId', $pointId);
 
         $stmt->execute();
 
-        header("Location: index.php");
+        header("Location: utilisateurs.php");
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }

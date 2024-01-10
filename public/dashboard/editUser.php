@@ -1,11 +1,11 @@
 <?php
 require_once 'db.php';
 
-// Vérifiez si l'identifiant de l'utilisateur est fourni dans l'URL
+//  l'identifiant de l'utilisateur (verifications)
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $userId = $_GET['id'];
 
-    // Récupérez les informations de l'utilisateur à modifier, y compris les données de la table Points
+    // les informations de l'utilisateur à modifier, y compris les données de la table Points
     $sql = "SELECT U.*, P.nomVille, P.codePostalVille 
             FROM utilisateurs U
             JOIN Points P ON U.idPoint = P.idPoint
@@ -21,20 +21,20 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         echo "Erreur de récupération des données : " . $e->getMessage();
     }
 
-    // Si l'utilisateur n'existe pas, redirigez vers index.php
+    // Si l'utilisateur n'existe pas, redirigez vers utilisateurs.php
     if (!$user) {
-        header("Location: index.php");
+        header("Location: utilisateurs.php");
         exit();
     }
 } else {
-    // Si l'identifiant de l'utilisateur n'est pas fourni, redirigez vers index.php
-    header("Location: index.php");
+    // Si l'identifiant de l'utilisateur n'est pas fourni, redirigez vers utilisateurs.php
+    header("Location: utilisateurs.php");
     exit();
 }
 
 // Traitement du formulaire de modification
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérez les nouvelles informations de l'utilisateur depuis le formulaire
+    // les nouvelles informations de l'utilisateur depuis le formulaire
     $newNom = $_POST['newNom'];
     $newPrenom = $_POST['newPrenom'];
     $newAdresse = $_POST['newAdresse'];
@@ -44,14 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newEmail = $_POST['newEmail'];
     $newRole = $_POST['newRole'];
 
-    // Mettez à jour la table Points pour refléter les modifications de code postal et de ville
+    // Mettre à jour la table Points pour refléter les modifications de code postal et de ville
     $sqlUpdatePoints = "UPDATE Points SET nomVille = :ville, codePostalVille = :codePostal WHERE idPoint = :idPoint";
     $stmtUpdatePoints = $db->prepare($sqlUpdatePoints);
     $stmtUpdatePoints->bindParam(':idPoint', $user['idPoint'], PDO::PARAM_INT);
     $stmtUpdatePoints->bindParam(':ville', $newVille);
     $stmtUpdatePoints->bindParam(':codePostal', $newCodePostal);
 
-    // Mettez à jour les informations de l'utilisateur dans la table Utilisateurs
+    // Mettre à jour les informations de l'utilisateur dans la table Utilisateurs
     $sqlUpdateUtilisateur = "UPDATE utilisateurs SET 
         nomUtilisateur = :nom, 
         prenomUtilisateur = :prenom, 
@@ -71,21 +71,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtUpdateUtilisateur->bindParam(':role', $newRole);
 
     try {
-        // Exécutez la mise à jour de la table Points
+        // la mise à jour de la table Points
         $stmtUpdatePoints->execute();
 
-        // Exécutez la mise à jour de la table Utilisateurs
+        // la mise à jour de la table Utilisateurs
         $stmtUpdateUtilisateur->execute();
 
-        // Redirigez l'utilisateur vers index.php après la mise à jour
-        header("Location: index.php");
+        // Redirirection  vers utilisateurs.php après la mise à jour
+        header("Location: utilisateurs.php");
         exit();
     } catch (PDOException $e) {
         echo "Erreur de mise à jour : " . $e->getMessage();
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href='../assets/css/main.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+<?php
 
+include_once "../../views/header__dashboard.php";
+?>
+<section class='container-fluid row'>
+<?php
+include_once "../../views/menu__dashboard.php";
+?>
+<div class='col-sm-6 ms-3 order-3 '>
 <!-- Formulaire HTML -->
 <form method="post" action="" enctype="multipart/form-data" class="registration-form">
     <div class="user__create">
@@ -118,8 +138,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="4" <?php echo ($user['idRole'] == 4) ? 'selected' : ''; ?>>Conducteur / Passager</option>
         </select>
 
-        <!-- Ajoutez ici les autres champs du formulaire -->
+   
 
         <button type="submit" class="form-submit-button">Enregistrer les modifications</button>
     </div>
 </form>
+</div>
+</section>
