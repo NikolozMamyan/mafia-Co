@@ -2,55 +2,104 @@
 
 namespace models;
 
-use DateTime;
-
+/**
+ * Class Notification
+ *
+ * @property int|null $idUtilisateur
+ * @property int|null $idUtilisateurNotif
+ * @property string|null $dateNotification
+ * @property int|null $isReadNotification
+ */
 class Notification extends Model
 {
-    protected int $idUtilisateur;
-    protected int $idUtilisateurNotif;
-    protected DateTime $dateNotification;
-    protected bool $isReadNotification;
-    protected DateTime $dateReadNotification;
+    protected static string $childTableName = 'Notification';
 
-    public function __construct($idUtilisateur, $idUtilisateurNotif)
-    {
+    protected ?int $idUtilisateur;
+    protected ?int $idUtilisateurNotif;
+    protected ?string $dateNotification;
+    protected ?int $isReadNotification;
+
+    /**
+     * Notification constructor.
+     *
+     * @param int|null $idUtilisateur
+     * @param int|null $idUtilisateurNotif
+     * @param string|null $dateNotification
+     * @param int|null $isReadNotification
+     */
+    public function __construct(
+        ?int $idUtilisateur = null,
+        ?int $idUtilisateurNotif = null,
+        ?string $dateNotification = null,
+        ?int $isReadNotification = null
+    ) {
         $this->idUtilisateur = $idUtilisateur;
         $this->idUtilisateurNotif = $idUtilisateurNotif;
-        $this->dateNotification = date('Y-m-d H:i:s');
-        $this->isReadNotification = false;
-        $this->dateReadNotification = null;
+        $this->dateNotification = $dateNotification;
+        $this->isReadNotification = $isReadNotification;
     }
 
-    // Getters
-    public function getIdUtilisateur()
+    /**
+     * @return int|null
+     */
+    public function getIdUtilisateur(): ?int
     {
         return $this->idUtilisateur;
     }
 
-    public function getIdUtilisateurNotif()
+    /**
+     * @param int|null $idUtilisateur
+     */
+    public function setIdUtilisateur(?int $idUtilisateur): void
+    {
+        $this->idUtilisateur = $idUtilisateur;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getIdUtilisateurNotif(): ?int
     {
         return $this->idUtilisateurNotif;
     }
 
-    public function getDateNotification()
+    /**
+     * @param int|null $idUtilisateurNotif
+     */
+    public function setIdUtilisateurNotif(?int $idUtilisateurNotif): void
+    {
+        $this->idUtilisateurNotif = $idUtilisateurNotif;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDateNotification(): ?string
     {
         return $this->dateNotification;
     }
 
-    public function getIsReadNotification()
+    /**
+     * @param string|null $dateNotification
+     */
+    public function setDateNotification(?string $dateNotification): void
+    {
+        $this->dateNotification = $dateNotification;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getIsReadNotification(): ?int
     {
         return $this->isReadNotification;
     }
 
-    public function getDateReadNotification()
+    /**
+     * @param int|null $isReadNotification
+     */
+    public function setIsReadNotification(?int $isReadNotification): void
     {
-        return $this->dateReadNotification;
-    }
-
-
-    public function setIsReadNotification()
-    {
-        $this->isReadNotification = true;
-        $this->dateReadNotification = date('Y-m-d H:i:s');
+        $this->isReadNotification = $isReadNotification;
     }
 }
