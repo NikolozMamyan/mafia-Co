@@ -4,10 +4,10 @@ namespace Controllers;
 
 require_once 'Controller.php';
 require_once __DIR__ . '/../helpers/path_functions.php';
-require_once __DIR__ . '/../helpers/Auth.php';
+require_once __DIR__ . '/../helpers/class/Auth.php';
 require_once __DIR__ . '/../helpers/redirect_functions.php';
 require_once __DIR__ . '/../helpers/session_functions.php';
-require_once(__DIR__ . '/../models/Dals/Db.php');
+require_once(__DIR__ . '/../helpers/class/Db.php');
 
 
 use Auth;

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../models/Dals/Db.php';
+require_once 'Db.php';
 
 class Auth
 {
