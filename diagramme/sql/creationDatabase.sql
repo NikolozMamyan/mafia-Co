@@ -1,12 +1,19 @@
-SET AUTOCOMMIT = 0;
-
 START TRANSACTION;
+
+SET AUTOCOMMIT = 0;
 
 DROP DATABASE IF EXISTS cciCovoiturage;
 
 CREATE DATABASE cciCovoiturage DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE cciCovoiturage;
+
+CREATE TABLE JourSemaine (
+    idJourSemaine INT AUTO_INCREMENT,
+    labelJourSemaine VARCHAR(8),
+    labelJourSemaineCourt VARCHAR(3),
+    PRIMARY KEY (idJourSemaine)
+);
 
 CREATE TABLE Points (
     idPoint INT AUTO_INCREMENT,
@@ -21,24 +28,6 @@ CREATE TABLE Roles (
     idRole INT AUTO_INCREMENT,
     labelRole VARCHAR(21),
     PRIMARY KEY (idRole)
-);
-
-CREATE TABLE Itineraire (
-    idItineraire INT AUTO_INCREMENT,
-    adresseDepart VARCHAR(50),
-    adresseArrivee VARCHAR(50),
-    jourSemaine INT(8),
-    debutCours TIME,
-    finCours TIME,
-    nbrPlaceDispo INT(8),
-    infoComplementaire VARCHAR(400),
-    dateCreation DATETIME DEFAULT NOW(),
-    derniereModificationTrajet DATETIME DEFAULT NOW(),
-    idPointDepart INT NOT NULL,
-    idPointArrivee INT NOT NULL,
-    PRIMARY KEY (idItineraire),
-    FOREIGN KEY (idPointDepart) REFERENCES Points(idPoint),
-    FOREIGN KEY (idPointArrivee) REFERENCES Points(idPoint)
 );
 
 CREATE TABLE Utilisateurs (
@@ -58,6 +47,32 @@ CREATE TABLE Utilisateurs (
     PRIMARY KEY (idUtilisateur),
     FOREIGN KEY (idRole) REFERENCES Roles(idRole),
     FOREIGN KEY (idPoint) REFERENCES Points(idPoint)
+);
+
+CREATE TABLE Itineraire (
+    idItineraire INT AUTO_INCREMENT,
+    adresseDepart VARCHAR(50),
+    adresseArrivee VARCHAR(50),
+    jourSemaine INT,
+    debutCours TIME,
+    finCours TIME,
+    nbrPlaceDispo INT(8),
+    infoComplementaire VARCHAR(400),
+    dateCreation DATETIME DEFAULT NOW(),
+    derniereModificationTrajet DATETIME DEFAULT NOW(),
+    idPointDepart INT NOT NULL,
+    idPointArrivee INT NOT NULL,
+    PRIMARY KEY (idItineraire),
+    FOREIGN KEY (idPointDepart) REFERENCES Points(idPoint),
+    FOREIGN KEY (idPointArrivee) REFERENCES Points(idPoint)
+);
+
+CREATE TABLE ItineraireJourSemaine (
+    idItineraire INT,
+    idJourSemaine INT,
+    PRIMARY KEY (idItineraire, idJourSemaine),
+    FOREIGN KEY (idItineraire) REFERENCES Itineraire(idItineraire),
+    FOREIGN KEY (idJourSemaine) REFERENCES JourSemaine(idJourSemaine)
 );
 
 CREATE TABLE Messages (
@@ -99,13 +114,6 @@ CREATE TABLE Notifications (
     FOREIGN KEY (idUtilisateurNotif) REFERENCES Utilisateurs(idUtilisateur)
 );
 
-CREATE TABLE JourSemaine (
-    idJourSemaine INT AUTO_INCREMENT,
-    labelJourSemaine VARCHAR(8),
-    labelJourSemaineCourt VARCHAR(3),
-    PRIMARY KEY (idJourSemaine)
-);
-
 INSERT INTO `Roles` (idRole, labelRole)
 VALUES
     (1, 'Admin'),
@@ -133,7 +141,6 @@ DROP USER IF EXISTS 'ccicovoiturage_sqlbackup'@'localhost';
 CREATE USER 'ccicovoiturage_sqlbackup'@'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
 
 GRANT SELECT, LOCK TABLES, SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
-
 DELIMITER |
 CREATE OR REPLACE TRIGGER USERMODIFDATEBEFOREUPDATE BEFORE UPDATE ON Utilisateurs
 FOR EACH ROW BEGIN
