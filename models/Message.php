@@ -2,11 +2,13 @@
 
 namespace models;
 
+use DateTime;
+
 class Message extends Model
 {
     protected int $idMessage;
     protected string $contenuMessage;
-    protected string $dateTimeMessage;
+    protected DateTime $dateTimeMessage;
     protected int $idUtilisateur;
     protected int $idUtilisateurDestinataire;
 

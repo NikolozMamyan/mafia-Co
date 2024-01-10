@@ -2,7 +2,7 @@
 
 use models\Map;
 
-require_once '../models/Map.php';
+require_once '../models/Map/Map.php';
 
 $map = new Map();
 

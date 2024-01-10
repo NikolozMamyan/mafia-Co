@@ -2,6 +2,8 @@
 
 namespace models;
 
+use DateTime;
+
 class User extends Model
 {
     protected int $idUtilisateur;
@@ -13,8 +15,8 @@ class User extends Model
     protected string $motDePasseUtilisateur;
     protected string $photoUtilisateur;
     protected bool $compteActif;
-    protected string $dateInscriptionUtilisateur;
-    protected string $derniereModificationUtilisateur;
+    protected DateTime $dateInscriptionUtilisateur;
+    protected DateTime $derniereModificationUtilisateur;
     protected string $roleUtilisateur;
     protected string $zipcodeUtilisateur;
     protected string $villeUtilisateur;
@@ -22,7 +24,7 @@ class User extends Model
     protected float $lonUtilisateur;
     protected array $contacts;
     protected array $notifications;
-    protected array $trajets;
+    protected int $trajet;
 
     // Getter pour idUtilisateur
     public function getIdUtilisateur()
@@ -229,12 +231,12 @@ class User extends Model
     // Méthodes pour gérer les trajets
     public function ajouterTrajet($trajet)
     {
-        $this->trajets[] = $trajet;
+        $this->trajet = $trajet;
     }
 
     public function getTrajets()
     {
-        return $this->trajets;
+        return $this->trajet;
     }
 
     // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
