@@ -32,7 +32,7 @@
     <!-- Champ caché pour identifier si c'est une création ou une modification -->
     <input type="hidden" name="action" value="creer_modifier">
 
-    <!-- Bouton pour soumettre le formulaire -->
+
     <input type="submit" value="Enregistrer">
 </form>
 

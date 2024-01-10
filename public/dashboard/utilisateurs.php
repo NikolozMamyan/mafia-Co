@@ -37,7 +37,7 @@ include_once "../../views/menu__dashboard.php";
      
 
 <?php
-// Connecte-toi à ta base de données (remplace ces informations par les tiennes)
+// Connexion à la base de données
 $dsn = 'mysql:host=localhost;port=3306;dbname=cciCovoiturage';
 $username = 'root';
 $password = '';
@@ -60,7 +60,7 @@ $sql = "SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, idRole, idPoint
 
 $result = $db->query($sql);
 
-// Affiche les données dans le tableau HTML
+
 // Affiche les données dans le tableau HTML
 foreach ($result as $row) {
 echo "<tr>";
