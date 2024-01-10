@@ -1138,7 +1138,6 @@ a.edit-icon:focus {
   color: var(--primary-color);
 }
 
-/** A ENLEVER UNE FOIS L'IFRAME SETUP */
 .map-container #map {
   height: 400px;
 }

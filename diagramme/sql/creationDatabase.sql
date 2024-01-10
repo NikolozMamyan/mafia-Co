@@ -100,9 +100,10 @@ CREATE TABLE Notifications (
 );
 
 CREATE TABLE JourSemaine (
-    idJourSemaine INT,
+    idJourSemaine INT AUTO_INCREMENT,
     labelJourSemaine VARCHAR(8),
-    labelJourSemaineCourt VARCHAR(3)
+    labelJourSemaineCourt VARCHAR(3),
+    PRIMARY KEY (idJourSemaine)
 );
 
 INSERT INTO `Roles` (idRole, labelRole)
