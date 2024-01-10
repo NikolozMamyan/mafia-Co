@@ -2,19 +2,18 @@
 
 namespace models;
 
-require_once __DIR__ . '/Model.php';
 
-use DateTime; // Import DateTime class for handling date/time
-use DB; // Assuming there's a DB class for database operations
-
+/**
+ * Classe User
+ * 
+ * @package models
+ */
 class User extends Model
 {
-    // Database table name
-    const TABLE_NAME = 'Utilisateurs';
-    // Date format for created_at field
-    const CREATED_AT_FORMAT = 'Y-m-d H:i:s';
 
-    // Properties corresponding to database columns
+    // Constantes pour le modèle
+    protected static string $childTableName = 'Utilisateur';
+
     protected ?int $idUtilisateur;
     protected ?string $nomUtilisateur;
     protected ?string $prenomUtilisateur;
@@ -30,10 +29,22 @@ class User extends Model
     protected ?int $idRole;
     protected ?int $idPoint;
 
-    // Array to track changed fields for updates
-    protected array $changedFields = [];
-
-    // Constructor for creating User objects
+     /**
+     * Constructeur pour créer des objets User
+     *
+     * @param string|null $nomUtilisateur
+     * @param string|null $prenomUtilisateur
+     * @param string|null $adresseUtilisateur
+     * @param string|null $telUtilisateur
+     * @param string|null $emailUtilisateur
+     * @param string|null $motDePasseUtilisateur
+     * @param string|null $photoUtilisateur
+     * @param int|null $compteActif
+     * @param int|null $idRole
+     * @param int|null $idPoint
+     * @param DateTime|string|null $dateInscriptionUtilisateur
+     * @param DateTime|string|null $derniereModificationUtilisateur
+     */
     public function __construct(
         ?string $nomUtilisateur,
         ?string $prenomUtilisateur,
@@ -45,9 +56,11 @@ class User extends Model
         ?int $compteActif,
         ?int $idRole,
         ?int $idPoint,
-        string|DateTime|null $dateInscriptionUtilisateur = null,
-        string|DateTime|null $derniereModificationUtilisateur = null,
+        string $dateInscriptionUtilisateur = null,
+        string $derniereModificationUtilisateur = null,
     ) {
+        parent::__construct();
+
         // Initializing object properties
         $this->nomUtilisateur = $nomUtilisateur;
         $this->prenomUtilisateur = $prenomUtilisateur;
@@ -63,222 +76,291 @@ class User extends Model
         $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
     }
 
-
-
-    // Getter method for idUtilisateur
+    /**
+     * Getter method for idUtilisateur
+     *
+     * @return int|null
+     */
     public function getIdUtilisateur(): ?int
     {
         return $this->idUtilisateur;
     }
 
-    // Getter method for nomUtilisateur
+    /**
+     * Getter method for nomUtilisateur
+     *
+     * @return string|null
+     */
     public function getNomUtilisateur(): ?string
     {
         return $this->nomUtilisateur;
     }
 
-    // Setter method for nomUtilisateur
+    /**
+     * Setter method for nomUtilisateur
+     *
+     * @param string|null $nomUtilisateur
+     */
     public function setNomUtilisateur(?string $nomUtilisateur): void
     {
         $this->setFields('nomUtilisateur', $nomUtilisateur);
     }
-
+    
+    /**
+     * getPrenomUtilisateur
+     *
+     * @return string
+     */
     public function getPrenomUtilisateur(): ?string
     {
         return $this->prenomUtilisateur;
     }
-
+    
+    /**
+     * setPrenomUtilisateur
+     *
+     * @param  mixed $prenomUtilisateur
+     * @return void
+     */
     public function setPrenomUtilisateur(?string $prenomUtilisateur): void
     {
         $this->setFields('prenomUtilisateur', $prenomUtilisateur);
     }
-
+    
+    /**
+     * getAdresseUtilisateur
+     *
+     * @return string
+     */
     public function getAdresseUtilisateur(): ?string
     {
         return $this->adresseUtilisateur;
     }
-
+    
+    /**
+     * setAdresseUtilisateur
+     *
+     * @param  mixed $adresseUtilisateur
+     * @return void
+     */
     public function setAdresseUtilisateur(?string $adresseUtilisateur): void
     {
         $this->setFields('adresseUtilisateur', $adresseUtilisateur);
     }
-
+    
+    /**
+     * getTelUtilisateur
+     *
+     * @return string
+     */
     public function getTelUtilisateur(): ?string
     {
         return $this->telUtilisateur;
     }
-
+    
+    /**
+     * setTelUtilisateur
+     *
+     * @param  mixed $telUtilisateur
+     * @return void
+     */
     public function setTelUtilisateur(?string $telUtilisateur): void
     {
         $this->setFields('telUtilisateur', $telUtilisateur);
     }
-
+    
+    /**
+     * getEmailUtilisateur
+     *
+     * @return string
+     */
     public function getEmailUtilisateur(): ?string
     {
         return $this->emailUtilisateur;
     }
-
+    
+    /**
+     * setEmailUtilisateur
+     *
+     * @param  mixed $emailUtilisateur
+     * @return void
+     */
     public function setEmailUtilisateur(?string $emailUtilisateur): void
     {
         $this->setFields('emailUtilisateur', $emailUtilisateur);
     }
-
+    
+    /**
+     * getMotDePasseUtilisateur
+     *
+     * @return string
+     */
     public function getMotDePasseUtilisateur(): ?string
     {
         return $this->motDePasseUtilisateur;
     }
-
+    
+    /**
+     * setMotDePasseUtilisateur
+     *
+     * @param  mixed $motDePasseUtilisateur
+     * @return void
+     */
     public function setMotDePasseUtilisateur(?string $motDePasseUtilisateur): void
     {
         $this->setFields('motDePasseUtilisateur', $motDePasseUtilisateur);
     }
-
+    
+    /**
+     * getPhotoUtilisateur
+     *
+     * @return string
+     */
     public function getPhotoUtilisateur(): ?string
     {
         return $this->photoUtilisateur;
     }
-
+    
+    /**
+     * setPhotoUtilisateur
+     *
+     * @param  mixed $photoUtilisateur
+     * @return void
+     */
     public function setPhotoUtilisateur(?string $photoUtilisateur): void
     {
         $this->setFields('photoUtilisateur', $photoUtilisateur);
     }
-
+    
+    /**
+     * getCompteActif
+     *
+     * @return int
+     */
     public function getCompteActif(): ?int
     {
         return $this->compteActif;
     }
-
+    
+    /**
+     * isCompteActif
+     *
+     * @return bool
+     */
     public function isCompteActif(): bool
     {
         return $this->getCompteActif() == 1;
     }
-
+    
+    /**
+     * setCompteActif
+     *
+     * @param  mixed $compteActif
+     * @return void
+     */
     public function setCompteActif(?int $compteActif): void
     {
         $this->setFields('compteActif', $compteActif);
     }
-
+    
+    /**
+     * getDateInscriptionUtilisateur
+     *
+     * @return string
+     */
     public function getDateInscriptionUtilisateur(): ?string
     {
         return $this->dateInscriptionUtilisateur;
     }
-
+    
+    /**
+     * getDerniereModificationUtilisateur
+     *
+     * @return string
+     */
     public function getDerniereModificationUtilisateur(): ?string
     {
         return $this->derniereModificationUtilisateur;
     }
-
+    
+    /**
+     * getIdItineraire
+     *
+     * @return int
+     */
     public function getIdItineraire(): ?int
     {
         return $this->idItineraire;
     }
-
+    
+    /**
+     * setIdItineraire
+     *
+     * @param  mixed $idItineraire
+     * @return void
+     */
     public function setIdItineraire(?int $idItineraire): void
     {
         $this->setFields('idItineraire', $idItineraire);
     }
-
+    
+    /**
+     * getIdRole
+     *
+     * @return int
+     */
     public function getIdRole(): ?int
     {
         return $this->idRole;
     }
-
+    
+    /**
+     * setIdRole
+     *
+     * @param  mixed $idRole
+     * @return void
+     */
     public function setIdRole(?int $idRole): void
     {
         $this->setFields('idRole', $idRole);
     }
-
+    
+    /**
+     * getIdPoint
+     *
+     * @return int
+     */
     public function getIdPoint(): ?int
     {
         return $this->idPoint;
     }
-
+    
+    /**
+     * setIdPoint
+     *
+     * @param  mixed $idPoint
+     * @return void
+     */
     public function setIdPoint(?int $idPoint): void
     {
         $this->setFields('idPoint', $idPoint);
     }
 
-    // Méthode pour obtenir les données de l'utilisateur sous forme de tableau
-    // Method to convert object data to an associative array
-    public function toArray()
+     /**
+     * Méthode pour obtenir les données de l'utilisateur sous forme de tableau
+     *
+     * @return array
+     */
+    public function toArray(): array
     {
-        return [
-            'nomUtilisateur' => $this->nomUtilisateur,
-            'prenomUtilisateur' => $this->prenomUtilisateur,
-            'adresseUtilisateur' => $this->adresseUtilisateur,
-            'telUtilisateur' => $this->telUtilisateur,
-            'emailUtilisateur' => $this->emailUtilisateur,
-            'motDePasseUtilisateur' => $this->motDePasseUtilisateur,
-            'photoUtilisateur' => $this->photoUtilisateur,
-            'compteActif' => $this->compteActif,
-            'idRole' => $this->idRole,
-            'idPoint' => $this->idPoint,
-            'dateInscriptionUtilisateur' => $this->dateInscriptionUtilisateur,
-            'derniereModificationUtilisateur' => $this->derniereModificationUtilisateur,
-            'idItineraire' => $this->idItineraire,
-        ];
+        $userArray = parent::toArray();
+
+        
+
+        return $userArray;
     }
 
-    // Method to save or update the user data in the database
-    public function save($forced = false): int|false
-    {
-        if ($this->idUtilisateur ?? null) {
-            // Update
-            if ($forced) {
-                return DB::update(self::TABLE_NAME, $this->toArray(), $this->idUtilisateur);
-            } elseif ($this->changedFields) {
-                $toArray = $this->toArray();
-                $updates = [];
-                foreach ($this->changedFields as $key) {
-                    if (array_key_exists($key, $toArray)) {
-                        $updates[$key] = $toArray[$key];
-                    }
-                }
+    
 
-                return DB::update(self::TABLE_NAME, $updates, $this->idUtilisateur);
-            }
-        } else {
-            // Insert
-            return DB::insert(self::TABLE_NAME, $this->toArray());
-        }
-
-        return 0;
-    }
-
-    // Method to delete the user data from the database
-    public function delete(): int|false
-    {
-        return self::staticDelete($this->idUtilisateur);
-    }
-
-    // Static method to delete a user by ID from the database
-    public static function staticDelete(int $id): int|false
-    {
-        return DB::statement(
-            "DELETE FROM Utilisateurs WHERE idUtilisateur = :id",
-            ['id' => $id],
-        );
-    }
-
-    // Protected method to track changed fields
-    protected function setFields($name, $value)
-    {
-        if (property_exists($this, $name) and isset($this->$name) and $this->$name != $value) {
-            $this->changedFields[] = $name;
-        }
-
-        $this->$name = $value;
-    }
-
-    // Protected method to prepare the created_at field
-    protected function prepareCreatedAt(string|DateTime|null $created_at): string
-    {
-        if (!$created_at) {
-            $created_at = date(self::CREATED_AT_FORMAT);
-        } elseif ($created_at instanceof DateTime) {
-            $created_at = $created_at->format(self::CREATED_AT_FORMAT);
-        }
-
-        return $created_at;
-    }
+    
 }
