@@ -4,16 +4,16 @@ namespace App\Controllers;
 
 use Auth;
 use DB;
-use models\Point;
-use models\User;
+use App\models\Point;
+use App\models\User;
 
 class AuthController extends Controller
 {
-    const URL_HANDLER = '/applications/mafia-Co/public/handlers/auth-handler.php';
-    const URL_REGISTER = '/applications/mafia-Co/public/signupRedirect.php';
-    const URL_LOGIN = '/applications/mafia-Co/public/index.php';
-    const URL_AFTER_LOGIN = '/applications/mafia-Co/public/Profile.php';
-    const URL_AFTER_LOGOUT = '/applications/mafia-Co/public';
+    const URL_HANDLER = 'handlers/auth-handler.php';
+    const URL_REGISTER = 'signup.php';
+    const URL_LOGIN = 'index.php';
+    const URL_AFTER_LOGIN = 'Profile.php';
+    const URL_AFTER_LOGOUT = 'index.php';
 
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
     const MAX_PICTURE_SIZE = 1000000;
@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function register(): void
     {
         $actionUrl = self::URL_HANDLER;
-        require_once base_path('public/signup.php');
+        require_once base_path('views/signup/signup.php');
     }
 
     public function store(): void
@@ -74,7 +74,7 @@ class AuthController extends Controller
 
         // Validation
         if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
-            redirectAndExit('/applications/mafia-Co/public/signupRedirect.php');
+            redirectAndExit('/applications/mafia-Co/public/signup.php');
         }
 
         // Check User
@@ -150,7 +150,10 @@ class AuthController extends Controller
             if (password_verify($password, $user['motDePasseUtilisateur'])) {
                 $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
 
+                $me = new User();
+
                 $userData = [
+                    'idUtilisateur' => $users['idUtilisateur'],
                     'nomUtilisateur' => $users['nomUtilisateur'],
                     'prenomUtilisateur' => $users['prenomUtilisateur'],
                     'adresseUtilisateur' => $users['adresseUtilisateur'],
@@ -161,7 +164,7 @@ class AuthController extends Controller
                     'dateInscriptionUtilisateur' => $users['dateInscriptionUtilisateur'],
                     'derniereModificationUtilisateur' => $users['derniereModificationUtilisateur'],
                 ];
-                $user->hydrate($userData);
+                $me->hydrate($userData);
 
                 redirectAndExit(self::URL_AFTER_LOGIN);
             }
@@ -191,7 +194,7 @@ class AuthController extends Controller
 
     protected function ValidatePicture($photo)
     {
-        $targetDir = __DIR__ . "/../storage/";
+        $targetDir = __DIR__ . "/../../storage/";
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -259,7 +262,8 @@ class AuthController extends Controller
 
     protected function getPointById($zip, $city, string $latitude, string $longitude): Point|false
     {
-        $point = DB::fetch(
+        $point = new Point();
+        $tempPoint = DB::fetch(
             "SELECT * FROM points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
             [
                 'zip' => $zip,
@@ -268,15 +272,16 @@ class AuthController extends Controller
                 'longitude' => $longitude,
             ]
         );
-        if ($point === false) {
+        if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_REGISTER);
         }
-        if (empty($point)) {
+        if (empty($tempPoint)) {
             return false;
         }
+        dd($tempPoint);
 
-        return Point::hydrate($point[0], 'Point');
+        return $point;
     }
 
     protected function insertPoint($zip, $city, string $latitude, string $longitude): void
@@ -284,8 +289,8 @@ class AuthController extends Controller
         $point = new Point(
             $city,
             $zip,
-            $latitude,
-            $longitude,
+            floatval($latitude),
+            floatval($longitude),
         );
         $point->save();
     }

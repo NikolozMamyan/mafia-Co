@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\models;
 
 
 /**
@@ -29,7 +29,7 @@ class User extends Model
     protected ?int $idRole;
     protected ?int $idPoint;
 
-     /**
+    /**
      * Constructeur pour créer des objets User
      *
      * @param string|null $nomUtilisateur
@@ -46,21 +46,19 @@ class User extends Model
      * @param DateTime|string|null $derniereModificationUtilisateur
      */
     public function __construct(
-        ?string $nomUtilisateur,
-        ?string $prenomUtilisateur,
-        ?string $adresseUtilisateur,
-        ?string $telUtilisateur,
-        ?string $emailUtilisateur,
-        ?string $motDePasseUtilisateur,
-        ?string $photoUtilisateur,
-        ?int $compteActif,
-        ?int $idRole,
-        ?int $idPoint,
+        ?string $nomUtilisateur = null,
+        ?string $prenomUtilisateur = null,
+        ?string $adresseUtilisateur = null,
+        ?string $telUtilisateur = null,
+        ?string $emailUtilisateur = null,
+        ?string $motDePasseUtilisateur = null,
+        ?string $photoUtilisateur = null,
+        ?int $compteActif = null,
+        ?int $idRole = null,
+        ?int $idPoint = null,
         string $dateInscriptionUtilisateur = null,
         string $derniereModificationUtilisateur = null,
     ) {
-        parent::__construct();
-
         // Initializing object properties
         $this->nomUtilisateur = $nomUtilisateur;
         $this->prenomUtilisateur = $prenomUtilisateur;
@@ -105,7 +103,7 @@ class User extends Model
     {
         $this->setFields('nomUtilisateur', $nomUtilisateur);
     }
-    
+
     /**
      * getPrenomUtilisateur
      *
@@ -115,7 +113,7 @@ class User extends Model
     {
         return $this->prenomUtilisateur;
     }
-    
+
     /**
      * setPrenomUtilisateur
      *
@@ -126,7 +124,7 @@ class User extends Model
     {
         $this->setFields('prenomUtilisateur', $prenomUtilisateur);
     }
-    
+
     /**
      * getAdresseUtilisateur
      *
@@ -136,7 +134,7 @@ class User extends Model
     {
         return $this->adresseUtilisateur;
     }
-    
+
     /**
      * setAdresseUtilisateur
      *
@@ -147,7 +145,7 @@ class User extends Model
     {
         $this->setFields('adresseUtilisateur', $adresseUtilisateur);
     }
-    
+
     /**
      * getTelUtilisateur
      *
@@ -157,7 +155,7 @@ class User extends Model
     {
         return $this->telUtilisateur;
     }
-    
+
     /**
      * setTelUtilisateur
      *
@@ -168,7 +166,7 @@ class User extends Model
     {
         $this->setFields('telUtilisateur', $telUtilisateur);
     }
-    
+
     /**
      * getEmailUtilisateur
      *
@@ -178,7 +176,7 @@ class User extends Model
     {
         return $this->emailUtilisateur;
     }
-    
+
     /**
      * setEmailUtilisateur
      *
@@ -189,7 +187,7 @@ class User extends Model
     {
         $this->setFields('emailUtilisateur', $emailUtilisateur);
     }
-    
+
     /**
      * getMotDePasseUtilisateur
      *
@@ -199,7 +197,7 @@ class User extends Model
     {
         return $this->motDePasseUtilisateur;
     }
-    
+
     /**
      * setMotDePasseUtilisateur
      *
@@ -210,7 +208,7 @@ class User extends Model
     {
         $this->setFields('motDePasseUtilisateur', $motDePasseUtilisateur);
     }
-    
+
     /**
      * getPhotoUtilisateur
      *
@@ -220,7 +218,7 @@ class User extends Model
     {
         return $this->photoUtilisateur;
     }
-    
+
     /**
      * setPhotoUtilisateur
      *
@@ -231,7 +229,7 @@ class User extends Model
     {
         $this->setFields('photoUtilisateur', $photoUtilisateur);
     }
-    
+
     /**
      * getCompteActif
      *
@@ -241,7 +239,7 @@ class User extends Model
     {
         return $this->compteActif;
     }
-    
+
     /**
      * isCompteActif
      *
@@ -251,7 +249,7 @@ class User extends Model
     {
         return $this->getCompteActif() == 1;
     }
-    
+
     /**
      * setCompteActif
      *
@@ -262,7 +260,7 @@ class User extends Model
     {
         $this->setFields('compteActif', $compteActif);
     }
-    
+
     /**
      * getDateInscriptionUtilisateur
      *
@@ -272,7 +270,7 @@ class User extends Model
     {
         return $this->dateInscriptionUtilisateur;
     }
-    
+
     /**
      * getDerniereModificationUtilisateur
      *
@@ -282,7 +280,7 @@ class User extends Model
     {
         return $this->derniereModificationUtilisateur;
     }
-    
+
     /**
      * getIdItineraire
      *
@@ -292,7 +290,7 @@ class User extends Model
     {
         return $this->idItineraire;
     }
-    
+
     /**
      * setIdItineraire
      *
@@ -303,7 +301,7 @@ class User extends Model
     {
         $this->setFields('idItineraire', $idItineraire);
     }
-    
+
     /**
      * getIdRole
      *
@@ -313,7 +311,7 @@ class User extends Model
     {
         return $this->idRole;
     }
-    
+
     /**
      * setIdRole
      *
@@ -324,7 +322,7 @@ class User extends Model
     {
         $this->setFields('idRole', $idRole);
     }
-    
+
     /**
      * getIdPoint
      *
@@ -334,7 +332,7 @@ class User extends Model
     {
         return $this->idPoint;
     }
-    
+
     /**
      * setIdPoint
      *
@@ -346,7 +344,7 @@ class User extends Model
         $this->setFields('idPoint', $idPoint);
     }
 
-     /**
+    /**
      * Méthode pour obtenir les données de l'utilisateur sous forme de tableau
      *
      * @return array
@@ -355,12 +353,8 @@ class User extends Model
     {
         $userArray = parent::toArray();
 
-        
+
 
         return $userArray;
     }
-
-    
-
-    
 }

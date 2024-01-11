@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\models;
 
 use DateTime;
 use DB;
@@ -21,22 +21,22 @@ abstract class Model
 
     protected ?int $idUtilisateur;
 
-    /**
-     * Constructeur de la classe Model
-     *
-     * @param array $data Données à hydrater
-     */
-    public function __construct(array $data = [])
-    {
-        $this->hydrate($data);
-    }
+    // /**
+    //  * Constructeur de la classe Model
+    //  *
+    //  * @param array $data Données à hydrater
+    //  */
+    // public function __construct(array $data = [])
+    // {
+    //     $this->hydrate($data);
+    // }
 
     /**
      * Méthode pour hydrater l'objet à partir d'un tableau associatif
      *
      * @param array $data Données à hydrater
      */
-    protected function hydrate(array $data)
+    public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
@@ -44,19 +44,6 @@ abstract class Model
             }
         }
     }
-
-    // public static function hydrate(array $data, string $className): object
-    // {
-    //     $object = new $className();
-
-    //     foreach ($data as $property => $value) {
-    //         if (property_exists($className, $property)) {
-    //             $object->$property = $value;
-    //         }
-    //     }
-
-    //     return $object;
-    // }
 
     /**
      * Méthode pour formater une date selon le format requis
