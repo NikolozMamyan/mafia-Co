@@ -2,7 +2,7 @@
 
 <?php
 require_once(__DIR__ . '/bootstrap/app.php');
-require_once(__DIR__ . '/../views/headDev.php');
+require_once(__DIR__ . '/../views/components/headDev.php');
 ?>
 <?php
 
@@ -23,7 +23,7 @@ require_once(__DIR__ . '/../views/headDev.php');
 <body class="body__chat">
     <header class=" container ">
         <?php
-        require_once(__DIR__ . '/../views/header.php');
+        require_once(__DIR__ . '/../views/components/header.php');
 
         ?>
     </header>
@@ -43,7 +43,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 </div>
                                 <div class="card-body container__border">
                                     <div class="input-group">
-                                        <input class="form-control" placeholder="Search">
+                                        <input id="searchBox" class="form-control" placeholder="Search">
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-info">
                                                 <i class="fa fa-search"></i>
@@ -56,7 +56,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardSearchContact.php');
+                                            include('../views/components/cardSearchContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -65,7 +65,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     <ul class="list-group">
                                         <ul class="list-group">
                                             <?php foreach ($userContacts as $contact) : ?>
-                                                <?php include('../views/cardContact.php'); ?>
+                                                <?php include('../views/components/cardContact.php'); ?>
                                             <?php endforeach; ?>
                                         </ul>
 
@@ -95,8 +95,8 @@ require_once(__DIR__ . '/../views/headDev.php');
                                 <div class="card-body card__body--chat" id="messageList">
                                     <ul class="list-group">
                                         <?php foreach ($latestMessages as $message) : ?>
-                                            <?php include('../views/cardChatLeft.php'); ?>
-                                            <?php include('../views/cardChatRight.php'); ?>
+                                            <?php include('../views/components/cardChatLeft.php'); ?>
+                                            <?php include('../views/components/cardChatRight.php'); ?>
                                         <?php endforeach; ?>
                                     </ul>
 
@@ -109,7 +109,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         </div>
                                         <div class="offcanvas-body ">
                                             <div class="input-group">
-                                                <input class="form-control" placeholder="Search">
+                                                <input id="searchBox" class="form-control" placeholder="Search">
                                                 <div class="input-group-btn">
                                                     <button type="button" class="btn btn-info">
                                                         <i class="fa fa-search"></i>
@@ -122,7 +122,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardSearchContact.php');
+                                                    include('../views/components/cardSearchContact.php');
                                                 }
                                                 ?>
                                             </ul>
@@ -130,7 +130,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                             <span class="card-text p-0 m-0"><small class="text-muted">Mes contact</small></span>
                                             <ul class="list-group">
                                                 <?php foreach ($userContacts as $contact) : ?>
-                                                    <?php include('../views/cardContact.php'); ?>
+                                                    <?php include('../views/components/cardContact.php'); ?>
                                                 <?php endforeach; ?>
                                             </ul>
 
@@ -151,7 +151,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardNotifyContact.php');
+                                                    include('../views/components/cardNotifyContact.php');
                                                 }
                                                 ?>
                                             </ul>
@@ -159,7 +159,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                     </div>
                                 </div>
                                 <div class="card-footer bg__input--chat">
-                                    <form action="#" class="input-group d-flex justify-content-center ">
+                                    <form id="chatBox" action="#" class="input-group d-flex justify-content-center ">
 
                                         <input type="text" class="incoming_id" name="incoming_id" value="" hidden>
 
@@ -183,7 +183,7 @@ require_once(__DIR__ . '/../views/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardNotifyContact.php');
+                                            include('../views/components/cardNotifyContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -198,7 +198,7 @@ require_once(__DIR__ . '/../views/headDev.php');
     </main>
     <footer>
         <?php
-        require_once(__DIR__ . '/../views/footer.php');
+        require_once(__DIR__ . '/../views/components/footer.php');
         ?>
     </footer>
     <script src="./assets/js/chat.js"></script>

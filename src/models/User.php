@@ -59,7 +59,7 @@ class User extends Model
         string $dateInscriptionUtilisateur = null,
         string $derniereModificationUtilisateur = null,
     ) {
-        parent::__construct();
+        //parent::__construct();
 
         // Initializing object properties
         $this->nomUtilisateur = $nomUtilisateur;

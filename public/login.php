@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../views/headDev.php');
+require_once(__DIR__ . '/../views/components/headDev.php');
 ?>
 
 <body id="landing-page">
