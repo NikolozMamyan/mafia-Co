@@ -93,7 +93,7 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                             <div class="col-md-6 ">
                                 <div class="input-group ">
                                     <label for="your-password">votre mot de passe
-                                        <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" />
+                                        <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" required>
                                         <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
                                     </label>
 
@@ -103,7 +103,7 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                             <div class="col-md-6 ">
                                 <div class="input-group ">
                                     <label for="your-confirm">votre mot de passe
-                                        <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" />
+                                        <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" required>
                                     </label>
 
                                 </div>
@@ -134,7 +134,7 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                             <!-- fichier photo -->
                             <div class="col-md-12 mb-3">
                                 <label for="" class="form-label ps-3">Choisir une photo</label>
-                                <input type="file" class="form-control " name="photo" aria-label="file example">
+                                <input type="file" class="form-control " name="photo" aria-label="file example" required>
                                 <!-- <div class="invalid-feedback">Example invalid form file feedback</div> -->
                             </div>
 
@@ -163,23 +163,23 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Départ</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
-                                <img src="../public/assets/images/flagG.svg" class="flag__style" alt="Drapeau Vert">
+                                <img src="/assets/images/flagG.svg" class="flag__style" alt="Drapeau Vert">
                             </span>
                             <input class="col-10 pe-2" value="adresse" name="adresseDepart" disabled>
                         </div>
                         <!-- Fleche arrows-left-right-solid pour desktop -->
                         <div class="col-md-2 d-md-flex justify-content-md-center align-items-md-end d-none d-sm-none d-md-block">
-                            <img src="../public/assets/images/arrows-left-right-solid.svg" class='flag__style ' alt="Fleche noire">
+                            <img src="/assets/images/arrows-left-right-solid.svg" class='flag__style ' alt="Fleche noire">
                         </div>
 
                         <!-- Fleche arrows-up-down-solid pour tablette et mobile -->
                         <div class=" col-2  d-flex justify-content-start align-items-md-center d-sm-block d-md-none ">
-                            <img src="../public/assets/images/arrows-up-down-solid.svg" class='flag__style mt-3 ms-3' alt="Fleche noire">
+                            <img src="/assets/images/arrows-up-down-solid.svg" class='flag__style mt-3 ms-3' alt="Fleche noire">
                         </div>
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Arrivé</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
-                                <img src="../public/assets/images/flagR.svg" class='flag__style ' alt="Drapeau Rogue">
+                                <img src="/assets/images/flagR.svg" class='flag__style ' alt="Drapeau Rogue">
                             </span>
                             <input class="col-10 " value="adresse" class='' name="adresseArrive" disabled>
                         </div>

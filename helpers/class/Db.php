@@ -47,7 +47,7 @@ class DB
 
         return DB::statement(
             "UPDATE $table SET $updates"
-            ." WHERE $identifierName = :$identifierName",
+                . " WHERE $identifierName = :$identifierName",
             $data,
         );
     }
@@ -61,11 +61,11 @@ class DB
         $cols = implode(', ', $keys);
 
         // :enable, :label, :description, :brand, :price_ttc, :price_ht, :vat, :quantity, :created_at
-        $params = ':'.implode(', :', $keys);
+        $params = ':' . implode(', :', $keys);
 
         return DB::statement(
             "INSERT INTO $table ($cols)"
-            ." VALUES ($params)",
+                . " VALUES ($params)",
             $data,
         );
     }

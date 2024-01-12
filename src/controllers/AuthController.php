@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 use Auth;
 use DB;
-use App\models\Point;
-use App\models\User;
+use App\Models\Point;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -95,7 +95,6 @@ class AuthController extends Controller
         )[0];
 
         $point = $this->getOrSetPoint($zip, $city, $latitude, $longitude);
-
         $user = new User($firstName, $lastName, $address, $tel, $email, $password, $photo, 0, $idRole['idRole'], $point->getIdPoint());
 
         // Create new user
@@ -245,7 +244,8 @@ class AuthController extends Controller
             ]
         );
         if ($idPoint) {
-            return;
+            $point->setidPoint($idPoint);
+            return $point;
         }
         return false;
     }
@@ -271,7 +271,7 @@ class AuthController extends Controller
                 'latitude' => $latitude,
                 'longitude' => $longitude,
             ]
-        );
+        )[0];
         if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_REGISTER);
@@ -279,19 +279,31 @@ class AuthController extends Controller
         if (empty($tempPoint)) {
             return false;
         }
-        dd($tempPoint);
+        $tempPoint['latitude'] = (float)$tempPoint['latitude'];
+        $tempPoint['longitude'] = (float)$tempPoint['longitude'];
 
+        $point->hydrate($tempPoint);
         return $point;
     }
 
     protected function insertPoint($zip, $city, string $latitude, string $longitude): void
     {
-        $point = new Point(
-            $city,
-            $zip,
-            floatval($latitude),
-            floatval($longitude),
+        // $point = new Point(
+        //     $city,
+        //     $zip,
+        //     floatval($latitude),
+        //     floatval($longitude),
+        // );
+        // $point->save('points');
+
+        $point = DB::statement(
+            "INSERT INTO points (nomVille, codePostalVille, latitude, longitude) VALUES (:nomVille, :codePostalVille, :latitude, :longitude)",
+            [
+                'codePostalVille' => $zip,
+                'nomVille' => $city,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+            ]
         );
-        $point->save();
     }
 }
