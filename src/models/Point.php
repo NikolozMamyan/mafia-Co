@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 
 class Point extends Model
@@ -15,13 +15,11 @@ class Point extends Model
     protected ?float $longitude;
 
     public function __construct(
-        ?string $nomVille, 
-        ?string $codePostalVille, 
-        ?float $latitude, 
-        ?float $longitude
+        ?string $nomVille = null,
+        ?string $codePostalVille = null,
+        ?float $latitude = null,
+        ?float $longitude = null
     ) {
-
-        parent::__construct();
         $this->nomVille = $nomVille;
         $this->codePostalVille = $codePostalVille;
         $this->latitude = $latitude;
@@ -98,5 +96,8 @@ class Point extends Model
 
         return $pointArray;
     }
-    
+
+    private function test(): void
+    {
+    }
 }

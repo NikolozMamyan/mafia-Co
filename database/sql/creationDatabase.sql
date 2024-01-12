@@ -129,9 +129,9 @@ VALUES
     (5, 'Vendredi', 'Ven');
 
 -- Création des Utilisateurs
-DROP USER IF EXISTS 'ccicovoiturage_user' @'localhost';
+DROP USER IF EXISTS 'ccicovoiturage_user'@'localhost';
 
-CREATE USER 'ccicovoiturage_user' @'localhost' IDENTIFIED BY 'GT9.9%spZ*656Mb';
+CREATE USER 'ccicovoiturage_user'@'localhost' IDENTIFIED BY 'GT9.9%spZ*656Mb';
 
 GRANT
 SELECT
@@ -140,17 +140,17 @@ INSERT
 ,
 UPDATE
 ,
-    DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user' @'localhost';
+    DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user'@'localhost';
 
-DROP USER IF EXISTS 'ccicovoiturage_sqlbackup' @'localhost';
+DROP USER IF EXISTS 'ccicovoiturage_sqlbackup'@'localhost';
 
-CREATE USER 'ccicovoiturage_sqlbackup' @'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
+CREATE USER 'ccicovoiturage_sqlbackup'@'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
 
 GRANT
 SELECT
 ,
     LOCK TABLES,
-    SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup' @'localhost';
+    SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
 
 DELIMITER | CREATE
 OR REPLACE TRIGGER USERMODIFDATEBEFOREUPDATE BEFORE
@@ -166,7 +166,7 @@ UPDATE
 SET
     NEW.derniereModificationTrajet = NOW();
 
-END | DELIMITER;
+END | DELIMITER ;
 
 COMMIT;
 

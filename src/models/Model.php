@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\models;
 
 use DateTime;
 use DB;
@@ -21,22 +21,22 @@ abstract class Model
 
     protected ?int $idUtilisateur;
 
-    /**
-     * Constructeur de la classe Model
-     *
-     * @param array $data Données à hydrater
-     */
-    public function __construct(array $data = [])
-    {
-        $this->hydrate($data);
-    }
+    // /**
+    //  * Constructeur de la classe Model
+    //  *
+    //  * @param array $data Données à hydrater
+    //  */
+    // public function __construct(array $data = [])
+    // {
+    //     $this->hydrate($data);
+    // }
 
     /**
      * Méthode pour hydrater l'objet à partir d'un tableau associatif
      *
      * @param array $data Données à hydrater
      */
-    protected function hydrate(array $data)
+    public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
@@ -77,15 +77,16 @@ abstract class Model
      * @param bool $forced Indique si la mise à jour est forcée
      * @return bool Succès de l'opération
      */
-    public function save(bool $forced = false): bool
+    public function save(string $tableName = null, string $idName = null, bool $forced = false): bool
     {
         try {
-            $tableName = static::$childTableName;
-
-            if ($this->idUtilisateur ?? null) {
+            if (!$tableName) {
+                $tableName = static::$childTableName;
+            }
+            if ($this->$idName ?? null) {
                 $success = $forced ?
-                    DB::update($tableName, $this->toArray(), $this->idUtilisateur) :
-                    DB::update($tableName, $this->getChangedFields(), $this->idUtilisateur);
+                    DB::update($tableName, $this->toArray(), $this->$idName) :
+                    DB::update($tableName, $this->getChangedFields(), $this->$idName);
             } else {
                 $success = DB::insert($tableName, $this->toArray());
             }
@@ -166,7 +167,7 @@ abstract class Model
 
         return $toArray;
     }
-    
+
     /**
      * prepareCreatedAt
      *
@@ -183,7 +184,7 @@ abstract class Model
 
         return $created_at;
     }
-    
+
     /**
      * setFields
      *

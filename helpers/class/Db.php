@@ -3,9 +3,9 @@
 class DB
 {
     private const SERVEUR = "localhost";
-    private const UTILISATEUR = "ccicovoiturageuser";
-    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb(";
-    private const NOM_BASE_DE_DONNEES = "ccicovoiturage";
+    private const UTILISATEUR = "ccicovoiturage_user";
+    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb";
+    private const NOM_BASE_DE_DONNEES = "cciCovoiturage";
     private static ?PDO $db = null; // "?PDO" allowed only on PHP 8.1+
 
     public static function getDB()
@@ -47,7 +47,7 @@ class DB
 
         return DB::statement(
             "UPDATE $table SET $updates"
-            ." WHERE $identifierName = :$identifierName",
+                . " WHERE $identifierName = :$identifierName",
             $data,
         );
     }
@@ -61,11 +61,11 @@ class DB
         $cols = implode(', ', $keys);
 
         // :enable, :label, :description, :brand, :price_ttc, :price_ht, :vat, :quantity, :created_at
-        $params = ':'.implode(', :', $keys);
+        $params = ':' . implode(', :', $keys);
 
         return DB::statement(
             "INSERT INTO $table ($cols)"
-            ." VALUES ($params)",
+                . " VALUES ($params)",
             $data,
         );
     }

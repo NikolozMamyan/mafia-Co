@@ -13,7 +13,7 @@ require_once(__DIR__ . '/../views/headDev.php');
     <main>
       <h1>Besoin d'un covoiturage pour aller sur le CCI Campus ?</h1>
       <p>Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant !</p>
-      <p id="message-inscription">Pas encore inscrit ? <a href="signupRedirect.php">Créez votre compte en quelques minutes !</a></p>
+      <p id="message-inscription">Pas encore inscrit ? <a href="signup.php">Créez votre compte en quelques minutes !</a></p>
 
       <form class="form__login" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
         <input type="text" name="action" value="check" hidden>
