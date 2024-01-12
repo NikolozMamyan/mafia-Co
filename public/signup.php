@@ -2,7 +2,6 @@
 
 <?php
 require_once(__DIR__ . '/../views/headDev.php');
-require_once(__DIR__ . '/../controllers/AuthController.php');
 ?>
 
 <body id="signupPage">

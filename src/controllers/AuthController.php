@@ -1,20 +1,11 @@
 <?php
 
-namespace Controllers;
-
-require_once 'Controller.php';
-require_once __DIR__ . '/../helpers/path_functions.php';
-require_once __DIR__ . '/../helpers/class/Auth.php';
-require_once __DIR__ . '/../helpers/redirect_functions.php';
-require_once __DIR__ . '/../helpers/session_functions.php';
-require_once(__DIR__ . '/../helpers/class/Db.php');
-
-require_once __DIR__ . '/../models/User.php';
-
+namespace App\Controllers;
 
 use Auth;
 use DB;
-use models\User;
+use App\Models\Point;
+use App\Models\User;
 
 class AuthController extends Controller
 {

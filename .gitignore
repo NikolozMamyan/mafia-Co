@@ -9,4 +9,4 @@ docker-compose.yml
 
 .env
 public/dashboard/creationDatabase.sql
-
+/vendor/

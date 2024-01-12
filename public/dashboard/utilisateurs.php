@@ -13,19 +13,17 @@
 <?php
 include_once "../../views/header__dashboard.php";
 ?>
-    <section class="container-fluid row">
+<section class="container-fluid row">
     <div class='d-flex justify-content-end mt-5 col-sm-9 order-2 order-sm-1 gap-5'>
-    <a class='user__create__dashboard' href="userCreate.php">Créer un utilisateur</a>
-</div>
-      
-   
-<?php
-include_once "../../views/menu__dashboard.php";
-?>
+        <a class='user__create__dashboard' href="userCreate.php">Créer un utilisateur</a>
+    </div>
+    
+    <?php
+    include_once "../../views/menu__dashboard.php";
+    ?>
     <table class="users__table col-sm-6 ms-3 order-3 mt-2">
-
         <thead>
-        <tr class="table__head">
+            <tr class="table__head">
                 <th>Utilisateur</th>
                 <th class="display__none__dashboard">Ville</th>
                 <th>Status</th>
@@ -34,86 +32,41 @@ include_once "../../views/menu__dashboard.php";
             </tr>
         </thead>
         <tbody>
-     
-
-<?php
-// Connexion à la base de données
-$dsn = 'mysql:host=localhost;port=3306;dbname=cciCovoiturage';
-$username = 'root';
-$password = '';
-
-try {
-$db = new PDO($dsn, $username, $password);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Détermine la page actuelle
-$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
-// Détermine le nombre d'éléments par page
-$itemsPerPage = 4;
-
-// Calcule l'offset pour la requête SQL
-$offset = ($currentPage - 1) * $itemsPerPage;
-
-// Récupère les données de la base de données en fonction de la page actuelle
-$sql = "SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, idRole, idPoint FROM utilisateurs LIMIT $offset, $itemsPerPage";
-
-$result = $db->query($sql);
+            <?php
+            // Utilisation d'AuthController pour obtenir la liste des utilisateurs
+            require_once ('../../src/controllers/AuthController.php');
+            $users = \Controllers\AuthController::getAllUsers();
 
 
-// Affiche les données dans le tableau HTML
-foreach ($result as $row) {
-echo "<tr>";
-echo "<td>" . htmlspecialchars($row["nomUtilisateur"] . " " . $row["prenomUtilisateur"]) . "</td>";
+            // Affiche les données dans le tableau HTML
+            foreach ($users as $user) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($user["nomUtilisateur"] . " " . $user["prenomUtilisateur"]) . "</td>";
 
-// Récupère la ville associée à l'idPoint
-$idPoint = $row["idPoint"];
-$sqlVille = "SELECT nomVille FROM Points WHERE idPoint = :idPoint";
-$stmtVille = $db->prepare($sqlVille);
-$stmtVille->bindParam(':idPoint', $idPoint);
-$stmtVille->execute();
-$resultVille = $stmtVille->fetch(PDO::FETCH_ASSOC);
+                // Récupère la ville associée à l'idPoint
+                $idPoint = $user["idPoint"];
+                $city = \Controllers\AuthController::getCityByIdPoint($idPoint);
 
-echo "<td class='display__none__dashboard'>" . htmlspecialchars($resultVille["nomVille"]) . "</td>";
-$idRole = $row["idRole"];
-$sqlRole = "SELECT labelRole FROM Roles WHERE idRole = :idRole";
-$stmtRole = $db->prepare($sqlRole);
-$stmtRole->bindParam(':idRole', $idRole);
-$stmtRole->execute();
-$resultRole = $stmtRole->fetch(PDO::FETCH_ASSOC);
+                echo "<td class='display__none__dashboard'>" . htmlspecialchars($city) . "</td>";
 
-echo "<td>" . htmlspecialchars($resultRole["labelRole"]) . "</td>";
+                $idRole = $user["idRole"];
+                $roleLabel = \Controllers\AuthController::getRoleLabelByIdRole($idRole);
 
-echo "<td class='display__none__dashboard'>" . 'test'. "</td>";
-echo "<td class='user-details action__icon mt-5'>";
-echo "<a href='editUser.php?id=" . htmlspecialchars($row["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/modifier.svg' alt='iconModifier'></a>";
-echo "<a href='deleteUser.php?id=" . htmlspecialchars($row["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/supprimer.svg' alt='iconSupprimer'></a>";
+                echo "<td>" . htmlspecialchars($roleLabel) . "</td>";
 
-echo "</tr>";
-}
+                echo "<td class='display__none__dashboard'>" . 'test'. "</td>";
+                echo "<td class='user-details action__icon mt-5'>";
+                echo "<a href='editUser.php?id=" . htmlspecialchars($user["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/modifier.svg' alt='iconModifier'></a>";
+                echo "<a href='deleteUser.php?id=" . htmlspecialchars($user["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/supprimer.svg' alt='iconSupprimer'></a>";
 
-
-} catch (PDOException $e) {
-echo "Erreur : " . $e->getMessage();
-}
-?>
-
-
-</tbody>
-      
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
     </table>
-
 </section>
-
-
-
-
-
-
 <?php
 include_once "../../views/pagination__dashboard.php";
 ?>
-
 </body>
 </html>
-
