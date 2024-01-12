@@ -4,84 +4,146 @@ namespace models;
 
 use DateTime;
 
+/**
+ * Class Message
+ *
+ * @property int|null $idMessage
+ * @property string|null $contenuMessage
+ * @property DateTime|null $dateTimeMessage
+ * @property int|null $idUtilisateur
+ * @property int|null $idUtilisateurDestinataire
+ * @property int|null $isReadMessage
+ */
 class Message extends Model
 {
-    protected int $idMessage;
-    protected string $contenuMessage;
-    protected DateTime $dateTimeMessage;
-    protected int $idUtilisateur;
-    protected int $idUtilisateurDestinataire;
+    protected static string $childTableName = 'Message';
 
-    // Constructeur
-    public function __construct($contenuMessage, $idUtilisateur, $idUtilisateurDestinataire)
-    {
+    protected ?int $idMessage;
+    protected ?string $contenuMessage;
+    protected ?DateTime $dateTimeMessage;
+    protected ?int $idUtilisateur;
+    protected ?int $idUtilisateurDestinataire;
+    protected ?int $isReadMessage;
+
+    /**
+     * Message constructor.
+     *
+     * @param int|null $idMessage
+     * @param string|null $contenuMessage
+     * @param DateTime|null $dateTimeMessage
+     * @param int|null $idUtilisateur
+     * @param int|null $idUtilisateurDestinataire
+     * @param int|null $isReadMessage
+     */
+    public function __construct(
+        ?int $idMessage = null,
+        ?string $contenuMessage = null,
+        ?DateTime $dateTimeMessage = null,
+        ?int $idUtilisateur = null,
+        ?int $idUtilisateurDestinataire = null,
+        ?int $isReadMessage = null
+    ) {
+        $this->idMessage = $idMessage;
         $this->contenuMessage = $contenuMessage;
+        $this->dateTimeMessage = $dateTimeMessage;
         $this->idUtilisateur = $idUtilisateur;
         $this->idUtilisateurDestinataire = $idUtilisateurDestinataire;
-        $this->dateTimeMessage = date('Y-m-d H:i:s');
+        $this->isReadMessage = $isReadMessage;
     }
 
-    // Getters
-    public function getIdMessage()
+    /**
+     * @return int|null
+     */
+    public function getIdMessage(): ?int
     {
         return $this->idMessage;
     }
 
-    public function getContenuMessage()
-    {
-        return $this->contenuMessage;
-    }
-
-    public function getDateTimeMessage()
-    {
-        return $this->dateTimeMessage;
-    }
-
-    public function getIdUtilisateur()
-    {
-        return $this->idUtilisateur;
-    }
-
-    public function getIdUtilisateurDestinataire()
-    {
-        return $this->idUtilisateurDestinataire;
-    }
-
-    // Setters
-    public function setIdMessage($idMessage)
+    /**
+     * @param int|null $idMessage
+     */
+    public function setIdMessage(?int $idMessage): void
     {
         $this->idMessage = $idMessage;
     }
 
-    public function setContenuMessage($contenuMessage)
+    /**
+     * @return string|null
+     */
+    public function getContenuMessage(): ?string
+    {
+        return $this->contenuMessage;
+    }
+
+    /**
+     * @param string|null $contenuMessage
+     */
+    public function setContenuMessage(?string $contenuMessage): void
     {
         $this->contenuMessage = $contenuMessage;
     }
 
-    public function setDateTimeMessage($dateTimeMessage)
+    /**
+     * @return DateTime|null
+     */
+    public function getDateTimeMessage(): ?DateTime
+    {
+        return $this->dateTimeMessage;
+    }
+
+    /**
+     * @param DateTime|null $dateTimeMessage
+     */
+    public function setDateTimeMessage(?DateTime $dateTimeMessage): void
     {
         $this->dateTimeMessage = $dateTimeMessage;
     }
 
-    public function setIdUtilisateur($idUtilisateur)
+    /**
+     * @return int|null
+     */
+    public function getIdUtilisateur(): ?int
+    {
+        return $this->idUtilisateur;
+    }
+
+    /**
+     * @param int|null $idUtilisateur
+     */
+    public function setIdUtilisateur(?int $idUtilisateur): void
     {
         $this->idUtilisateur = $idUtilisateur;
     }
 
-    public function setIdUtilisateurDestinataire($idUtilisateurDestinataire)
+    /**
+     * @return int|null
+     */
+    public function getIdUtilisateurDestinataire(): ?int
+    {
+        return $this->idUtilisateurDestinataire;
+    }
+
+    /**
+     * @param int|null $idUtilisateurDestinataire
+     */
+    public function setIdUtilisateurDestinataire(?int $idUtilisateurDestinataire): void
     {
         $this->idUtilisateurDestinataire = $idUtilisateurDestinataire;
     }
 
-    // Méthode pour obtenir les données sous forme de tableau
-    public function toArray()
+    /**
+     * @return int|null
+     */
+    public function getIsReadMessage(): ?int
     {
-        return [
-            'idMessage' => $this->idMessage,
-            'contenuMessage' => $this->contenuMessage,
-            'dateTimeMessage' => $this->dateTimeMessage,
-            'idUtilisateur' => $this->idUtilisateur,
-            'idUtilisateurDestinataire' => $this->idUtilisateurDestinataire,
-        ];
+        return $this->isReadMessage;
+    }
+
+    /**
+     * @param int|null $isReadMessage
+     */
+    public function setIsReadMessage(?int $isReadMessage): void
+    {
+        $this->isReadMessage = $isReadMessage;
     }
 }
