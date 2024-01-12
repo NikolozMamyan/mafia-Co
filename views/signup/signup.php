@@ -23,6 +23,8 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
             <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data">
                 <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
+                <input type="number" step="any" name="latitude" value="" hidden>
+                <input type="number" step="any" name="longitude" value="" hidden>
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
                     <button type="button" class="btn-close bg__btn--close " aria-label="Close"></button>
@@ -270,6 +272,7 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>
+    <script src="./assets/js/getLatLon.js"></script>
     <!-- <script src="./assets/js/signup.js"></script> -->
 
 </body>

@@ -26,8 +26,8 @@ class Itineraire extends Model
     protected ?string $derniereModificationTrajet;
     protected int $idPointDepart; // Assuming idPointDepart cannot be null
     protected int $idPointArrivee; // Assuming idPointArrivee cannot be null
-        
-   /**
+
+    /**
      * Constructeur pour créer des objets Itineraire
      *
      * @param string|null $nomItineraire
@@ -38,16 +38,16 @@ class Itineraire extends Model
      * @param DateTime|string|null $derniereModificationItineraire
      */
     public function __construct(
-        ?string $adresseDepart,
-        ?string $adresseArrivee,
-        ?string $debutCours,
-        ?string $finCours,
-        ?int $nbrPlaceDispo,
-        ?string $infoComplementaire,
-        ?string $dateCreation,
-        ?string $derniereModificationTrajet,
-        int $idPointDepart,
-        int $idPointArrivee
+        ?string $adresseDepart = null,
+        ?string $adresseArrivee = null,
+        ?string $debutCours = null,
+        ?string $finCours = null,
+        ?int $nbrPlaceDispo = null,
+        ?string $infoComplementaire = null,
+        ?string $dateCreation = null,
+        ?string $derniereModificationTrajet = null,
+        int $idPointDepart = null,
+        int $idPointArrivee = null
     ) {
         parent::__construct();
 
@@ -303,7 +303,4 @@ class Itineraire extends Model
 
         return $itineraireArray;
     }
-
-    
-
 }

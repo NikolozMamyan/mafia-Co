@@ -8,6 +8,7 @@ class Auth
 
     public static function getCurrentUser(): ?array
     {
+        unset($_SESSION);
         $id = self::getSessionUserId();
 
         if (self::$user === null and $id) {

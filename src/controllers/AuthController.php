@@ -6,6 +6,7 @@ use Auth;
 use DB;
 use App\Models\Point;
 use App\Models\User;
+use models\Itineraire;
 
 class AuthController extends Controller
 {
@@ -32,6 +33,7 @@ class AuthController extends Controller
 
     public function store(): void
     {
+        dd('store');
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
         $lastName = $_POST['lastName'] ?? '';
@@ -46,8 +48,8 @@ class AuthController extends Controller
         $photo = $_FILES['photo']['name'] ?? '';
         $CGU = $_POST['CGU'] ?? false;
 
-        $latitude = $_POST['latitude'] ?? '';
-        $longitude = $_POST['longitude'] ?? '';
+        $latitude = $_POST['latitude'] ?? 0.0;
+        $longitude = $_POST['longitude'] ?? 0.0;
 
         $days = $_POST['days'] ?? [];
         $timeStart = $_POST['timeStart'];
@@ -117,6 +119,22 @@ class AuthController extends Controller
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_REGISTER);
         }
+
+        $itineraire = new Itineraire(null, null, $timeStart, $timeEnd, 0, $comment, null, null, null, null);
+
+        $result = DB::statement(
+            "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
+                . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
+            [
+                'adresseDepart' => $itineraire->getAdresseDepart(),
+                'adresseArrivee' => $itineraire->getAdresseArrivee(),
+                'debutCours' => $itineraire->getDebutCours(),
+                'finCours' => $itineraire->getFinCours(),
+                'infoComplementaire' => $itineraire->getInfoComplementaire(),
+                'idPointDepart' => $itineraire->getIdPointDepart(),
+                'idPointArrivee' => $itineraire->getIdPointArrivee(),
+            ]
+        );
 
         // Auth new user
         $_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
@@ -229,6 +247,41 @@ class AuthController extends Controller
             }
         }
         return false;
+    }
+
+    protected static function getLatLon(string $address, string $zipcode, string $city)
+    {
+        // Nominatim API endpoint URL for geocoding
+        $api_url = 'https://nominatim.openstreetmap.org/search';
+
+        // Build the query parameters
+        $params = array(
+            'q'      => "$address $zipcode $city", // Concatenate address, zipcode, and city
+            'format' => 'json',
+            'limit'  => 1, // Limit to the first result
+        );
+
+        // Append the query parameters to the API URL
+        $api_url .= '?' . http_build_query($params);
+
+        // Initialize cURL session
+        $ch = curl_init($api_url);
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute cURL session and fetch the response
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if (curl_errno($ch)) {
+            dd('Curl error: ' . curl_error($ch));
+        }
+
+        // Close cURL session
+        curl_close($ch);
+
+        dd($response);
     }
 
     protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
