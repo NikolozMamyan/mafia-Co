@@ -1,14 +1,14 @@
 <!-- chat.php -->
 
 <?php
-require_once(__DIR__ . '/bootstrap/app.php');
-require_once(__DIR__ . '/views/headDev.php');
+// require_once(__DIR__ . '/bootstrap/app.php');
+require_once(__DIR__ . '/views/components/headDev.php');
 ?>
 
 <body class="body__chat">
     <header class=" container ">
         <?php
-        require_once(__DIR__ . '/../views/header.php');
+        require_once(__DIR__ . '/../views/components/header.php');
 
         ?>
     </header>
@@ -41,7 +41,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardSearchContact.php');
+                                            include('../views/components/cardSearchContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -51,7 +51,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardContact.php');
+                                            include('../views/components/cardContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -80,12 +80,12 @@ require_once(__DIR__ . '/views/headDev.php');
                                 <div class="card-body card__body--chat" id="messageList">
                                     <ul class="list-group   " id="messageContainer">
                                         <?php
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
-                                        include('../views/cardChatRight.php');
-                                        include('../views/cardChatLeft.php');
+                                        include('../views/components/cardChatRight.php');
+                                        include('../views/components/cardChatLeft.php');
+                                        include('../views/components/cardChatRight.php');
+                                        include('../views/components/cardChatLeft.php');
+                                        include('../views/components/cardChatRight.php');
+                                        include('../views/components/cardChatLeft.php');
 
                                         ?>
 
@@ -113,7 +113,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardSearchContact.php');
+                                                    include('../views/components/cardSearchContact.php');
                                                 }
                                                 ?>
                                             </ul>
@@ -123,7 +123,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardContact.php');
+                                                    include('../views/components/cardContact.php');
                                                 }
                                                 ?>
                                             </ul>
@@ -144,7 +144,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                                 <?php
 
                                                 for ($i = 0; $i < 3; $i++) {
-                                                    include('../views/cardNotifyContact.php');
+                                                    include('../views/components/cardNotifyContact.php');
                                                 }
                                                 ?>
                                             </ul>
@@ -176,7 +176,7 @@ require_once(__DIR__ . '/views/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/cardNotifyContact.php');
+                                            include('../views/components/cardNotifyContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -191,7 +191,7 @@ require_once(__DIR__ . '/views/headDev.php');
     </main>
     <footer>
         <?php
-        require_once(__DIR__ . '/../views/footer.php');
+        require_once(__DIR__ . '/../views/components/footer.php');
         ?>
     </footer>
     <script src="./assets/js/chat.js"></script>
