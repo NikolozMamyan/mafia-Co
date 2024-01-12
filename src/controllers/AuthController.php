@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
 use Auth;
 use DB;
-use App\models\User;
+use models\User;
 
 class AuthController extends Controller
 {
@@ -32,7 +32,7 @@ class AuthController extends Controller
     public function store(): void
     {
         
-
+        
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
         $lastName = $_POST['lastName'] ?? '';
@@ -47,6 +47,8 @@ class AuthController extends Controller
         $photo = $_FILES['photo']['name'] ?? '';
         $CGU = $_POST['CGU'] ?? false;
 
+        $user= new User($firstName,$lastName,$address,$zip,$city,$tel,$email,$password,$role,$photo );
+        
         $_SESSION['old'] = [
             'firstName' => $firstName,
             'lastName' => $lastName,
@@ -102,7 +104,7 @@ class AuthController extends Controller
             'latUtilisateur' => '',
             'lonUtilisateur' => '',
         ];
-
+        
         $user->hydrate($userData);
 
         // dd($user);

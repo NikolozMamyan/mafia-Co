@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 use DateTime;
 use DB;
@@ -21,28 +21,29 @@ abstract class Model
 
     protected ?int $idUtilisateur;
 
-    /**
-     * Constructeur de la classe Model
-     *
-     * @param array $data Données à hydrater
-     */
-    public function __construct(array $data = [])
-    {
-        $this->hydrate($data);
-    }
+    
+    // public function __construct(array $data = [])
+    // {
+    //     self::make($data);
+    // }
+
+    // public static function make(array $data =[]){
+    //     return new static($data);
+    // }
 
     /**
      * Méthode pour hydrater l'objet à partir d'un tableau associatif
      *
      * @param array $data Données à hydrater
      */
-    protected function hydrate(array $data)
+    public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = $value;
             }
         }
+        return $this;
     }
 
     /**
@@ -51,7 +52,7 @@ abstract class Model
      * @param string|null $date Date à formater
      * @return string Date formatée
      */
-    protected function formatDate(?string $date): string
+    public function formatDate(?string $date): string
     {
         return $date ? date(self::CREATED_AT_FORMAT, strtotime($date)) : '';
     }
@@ -62,7 +63,7 @@ abstract class Model
      * @param DateTime|string|null $dateTime Date/heure à formater
      * @return string Date/heure formatée
      */
-    protected function formatDateTime(string $dateTime): string
+    public function formatDateTime(string $dateTime): string
     {
         if ($dateTime instanceof DateTime) {
             return $dateTime->format(self::CREATED_AT_FORMAT);
@@ -138,7 +139,7 @@ abstract class Model
      *
      * @return array Champs modifiés
      */
-    protected function getChangedFields(): array
+    public function getChangedFields(): array
     {
         $toArray = $this->toArray();
         $updates = [];
@@ -173,7 +174,7 @@ abstract class Model
      * @param  mixed $created_at
      * @return string
      */
-    protected function prepareCreatedAt(string|DateTime|null $created_at): string
+    public function prepareCreatedAt(string|DateTime|null $created_at): string
     {
         if (!$created_at) {
             $created_at = date(self::CREATED_AT_FORMAT);
@@ -191,7 +192,7 @@ abstract class Model
      * @param  mixed $value
      * @return void
      */
-    protected function setFields($name, $value): void
+    public function setFields($name, $value): void
     {
         if (property_exists($this, $name) && isset($this->$name) && $this->$name != $value) {
             $this->changedFields[] = $name;

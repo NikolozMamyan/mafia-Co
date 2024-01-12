@@ -1,6 +1,36 @@
 <!-- signup.php -->
 
+
 <?php
+// $url = $_SERVER['url'];
+// $routes = [
+//   '/product/create'=>[
+//     'class' => \App\controllers\productController::class,
+//     'method'=>'index'
+//   ],
+//   ];
+
+// $route = $routes[url ]?? null;
+// if ($route){
+//   $controller = new $route['class'];
+//   $controller -> $route['method']();
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 require_once(__DIR__ . '/../views/headDev.php');
 ?>

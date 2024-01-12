@@ -1,10 +1,11 @@
 <?php
 
-namespace controllers;
+namespace App\Controllers;
 
 abstract class Controller
 {
     public function getIndex()
     {
+
     }
 }

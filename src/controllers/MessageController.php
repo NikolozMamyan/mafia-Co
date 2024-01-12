@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers;
+namespace App\controllers;
 
 use Auth; // Assurez-vous d'avoir inclus ou utilisé correctement la classe Auth dans votre projet
 use models\Message;
@@ -9,6 +9,12 @@ use models\Contact;
 
 class MessageController
 {
+
+    
+    public function chatBox(): void
+    {
+        require_once base_path('views/chatBox/chat.php');
+    }
     /**
      * Méthode pour récupérer les derniers messages entre un utilisateur et ses contacts
      *
