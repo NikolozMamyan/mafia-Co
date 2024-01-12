@@ -1,9 +1,7 @@
 <!-- chat.php -->
 
-<?php
-require_once(__DIR__ . '/bootstrap/app.php');
-require_once(__DIR__ . '/../views/components/headDev.php');
-?>
+<?php //require_once(__DIR__ . '/bootstrap/app.php');?>
+<?php require_once base_path('views/components/headDev.php'); ?>
 <?php
 
 // // Initialiser les contrôleurs
@@ -22,10 +20,7 @@ require_once(__DIR__ . '/../views/components/headDev.php');
 
 <body class="body__chat">
     <header class=" container ">
-        <?php
-        require_once(__DIR__ . '/../views/components/header.php');
-
-        ?>
+    <?php require_once base_path('views/components/header.php'); ?>
     </header>
     <main id="chatBox" class="container">
         <h1 class="page-title">Ma messagerie</h1>
@@ -56,7 +51,7 @@ require_once(__DIR__ . '/../views/components/headDev.php');
                                         <?php
 
                                         for ($i = 0; $i < 3; $i++) {
-                                            include('../views/components/cardSearchContact.php');
+                                            include base_path('views/components/cardSearchContact.php');
                                         }
                                         ?>
                                     </ul>
@@ -197,9 +192,7 @@ require_once(__DIR__ . '/../views/components/headDev.php');
 
     </main>
     <footer>
-        <?php
-        require_once(__DIR__ . '/../views/components/footer.php');
-        ?>
+    <?php require_once base_path('views/components/footer.php'); ?>
     </footer>
     <script src="./assets/js/chat.js"></script>
 </body>

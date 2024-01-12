@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 
 use DB; // Assuming there's a DB class for database operations
@@ -49,7 +49,7 @@ class Itineraire extends Model
         int $idPointDepart,
         int $idPointArrivee
     ) {
-        parent::__construct();
+        
 
         $this->adresseDepart = $adresseDepart;
         $this->adresseArrivee = $adresseArrivee;

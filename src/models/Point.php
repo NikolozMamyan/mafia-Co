@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 
 class Point extends Model
@@ -21,7 +21,6 @@ class Point extends Model
         ?float $longitude
     ) {
 
-        parent::__construct();
         $this->nomVille = $nomVille;
         $this->codePostalVille = $codePostalVille;
         $this->latitude = $latitude;

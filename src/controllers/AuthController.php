@@ -4,7 +4,7 @@ namespace App\controllers;
 
 use Auth;
 use DB;
-use models\User;
+use Models\User;
 
 class AuthController extends Controller
 {

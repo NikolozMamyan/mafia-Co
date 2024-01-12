@@ -1,15 +1,11 @@
 <!-- contactSupport-->
-<?php
-
-require_once(__DIR__ . '/../views/headDev.php');
-?>
+<?php require_once base_path('views/components/headDev.php'); ?>
 
 <body>
     <header class="container">
-        <?php
-        require_once(__DIR__ . '/../views/header.php');
 
-        ?>
+    <?php require_once base_path('views/components/header.php'); ?>
+
     </header>
     <main id="main-profil" class="container">
         <h1 class="page-title">Nous contacter</h1>
@@ -66,9 +62,7 @@ require_once(__DIR__ . '/../views/headDev.php');
     </main>
 
     <footer>
-        <?php
-        require_once(__DIR__ . '/../views/footer.php');
-        ?>
+         <?php require_once base_path('views/components/footer.php'); ?>
     </footer>
 
 

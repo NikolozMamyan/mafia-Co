@@ -1,8 +1,9 @@
 <!-- signup.php -->
 
 <?php
-require_once(__DIR__ . '/../views/headDev.php');
-require_once(__DIR__ . '/../controllers/AuthController.php');
+
+ require_once base_path('views/components/headDev.php'); 
+// require_once(__DIR__ . '/../controllers/AuthController.php');
 ?>
 
 <body id="signupPage">
@@ -252,14 +253,7 @@ require_once(__DIR__ . '/../controllers/AuthController.php');
                 </div>
             </form>
 
-
         </div>
-
-
-
-
-
-
 
     </main>
     <footer>
