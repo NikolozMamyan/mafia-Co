@@ -96,8 +96,4 @@ class Point extends Model
 
         return $pointArray;
     }
-
-    private function test(): void
-    {
-    }
 }

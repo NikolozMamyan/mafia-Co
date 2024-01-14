@@ -2,7 +2,7 @@
 
 <?php
 require_once(__DIR__ . '/../headDev.php');
-require_once(__DIR__ . '/../../src/controllers/AuthController.php');
+//require_once(__DIR__ . '/../../src/controllers/AuthController.php');
 ?>
 
 <body id="signupPage">
@@ -23,8 +23,8 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
             <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data">
                 <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
-                <input type="number" step="any" name="latitude" value="" hidden>
-                <input type="number" step="any" name="longitude" value="" hidden>
+                <input type="number" step="any" id="lat" name="latitude" value="" hidden>
+                <input type="number" step="any" id="lon" name="longitude" value="" hidden>
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
                     <button type="button" class="btn-close bg__btn--close " aria-label="Close"></button>
@@ -51,8 +51,8 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                             </div>
                             <!-- adresse -->
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom03" class="form-label ps-3">Adresse</label>
-                                <input type="text" class="form-control " id="validationCustom03" name="address" required>
+                                <label for="Adresse" class="form-label ps-3">Adresse</label>
+                                <input type="text" class="form-control " id="Adresse" name="address" required>
                                 <span>
                                     <ul id="address-target">
                                     </ul>
@@ -63,16 +63,16 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                             </div>
                             <!-- code postal -->
                             <div class="col-md-2  mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">CP</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="zip" value="" required>
+                                <label for="CP" class="form-label ps-3">CP</label>
+                                <input type="text" class="form-control " id="CP" name="zip" value="" required>
                                 <span class="invalid-feedback">
                                     Le code postal est obligatoire !
                                 </span>
                             </div>
                             <!-- ville -->
                             <div class="col-md-4  mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">Ville</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="city" value="" required>
+                                <label for="Ville" class="form-label ps-3">Ville</label>
+                                <input type="text" class="form-control " id="Ville" name="city" value="" required>
                                 <span class="invalid-feedback">
                                     La ville est obligatoire !
                                 </span>
@@ -98,7 +98,6 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                                         <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" required>
                                         <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
                                     </label>
-
                                 </div>
                             </div>
                             <!-- confirm mot de passe -->
@@ -107,7 +106,6 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                                     <label for="your-confirm">votre mot de passe
                                         <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" required>
                                     </label>
-
                                 </div>
                             </div>
                             <!-- role (radio btn) -->
@@ -154,7 +152,6 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
                                     </span>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -272,8 +269,7 @@ require_once(__DIR__ . '/../../src/controllers/AuthController.php');
     </footer>
 
     <script src="./assets/js/pass-show-hide.js"></script>
-    <script src="./assets/js/getLatLon.js"></script>
-    <!-- <script src="./assets/js/signup.js"></script> -->
+    <script src="./assets/js/signup.js"></script>
 
 </body>
 

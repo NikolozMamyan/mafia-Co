@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 
 use DB; // Assuming there's a DB class for database operations
@@ -46,10 +46,10 @@ class Itineraire extends Model
         ?string $infoComplementaire = null,
         ?string $dateCreation = null,
         ?string $derniereModificationTrajet = null,
-        int $idPointDepart = null,
-        int $idPointArrivee = null
+        int $idPointDepart = 0,
+        int $idPointArrivee = 0
     ) {
-        parent::__construct();
+
 
         $this->adresseDepart = $adresseDepart;
         $this->adresseArrivee = $adresseArrivee;
@@ -59,8 +59,8 @@ class Itineraire extends Model
         $this->infoComplementaire = $infoComplementaire;
         $this->dateCreation = $this->prepareCreatedAt($dateCreation);
         $this->derniereModificationTrajet  = $this->prepareCreatedAt($derniereModificationTrajet);
-        $this->idPointDepart = $idPointDepart;
-        $this->idPointArrivee = $idPointArrivee;
+        $this->idPointDepart = $idPointDepart ?? 0;
+        $this->idPointArrivee = $idPointArrivee ?? 0;
     }
 
     // Getter method for idItineraire    

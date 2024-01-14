@@ -6,14 +6,14 @@ use Auth;
 use DB;
 use App\Models\Point;
 use App\Models\User;
-use models\Itineraire;
+use App\Models\Itineraire;
 
 class AuthController extends Controller
 {
     const URL_HANDLER = 'handlers/auth-handler.php';
     const URL_REGISTER = 'signup.php';
     const URL_LOGIN = 'index.php';
-    const URL_AFTER_LOGIN = 'Profile.php';
+    const URL_AFTER_LOGIN = '/Profile.php';
     const URL_AFTER_LOGOUT = 'index.php';
 
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
@@ -33,7 +33,6 @@ class AuthController extends Controller
 
     public function store(): void
     {
-        dd('store');
         // Prepare POST
         $firstName = $_POST['firstName'] ?? '';
         $lastName = $_POST['lastName'] ?? '';
@@ -74,11 +73,6 @@ class AuthController extends Controller
             'comment' => $comment,
         ];
 
-        // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
-            redirectAndExit('/applications/mafia-Co/public/signup.php');
-        }
-
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
@@ -87,6 +81,11 @@ class AuthController extends Controller
         } elseif (count($users) >= 1) {
             dd('Cette adresse email est déjà utilisée.');
             redirectAndExit(self::URL_REGISTER);
+        }
+
+        // Validation
+        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
+            redirectAndExit('/applications/mafia-Co/public/signup.php');
         }
 
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -120,21 +119,24 @@ class AuthController extends Controller
             redirectAndExit(self::URL_REGISTER);
         }
 
-        $itineraire = new Itineraire(null, null, $timeStart, $timeEnd, 0, $comment, null, null, null, null);
+        if (!(true)) { //TODO 
+            $itineraire = new Itineraire(null, null, $timeStart, $timeEnd, 0, $comment, null, null, 0, 0);
 
-        $result = DB::statement(
-            "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
-                . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
-            [
-                'adresseDepart' => $itineraire->getAdresseDepart(),
-                'adresseArrivee' => $itineraire->getAdresseArrivee(),
-                'debutCours' => $itineraire->getDebutCours(),
-                'finCours' => $itineraire->getFinCours(),
-                'infoComplementaire' => $itineraire->getInfoComplementaire(),
-                'idPointDepart' => $itineraire->getIdPointDepart(),
-                'idPointArrivee' => $itineraire->getIdPointArrivee(),
-            ]
-        );
+            $result = DB::statement(
+                "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
+                    . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
+                [
+                    'adresseDepart' => $itineraire->getAdresseDepart(),
+                    'adresseArrivee' => $itineraire->getAdresseArrivee(),
+                    'debutCours' => $itineraire->getDebutCours(),
+                    'finCours' => $itineraire->getFinCours(),
+                    'infoComplementaire' => $itineraire->getInfoComplementaire(),
+                    'idPointDepart' => $itineraire->getIdPointDepart(),
+                    'idPointArrivee' => $itineraire->getIdPointArrivee(),
+                ]
+            );
+        }
+
 
         // Auth new user
         $_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
@@ -188,7 +190,7 @@ class AuthController extends Controller
         }
 
         errors("Les identifiants ne correspondes pas.");
-        redirectAndExit(self::URL_LOGIN);
+        redirectAndExit(base_path(self::URL_LOGIN));
     }
 
     public function logout(): void
@@ -247,41 +249,6 @@ class AuthController extends Controller
             }
         }
         return false;
-    }
-
-    protected static function getLatLon(string $address, string $zipcode, string $city)
-    {
-        // Nominatim API endpoint URL for geocoding
-        $api_url = 'https://nominatim.openstreetmap.org/search';
-
-        // Build the query parameters
-        $params = array(
-            'q'      => "$address $zipcode $city", // Concatenate address, zipcode, and city
-            'format' => 'json',
-            'limit'  => 1, // Limit to the first result
-        );
-
-        // Append the query parameters to the API URL
-        $api_url .= '?' . http_build_query($params);
-
-        // Initialize cURL session
-        $ch = curl_init($api_url);
-
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        // Execute cURL session and fetch the response
-        $response = curl_exec($ch);
-
-        // Check for errors
-        if (curl_errno($ch)) {
-            dd('Curl error: ' . curl_error($ch));
-        }
-
-        // Close cURL session
-        curl_close($ch);
-
-        dd($response);
     }
 
     protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
