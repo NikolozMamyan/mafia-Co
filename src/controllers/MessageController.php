@@ -3,9 +3,9 @@
 namespace App\controllers;
 
 use Auth; // Assurez-vous d'avoir inclus ou utilisé correctement la classe Auth dans votre projet
-use models\Message;
-use models\User;
-use models\Contact;
+use App\Models\Message;
+use App\Models\User;
+use App\Models\Contact;
 
 class MessageController
 {

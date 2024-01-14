@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DB;
+
 /**
  * Class ItineraireJourSemaine
  *
@@ -58,4 +60,12 @@ class ItineraireJourSemaine extends Model
     {
         $this->idJourSemaine = $idJourSemaine;
     }
+
+    
+            // $itineraireJourSemaine = new static(
+            //     $data['idItineraire'],
+            //     $data['idJourSemaine']
+            // );
+
+       
 }

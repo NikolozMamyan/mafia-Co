@@ -12,10 +12,10 @@
   <!-- link bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- link css  -->
-  <link rel="stylesheet" type="text/css" href='../public/assets/css/main.css'>
-  <link rel="stylesheet" type="text/css" href="../public/assets/icons/styles.min.css">
-  <link rel="stylesheet" type="text/css" href="../public/assets/leaflet_files/leaflet/leaflet.css">
-  <link rel="stylesheet" type="text/css" href="../public/assets/leaflet_files/leaflet-routing/leaflet-routing-machine.css" />
+  <link rel="stylesheet" type="text/css" href='assets/css/main.css'>
+  <link rel="stylesheet" type="text/css" href="assets/icons/styles.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/leaflet_files/leaflet/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="assets/leaflet_files/leaflet-routing/leaflet-routing-machine.css" />
   <script defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"

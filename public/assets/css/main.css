@@ -725,8 +725,9 @@ label[for=your-password] input {
 button#show-hide-password {
   bottom: 0;
   position: absolute;
-  right: 0;
-  height: 65%;
+  left: 59vh;
+  top: 68vh;
+  height: 10%;
   font-size: 2.6rem;
   border: 0;
   padding: 0 0.5em;
@@ -1386,7 +1387,7 @@ a.edit-icon:focus {
   transition: background-color 0.3s;
 }
 
-a {
+.a__dashboard {
   text-decoration: none;
   color: black;
 }

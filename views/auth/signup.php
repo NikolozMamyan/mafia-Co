@@ -21,7 +21,7 @@
         </section>
         <div class="container-fluid">
 
-            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php routeEcho('register'); ?>" method="POST" enctype="multipart/form-data">
                 <input type="text" name="action" value="store" hidden>
                 <!-- btn close -->
 
@@ -161,23 +161,23 @@
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Départ</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
-                                <img src="../public/assets/images/flagG.svg" class="flag__style" alt="Drapeau Vert">
+                                <img src="assets/images/flagG.svg" class="flag__style" alt="Drapeau Vert">
                             </span>
                             <input class="col-10 pe-2" value="adresse" name="adresseDepart" disabled>
                         </div>
                         <!-- Fleche arrows-left-right-solid pour desktop -->
                         <div class="col-md-2 d-md-flex justify-content-md-center align-items-md-end d-none d-sm-none d-md-block">
-                            <img src="../public/assets/images/arrows-left-right-solid.svg" class='flag__style ' alt="Fleche noire">
+                            <img src="assets/images/arrows-left-right-solid.svg" class='flag__style ' alt="Fleche noire">
                         </div>
 
                         <!-- Fleche arrows-up-down-solid pour tablette et mobile -->
                         <div class=" col-2  d-flex justify-content-start align-items-md-center d-sm-block d-md-none ">
-                            <img src="../public/assets/images/arrows-up-down-solid.svg" class='flag__style mt-3 ms-3' alt="Fleche noire">
+                            <img src="assets/images/arrows-up-down-solid.svg" class='flag__style mt-3 ms-3' alt="Fleche noire">
                         </div>
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Arrivé</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
-                                <img src="../public/assets/images/flagR.svg" class='flag__style ' alt="Drapeau Rogue">
+                                <img src="assets/images/flagR.svg" class='flag__style ' alt="Drapeau Rogue">
                             </span>
                             <input class="col-10 " value="adresse" class='' name="adresseArrive" disabled>
                         </div>
@@ -249,7 +249,7 @@
                 </div>
 
                 <!-- link login -->
-                <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="login.php">Connectez-vous </a>
+                <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="<?php routeEcho('login'); ?>">Connectez-vous </a>
                 </div>
             </form>
 
@@ -260,8 +260,9 @@
         <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
-    <script src="./assets/js/pass-show-hide.js"></script>
-    <!-- <script src="./assets/js/signup.js"></script> -->
+    
+    <script src="assets/js/pass-show-hide.js"></script>
+    <script src="assets/js/signup.js"></script>
 
 </body>
 

@@ -58,4 +58,7 @@ class Role extends Model
     {
         $this->labelRole = $labelRole;
     }
+
+    
+
 }

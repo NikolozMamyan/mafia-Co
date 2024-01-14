@@ -3,46 +3,40 @@
 
 <body>
     <header class="container">
-
-    <?php require_once base_path('views/components/header.php'); ?>
-
+        <?php require_once base_path('views/components/header.php'); ?>
     </header>
+
     <main id="main-profil" class="container">
         <h1 class="page-title">Mon profil</h1>
 
-        <!----------- Partie Bonjour ------------>
-
+        <!-- Partie Bonjour -->
         <section id="hello-user">
-            <img src="assets/images/covoiturage-cci-photo-profil-default-100x100.webp" alt="photo de profil de [user_name]">
-
+            <img src="assets/images/covoiturage-cci-photo-profil-default-100x100.webp" alt="photo de profil de <?= $currentUser['nomUtilisateur'] ?>">
             <div>
-                <p>Bonjour [user_name]</p>
+                <p>Bonjour <?= $currentUser['nomUtilisateur'] ?></p>
                 <p>Vous avez <a href=""><i class="covoiturage-messaging"></i>[nbr_message] messages</a> et <a href=""><i class="covoiturage-notification"></i>[nbr_notifications] notifications</a> non lus.</p>
             </div>
-
-            <!-- Prévoyez une condition s'il y a 0 messages et 0 notifications avec une autre phrase du coup ! -->
         </section>
+
         <button id="deconnexion" class="mb-5 btn-danger"><a href="index.php">Déconnexion</a></button>
+
         <section id="user-details">
-            <!----------- Vos informations personnelles ------------>
+            <!-- Vos informations personnelles -->
             <div id="user-infos">
                 <a class="edit-icon" href="modifySignup.php"><i class="covoiturage-pencil"></i></a>
                 <h2>Vos informations personnelles</h2>
 
                 <h3>Votre nom et prénom</h3>
-                <p>[user_name_surname]</p>
+                <p><?= $currentUser['nomUtilisateur'] . ' ' . $currentUser['prenomUtilisateur'] ?></p>
 
                 <h3>Votre adresse email</h3>
-                <p>[user_email]</p>
-
-                <!-- <h3>Votre mot de passe</h3>
-                <p>************</p> -->
+                <p><?= $currentUser['emailUtilisateur'] ?></p>
 
                 <h3>Votre domicile</h3>
-                <p>[user_address]</p>
+                <p><?= $currentUser['adresseUtilisateur'] ?></p>
 
                 <h3>Votre statut de covoitureur</h3>
-                <p>[user_statut]</p>
+                <p><?= $currentUser['idRole'] ?></p>
             </div>
 
             <!----------- Votre trajet quotidien ------------>
@@ -73,15 +67,11 @@
                 <div id="map"></div>
             </div>
         </section>
-
     </main>
 
     <footer>
-
         <?php require_once base_path('views/components/footer.php'); ?>
-        
     </footer>
-
 
     <script src="./assets/leaflet_files/leaflet/leaflet.js"></script>
     <script src="./assets/leaflet_files/leaflet-routing/leaflet-routing-machine.js"></script>

@@ -13,9 +13,9 @@
     <main>
       <h1>Besoin d'un covoiturage pour aller sur le CCI Campus ?</h1>
       <p>Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant !</p>
-      <p id="message-inscription">Pas encore inscrit ? <a href="signupRedirect.php">Créez votre compte en quelques minutes !</a></p>
+      <p id="message-inscription">Pas encore inscrit ? <a href="<?php routeEcho('register');?>">Créez votre compte en quelques minutes !</a></p>
 
-      <form class="form__login" action="<?php ec($actionUrl) ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form class="form__login" action="<?php routeEcho('login.check');?>" method="POST" enctype="multipart/form-data" autocomplete="off">
         <input type="text" name="action" value="check" hidden>
         <label for="login">Votre adresse email
           <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
@@ -40,6 +40,6 @@
     <img src="assets/images/covoiturage-cci-campus-alsace-illustration-covoiturage-people.svg" alt="illustration personnages en covoiturage" />
   </section>
   <!-- js -->
-  <script src="./assets/js/pass-show-hide.js"></script>
-  <script src="./assets/js/login.js"></script>
+  <script src="assets/js/pass-show-hide.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>

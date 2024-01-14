@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use DB;
 /**
  * Classe User
  * 
@@ -12,7 +12,7 @@ class User extends Model
 {
 
     // Constantes pour le modèle
-    protected static string $childTableName = 'Utilisateur';
+    protected static string $childTableName = 'Utilisateurs';
 
     protected ?int $idUtilisateur;
     protected ?string $nomUtilisateur;
@@ -54,6 +54,7 @@ class User extends Model
         ?string $motDePasseUtilisateur,
         ?string $photoUtilisateur,
         ?int $compteActif,
+        ?int $idItineraire=null,
         ?int $idRole,
         ?int $idPoint,
         string $dateInscriptionUtilisateur = null,
@@ -70,6 +71,7 @@ class User extends Model
         $this->motDePasseUtilisateur = $motDePasseUtilisateur;
         $this->photoUtilisateur = $photoUtilisateur;
         $this->compteActif = $compteActif;
+        $this->idItineraire = $idItineraire;
         $this->idRole = $idRole;
         $this->idPoint = $idPoint;
         $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
@@ -355,11 +357,42 @@ class User extends Model
     {
         $userArray = parent::toArray();
 
-        
-
         return $userArray;
     }
 
+    public static function find($tableName, $fieldName, $value)
+    {
+        // Utilise la méthode statique fetch de la classe DB pour récupérer l'utilisateur par son ID.
+        $userData = DB::fetch("SELECT * FROM $tableName WHERE $fieldName = :value", [':value' => $value]);
+
+        return $userData ? $userData : null;
+    }
+
+    public static function getUserById($userId)
+    {
+        // Utilise la méthode statique find de la classe Model pour récupérer l'utilisateur par son ID.
+        $userData = self::find('Utilisateurs', 'idUtilisateur', $userId);
+        
+
+        return $userData ? new static(
+            $userData['idUtilisateur'],
+            $userData['nomUtilisateur'],
+            $userData['prenomUtilisateur'],
+            $userData['adresseUtilisateur'],
+            $userData['telUtilisateur'],
+            $userData['emailUtilisateur'],
+            $userData['motDePasseUtilisateur'],
+            $userData['photoUtilisateur'],
+            $userData['compteActif'],
+            $userData['dateInscriptionUtilisateur'],
+            $userData['derniereModificationUtilisateur'],
+            $userData['idItineraire'],
+            $userData['idRole'],
+            $userData['idPoint']
+           
+        ) : null;
+    }
+      
     
 
     

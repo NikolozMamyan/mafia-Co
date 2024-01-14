@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DB;
+use Auth;
 
 class Point extends Model
 {
@@ -15,9 +17,9 @@ class Point extends Model
     protected ?float $longitude;
 
     public function __construct(
-        ?string $nomVille, 
-        ?string $codePostalVille, 
-        ?float $latitude, 
+        ?string $nomVille,
+        ?string $codePostalVille,
+        ?float $latitude,
         ?float $longitude
     ) {
 
@@ -98,4 +100,12 @@ class Point extends Model
         return $pointArray;
     }
     
+            // $point = new static(
+            //     $pointData['idPoint'],
+            //     $pointData['nomVille'],
+            //     $pointData['codePostalVille'],
+            //     $pointData['latitude'],
+            //     $pointData['longitude']
+            // );
+         
 }

@@ -1,32 +1,41 @@
 <?php
 
 use \App\Controllers\{
-    WelcomeController,
     AuthController,
-    HomeController,
-    ProductsController,
+    ChatController,
+    ContactController,
+    MessageController,
+    NotificationController,
+    ProfilController,
+    SearchController,
 };
 
- Route::new('/', WelcomeController::class, 'index', 'welcome');
+/**
+ * Define routes for the application.
+ */
 
-// // Auth
-// Route::new('/register', AuthController::class, 'register', 'register');
-// Route::new('/register/store', AuthController::class, 'store', 'register.store');
-// Route::new('/login', AuthController::class, 'login', 'login');
-// Route::new('/login/check', AuthController::class, 'check', 'login.check');
-// Route::new('/logout', AuthController::class, 'logout', 'logout');
-
-// // Home
-// Route::new('/dashboard', HomeController::class, 'index', 'home');
+/**
+ * Default route for the login page.
+ */
+Route::new('/', AuthController::class, 'login', 'index');
 
 
-// // Products
-// Route::auto(ProductsController::class, [
-//     'index', // => /products/index + products.index
-//     'create',
-//     'store',
-//     'show',
-//     'edit',
-//     'update',
-//     'delete',
-// ]);
+/**
+ * Auth routes.
+ * string $url,
+ * string $classFullName,
+ *  string $methodName,
+ *  ?string $name = null,
+ */
+Route::new('/register', AuthController::class, 'register','register');
+Route::new('/register/store', AuthController::class, 'store', 'register.store');
+Route::new('/login', AuthController::class, 'login', 'login');
+Route::new('/login/check', AuthController::class, 'check', 'login.check');
+Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
+Route::new('/profil', AuthController::class, 'profil', 'profil');
+
+
+
+
+
+

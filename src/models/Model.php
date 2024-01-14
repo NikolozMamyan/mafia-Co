@@ -21,7 +21,7 @@ abstract class Model
 
     protected ?int $idUtilisateur;
 
-    
+
     // public function __construct(array $data = [])
     // {
     //     self::make($data);
@@ -167,7 +167,7 @@ abstract class Model
 
         return $toArray;
     }
-    
+
     /**
      * prepareCreatedAt
      *
@@ -184,7 +184,7 @@ abstract class Model
 
         return $created_at;
     }
-    
+
     /**
      * setFields
      *
@@ -200,4 +200,6 @@ abstract class Model
 
         $this->$name = $value;
     }
+
+   
 }

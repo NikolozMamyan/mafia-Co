@@ -1,13 +1,43 @@
 <?php
-
+// Jean.Dupont@ccicampus.fr
+/**
+ * Class DB
+ *
+ * Handles database operations for the application.
+ */
 class DB
 {
+    /**
+     * @var string SERVEUR The database server name.
+     */
     private const SERVEUR = "localhost";
-    private const UTILISATEUR = "ccicovoiturageuser";
+
+    /**
+     * @var string UTILISATEUR The database username.
+     */
+    private const UTILISATEUR = "ccicovoiturage_user";
+
+    /**
+     * @var string MOT_DE_PASSE The database password.
+     */
     private const MOT_DE_PASSE = "GT9.9%spZ*656Mb(";
+
+    /**
+     * @var string NOM_BASE_DE_DONNEES The name of the database.
+     */
     private const NOM_BASE_DE_DONNEES = "ccicovoiturage";
+
+    /**
+     * @var PDO|null $db The PDO database connection.
+     */
     private static ?PDO $db = null; // "?PDO" allowed only on PHP 8.1+
 
+
+    /**
+     * Get the PDO database connection.
+     *
+     * @return PDO The PDO database connection.
+     */
     public static function getDB()
     {
         if (self::$db === null) {
@@ -17,6 +47,16 @@ class DB
         return self::$db;
     }
 
+    /**
+     * Update a record in the database.
+     *
+     * @param string $table The table name.
+     * @param array $data The data to update.
+     * @param int|string|null $identifier The identifier of the record to update.
+     * @param string $identifierName The name of the identifier column.
+     *
+     * @return bool Returns true on success, false on failure.
+     */
     public static function update(
         string $table,
         array $data,
@@ -52,6 +92,14 @@ class DB
         );
     }
 
+    /**
+     * Insert a new record into the database.
+     *
+     * @param string $table The table name.
+     * @param array $data The data to insert.
+     *
+     * @return bool Returns true on success, false on failure.
+     */
     public static function insert(string $table, array $data): bool
     {
         // only keys: ['enable', 'label', 'description', 'brand', 'price_ttc', 'price_ht', 'vat', 'quantity', 'created_at']
@@ -70,6 +118,17 @@ class DB
         );
     }
 
+     /**
+     * Fetch a single row from the database.
+     *
+     * @param string $sql The SQL query.
+     * @param array $params The parameters for the query.
+     * @param int|null $limit The maximum number of rows to return.
+     * @param int|null $offset The offset of the first row to return.
+     * @param int $fetchType The fetch style (PDO::FETCH_ASSOC by default).
+     *
+     * @return array|false Returns an associative array on success, false on failure.
+     */
     public static function fetch(
         string $sql,
         array $params = [],
@@ -79,6 +138,18 @@ class DB
     ): array|false {
         return self::runQuery($sql, $params, $limit, $offset, true, $fetchType);
     }
+
+    /**
+     * Fetch all rows from the database.
+     *
+     * @param string $sql The SQL query.
+     * @param array $params The parameters for the query.
+     * @param int|null $limit The maximum number of rows to return.
+     * @param int|null $offset The offset of the first row to return.
+     * @param int $fetchType The fetch style (PDO::FETCH_ASSOC by default).
+     *
+     * @return array|false Returns an array of associative arrays on success, false on failure.
+     */
     public static function fetchAll(
         string $sql,
         array $params = [],
@@ -88,6 +159,17 @@ class DB
     ): array|bool {
         return self::runQuery($sql, $params, $limit, $offset, true, $fetchType);
     }
+
+    /**
+     * Execute a SQL statement in the database.
+     *
+     * @param string $sql The SQL query.
+     * @param array $params The parameters for the query.
+     * @param int|null $limit The maximum number of rows to return.
+     * @param int|null $offset The offset of the first row to return.
+     *
+     * @return int|false Returns the number of affected rows on success, false on failure.
+     */
     public static function statement(
         string $sql,
         array $params = [],
@@ -97,6 +179,18 @@ class DB
         return self::runQuery($sql, $params, $limit, $offset,  false);
     }
 
+    /**
+     * Run a SQL query in the database.
+     *
+     * @param string $sql The SQL query.
+     * @param array $params The parameters for the query.
+     * @param int|null $limit The maximum number of rows to return.
+     * @param int|null $offset The offset of the first row to return.
+     * @param bool $fetchMode Whether to fetch rows or not.
+     * @param int $fetchType The fetch style (PDO::FETCH_ASSOC by default).
+     *
+     * @return array|bool|int Returns an array of associative arrays, false, or the number of affected rows.
+     */
     protected static function runQuery(
         string $sql,
         array $params = [],
@@ -152,6 +246,11 @@ class DB
         return false;
     }
 
+    /**
+     * Establish a connection to the database.
+     *
+     * @return PDO|null Returns a PDO database connection or null on failure.
+     */
     protected static function connection()
     {
         try {

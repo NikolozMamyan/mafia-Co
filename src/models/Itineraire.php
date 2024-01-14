@@ -305,5 +305,19 @@ class Itineraire extends Model
     }
 
     
+            // $itineraire = new static(
+            //     $data['adresseDepart'],
+            //     $data['adresseArrivee'],
+            //     $data['debutCours'],
+            //     $data['finCours'],
+            //     $data['nbrPlaceDispo'],
+            //     $data['infoComplementaire'],
+            //     $data['dateCreation'],
+            //     $data['derniereModificationTrajet'],
+            //     $data['idPointDepart'],
+            //     $data['idPointArrivee']
+            // );
+
+    
 
 }
