@@ -1,7 +1,7 @@
 <div class="container">
     <div class="search-container">
         <input type="text" id="search-bar" placeholder="Recherche un covoitureur">
-        <button class="search-btn btn_search" onclick=""><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        <button class="search-btn btn_search" id="search-bar-submit" onclick=""><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
         <button class="search-btn btn_more wrapper" type="button" onclick="searchFilters()"><i class="fa-solid fa-sliders">&nbsp;</i><span class="d-none d-md-inline">Plus de Critères</span></button>
     </div>
 

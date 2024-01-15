@@ -10,6 +10,8 @@ use App\Models\Itineraire;
 
 class AuthController extends Controller
 {
+    const CCI_ADDRESS = ''; //TODO a modifier
+
     const URL_HANDLER = 'handlers/auth-handler.php';
     const URL_REGISTER = 'signup.php';
     const URL_LOGIN = 'index.php';
@@ -119,23 +121,23 @@ class AuthController extends Controller
             redirectAndExit(self::URL_REGISTER);
         }
 
-        if (!(true)) { //TODO 
-            $itineraire = new Itineraire(null, null, $timeStart, $timeEnd, 0, $comment, null, null, 0, 0);
 
-            $result = DB::statement(
-                "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
-                    . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
-                [
-                    'adresseDepart' => $itineraire->getAdresseDepart(),
-                    'adresseArrivee' => $itineraire->getAdresseArrivee(),
-                    'debutCours' => $itineraire->getDebutCours(),
-                    'finCours' => $itineraire->getFinCours(),
-                    'infoComplementaire' => $itineraire->getInfoComplementaire(),
-                    'idPointDepart' => $itineraire->getIdPointDepart(),
-                    'idPointArrivee' => $itineraire->getIdPointArrivee(),
-                ]
-            );
-        }
+        $itineraire = new Itineraire($address, self::CCI_ADDRESS, $timeStart, $timeEnd, 0, $comment, null, null, $user->getIdPoint(), 0);
+
+        $result = DB::statement(
+            "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
+                . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
+            [
+                'adresseDepart' => $itineraire->getAdresseDepart(),
+                'adresseArrivee' => $itineraire->getAdresseArrivee(),
+                'debutCours' => $itineraire->getDebutCours(),
+                'finCours' => $itineraire->getFinCours(),
+                'infoComplementaire' => $itineraire->getInfoComplementaire(),
+                'idPointDepart' => $itineraire->getIdPointDepart(),
+                'idPointArrivee' => $itineraire->getIdPointArrivee(),
+            ]
+        );
+
 
 
         // Auth new user
