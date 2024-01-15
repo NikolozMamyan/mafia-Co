@@ -21,15 +21,15 @@ abstract class Model
 
     protected ?int $idUtilisateur;
 
-
-    // public function __construct(array $data = [])
-    // {
-    //     self::make($data);
-    // }
-
-    // public static function make(array $data =[]){
-    //     return new static($data);
-    // }
+    /**
+     * Constructeur de la classe Model
+     *
+     * @param array $data Données à hydrater
+     */
+    public function __construct(array $data = [])
+    {
+        $this->hydrate($data);
+    }
 
     /**
      * Méthode pour hydrater l'objet à partir d'un tableau associatif
@@ -78,15 +78,16 @@ abstract class Model
      * @param bool $forced Indique si la mise à jour est forcée
      * @return bool Succès de l'opération
      */
-    public function save(bool $forced = false): bool
+    public function save(string $tableName = null, string $idName = null, bool $forced = false): bool
     {
         try {
-            $tableName = static::$childTableName;
-
-            if ($this->idUtilisateur ?? null) {
+            if (!$tableName) {
+                $tableName = static::$childTableName;
+            }
+            if ($this->$idName ?? null) {
                 $success = $forced ?
-                    DB::update($tableName, $this->toArray(), $this->idUtilisateur) :
-                    DB::update($tableName, $this->getChangedFields(), $this->idUtilisateur);
+                    DB::update($tableName, $this->toArray(), $this->$idName) :
+                    DB::update($tableName, $this->getChangedFields(), $this->$idName);
             } else {
                 $success = DB::insert($tableName, $this->toArray());
             }
