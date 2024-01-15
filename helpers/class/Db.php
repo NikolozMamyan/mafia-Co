@@ -1,5 +1,5 @@
 <?php
-// Jean.Dupont@ccicampus.fr
+// Durand.Louis@ccicampus.fr
 /**
  * Class DB
  *
@@ -20,7 +20,7 @@ class DB
     /**
      * @var string MOT_DE_PASSE The database password.
      */
-    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb(";
+    private const MOT_DE_PASSE = "GT9.9%spZ*656Mb";
 
     /**
      * @var string NOM_BASE_DE_DONNEES The name of the database.

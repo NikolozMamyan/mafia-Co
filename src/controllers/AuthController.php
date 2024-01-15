@@ -14,11 +14,11 @@ use App\Models\User;
  */
 class AuthController extends Controller
 {
-    const URL_HANDLER = 'handlers/auth-handler.php';
-    const URL_REGISTER = 'signup.php';
-    const URL_LOGIN = 'index.php';
-    const URL_AFTER_LOGIN = 'Profile.php';
-    const URL_AFTER_LOGOUT = 'index.php';
+    // const URL_HANDLER = 'handlers/auth-handler.php';
+    // const URL_REGISTER = 'signup.php';
+    // const URL_LOGIN = 'index.php';
+    // const URL_AFTER_LOGIN = 'Profile.php';
+    // const URL_AFTER_LOGOUT = 'index.php';
 
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
     const MAX_PICTURE_SIZE = 1000000;
@@ -36,8 +36,7 @@ class AuthController extends Controller
      */
     public function register(): void
     {
-        $actionUrl = self::URL_HANDLER;
-        require_once base_path('views/signup/signup.php');
+        $this->render('auth/signup'); // require views/auth/login.php
     }
 
     /**
@@ -93,11 +92,12 @@ class AuthController extends Controller
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
-            dd('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-            redirectAndExit(self::URL_REGISTER);
+             dd('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            
+            redirectToRouteAndExit('register');
         } elseif (count($users) >= 1) {
-            dd('Cette adresse email est déjà utilisée.');
-            redirectAndExit(self::URL_REGISTER);
+             dd('Cette adresse email est déjà utilisée.');
+            redirectToRouteAndExit('register');
         }
 
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -128,7 +128,7 @@ class AuthController extends Controller
         );
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-            // redirectAndExit(self::URL_REGISTER);
+            
             redirectToRouteAndExit('register');
         }
 
@@ -183,7 +183,7 @@ class AuthController extends Controller
                 ];
                 $me->hydrate($userData);
 
-                redirectAndExit(self::URL_AFTER_LOGIN);
+                redirectToRouteAndExit('login');
             }
         }
 
@@ -235,13 +235,13 @@ class AuthController extends Controller
 
         // Check the file size (you can adjust this value)
         if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {
-            dd("Sorry, your file is too large.");
+             dd("Sorry, your file is too large.");
             $uploadOk = false;
         }
 
         // Allow only certain file formats (you can customize this list)
         if (!in_array($imageFileType, self::ALLOWED_EXTENSIONS)) {
-            dd("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
+             dd("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
             $uploadOk = false;
         }
 
