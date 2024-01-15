@@ -17,10 +17,10 @@ class Point extends Model
     protected ?float $longitude;
 
     public function __construct(
-        ?string $nomVille,
-        ?string $codePostalVille,
-        ?float $latitude,
-        ?float $longitude
+        ?string $nomVille = null,
+        ?string $codePostalVille = null,
+        ?float $latitude = null,
+        ?float $longitude = null
     ) {
 
         $this->nomVille = $nomVille;

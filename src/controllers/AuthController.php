@@ -39,6 +39,13 @@ class AuthController extends Controller
         $this->render('auth/signup'); // require views/auth/login.php
     }
 
+    public function url_after_login(): void
+    {
+        $this->render('profil/profilUser'); // require views/auth/login.php
+    }
+
+
+
     /**
      * Handle user registration.
      */
@@ -108,8 +115,8 @@ class AuthController extends Controller
         )[0];
 
         $point = $this->getOrSetPoint($zip, $city, $latitude, $longitude);
-        $user = new User($firstName, $lastName, $address, $tel, $email, $password, $photo, 0, $idRole['idRole'], $point->getIdPoint());
-
+         $user = new User($firstName, $lastName, $address, $tel, $email, $password, $photo, 0,1, $idRole['idRole'], $point->getIdPoint());
+        // $user=new User();
         // Create new user
         $result = DB::statement(
             "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur,idPoint, idRole)"
@@ -148,7 +155,7 @@ class AuthController extends Controller
      * Check user credentials during login.
      */
     public function check(): void
-    {
+    {   
         $login = $_POST['login'] ?? '';
         $password = $_POST['password'] ?? '';
 
@@ -183,7 +190,7 @@ class AuthController extends Controller
                 ];
                 $me->hydrate($userData);
 
-                redirectToRouteAndExit('login');
+                redirectToRouteAndExit('url_after_login');
             }
         }
 
@@ -301,7 +308,7 @@ class AuthController extends Controller
 
     protected function getPointById($zip, $city, string $latitude, string $longitude): Point|false
     {
-        $point = new Point();
+        
         $tempPoint = DB::fetch(
             "SELECT * FROM points WHERE nomVille = :city AND codePostalVille = :zip AND latitude = :latitude AND longitude = :longitude;",
             [
@@ -313,14 +320,14 @@ class AuthController extends Controller
         )[0];
         if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-            redirectAndExit(self::URL_REGISTER);
+            redirectToRouteAndExit('register');
         }
         if (empty($tempPoint)) {
             return false;
         }
         $tempPoint['latitude'] = (float)$tempPoint['latitude'];
         $tempPoint['longitude'] = (float)$tempPoint['longitude'];
-
+        $point = new Point();
         $point->hydrate($tempPoint);
         return $point;
     }
