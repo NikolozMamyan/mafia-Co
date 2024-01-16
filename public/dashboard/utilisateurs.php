@@ -1,3 +1,11 @@
+<?php
+
+require_once 'UserController.php';
+// use App\Controllers\AuthController;
+require_once 'UserView.php';
+require_once 'DashboardModel.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,109 +18,31 @@
     <title>Dashboard</title>
 </head>
 <body>
-<?php
-include_once "../../views/header__dashboard.php";
-?>
-    <section class="container-fluid row">
+<?php include_once "../../views/header__dashboard.php"; ?>
+<section class='container-fluid row'>
     <div class='d-flex justify-content-end mt-5 col-sm-9 order-2 order-sm-1 gap-5'>
-    <a class='user__create__dashboard' href="userCreate.php">Créer un utilisateur</a>
-</div>
-      
-   
-<?php
-include_once "../../views/menu__dashboard.php";
-?>
-    <table class="users__table col-sm-6 ms-3 order-3 mt-2">
+        <a class='user__create__dashboard' href="userCreate.php">Créer un utilisateur</a>
+    </div>
+    <?php include_once "../../views/menu__dashboard.php";?>
 
-        <thead>
-        <tr class="table__head">
-                <th>Utilisateur</th>
-                <th class="display__none__dashboard">Ville</th>
-                <th>Status</th>
-                <th class="display__none__dashboard">Commentaire</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-     
+    <?php
+    $dbModel = new DashboardModel('mysql:host=localhost;port=3306;dbname=cciCovoiturage', 'root', '');
 
-<?php
-// Connexion à la base de données
-$dsn = 'mysql:host=localhost;port=3306;dbname=cciCovoiturage';
-$username = 'root';
-$password = '';
+    $userController = new UserController();
+    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $itemsPerPage = 4;
 
-try {
-$db = new PDO($dsn, $username, $password);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $users = $userController->getUsers($currentPage, $itemsPerPage);
 
-// Détermine la page actuelle
-$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $totalPages = $dbModel->getTotalPages($itemsPerPage); 
 
-// Détermine le nombre d'éléments par page
-$itemsPerPage = 4;
-
-// Calcule l'offset pour la requête SQL
-$offset = ($currentPage - 1) * $itemsPerPage;
-
-// Récupère les données de la base de données en fonction de la page actuelle
-$sql = "SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, idRole, idPoint FROM utilisateurs LIMIT $offset, $itemsPerPage";
-
-$result = $db->query($sql);
-
-
-// Affiche les données dans le tableau HTML
-foreach ($result as $row) {
-echo "<tr>";
-echo "<td>" . htmlspecialchars($row["nomUtilisateur"] . " " . $row["prenomUtilisateur"]) . "</td>";
-
-// Récupère la ville associée à l'idPoint
-$idPoint = $row["idPoint"];
-$sqlVille = "SELECT nomVille FROM Points WHERE idPoint = :idPoint";
-$stmtVille = $db->prepare($sqlVille);
-$stmtVille->bindParam(':idPoint', $idPoint);
-$stmtVille->execute();
-$resultVille = $stmtVille->fetch(PDO::FETCH_ASSOC);
-
-echo "<td class='display__none__dashboard'>" . htmlspecialchars($resultVille["nomVille"]) . "</td>";
-$idRole = $row["idRole"];
-$sqlRole = "SELECT labelRole FROM Roles WHERE idRole = :idRole";
-$stmtRole = $db->prepare($sqlRole);
-$stmtRole->bindParam(':idRole', $idRole);
-$stmtRole->execute();
-$resultRole = $stmtRole->fetch(PDO::FETCH_ASSOC);
-
-echo "<td>" . htmlspecialchars($resultRole["labelRole"]) . "</td>";
-
-echo "<td class='display__none__dashboard'>" . 'test'. "</td>";
-echo "<td class='user-details action__icon mt-5'>";
-echo "<a href='editUser.php?id=" . htmlspecialchars($row["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/modifier.svg' alt='iconModifier'></a>";
-echo "<a href='deleteUser.php?id=" . htmlspecialchars($row["idUtilisateur"]) . "'><img src='../assets/iconsDashboard/supprimer.svg' alt='iconSupprimer'></a>";
-
-echo "</tr>";
-}
-
-
-} catch (PDOException $e) {
-echo "Erreur : " . $e->getMessage();
-}
-?>
-
-
-</tbody>
-      
-    </table>
-
+    $userView = new UserView();
+    $userView->setDatabaseModel($dbModel);
+    $userView->displayTable($users);
+    ?>
 </section>
-
-
-
-
-
-
 <?php
-include_once "../../views/pagination__dashboard.php";
+$userView->displayPagination($currentPage, $totalPages);
 ?>
-
 </body>
 </html>

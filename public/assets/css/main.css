@@ -1386,7 +1386,7 @@ a.edit-icon:focus {
   transition: background-color 0.3s;
 }
 
-a {
+.a__dashboard {
   text-decoration: none;
   color: black;
 }

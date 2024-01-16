@@ -9,7 +9,7 @@
                 </form>
                 <div class="admin__dashboard">
                     <div class="admin__details">
-                        <span class="admin__name">John Doe </span>
+                        <span class="admin__name">[Admin_name]</span>
                         <br>
                         <span >Amin</span>
                     </div>

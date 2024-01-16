@@ -9,7 +9,7 @@
 
 <h1>Créer/Modifier Trajet</h1>
 
-<form action="TraitementTrajetsDashboard.php" method="post">
+<form action="CreationTrajetsDashboard.php" method="post">
     <!-- Champs pour le formulaire -->
     <label for="depart">Adresse de départ :</label>
     <input type="text" id="depart" name="depart" required>
