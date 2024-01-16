@@ -681,7 +681,7 @@ input[type=checkbox].checkbox-Primary:checked::before {
 }
 
 #landing-page form input {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   border: 0;
   padding: 1.2em 1em;
   display: block;
@@ -698,15 +698,13 @@ input[type=checkbox].checkbox-Primary:checked::before {
   margin-top: 2em;
   border-radius: 4px;
   background-color: var(--primary-color);
-  color: #FFF;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 label[for=your-password] {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 label[for=your-password] a {
@@ -737,11 +735,11 @@ button#show-hide-password {
 #landing-page footer {
   line-height: 2;
   font-size: 1.2rem;
-  color: #AFAFAF;
+  color: #afafaf;
 }
 
 #landing-page footer a {
-  color: #AFAFAF;
+  color: #afafaf;
   text-decoration: none;
 }
 

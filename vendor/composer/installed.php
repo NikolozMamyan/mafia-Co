@@ -3,7 +3,7 @@
         'name' => 'mafia-co/mafia-co',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd073f3b5b3f6a0076b50be42918e6eda6c010775',
+        'reference' => '1e469c475043b5149da7619ee35456ce2380cf83',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'mafia-co/mafia-co' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd073f3b5b3f6a0076b50be42918e6eda6c010775',
+            'reference' => '1e469c475043b5149da7619ee35456ce2380cf83',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
