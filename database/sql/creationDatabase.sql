@@ -1,7 +1,6 @@
 START TRANSACTION;
 
-SET
-    AUTOCOMMIT = 0;
+SET AUTOCOMMIT = 0;
 
 DROP DATABASE IF EXISTS cciCovoiturage;
 
@@ -39,8 +38,8 @@ CREATE TABLE Itineraire (
     finCours TIME,
     nbrPlaceDispo INT(8),
     infoComplementaire VARCHAR(400),
-    dateCreation DATETIME DEFAULT NOW(),
-    derniereModificationTrajet DATETIME DEFAULT NOW(),
+    dateCreation DATETIME DEFAULT CURRENT_TIMESTAMP,
+    derniereModificationTrajet DATETIME DEFAULT CURRENT_TIMESTAMP,
     idPointDepart INT NOT NULL,
     idPointArrivee INT NOT NULL,
     PRIMARY KEY (idItineraire),
@@ -58,8 +57,8 @@ CREATE TABLE Utilisateurs (
     motDePasseUtilisateur VARCHAR(80),
     photoUtilisateur VARCHAR(50),
     compteActif BOOLEAN NOT NULL DEFAULT false,
-    dateInscriptionUtilisateur DATE DEFAULT NOW(),
-    derniereModificationUtilisateur DATETIME DEFAULT NOW(),
+    dateInscriptionUtilisateur DATETIME DEFAULT CURRENT_TIMESTAMP,
+    derniereModificationUtilisateur DATETIME DEFAULT CURRENT_TIMESTAMP,
     idItineraire INT DEFAULT NULL,
     idRole INT NOT NULL,
     idPoint INT NOT NULL,
@@ -80,7 +79,7 @@ CREATE TABLE ItineraireJourSemaine (
 CREATE TABLE Messages (
     idMessage INT AUTO_INCREMENT,
     contenuMessage TEXT NOT NULL,
-    dateTimeMessage DATETIME DEFAULT NOW(),
+    dateTimeMessage DATETIME DEFAULT CURRENT_TIMESTAMP,
     isReadMessage BOOLEAN NOT NULL DEFAULT false,
     idUtilisateur INT NOT NULL,
     idUtilisateurDestinataire INT NOT NULL,
@@ -100,7 +99,7 @@ CREATE TABLE Contactes (
 CREATE TABLE Notifications (
     idUtilisateur INT,
     idUtilisateurNotif INT,
-    dateNotification DATETIME DEFAULT NOW(),
+    dateNotification DATETIME DEFAULT CURRENT_TIMESTAMP,
     isReadNotification BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (idUtilisateur, idUtilisateurNotif),
     FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur),
@@ -134,41 +133,20 @@ DROP USER IF EXISTS 'ccicovoiturage_user'@'localhost';
 CREATE USER 'ccicovoiturage_user'@'localhost' IDENTIFIED BY 'GT9.9%spZ*656Mb';
 
 GRANT
-SELECT
-,
-INSERT
-,
-UPDATE
-,
-    DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user'@'localhost';
+SELECT,
+INSERT,
+UPDATE,
+DELETE ON cciCovoiturage.* TO 'ccicovoiturage_user'@'localhost';
 
 DROP USER IF EXISTS 'ccicovoiturage_sqlbackup'@'localhost';
 
 CREATE USER 'ccicovoiturage_sqlbackup'@'localhost' IDENTIFIED BY '_-zFnt/L746QZ{Xi}';
 
 GRANT
-SELECT
-,
-    LOCK TABLES,
-    SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
-
-DELIMITER | CREATE
-OR REPLACE TRIGGER USERMODIFDATEBEFOREUPDATE BEFORE
-UPDATE
-    ON Utilisateurs FOR EACH ROW BEGIN
-SET
-    NEW.derniereModificationUtilisateur = NOW();
-
-END | CREATE
-OR REPLACE TRIGGER TRAJETMODIFDATEBEFOREUPDATE BEFORE
-UPDATE
-    ON Itineraire FOR EACH ROW BEGIN
-SET
-    NEW.derniereModificationTrajet = NOW();
-
-END | DELIMITER ;
+SELECT,
+LOCK TABLES,
+SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
 
 COMMIT;
 
-SET
-    AUTOCOMMIT = 1;
+SET AUTOCOMMIT = 1;

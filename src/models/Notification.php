@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 /**
  * Class Notification
@@ -27,17 +27,17 @@ class Notification extends Model
      * @param string|null $dateNotification
      * @param int|null $isReadNotification
      */
-    public function __construct(
-        ?int $idUtilisateur = null,
-        ?int $idUtilisateurNotif = null,
-        ?string $dateNotification = null,
-        ?int $isReadNotification = null
-    ) {
-        $this->idUtilisateur = $idUtilisateur;
-        $this->idUtilisateurNotif = $idUtilisateurNotif;
-        $this->dateNotification = $dateNotification;
-        $this->isReadNotification = $isReadNotification;
-    }
+    // public function __construct(
+    //     ?int $idUtilisateur = null,
+    //     ?int $idUtilisateurNotif = null,
+    //     ?string $dateNotification = null,
+    //     ?int $isReadNotification = null
+    // ) {
+    //     $this->idUtilisateur = $idUtilisateur;
+    //     $this->idUtilisateurNotif = $idUtilisateurNotif;
+    //     $this->dateNotification = $dateNotification;
+    //     $this->isReadNotification = $isReadNotification;
+    // }
 
     /**
      * @return int|null
