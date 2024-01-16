@@ -30,7 +30,6 @@ class AuthController extends Controller
     public function login(): void
     {
         $this->render('auth/login'); // require views/auth/login.php
-
     }
 
     /**
@@ -38,7 +37,52 @@ class AuthController extends Controller
      */
     public function register(): void
     {
-        $this->render('auth/signup');
+        $title = 'JE M\'INSCRIT';
+
+        $this->render('auth/signup', ['page' => 'register', 'title' => $title]);
+    }
+
+    public function modify(): void
+    {
+        $title = 'Modifier mes informations';
+
+        $user = new User();
+        $currUser = DB::fetch(
+            "SELECT * FROM utilisateurs WHERE idUtilisateur = :idUtilisateur",
+            ['idUtilisateur' => $_SESSION['current_user_id']]
+        )[0];
+        $user->hydrate($currUser);
+
+        $point = new Point();
+        $currPoint = DB::fetch(
+            "SELECT * FROM points WHERE idPoint = :idPoint",
+            ['idPoint' => $user->getIdPoint()]
+        )[0];
+        $point->hydrate($currPoint);
+
+        $itineraire = new Itineraire();
+        $currItineraire = DB::fetch(
+            "SELECT * FROM itineraire WHERE idItineraire = :idItineraire",
+            ['idItineraire' => $user->getIdItineraire()]
+        )[0];
+        $itineraire->hydrate($currItineraire);
+
+        $jours = DB::fetch(
+            "SELECT labelJourSemaineCourt FROM itinerairejoursemaine JOIN joursemaine on itinerairejoursemaine.idJourSemaine = joursemaine.idJourSemaine WHERE idItineraire = :idItineraire",
+            ['idItineraire' => $user->getIdItineraire()]
+        );
+
+        $joursSemaine = array();
+        foreach ($jours as $value) {
+            array_push($joursSemaine, $value['labelJourSemaineCourt']);
+        }
+
+        $currRole = DB::fetch(
+            "SELECT labelRole FROM roles WHERE idRole = :idRole",
+            ['idRole' => $user->getIdRole()]
+        )[0]['labelRole'];
+
+        $this->render('auth/signup', ['page' => 'modify', 'user' => $user, 'itineraire' => $itineraire, 'point' => $point, 'role' => $currRole, 'joursSemaine' => $joursSemaine, 'title' => $title]);
     }
 
     public function profil(): void
@@ -84,8 +128,6 @@ class AuthController extends Controller
             'city' => $city,
             'tel' => $tel,
             'email' => $email,
-            'password' => $password,
-            'password-confirm' => $passwordConfirm,
             'radio-stacked' => $role,
             'photo' => $photo,
             'days' => $days,
@@ -210,6 +252,63 @@ class AuthController extends Controller
         $_SESSION[Auth::getSessionUserIdKey()] = $validateSession;
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
+
+        redirectToRouteAndExit('profil');
+    }
+
+    public function update()
+    {
+        // Prepare POST
+        $dataUser['prenomUtilisateur'] = $_POST['firstName'] ?? '';
+        $dataUser['nomUtilisateur'] = $_POST['lastName'] ?? '';
+        $dataUser['adresseUtilisateur'] = $_POST['address'] ?? '';
+        $dataUser['telUtilisateur'] = $_POST['tel'] ?? '';
+        $dataUser['emailUtilisateur'] = $_POST['email'] ?? '';
+
+        $password = $_POST['password'] ?? null;
+        $passwordConfirm = $_POST['password-confirm'] ?? null;
+
+        $zip = $_POST['zip'] ?? '';
+        $city = $_POST['city'] ?? '';
+        $role = $_POST['radio-stacked'] ?? '';
+        $photo = $_FILES['photo']['name'] ?? null;
+        $CGU = $_POST['CGU'] ?? false;
+
+        $latitude = $_POST['latitude'] ?? 0.0;
+        $longitude = $_POST['longitude'] ?? 0.0;
+
+        $days = $_POST['days'] ?? [];
+        $dataItineraire['adresseDepart'] = $_POST['address'];
+        $dataItineraire['debutCours'] = $_POST['timeStart'];
+        $dataItineraire['finCours'] = $_POST['timeEnd'];
+        $dataItineraire['infoComplementaire'] = $_POST['comment'];
+
+        $idRole = DB::fetch(
+            "SELECT idRole FROM Roles WHERE labelRole = :labelRole",
+            ['labelRole' => $role]
+        )[0]['idRole'];
+        $dataUser['idRole'] = $idRole;
+
+        $user = DB::fetch(
+            "SELECT * FROM utilisateurs WHERE compteActif = 1 AND idUtilisateur = :idUtilisateur;",
+            ['idUtilisateur' => $_SESSION['current_user_id']]
+        )[0];
+
+        if (
+            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm)) ||
+            (!empty($photo) && !$this->validatePicture($photo))
+        ) {
+            redirectToRouteAndExit('modify');
+        }
+
+        $dataUser['motDePasseUtilisateur'] = password_hash($password, PASSWORD_DEFAULT);
+
+        $point = $this->getOrSetPoint($zip, $city, $latitude, $longitude);
+        $dataUser['idPoint'] = $point->getIdPoint();
+        $dataUser['idUtilisateur'] = $user['idUtilisateur'];
+
+        DB::update('utilisateurs', $dataUser, $_SESSION['current_user_id'], 'idUtilisateur');
+        DB::update('itineraire', $dataItineraire, $user['idItineraire'], 'idItineraire');
 
         redirectToRouteAndExit('profil');
     }
