@@ -1,7 +1,8 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
+use DB;
 
 /**
  * Classe User
@@ -12,7 +13,7 @@ class User extends Model
 {
 
     // Constantes pour le modèle
-    protected static string $childTableName = 'Utilisateur';
+    protected static string $childTableName = 'Utilisateurs';
 
     protected ?int $idUtilisateur;
     protected ?string $nomUtilisateur;
@@ -45,34 +46,38 @@ class User extends Model
      * @param DateTime|string|null $dateInscriptionUtilisateur
      * @param DateTime|string|null $derniereModificationUtilisateur
      */
-    public function __construct(
-        ?string $nomUtilisateur = null,
-        ?string $prenomUtilisateur = null,
-        ?string $adresseUtilisateur = null,
-        ?string $telUtilisateur = null,
-        ?string $emailUtilisateur = null,
-        ?string $motDePasseUtilisateur = null,
-        ?string $photoUtilisateur = null,
-        ?int $compteActif = null,
-        ?int $idRole = null,
-        ?int $idPoint = null,
-        string $dateInscriptionUtilisateur = null,
-        string $derniereModificationUtilisateur = null,
-    ) {
-        // Initializing object properties
-        $this->nomUtilisateur = $nomUtilisateur;
-        $this->prenomUtilisateur = $prenomUtilisateur;
-        $this->adresseUtilisateur = $adresseUtilisateur;
-        $this->telUtilisateur = $telUtilisateur;
-        $this->emailUtilisateur = $emailUtilisateur;
-        $this->motDePasseUtilisateur = $motDePasseUtilisateur;
-        $this->photoUtilisateur = $photoUtilisateur;
-        $this->compteActif = $compteActif;
-        $this->idRole = $idRole;
-        $this->idPoint = $idPoint;
-        $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
-        $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
-    }
+    // public function __construct(
+    //     ?string $nomUtilisateur,
+    //     ?string $prenomUtilisateur,
+    //     ?string $adresseUtilisateur,
+    //     ?string $telUtilisateur,
+    //     ?string $emailUtilisateur,
+    //     ?string $motDePasseUtilisateur,
+    //     ?string $photoUtilisateur,
+    //     ?int $compteActif,
+    //     ?int $idItineraire,
+    //     ?int $idRole,
+    //     ?int $idPoint,
+    //     string $dateInscriptionUtilisateur = null,
+    //     string $derniereModificationUtilisateur = null,
+    // ) {
+    //     //parent::__construct();
+
+    //     // Initializing object properties
+    //     $this->nomUtilisateur = $nomUtilisateur;
+    //     $this->prenomUtilisateur = $prenomUtilisateur;
+    //     $this->adresseUtilisateur = $adresseUtilisateur;
+    //     $this->telUtilisateur = $telUtilisateur;
+    //     $this->emailUtilisateur = $emailUtilisateur;
+    //     $this->motDePasseUtilisateur = $motDePasseUtilisateur;
+    //     $this->photoUtilisateur = $photoUtilisateur;
+    //     $this->compteActif = $compteActif;
+    //     $this->idItineraire = $idItineraire;
+    //     $this->idRole = $idRole;
+    //     $this->idPoint = $idPoint;
+    //     $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
+    //     $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
+    // }
 
     /**
      * Getter method for idUtilisateur
@@ -353,8 +358,12 @@ class User extends Model
     {
         $userArray = parent::toArray();
 
-
-
         return $userArray;
     }
+
+    
+      
+    
+
+    
 }

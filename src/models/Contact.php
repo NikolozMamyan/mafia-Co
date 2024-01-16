@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace App\Models;
 
 /**
  * Class Contact
@@ -21,11 +21,11 @@ class Contact extends Model
      * @param int|null $idUtilisateur
      * @param int|null $idContacte
      */
-    public function __construct(?int $idUtilisateur = null, ?int $idContacte = null)
-    {
-        $this->idUtilisateur = $idUtilisateur;
-        $this->idContacte = $idContacte;
-    }
+    // public function __construct(?int $idUtilisateur = null, ?int $idContacte = null)
+    // {
+    //     $this->idUtilisateur = $idUtilisateur;
+    //     $this->idContacte = $idContacte;
+    // }
 
     /**
      * @return int|null

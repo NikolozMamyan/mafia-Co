@@ -14,10 +14,7 @@
             "helpers/session_functions.php"
         ],
         "classmap": [
-            "helpers/class/App.php",
-            "helpers/class/Auth.php",
-            "helpers/class/DB.php"
+            "helpers/class/"
         ]
     }
 }
-

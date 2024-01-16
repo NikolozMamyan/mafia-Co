@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DB;
+use Auth;
 
 class Point extends Model
 {
@@ -14,17 +16,18 @@ class Point extends Model
     protected ?float $latitude;
     protected ?float $longitude;
 
-    public function __construct(
-        ?string $nomVille = null,
-        ?string $codePostalVille = null,
-        ?float $latitude = null,
-        ?float $longitude = null
-    ) {
-        $this->nomVille = $nomVille;
-        $this->codePostalVille = $codePostalVille;
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-    }
+    // public function __construct(
+    //     ?string $nomVille = null,
+    //     ?string $codePostalVille = null,
+    //     ?float $latitude = null,
+    //     ?float $longitude = null
+    // ) {
+
+    //     $this->nomVille = $nomVille;
+    //     $this->codePostalVille = $codePostalVille;
+    //     $this->latitude = $latitude;
+    //     $this->longitude = $longitude;
+    // }
 
     // Getter method for idPoint
     public function getidPoint(): ?int
@@ -96,4 +99,13 @@ class Point extends Model
 
         return $pointArray;
     }
+    
+            // $point = new static(
+            //     $pointData['idPoint'],
+            //     $pointData['nomVille'],
+            //     $pointData['codePostalVille'],
+            //     $pointData['latitude'],
+            //     $pointData['longitude']
+            // );
+         
 }

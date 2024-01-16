@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+namespace App\Models;
 
 
 use DB; // Assuming there's a DB class for database operations
@@ -37,31 +38,31 @@ class Itineraire extends Model
      * @param DateTime|string|null $dateCreationItineraire
      * @param DateTime|string|null $derniereModificationItineraire
      */
-    public function __construct(
-        ?string $adresseDepart = null,
-        ?string $adresseArrivee = null,
-        ?string $debutCours = null,
-        ?string $finCours = null,
-        ?int $nbrPlaceDispo = null,
-        ?string $infoComplementaire = null,
-        ?string $dateCreation = null,
-        ?string $derniereModificationTrajet = null,
-        int $idPointDepart = 0,
-        int $idPointArrivee = 0
-    ) {
+    // public function __construct(
+    //     ?string $adresseDepart,
+    //     ?string $adresseArrivee,
+    //     ?string $debutCours,
+    //     ?string $finCours,
+    //     ?int $nbrPlaceDispo,
+    //     ?string $infoComplementaire,
+    //     ?string $dateCreation,
+    //     ?string $derniereModificationTrajet,
+    //     int $idPointDepart,
+    //     int $idPointArrivee
+    // ) {
+        
 
-
-        $this->adresseDepart = $adresseDepart;
-        $this->adresseArrivee = $adresseArrivee;
-        $this->debutCours = $debutCours;
-        $this->finCours = $finCours;
-        $this->nbrPlaceDispo = $nbrPlaceDispo;
-        $this->infoComplementaire = $infoComplementaire;
-        $this->dateCreation = $this->prepareCreatedAt($dateCreation);
-        $this->derniereModificationTrajet  = $this->prepareCreatedAt($derniereModificationTrajet);
-        $this->idPointDepart = $idPointDepart ?? 0;
-        $this->idPointArrivee = $idPointArrivee ?? 0;
-    }
+    //     $this->adresseDepart = $adresseDepart;
+    //     $this->adresseArrivee = $adresseArrivee;
+    //     $this->debutCours = $debutCours;
+    //     $this->finCours = $finCours;
+    //     $this->nbrPlaceDispo = $nbrPlaceDispo;
+    //     $this->infoComplementaire = $infoComplementaire;
+    //     $this->dateCreation = $this->prepareCreatedAt($dateCreation);
+    //     $this->derniereModificationTrajet  = $this->prepareCreatedAt($derniereModificationTrajet);
+    //     $this->idPointDepart = $idPointDepart;
+    //     $this->idPointArrivee = $idPointArrivee;
+    // }
 
     // Getter method for idItineraire    
     /**
@@ -303,4 +304,21 @@ class Itineraire extends Model
 
         return $itineraireArray;
     }
+
+    
+            // $itineraire = new static(
+            //     $data['adresseDepart'],
+            //     $data['adresseArrivee'],
+            //     $data['debutCours'],
+            //     $data['finCours'],
+            //     $data['nbrPlaceDispo'],
+            //     $data['infoComplementaire'],
+            //     $data['dateCreation'],
+            //     $data['derniereModificationTrajet'],
+            //     $data['idPointDepart'],
+            //     $data['idPointArrivee']
+            // );
+
+    
+
 }

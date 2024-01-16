@@ -1,6 +1,8 @@
 <?php
 
-namespace models;
+namespace App\Models;
+
+use DB;
 
 /**
  * Class JourSemaine
@@ -71,11 +73,13 @@ class JourSemaine extends Model
         return $this->labelJourSemaineCourt;
     }
 
-    /**
-     * @param string|null $labelJourSemaineCourt
-     */
-    public function setLabelJourSemaineCourt(?string $labelJourSemaineCourt): void
-    {
-        $this->labelJourSemaineCourt = $labelJourSemaineCourt;
-    }
+    
+            // $jourSemaine = new static(
+            //     $data['idJourSemaine'],
+            //     $data['labelJourSemaine'],
+            //     $data['labelJourSemaineCourt']
+            // );
+
+      
+ 
 }
