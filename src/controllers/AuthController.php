@@ -68,8 +68,8 @@ class AuthController extends Controller
         $photo = $_FILES['photo']['name'] ?? '';
         $CGU = $_POST['CGU'] ?? false;
 
-        $latitude = $_POST['latitude'] ?? '';
-        $longitude = $_POST['longitude'] ?? '';
+        $latitude = $_POST['latitude'] ?? 0.0;
+        $longitude = $_POST['longitude'] ?? 0.0;
 
         $days = $_POST['days'] ?? [];
         $timeStart = $_POST['timeStart'];
@@ -153,6 +153,10 @@ class AuthController extends Controller
 
             redirectToRouteAndExit('register');
         }
+
+
+        // Auth new user
+        //$_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
 
         // Auth new user
         //$_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();

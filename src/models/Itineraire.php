@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+namespace App\Models;
 
 
 use DB; // Assuming there's a DB class for database operations
@@ -26,8 +27,8 @@ class Itineraire extends Model
     protected ?string $derniereModificationTrajet;
     protected int $idPointDepart; // Assuming idPointDepart cannot be null
     protected int $idPointArrivee; // Assuming idPointArrivee cannot be null
-        
-   /**
+
+    /**
      * Constructeur pour créer des objets Itineraire
      *
      * @param string|null $nomItineraire
