@@ -35,16 +35,5 @@ Route::new('/modifySignup', AuthController::class, 'modify', 'modify');
 Route::new('/modifySignup/update', AuthController::class, 'update', 'modifySignup.update');
 Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
 Route::new('/profil', AuthController::class, 'profil', 'profil');
-<<<<<<< HEAD
-
 Route::new('/profil', ProfilController::class, 'index', 'profil.index');
-
-
-
-
-
-
-
-=======
 Route::new('/search', SearchController::class, 'index', 'search');
->>>>>>> 4fdc98d76990652808909b15761b0990eace3725
