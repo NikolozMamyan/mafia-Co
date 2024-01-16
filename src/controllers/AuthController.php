@@ -121,6 +121,9 @@ class AuthController extends Controller
             redirectAndExit(self::URL_REGISTER);
         }
 
+        // Auth new user
+        $validateSession = DB::getDB()->lastInsertId();
+
 
         $itineraire = new Itineraire($address, self::CCI_ADDRESS, $timeStart, $timeEnd, 0, $comment, null, null, $user->getIdPoint(), 0);
 
@@ -138,13 +141,31 @@ class AuthController extends Controller
             ]
         );
 
+        $user->setIdItineraire(DB::getDB()->lastInsertId());
+
+        foreach ($days as $day) {
+            $idDay = DB::fetch(
+                "SELECT idJourSemaine FROM joursemaine WHERE labelJourSemaine = :labelJourSemaine",
+                ['labelJourSemaine' => $day]
+            )[0];
+
+            $result = DB::statement(
+                "INSERT INTO itineraireJourSemaine(idItineraire, idJourSemaine)"
+                    . " VALUE(:idItineraire, :idJourSemaine);",
+                [
+                    'idItineraire' => $user->getIdItineraire(),
+                    'idJourSemaine' => $idDay,
+                ]
+            );
+        }
 
 
-        // Auth new user
-        $_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
+
 
         // Clear old
         unset($_SESSION['old']);
+
+        $_SESSION[Auth::getSessionUserIdKey()] = $validateSession;
 
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
@@ -293,7 +314,7 @@ class AuthController extends Controller
                 'latitude' => $latitude,
                 'longitude' => $longitude,
             ]
-        )[0];
+        );
         if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_REGISTER);
