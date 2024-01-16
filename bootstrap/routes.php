@@ -32,7 +32,7 @@ Route::new('/register/store', AuthController::class, 'store', 'register.store');
 Route::new('/login', AuthController::class, 'login', 'login');
 Route::new('/login/check', AuthController::class, 'check', 'login.check');
 Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
-Route::new('/profil', AuthController::class, 'url_after_login', 'profil');
+Route::new('/profil', AuthController::class, 'profil', 'profil');
 
 
 

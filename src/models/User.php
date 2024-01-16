@@ -46,38 +46,38 @@ class User extends Model
      * @param DateTime|string|null $dateInscriptionUtilisateur
      * @param DateTime|string|null $derniereModificationUtilisateur
      */
-    public function __construct(
-        ?string $nomUtilisateur,
-        ?string $prenomUtilisateur,
-        ?string $adresseUtilisateur,
-        ?string $telUtilisateur,
-        ?string $emailUtilisateur,
-        ?string $motDePasseUtilisateur,
-        ?string $photoUtilisateur,
-        ?int $compteActif,
-        ?int $idItineraire,
-        ?int $idRole,
-        ?int $idPoint,
-        string $dateInscriptionUtilisateur = null,
-        string $derniereModificationUtilisateur = null,
-    ) {
-        //parent::__construct();
+    // public function __construct(
+    //     ?string $nomUtilisateur,
+    //     ?string $prenomUtilisateur,
+    //     ?string $adresseUtilisateur,
+    //     ?string $telUtilisateur,
+    //     ?string $emailUtilisateur,
+    //     ?string $motDePasseUtilisateur,
+    //     ?string $photoUtilisateur,
+    //     ?int $compteActif,
+    //     ?int $idItineraire,
+    //     ?int $idRole,
+    //     ?int $idPoint,
+    //     string $dateInscriptionUtilisateur = null,
+    //     string $derniereModificationUtilisateur = null,
+    // ) {
+    //     //parent::__construct();
 
-        // Initializing object properties
-        $this->nomUtilisateur = $nomUtilisateur;
-        $this->prenomUtilisateur = $prenomUtilisateur;
-        $this->adresseUtilisateur = $adresseUtilisateur;
-        $this->telUtilisateur = $telUtilisateur;
-        $this->emailUtilisateur = $emailUtilisateur;
-        $this->motDePasseUtilisateur = $motDePasseUtilisateur;
-        $this->photoUtilisateur = $photoUtilisateur;
-        $this->compteActif = $compteActif;
-        $this->idItineraire = $idItineraire;
-        $this->idRole = $idRole;
-        $this->idPoint = $idPoint;
-        $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
-        $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
-    }
+    //     // Initializing object properties
+    //     $this->nomUtilisateur = $nomUtilisateur;
+    //     $this->prenomUtilisateur = $prenomUtilisateur;
+    //     $this->adresseUtilisateur = $adresseUtilisateur;
+    //     $this->telUtilisateur = $telUtilisateur;
+    //     $this->emailUtilisateur = $emailUtilisateur;
+    //     $this->motDePasseUtilisateur = $motDePasseUtilisateur;
+    //     $this->photoUtilisateur = $photoUtilisateur;
+    //     $this->compteActif = $compteActif;
+    //     $this->idItineraire = $idItineraire;
+    //     $this->idRole = $idRole;
+    //     $this->idPoint = $idPoint;
+    //     $this->dateInscriptionUtilisateur = $this->prepareCreatedAt($dateInscriptionUtilisateur);
+    //     $this->derniereModificationUtilisateur = $this->prepareCreatedAt($derniereModificationUtilisateur);
+    // }
 
     /**
      * Getter method for idUtilisateur
@@ -361,38 +361,7 @@ class User extends Model
         return $userArray;
     }
 
-    public static function find($tableName, $fieldName, $value)
-    {
-        // Utilise la méthode statique fetch de la classe DB pour récupérer l'utilisateur par son ID.
-        $userData = DB::fetch("SELECT * FROM $tableName WHERE $fieldName = :value", [':value' => $value]);
-
-        return $userData ? $userData : null;
-    }
-
-    public static function getUserById($userId)
-    {
-        // Utilise la méthode statique find de la classe Model pour récupérer l'utilisateur par son ID.
-        $userData = self::find('Utilisateurs', 'idUtilisateur', $userId);
-        
-
-        return $userData ? new static(
-            $userData['idUtilisateur'],
-            $userData['nomUtilisateur'],
-            $userData['prenomUtilisateur'],
-            $userData['adresseUtilisateur'],
-            $userData['telUtilisateur'],
-            $userData['emailUtilisateur'],
-            $userData['motDePasseUtilisateur'],
-            $userData['photoUtilisateur'],
-            $userData['compteActif'],
-            $userData['dateInscriptionUtilisateur'],
-            $userData['derniereModificationUtilisateur'],
-            $userData['idItineraire'],
-            $userData['idRole'],
-            $userData['idPoint']
-           
-        ) : null;
-    }
+    
       
     
 

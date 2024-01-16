@@ -21,11 +21,11 @@ class Role extends Model
      * @param int|null $idRole
      * @param string|null $labelRole
      */
-    public function __construct(?int $idRole = null, ?string $labelRole = null)
-    {
-        $this->idRole = $idRole;
-        $this->labelRole = $labelRole;
-    }
+    // public function __construct(?int $idRole = null, ?string $labelRole = null)
+    // {
+    //     $this->idRole = $idRole;
+    //     $this->labelRole = $labelRole;
+    // }
 
     /**
      * @return int|null

@@ -36,21 +36,21 @@ class Message extends Model
      * @param int|null $idUtilisateurDestinataire
      * @param int|null $isReadMessage
      */
-    public function __construct(
-        ?int $idMessage = null,
-        ?string $contenuMessage = null,
-        ?string $dateTimeMessage = null,
-        ?int $idUtilisateur = null,
-        ?int $idUtilisateurDestinataire = null,
-        ?int $isReadMessage = null
-    ) {
-        $this->idMessage = $idMessage;
-        $this->contenuMessage = $contenuMessage;
-        $this->dateTimeMessage = $dateTimeMessage;
-        $this->idUtilisateur = $idUtilisateur;
-        $this->idUtilisateurDestinataire = $idUtilisateurDestinataire;
-        $this->isReadMessage = $isReadMessage;
-    }
+    // public function __construct(
+    //     ?int $idMessage = null,
+    //     ?string $contenuMessage = null,
+    //     ?string $dateTimeMessage = null,
+    //     ?int $idUtilisateur = null,
+    //     ?int $idUtilisateurDestinataire = null,
+    //     ?int $isReadMessage = null
+    // ) {
+    //     $this->idMessage = $idMessage;
+    //     $this->contenuMessage = $contenuMessage;
+    //     $this->dateTimeMessage = $dateTimeMessage;
+    //     $this->idUtilisateur = $idUtilisateur;
+    //     $this->idUtilisateurDestinataire = $idUtilisateurDestinataire;
+    //     $this->isReadMessage = $isReadMessage;
+    // }
 
     /**
      * @return int|null

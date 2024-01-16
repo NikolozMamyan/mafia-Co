@@ -37,31 +37,31 @@ class Itineraire extends Model
      * @param DateTime|string|null $dateCreationItineraire
      * @param DateTime|string|null $derniereModificationItineraire
      */
-    public function __construct(
-        ?string $adresseDepart,
-        ?string $adresseArrivee,
-        ?string $debutCours,
-        ?string $finCours,
-        ?int $nbrPlaceDispo,
-        ?string $infoComplementaire,
-        ?string $dateCreation,
-        ?string $derniereModificationTrajet,
-        int $idPointDepart,
-        int $idPointArrivee
-    ) {
+    // public function __construct(
+    //     ?string $adresseDepart,
+    //     ?string $adresseArrivee,
+    //     ?string $debutCours,
+    //     ?string $finCours,
+    //     ?int $nbrPlaceDispo,
+    //     ?string $infoComplementaire,
+    //     ?string $dateCreation,
+    //     ?string $derniereModificationTrajet,
+    //     int $idPointDepart,
+    //     int $idPointArrivee
+    // ) {
         
 
-        $this->adresseDepart = $adresseDepart;
-        $this->adresseArrivee = $adresseArrivee;
-        $this->debutCours = $debutCours;
-        $this->finCours = $finCours;
-        $this->nbrPlaceDispo = $nbrPlaceDispo;
-        $this->infoComplementaire = $infoComplementaire;
-        $this->dateCreation = $this->prepareCreatedAt($dateCreation);
-        $this->derniereModificationTrajet  = $this->prepareCreatedAt($derniereModificationTrajet);
-        $this->idPointDepart = $idPointDepart;
-        $this->idPointArrivee = $idPointArrivee;
-    }
+    //     $this->adresseDepart = $adresseDepart;
+    //     $this->adresseArrivee = $adresseArrivee;
+    //     $this->debutCours = $debutCours;
+    //     $this->finCours = $finCours;
+    //     $this->nbrPlaceDispo = $nbrPlaceDispo;
+    //     $this->infoComplementaire = $infoComplementaire;
+    //     $this->dateCreation = $this->prepareCreatedAt($dateCreation);
+    //     $this->derniereModificationTrajet  = $this->prepareCreatedAt($derniereModificationTrajet);
+    //     $this->idPointDepart = $idPointDepart;
+    //     $this->idPointArrivee = $idPointArrivee;
+    // }
 
     // Getter method for idItineraire    
     /**
