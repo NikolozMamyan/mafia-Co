@@ -1,8 +1,6 @@
-<?php //$utilisateurId = Auth::getCurrentUser();// Remplacez cela par l'ID de l'utilisateur que vous souhaitez afficher ?>
-    <?php //$profilController = new App\Controllers\ProfilController(); ?>
-    <?php //$currentUser = $profilController->show($utilisateurId['idUtilisateur']); ?>
+
 <nav>
-    <?php if (!empty($currentUser)) : ?>
+    
         <a id="logo-header" href="<?php routeEcho('profil') ?>"><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></a>
         <ul>
             <li><a href="<?php //routeEcho('search') ?>"><i class="covoiturage-search"></i>Rechercher</a></li>
@@ -16,5 +14,5 @@
                 </a>
             </li>
         </ul>
-    <?php endif; ?>
+   
 </nav>

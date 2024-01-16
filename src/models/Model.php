@@ -202,5 +202,46 @@ abstract class Model
         $this->$name = $value;
     }
 
-   
+    
+    public static function findById(int $id, string $table, array $joins = []): array|false
+    {
+        // Vérifier si le nom de l'identifiant est spécifié dans le tableau des jointures
+
+        if (substr($table, -1) === "s") {
+            $maChaine = substr($table, 0, -1);
+        } else {
+            $maChaine = $table;
+        }
+        // Vérifier si le nom de l'identifiant est spécifié dans le tableau des jointures
+        $idField = "{$table}.id{$maChaine}";
+        foreach ($joins as $join) {
+            if (isset($join['idField'])) {
+                $idField = $join['idField'];
+                break;
+            }
+        }
+
+     
+        $selectFields = [];
+        foreach ($joins as $join) {
+            $selectFields[] = "{$join['table']}.*";
+        }
+        $selectFields[] = "{$table}.*";
+        $select = implode(', ', $selectFields);
+
+        // Construction de la partie JOIN
+        $joinClause = '';
+        foreach ($joins as $join) {
+            $joinClause .= " JOIN {$join['table']} ON {$join['on']}";
+        }
+
+        // Construction de la requête SQL complète
+        $sql = "SELECT {$select} FROM {$table}{$joinClause} WHERE {$idField} = :id";
+
+        // Paramètres
+        $params = [':id' => $id];
+
+        // Exécution de la requête
+        return DB::fetchAll($sql, $params);
+    }
 }

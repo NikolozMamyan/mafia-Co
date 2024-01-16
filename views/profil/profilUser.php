@@ -13,7 +13,7 @@
         <section id="hello-user">
             <img src="assets/images/covoiturage-cci-photo-profil-default-100x100.webp" alt="photo de profil de <?= $currentUser['nomUtilisateur'] ?>">
             <div>
-                <p>Bonjour <?= $currentUser['nomUtilisateur'] ?></p>
+                <p>Bonjour <?php //ec($user)  ?></p>
                 <p>Vous avez <a href=""><i class="covoiturage-messaging"></i>[nbr_message] messages</a> et <a href=""><i class="covoiturage-notification"></i>[nbr_notifications] notifications</a> non lus.</p>
             </div>
         </section>

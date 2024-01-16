@@ -34,6 +34,9 @@ Route::new('/login/check', AuthController::class, 'check', 'login.check');
 Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
 Route::new('/profil', AuthController::class, 'profil', 'profil');
 
+Route::new('/profil', ProfilController::class, 'index', 'profil.index');
+
+
 
 
 
