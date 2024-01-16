@@ -2,7 +2,7 @@
 
 <?php
 
- require_once base_path('views/components/headDev.php'); 
+require_once base_path('views/components/headDev.php');
 // require_once(__DIR__ . '/../controllers/AuthController.php');
 ?>
 
@@ -21,8 +21,10 @@
         </section>
         <div class="container-fluid">
 
-            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php routeEcho('register'); ?>" method="POST" enctype="multipart/form-data">
+            <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php routeEcho('register.store'); ?>" method="POST" enctype="multipart/form-data">
                 <input type="text" name="action" value="store" hidden>
+                <input type="number" step="any" id="lat" name="latitude" value="" hidden>
+                <input type="number" step="any" id="lon" name="longitude" value="" hidden>
                 <!-- btn close -->
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
@@ -50,24 +52,24 @@
                             </div>
                             <!-- adresse -->
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom03" class="form-label ps-3">Adresse</label>
-                                <input type="text" class="form-control " id="validationCustom03" name="address" required>
+                                <label for="Adresse" class="form-label ps-3">Adresse</label>
+                                <input type="text" class="form-control " id="Adresse" name="address" required>
                                 <span class="invalid-feedback">
                                     L'adresse est obligatoire !
                                 </span>
                             </div>
                             <!-- code postal -->
                             <div class="col-md-2  mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">CP</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="zip" value="" required>
+                                <label for="CP" class="form-label ps-3">CP</label>
+                                <input type="text" class="form-control " id="CP" name="zip" value="" required>
                                 <span class="invalid-feedback">
                                     Le code postal est obligatoire !
                                 </span>
                             </div>
                             <!-- ville -->
                             <div class="col-md-4  mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">Ville</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="city" value="" required>
+                                <label for="Ville" class="form-label ps-3">Ville</label>
+                                <input type="text" class="form-control " id="Ville" name="city" value="" required>
                                 <span class="invalid-feedback">
                                     La ville est obligatoire !
                                 </span>
@@ -139,7 +141,7 @@
                             <!-- terme et condition -->
                             <div class="col-md-12 mb-3 ps-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="CGU" value="" id="invalidCheck2" required>
+                                    <input class="form-check-input" type="checkbox" name="CGU" value="yes" id="invalidCheck2" required>
                                     <label class="form-check-label " for="invalidCheck2">
                                         Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
                                     </label>
@@ -211,20 +213,20 @@
                                 <!-- Première colonne -->
                                 <div class="col-6 align-self-end ">
                                     <div class="text-center">
-                                        <label class="" for="time">Début</label>
+                                        <label class="" for="timeStart">Début</label>
                                     </div>
                                     <div class="text-center">
-                                        <input class="" type="time" id="time" name="time">
+                                        <input class="" type="time" id="timeStart" name="timeStart">
                                     </div>
                                 </div>
 
                                 <!-- Deuxième colonne -->
                                 <div class="col-6 align-self-start">
                                     <div class="text-center">
-                                        <label class="" for="time">Fin</label>
+                                        <label class="" for="timeEnd">Fin</label>
                                     </div>
                                     <div class="text-center">
-                                        <input class="" type="time" id="time" name="time">
+                                        <input class="" type="time" id="timeEnd" name="timeEnd">
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +236,7 @@
                                 <h3 class="d-flex justify-content-center title__h3 mt-2">Info complémentaire</h3>
                             </div>
                             <div class="row m-2">
-                                <textarea name="" id="" cols="30" rows="6"></textarea>
+                                <textarea name="comment" id="" cols="30" rows="6"></textarea>
                             </div>
                         </div>
                     </div>
@@ -260,7 +262,7 @@
         <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
-    
+
     <script src="assets/js/pass-show-hide.js"></script>
     <script src="assets/js/signup.js"></script>
 

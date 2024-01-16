@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-class Search extends Controller
+class SearchController extends Controller
 {
     public function index()
     {
+        $this->render('search/search');
     }
 }

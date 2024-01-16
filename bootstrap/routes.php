@@ -27,15 +27,10 @@ Route::new('/', AuthController::class, 'login', 'index');
  *  string $methodName,
  *  ?string $name = null,
  */
-Route::new('/register', AuthController::class, 'register','register');
+Route::new('/register', AuthController::class, 'register', 'register');
 Route::new('/register/store', AuthController::class, 'store', 'register.store');
 Route::new('/login', AuthController::class, 'login', 'login');
 Route::new('/login/check', AuthController::class, 'check', 'login.check');
 Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
 Route::new('/profil', AuthController::class, 'profil', 'profil');
-
-
-
-
-
-
+Route::new('/search', SearchController::class, 'index', 'search');
