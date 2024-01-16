@@ -15,22 +15,12 @@ use App\Models\Itineraire;
  */
 class AuthController extends Controller
 {
-<<<<<<< HEAD
-    const CCI_ADDRESS = ''; //TODO a modifier
-
-    const URL_HANDLER = 'handlers/auth-handler.php';
-    const URL_REGISTER = 'signup.php';
-    const URL_LOGIN = 'index.php';
-    const URL_AFTER_LOGIN = '/Profile.php';
-    const URL_AFTER_LOGOUT = 'index.php';
-=======
     // const URL_HANDLER = 'handlers/auth-handler.php';
     // const URL_REGISTER = 'signup.php';
     // const URL_LOGIN = 'index.php';
     // const URL_AFTER_LOGIN = 'Profile.php';
     // const URL_AFTER_LOGOUT = 'index.php';
     const CCI_ADDRESS = ''; //TODO a modifier
->>>>>>> d217b0aafbb8c1021f461ff074458d471e78830c
 
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
     const MAX_PICTURE_SIZE = 1000000;
@@ -161,48 +151,6 @@ class AuthController extends Controller
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
 
-<<<<<<< HEAD
-        // Auth new user
-        $validateSession = DB::getDB()->lastInsertId();
-
-
-        $itineraire = new Itineraire($address, self::CCI_ADDRESS, $timeStart, $timeEnd, 0, $comment, null, null, $user->getIdPoint(), 0);
-
-        $result = DB::statement(
-            "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
-                . " VALUE(:adresseDepart, :adresseArrivee, :debutCours, :finCours, :infoComplementaire, :idPointDepart, :idPointArrivee);",
-            [
-                'adresseDepart' => $itineraire->getAdresseDepart(),
-                'adresseArrivee' => $itineraire->getAdresseArrivee(),
-                'debutCours' => $itineraire->getDebutCours(),
-                'finCours' => $itineraire->getFinCours(),
-                'infoComplementaire' => $itineraire->getInfoComplementaire(),
-                'idPointDepart' => $itineraire->getIdPointDepart(),
-                'idPointArrivee' => $itineraire->getIdPointArrivee(),
-            ]
-        );
-
-        $user->setIdItineraire(DB::getDB()->lastInsertId());
-
-        foreach ($days as $day) {
-            $idDay = DB::fetch(
-                "SELECT idJourSemaine FROM joursemaine WHERE labelJourSemaine = :labelJourSemaine",
-                ['labelJourSemaine' => $day]
-            )[0];
-
-            $result = DB::statement(
-                "INSERT INTO itineraireJourSemaine(idItineraire, idJourSemaine)"
-                    . " VALUE(:idItineraire, :idJourSemaine);",
-                [
-                    'idItineraire' => $user->getIdItineraire(),
-                    'idJourSemaine' => $idDay,
-                ]
-            );
-        }
-
-
-
-=======
             redirectToRouteAndExit('register');
         }
 
@@ -258,16 +206,11 @@ class AuthController extends Controller
                 ]
             );
         }
->>>>>>> d217b0aafbb8c1021f461ff074458d471e78830c
 
         // Clear old
         unset($_SESSION['old']);
 
         $_SESSION[Auth::getSessionUserIdKey()] = $validateSession;
-<<<<<<< HEAD
-
-=======
->>>>>>> d217b0aafbb8c1021f461ff074458d471e78830c
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
 
@@ -444,7 +387,7 @@ class AuthController extends Controller
                 'latitude' => $latitude,
                 'longitude' => $longitude,
             ]
-        );
+        )[0];
         if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectToRouteAndExit('register');
@@ -469,7 +412,7 @@ class AuthController extends Controller
         // );
         // $point->save('points');
 
-         DB::statement(
+        DB::statement(
             "INSERT INTO points (nomVille, codePostalVille, latitude, longitude) VALUES (:nomVille, :codePostalVille, :latitude, :longitude)",
             [
                 'codePostalVille' => $zip,
