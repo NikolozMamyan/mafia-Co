@@ -60,12 +60,3 @@ Route::new('/search/result', SearchController::class, 'result', 'search.result')
 Route::new('/conditionGeneral', OtherController::class, 'conditionIndex', 'conditionIndex');
 Route::new('/mentionLegal', OtherController::class, 'mentionIndex', 'mentionIndex');
 Route::new('/support', OtherController::class, 'supportIndex', 'supportIndex');
-
-
-
-
-
-
-
-
-
