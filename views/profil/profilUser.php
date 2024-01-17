@@ -7,50 +7,50 @@
     </header>
 
     <main id="main-profil" class="container">
-        <h1 class="page-title">Mon profil</h1>
+        <h1 class="page-title"><?php echo($title)?></h1>
 
         <!-- Partie Bonjour -->
         <section id="hello-user">
-            <img src="assets/images/covoiturage-cci-photo-profil-default-100x100.webp" alt="photo de profil de <?= $currentUser['nomUtilisateur'] ?>">
+            <img src="<?php  $user->getPhotoUtilisateur()?>" alt="photo de profil de <?php  $user->getNomUtilisateur()?> ">
             <div>
-                <p>Bonjour <?php //ec($user)  ?></p>
+                <p>Bonjour <?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur()?></p>
                 <p>Vous avez <a href=""><i class="covoiturage-messaging"></i>[nbr_message] messages</a> et <a href=""><i class="covoiturage-notification"></i>[nbr_notifications] notifications</a> non lus.</p>
             </div>
         </section>
 
-        <button id="deconnexion" class="mb-5 btn-danger"><a href="index.php">Déconnexion</a></button>
+        <button id="deconnexion" class="mb-5 btn-danger"><a href="<?php routeEcho('logout'); ?>">Déconnexion</a></button>
 
         <section id="user-details">
             <!-- Vos informations personnelles -->
             <div id="user-infos">
-                <a class="edit-icon" href="modifySignup.php"><i class="covoiturage-pencil"></i></a>
+                <a class="edit-icon" href="<?php routeEcho('modify'); ?>"><i class="covoiturage-pencil"></i></a>
                 <h2>Vos informations personnelles</h2>
 
                 <h3>Votre nom et prénom</h3>
-                <p><?= $currentUser['nomUtilisateur'] . ' ' . $currentUser['prenomUtilisateur'] ?></p>
+                <p><?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur() ?></p>
 
                 <h3>Votre adresse email</h3>
-                <p><?= $currentUser['emailUtilisateur'] ?></p>
+                <p><?php echo $user->getEmailUtilisateur()?></p>
 
                 <h3>Votre domicile</h3>
-                <p><?= $currentUser['adresseUtilisateur'] ?></p>
+                <p><?php echo $user->getAdresseUtilisateur().' '.$point->getCodePostalVille().' '.$point->getNomVille()  ?></p>
 
                 <h3>Votre statut de covoitureur</h3>
-                <p><?= $currentUser['idRole'] ?></p>
+                <p><?php echo $role?></p>
             </div>
 
             <!----------- Votre trajet quotidien ------------>
 
             <div id="user-itinerary">
-                <a class="edit-icon" href="modifySignup.php"><i class="covoiturage-pencil"></i></a>
+                <a class="edit-icon" href="<?php routeEcho('modify'); ?>"><i class="covoiturage-pencil"></i></a>
                 <h2>Votre trajet quotidien</h2>
-                <p>Je pars de [user_city] [user_week_days] pour me rendre au CCI Campus de [cci_city]. Mes cours commencent à [start_class_hour] et se terminent à [end_class_hour].</p>
+                <p>Je pars de <?php echo $point->getNomVille() ?> pour me rendre au CCI Campus de <?php echo $arrivee->getNomVille() ?>. Mes cours commencent à <?php echo $itineraire->getDebutCours() ?> et se terminent à <?php echo $itineraire->getFinCours() ?> le <?php echo implode(', ', $joursSemaine) ?>.</p>
 
-                <h3>Votre périmètre</h3>
-                <p>Vous êtes prêt à chercher des covoitureurs dans un périmètre de [user_perimeter] autour de votre domicile.</p>
+                <!-- <h3>Votre périmètre</h3>
+                <p>Vous êtes prêt à chercher des covoitureurs dans un périmètre de [user_perimeter] autour de votre domicile.</p> -->
 
                 <h3>Vos commentaires</h3>
-                <p>[user_comments]</p>
+                <p><?php echo $itineraire->getInfoComplementaire() ?></p>
             </div>
 
         </section>

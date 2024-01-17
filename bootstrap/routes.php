@@ -3,11 +3,10 @@
 use \App\Controllers\{
     AuthController,
     ChatController,
-    ContactController,
-    MessageController,
     NotificationController,
     ProfilController,
     SearchController,
+    OtherController,
 };
 
 /**
@@ -22,10 +21,6 @@ Route::new('/', AuthController::class, 'login', 'index');
 
 /**
  * Auth routes.
- * string $url,
- * string $classFullName,
- *  string $methodName,
- *  ?string $name = null,
  */
 Route::new('/register', AuthController::class, 'register', 'register');
 Route::new('/register/store', AuthController::class, 'store', 'register.store');
@@ -33,18 +28,44 @@ Route::new('/login', AuthController::class, 'login', 'login');
 Route::new('/login/check', AuthController::class, 'check', 'login.check');
 Route::new('/modifySignup', AuthController::class, 'modify', 'modify');
 Route::new('/modifySignup/update', AuthController::class, 'update', 'modifySignup.update');
-Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
-Route::new('/profil', AuthController::class, 'profil', 'profil');
-<<<<<<< HEAD
-
-Route::new('/profil', ProfilController::class, 'index', 'profil.index');
 
 
+/**
+ * chatBox routes.
+ */
+Route::new('/chat', ChatController::class, 'index', 'chat');
 
 
+/**
+ * Notification routes.
+ */
+Route::new('/notification', NotificationController::class, 'index', 'notification');
+
+/**
+ * Profil routes.
+ */
+Route::new('/profil', ProfilController::class, 'index', 'profil');
+Route::new('/logout', ProfilController::class, 'logout', 'logout');
 
 
-
-=======
+/**
+ * Search routes.
+ */
 Route::new('/search', SearchController::class, 'index', 'search');
->>>>>>> 4fdc98d76990652808909b15761b0990eace3725
+Route::new('/search/result', SearchController::class, 'result', 'search.result');
+
+/**
+ * Other routes.
+ */
+Route::new('/conditionGeneral', OtherController::class, 'conditionIndex', 'conditionIndex');
+Route::new('/mentionLegal', OtherController::class, 'mentionIndex', 'mentionIndex');
+Route::new('/support', OtherController::class, 'supportIndex', 'supportIndex');
+
+
+
+
+
+
+
+
+
