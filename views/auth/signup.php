@@ -265,7 +265,8 @@ require_once base_path('views/components/headDev.php');
 
     </main>
     <footer>
-        <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+    <a href="<?php routeEcho('conditionIndex'); ?>">Conditions générales d'utilisation</a> • <a href="<?php routeEcho('mentionIndex'); ?>">Mentions légales</a> • © CCI Covoiturage 2023
+    </footer>
     </footer>
 
 

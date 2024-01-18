@@ -1,4 +1,4 @@
-<!-- login.php -->
+
 <?php require_once base_path('views/components/headDev.php'); ?>
 
 <body id="landing-page">
@@ -18,16 +18,19 @@
         <input type="text" name="action" value="check" hidden>
         <div class="form-group">
         <label for="login">Votre adresse email
-          <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
-          <span class="emailError"></span>
+        <br><span class="emailError"></span>
+          <input type="email" name="email" placeholder="Entrez ici votre adresse email" />
+          
         </label>
         </div>
         <div class="form-group">
         <label for="password">Votre mot de passe
+        
           <a href="#" class="pwdForgotten">Mot de passe oublié ?</a>
+          <br><span class="passwordError"></span>
           <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
           <span id="show-hide-password"><i class="covoiturage-eye"></i></span>
-          <span class="passwordError"></span>
+          
         </label>
         </div>
         
@@ -47,7 +50,7 @@
   </section>
 
   <!-- js -->
-  <script src="./assets/js/pass-show-hide.js"></script>
+  <!-- <script src="./assets/js/pass-show-hide.js"></script> -->
   <script src="./assets/js/login.js"></script>
 
 
