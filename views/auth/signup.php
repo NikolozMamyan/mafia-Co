@@ -143,7 +143,7 @@ require_once base_path('views/components/headDev.php');
                             </div>
 
                             <!-- terme et condition -->
-                            <?php if ($page === 'signup') : ?>
+                            <?php if ($page === 'register') : ?>
                                 <div class="col-md-12 mb-3 ps-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="CGU" value="yes" id="invalidCheck2" required>

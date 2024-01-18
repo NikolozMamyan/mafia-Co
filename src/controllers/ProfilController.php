@@ -14,32 +14,34 @@ class ProfilController extends Controller
     public function index()
     {
         $currentUser = Auth::getCurrentUser();
-        if ($currentUser) {           
+        if ($currentUser) {
             $title = 'Mon profil';
             $currentId = Auth::getSessionUserId();
             $user = $this->getUserByCurrentId($currentId);
-            $itineraire =  $this->getItineraireByCurrentId($user->getIdItineraire() );
-            $itineraireJourSemaine =  $this->getItineraireJourSemaineByCurrentId($user->getIdItineraire()); 
+            $itineraire =  $this->getItineraireByCurrentId($user->getIdItineraire());
+            $itineraireJourSemaine =  $this->getItineraireJourSemaineByCurrentId($user->getIdItineraire());
             $jourSemaine = $this->getJoursemaineByCurrentId($itineraireJourSemaine);
             $role =  $this->getRoleByCurrentId($user->getIdRole());
             $point =  $this->getPointByCurrentId($user->getIdPoint());
             $arrivee = $this->getPointByCurrentId(1);
             // var_dump(  $itineraire);
             // exit;
-            $this->render('profil/profilUser', ['page' => 'index', 
-            'user' => $user, 
-            'itineraire' => $itineraire, 
-            'point' => $point, 
-            'arrivee' => $arrivee,
-            'role' => $role, 
-            'itineraireJourSemaine'=> $itineraireJourSemaine,
-            'joursSemaine' => $jourSemaine, 
-            'title' => $title]);
+            $this->render('profil/profilUser', [
+                'page' => 'index',
+                'user' => $user,
+                'itineraire' => $itineraire,
+                'point' => $point,
+                'arrivee' => $arrivee,
+                'role' => $role,
+                'itineraireJourSemaine' => $itineraireJourSemaine,
+                'joursSemaine' => $jourSemaine,
+                'title' => $title
+            ]);
         } else {
             $this->render('auth/login');
         }
     }
-    public function logout() : void
+    public function logout(): void
     {
         unset($_SESSION);
         session_destroy();
