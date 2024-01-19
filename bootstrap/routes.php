@@ -8,6 +8,7 @@ use \App\Controllers\{
     NotificationController,
     ProfilController,
     SearchController,
+    DashboardController,
 };
 
 /**
@@ -33,6 +34,15 @@ Route::new('/login', AuthController::class, 'login', 'login');
 Route::new('/login/check', AuthController::class, 'check', 'login.check');
 Route::new('/logout', AuthController::class, 'afterLogoutUrl', 'logout');
 Route::new('/profil', AuthController::class, 'profil', 'profil');
+
+
+Route::new('/admin', DashboardController::class, 'index');
+Route::new('/adminUtilisateurs', DashboardController::class, 'utilisateurs', 'index.utilisateurs');
+Route::new('/deleteUserAdmin', DashboardController::class, 'deleteUserR', 'deleteUser');
+Route::new('/createUserAdmin', DashboardController::class, 'createUserAdmin', 'createUserAdmin');
+
+
+
 
 
 

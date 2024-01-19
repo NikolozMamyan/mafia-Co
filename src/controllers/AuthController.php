@@ -24,6 +24,7 @@ class AuthController extends Controller
 
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
     const MAX_PICTURE_SIZE = 1000000;
+    
     /**
      * Display the login page.
      */
