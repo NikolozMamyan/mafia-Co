@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
-class Notification extends Controller
+class NotificationController extends Controller
 {
+    public function index()
+    {
+        $this->render('notify/notification');
+    }
 }

@@ -332,10 +332,11 @@ class AuthController extends Controller
         if (count($users) >= 1) {
             $user = $users[0];
 
+            dd($password, $user['motDePasseUtilisateur']);
+
             // Version 2: with password hashing
             if (password_verify($password, $user['motDePasseUtilisateur'])) {
                 $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
-
                 $me = new User();
 
                 $userData = [
