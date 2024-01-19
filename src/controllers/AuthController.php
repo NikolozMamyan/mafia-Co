@@ -145,7 +145,6 @@ class AuthController extends Controller
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-
             redirectToRouteAndExit('register');
         } elseif (count($users) >= 1) {
             errors('Cette adresse email est déjà utilisée.');
@@ -174,10 +173,6 @@ class AuthController extends Controller
         $user->setCompteActif(0); // Exemple de valeur pour compteActif
         $user->setIdRole($idRole['idRole']);
         $user->setIdPoint($point->getIdPoint());
-
-
-        // Auth new user
-        $validateSession = DB::getDB()->lastInsertId();
 
         $itineraire = new Itineraire();
 
@@ -223,9 +218,9 @@ class AuthController extends Controller
                 'idRole' => $user->getIdRole(),
             ]
         );
+
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-
             redirectToRouteAndExit('register');
         }
         $user->setIdUtilisateur(DB::getDB()->lastInsertId());
@@ -249,10 +244,9 @@ class AuthController extends Controller
         // Clear old
         unset($_SESSION['old']);
 
-        $_SESSION[Auth::getSessionUserIdKey()] = $validateSession;
+        $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
-
         redirectToRouteAndExit('profil');
     }
 
@@ -332,7 +326,6 @@ class AuthController extends Controller
         if (count($users) >= 1) {
             $user = $users[0];
 
-            // Version 2: with password hashing
             if (password_verify($password, $user['motDePasseUtilisateur'])) {
                 $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
 
@@ -355,7 +348,6 @@ class AuthController extends Controller
                 redirectToRouteAndExit('profil');
             }
         }
-
         errors("Les identifiants ne correspondes pas.");
         redirectToRouteAndExit('login');
     }

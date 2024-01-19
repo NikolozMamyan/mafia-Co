@@ -107,6 +107,11 @@ CREATE TABLE Notifications (
 );
 
 INSERT INTO
+    `Points` (idPoint, nomVille, codePostalVille, latitude, longitude)
+VALUES
+    ('1', 'Strasbourg', '67021', '48.5552106', '7.7424679');
+
+INSERT INTO
     `Roles` (idRole, labelRole)
 VALUES
     (1, 'Admin'),
