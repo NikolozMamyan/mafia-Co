@@ -1,5 +1,9 @@
 
 <?php require_once base_path('views/components/headDev.php'); ?>
+<!-- login.php -->
+<?php require_once base_path('views/components/headDev.php');
+isset($_SESSION) ? empty($_SESSION) : '' ?>
+
 
 <body id="landing-page">
 

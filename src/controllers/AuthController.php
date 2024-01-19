@@ -353,6 +353,12 @@ class AuthController extends Controller
     }
 
 
+    protected function logout()
+    {
+        AUTH::removeSessionUserId();
+        redirectToRouteAndExit('login');
+    }
+
 
     /**
      * Validate user credentials.
