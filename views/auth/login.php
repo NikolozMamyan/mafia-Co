@@ -19,7 +19,7 @@
         <div class="form-group">
         <label for="login">Votre adresse email
         <br><span class="emailError"></span>
-          <input type="email" name="email" placeholder="Entrez ici votre adresse email" />
+          <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
           
         </label>
         </div>
@@ -29,7 +29,7 @@
           <a href="#" class="pwdForgotten">Mot de passe oublié ?</a>
           <br><span class="passwordError"></span>
           <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
-          <span id="show-hide-password"><i class="covoiturage-eye"></i></span>
+          <!-- <span id="show-hide-password"><i class="covoiturage-eye"></i></span> -->
           
         </label>
         </div>

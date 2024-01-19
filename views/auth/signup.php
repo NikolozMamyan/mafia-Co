@@ -98,7 +98,7 @@ require_once base_path('views/components/headDev.php');
                                 <div class="input-group ">
                                     <label for="your-password">Votre<?php ec($page === 'modify' ? ' nouveau ' : ' ') ?>mot de passe
                                         <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" />
-                                        <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
+                                        <!-- <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button> -->
                                     </label>
                                 </div>
                             </div>
