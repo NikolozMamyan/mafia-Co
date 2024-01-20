@@ -2,7 +2,7 @@
 
 <?php
 require_once base_path('views/components/headDev.php');
-
+unset($_SESSION);
 // require_once(__DIR__ . '/../controllers/AuthController.php');
 
 ?>
