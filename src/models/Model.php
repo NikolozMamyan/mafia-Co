@@ -4,6 +4,7 @@ namespace App\Models;
 
 use DateTime;
 use DB;
+use Exception;
 
 /**
  * Classe abstraite Model
@@ -202,5 +203,66 @@ abstract class Model
         $this->$name = $value;
     }
 
-   
+
+    public static function findById(int $id, array $tableInfo, array $orderJoin = [], array $whereInfo = [])
+    {
+        //SELECT 
+        //joursemaine.*
+        //FROM Utilisateurs 
+        //JOIN Itineraire 
+        // ON Utilisateurs.iditineraire = itineraire.iditineraire 
+        // JOIN ItineraireJourSemaine 
+        //  ON Itineraire.idItineraire = ItineraireJourSemaine.idItineraire
+        // JOIN JourSemaine 
+        // ON ItineraireJourSemaine.idJourSemaine = JourSemaine.idJourSemaine 
+
+        // WHERE Utilisateurs.idUtilisateur
+      
+
+        // Vérifier si les informations de la table sont fournies
+        if (!isset($tableInfo['table']) || !isset($tableInfo['primary_key'])) {
+            throw new Exception("Les informations de la table ne sont pas complètes.");
+        }
+
+        // Construire la requête SELECT de base
+        $query = "SELECT {$tableInfo['select']}.* FROM {$tableInfo['table']}";
+
+        // Stocker les valeurs du tableau $orderJoin dans des tableaux distincts
+        $joinTables = [];
+        $joinKeys = [];
+
+        foreach ($orderJoin as $joinTable => $joinKey) {
+            $joinTables[] = $joinTable;
+            $joinKeys[] = $joinKey;
+        }
+
+        // Ajouter les jointures si des informations supplémentaires sont fournies
+        if (!empty($joinTables) && !empty($joinKeys)) {
+            $query .= " JOIN {$joinTables[1]}";
+
+            $query .= "  ON {$joinTables[0]}.{$joinKeys[1]} = {$joinTables[1]}.{$joinKeys[1]}";
+            $query .= " JOIN {$joinTables[2]}";
+            $query .= "  ON {$joinTables[1]}.{$joinKeys[2]} = {$joinTables[2]}.{$joinKeys[2]}";
+            $query .= " JOIN {$joinTables[3]}";
+            $query .= "  ON {$joinTables[2]}.{$joinKeys[3]} = {$joinTables[3]}.{$joinKeys[3]}";
+        }
+        // Ajouter la clause WHERE si elle est spécifiée
+        if (!empty($whereInfo) && isset($whereInfo['where_table']) && isset($whereInfo['where_key'])) {
+            $query .= " WHERE {$whereInfo['where_table']}.{$whereInfo['where_key']} = :id";
+        }
+        
+
+        // Paramètres
+        $params = [':id' => $id];
+        exit;
+        try {
+            // Exécution de la requête
+            $result = DB::fetchAll($query, $params);
+
+            // Retourner la première ligne
+            return $result ? $result[0] : false;
+        } catch (Exception $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
+        }
+    }
 }

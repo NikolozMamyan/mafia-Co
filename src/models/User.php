@@ -90,6 +90,16 @@ class User extends Model
     }
 
     /**
+     * Setter method for idUtilisateur
+     *
+     * @return int|null
+     */
+    public function setIdUtilisateur(?int $idUtilisateur)
+    {
+        $this->setFields('idUtilisateur', $idUtilisateur);
+    }
+
+    /**
      * Getter method for nomUtilisateur
      *
      * @return string|null
@@ -360,10 +370,4 @@ class User extends Model
 
         return $userArray;
     }
-
-    
-      
-    
-
-    
 }

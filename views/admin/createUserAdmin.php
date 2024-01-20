@@ -1,7 +1,22 @@
 <?php
+namespace App\Controllers;
+// require_once 'UserController.php';
+// use App\Controllers\AuthController;
+// require_once 'indexDashboardView.php';
+// require_once 'DashboardModel.php';
 
 ?>
-<form action="CreationUtilisateurDashbaord.php" method="post" enctype="multipart/form-data" class="registration-form">
+<?php require_once base_path('views/components/headDev.php'); ?>
+<body>
+    <?php require_once base_path('views/components/header__dashboard.php'); ?>
+    <section class='container-fluid row'>
+        
+        <div class='d-flex justify-content-center mt-5 col-sm-9 order-2 order-sm-1 gap-5'>
+            <h2 class='mt-5'>Creation d'un utilisateur</h2>
+        </div>
+        
+        <?php include_once base_path('views/components/menu__dashboard.php'); ?>
+<form class='users__table col-sm-6 ms-3 order-3 mt-5' action="CreationUtilisateurDashbaord.php" method="post" enctype="multipart/form-data" class="registration-form">
     <div class="user__create ">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required class="form-input">
@@ -57,3 +72,10 @@
 
    
 </form>
+</section>
+
+<!-- <?php
+// $userView->displayPagination($currentPage, $totalPages);
+?> -->
+</body>
+</html>

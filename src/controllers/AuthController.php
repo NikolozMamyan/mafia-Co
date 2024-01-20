@@ -31,7 +31,6 @@ class AuthController extends Controller
     public function login(): void
     {
         $this->render('auth/login'); // require views/auth/login.php
-
     }
 
     /**
@@ -39,7 +38,52 @@ class AuthController extends Controller
      */
     public function register(): void
     {
-        $this->render('auth/signup');
+        $title = 'JE M\'INSCRIT';
+
+        $this->render('auth/signup', ['page' => 'register', 'title' => $title]);
+    }
+
+    public function modify(): void
+    {
+        $title = 'Modifier mes informations';
+
+        $user = new User();
+        $currUser = DB::fetch(
+            "SELECT * FROM utilisateurs WHERE idUtilisateur = :idUtilisateur",
+            ['idUtilisateur' => $_SESSION['current_user_id']]
+        )[0];
+        $user->hydrate($currUser);
+
+        $point = new Point();
+        $currPoint = DB::fetch(
+            "SELECT * FROM points WHERE idPoint = :idPoint",
+            ['idPoint' => $user->getIdPoint()]
+        )[0];
+        $point->hydrate($currPoint);
+
+        $itineraire = new Itineraire();
+        $currItineraire = DB::fetch(
+            "SELECT * FROM itineraire WHERE idItineraire = :idItineraire",
+            ['idItineraire' => $user->getIdItineraire()]
+        )[0];
+        $itineraire->hydrate($currItineraire);
+
+        $jours = DB::fetch(
+            "SELECT labelJourSemaineCourt FROM itinerairejoursemaine JOIN joursemaine on itinerairejoursemaine.idJourSemaine = joursemaine.idJourSemaine WHERE idItineraire = :idItineraire",
+            ['idItineraire' => $user->getIdItineraire()]
+        );
+
+        $joursSemaine = array();
+        foreach ($jours as $value) {
+            array_push($joursSemaine, $value['labelJourSemaineCourt']);
+        }
+
+        $currRole = DB::fetch(
+            "SELECT labelRole FROM roles WHERE idRole = :idRole",
+            ['idRole' => $user->getIdRole()]
+        )[0]['labelRole'];
+
+        $this->render('auth/signup', ['page' => 'modify', 'user' => $user, 'itineraire' => $itineraire, 'point' => $point, 'role' => $currRole, 'joursSemaine' => $joursSemaine, 'title' => $title]);
     }
 
     public function profil(): void
@@ -75,7 +119,7 @@ class AuthController extends Controller
         $days = $_POST['days'] ?? [];
         $timeStart = $_POST['timeStart'];
         $timeEnd = $_POST['timeEnd'];
-        $comment = $_POST['comment'] ?? '';
+        $comment = $_POST['comment'];
 
         $_SESSION['old'] = [
             'firstName' => $firstName,
@@ -85,8 +129,6 @@ class AuthController extends Controller
             'city' => $city,
             'tel' => $tel,
             'email' => $email,
-            'password' => $password,
-            'password-confirm' => $passwordConfirm,
             'radio-stacked' => $role,
             'photo' => $photo,
             'days' => $days,
@@ -103,11 +145,10 @@ class AuthController extends Controller
         // Check User
         $users = DB::fetch("SELECT * FROM utilisateurs WHERE emailUtilisateur = :email;", ['email' => $email]);
         if ($users === false) {
-            dd('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectToRouteAndExit('register');
         } elseif (count($users) >= 1) {
-            dd('Cette adresse email est déjà utilisée.');
+            errors('Cette adresse email est déjà utilisée.');
             redirectToRouteAndExit('register');
         }
 
@@ -133,37 +174,6 @@ class AuthController extends Controller
         $user->setCompteActif(0); // Exemple de valeur pour compteActif
         $user->setIdRole($idRole['idRole']);
         $user->setIdPoint($point->getIdPoint());
-        // Create new user
-        $result = DB::statement(
-            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur,idPoint, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idPoint, :idRole);",
-            [
-                'firstName' => $user->getPrenomUtilisateur(),
-                'lastName' => $user->getNomUtilisateur(),
-                'address' => $user->getAdresseUtilisateur(),
-                'tel' => $user->getTelUtilisateur(),
-                'email' => $user->getEmailUtilisateur(),
-                'password' => $user->getMotDePasseUtilisateur(),
-                'photo' => $user->getPhotoUtilisateur(),
-                'idPoint' => $user->getIdPoint(),
-                'idRole' => $user->getIdRole(),
-            ]
-        );
-        if ($result === false) {
-            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-
-            redirectToRouteAndExit('register');
-        }
-
-
-        // Auth new user
-        //$_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
-
-        // Auth new user
-        //$_SESSION[Auth::getSessionUserIdKey()] = DB::getDB()->lastInsertId();
-
-        // Auth new user
-        $validateSession = DB::getDB()->lastInsertId();
 
         $itineraire = new Itineraire();
 
@@ -174,7 +184,7 @@ class AuthController extends Controller
         $itineraire->setNbrPlaceDispo(0);
         $itineraire->setInfoComplementaire($comment);
         $itineraire->setIdPointDepart($user->getIdPoint());
-        $itineraire->setIdPointArrivee(0);
+        $itineraire->setIdPointArrivee(1);
 
         $result = DB::statement(
             "INSERT INTO itineraire(adresseDepart, adresseArrivee, debutCours, finCours, infoComplementaire, idPointDepart, idPointArrivee)"
@@ -192,6 +202,30 @@ class AuthController extends Controller
 
         $user->setIdItineraire(DB::getDB()->lastInsertId());
 
+        // Create new user
+        $result = DB::statement(
+            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, idItineraire, idPoint, idRole)"
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, :idPoint, :idRole);",
+            [
+                'firstName' => $user->getPrenomUtilisateur(),
+                'lastName' => $user->getNomUtilisateur(),
+                'address' => $user->getAdresseUtilisateur(),
+                'tel' => $user->getTelUtilisateur(),
+                'email' => $user->getEmailUtilisateur(),
+                'password' => $user->getMotDePasseUtilisateur(),
+                'photo' => $user->getPhotoUtilisateur(),
+                'idItineraire' => $user->getIdItineraire(),
+                'idPoint' => $user->getIdPoint(),
+                'idRole' => $user->getIdRole(),
+            ]
+        );
+
+        if ($result === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectToRouteAndExit('register');
+        }
+        $user->setIdUtilisateur(DB::getDB()->lastInsertId());
+
         foreach ($days as $day) {
             $idDay = DB::fetch(
                 "SELECT idJourSemaine FROM joursemaine WHERE labelJourSemaine = :labelJourSemaine",
@@ -203,7 +237,7 @@ class AuthController extends Controller
                     . " VALUE(:idItineraire, :idJourSemaine);",
                 [
                     'idItineraire' => $user->getIdItineraire(),
-                    'idJourSemaine' => $idDay,
+                    'idJourSemaine' => $idDay['idJourSemaine'],
                 ]
             );
         }
@@ -211,9 +245,65 @@ class AuthController extends Controller
         // Clear old
         unset($_SESSION['old']);
 
-        $_SESSION[Auth::getSessionUserIdKey()] = $validateSession;
+        $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
+        redirectToRouteAndExit('profil');
+    }
+
+    public function update()
+    {
+        // Prepare POST
+        $dataUser['prenomUtilisateur'] = $_POST['firstName'] ?? '';
+        $dataUser['nomUtilisateur'] = $_POST['lastName'] ?? '';
+        $dataUser['adresseUtilisateur'] = $_POST['address'] ?? '';
+        $dataUser['telUtilisateur'] = $_POST['tel'] ?? '';
+        $dataUser['emailUtilisateur'] = $_POST['email'] ?? '';
+
+        $password = $_POST['password'] ?? null;
+        $passwordConfirm = $_POST['password-confirm'] ?? null;
+
+        $zip = $_POST['zip'] ?? '';
+        $city = $_POST['city'] ?? '';
+        $role = $_POST['radio-stacked'] ?? '';
+        $photo = $_FILES['photo']['name'] ?? null;
+        $CGU = $_POST['CGU'] ?? false;
+
+        $latitude = $_POST['latitude'] ?? 0.0;
+        $longitude = $_POST['longitude'] ?? 0.0;
+
+        $days = $_POST['days'] ?? [];
+        $dataItineraire['adresseDepart'] = $_POST['address'];
+        $dataItineraire['debutCours'] = $_POST['timeStart'];
+        $dataItineraire['finCours'] = $_POST['timeEnd'];
+        $dataItineraire['infoComplementaire'] = $_POST['comment'];
+
+        $idRole = DB::fetch(
+            "SELECT idRole FROM Roles WHERE labelRole = :labelRole",
+            ['labelRole' => $role]
+        )[0]['idRole'];
+        $dataUser['idRole'] = $idRole;
+
+        $user = DB::fetch(
+            "SELECT * FROM utilisateurs WHERE compteActif = 1 AND idUtilisateur = :idUtilisateur;",
+            ['idUtilisateur' => $_SESSION['current_user_id']]
+        )[0];
+
+        if (
+            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm)) ||
+            (!empty($photo) && !$this->validatePicture($photo))
+        ) {
+            redirectToRouteAndExit('modify');
+        }
+
+        $dataUser['motDePasseUtilisateur'] = password_hash($password, PASSWORD_DEFAULT);
+
+        $point = $this->getOrSetPoint($zip, $city, $latitude, $longitude);
+        $dataUser['idPoint'] = $point->getIdPoint();
+        $dataUser['idUtilisateur'] = $user['idUtilisateur'];
+
+        DB::update('utilisateurs', $dataUser, $_SESSION['current_user_id'], 'idUtilisateur');
+        DB::update('itineraire', $dataItineraire, $user['idItineraire'], 'idItineraire');
 
         redirectToRouteAndExit('profil');
     }
@@ -237,7 +327,6 @@ class AuthController extends Controller
         if (count($users) >= 1) {
             $user = $users[0];
 
-            // Version 2: with password hashing
             if (password_verify($password, $user['motDePasseUtilisateur'])) {
                 $_SESSION[Auth::getSessionUserIdKey()] = $user['idUtilisateur'];
 
@@ -260,7 +349,6 @@ class AuthController extends Controller
                 redirectToRouteAndExit('profil');
             }
         }
-
         errors("Les identifiants ne correspondes pas.");
         redirectToRouteAndExit('login');
     }
@@ -303,25 +391,25 @@ class AuthController extends Controller
 
         // Check if the file already exists
         if (file_exists($targetFile)) {
-            dd("Sorry, the file already exists.");
+            errors("Sorry, the file already exists.");
             $uploadOk = false;
         }
 
         // Check the file size (you can adjust this value)
         if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {
-            dd("Sorry, your file is too large.");
+            errors("Sorry, your file is too large.");
             $uploadOk = false;
         }
 
         // Allow only certain file formats (you can customize this list)
         if (!in_array($imageFileType, self::ALLOWED_EXTENSIONS)) {
-            dd("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
+            errors("Sorry, only JPG, JPEG, PNG, and GIF files are allowed.");
             $uploadOk = false;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk === false) {
-            dd("Sorry, your file was not uploaded.");
+            errors("Sorry, your file was not uploaded.");
         } else {
             // If everything is fine, try to upload the file
             if (is_uploaded_file($_FILES["photo"]["tmp_name"]) && move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
@@ -388,7 +476,7 @@ class AuthController extends Controller
                 'latitude' => $latitude,
                 'longitude' => $longitude,
             ]
-        )[0];
+        );
         if ($tempPoint === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectToRouteAndExit('register');
@@ -396,6 +484,7 @@ class AuthController extends Controller
         if (empty($tempPoint)) {
             return false;
         }
+        $tempPoint = $tempPoint[0];
         $tempPoint['latitude'] = (float)$tempPoint['latitude'];
         $tempPoint['longitude'] = (float)$tempPoint['longitude'];
         $point = new Point();
@@ -413,7 +502,7 @@ class AuthController extends Controller
         // );
         // $point->save('points');
 
-         DB::statement(
+        DB::statement(
             "INSERT INTO points (nomVille, codePostalVille, latitude, longitude) VALUES (:nomVille, :codePostalVille, :latitude, :longitude)",
             [
                 'codePostalVille' => $zip,

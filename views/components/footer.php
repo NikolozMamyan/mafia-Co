@@ -4,15 +4,15 @@
 
     <nav id="nav-footer">
         <ul>
-            <li><a href="../public/profile.php"><i class="covoiturage-account"></i>Mon profil</a></li>
-            <li><a href="../public/chat.php"><i class="covoiturage-messaging"></i>Ma messagerie</a></li>
-            <li><a href="../public/notification.php"><i class="covoiturage-notification"></i>Mes notifications</a></li>
-            <li><a href="../public/recherche.php"><i class="covoiturage-search"></i>Rechercher</a></li>
-            <li><a href="../public/contactSupport.php"><i class="covoiturage-support"></i>Support technique</a></li>
+            <li><a href="<?php routeEcho('profil'); ?>"><i class="covoiturage-account"></i>Mon profil</a></li>
+            <li><a href="<?php routeEcho('chat'); ?>"><i class="covoiturage-messaging"></i>Ma messagerie</a></li>
+            <li><a href="<?php routeEcho('notification'); ?>"><i class="covoiturage-notification"></i>Mes notifications</a></li>
+            <li><a href="<?php routeEcho('search'); ?>"><i class="covoiturage-search"></i>Rechercher</a></li>
+            <li><a href="<?php routeEcho('supportIndex'); ?>"><i class="covoiturage-support"></i>Support technique</a></li>
         </ul>
     </nav>
 
     <div id="copyright">
-        <a href="conditionsGeneral.php">Conditions générales d'utilisation</a> • <a href="mentionLegale.php">Mentions légales</a> • © CCI Covoiturage 2023
+        <a href="<?php routeEcho('conditionIndex'); ?>">Conditions générales d'utilisation</a> • <a href="<?php routeEcho('mentionIndex'); ?>">Mentions légales</a> • © CCI Covoiturage 2023
     </div>
 </div>

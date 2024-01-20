@@ -119,7 +119,7 @@ class DB
         );
     }
 
-     /**
+    /**
      * Fetch a single row from the database.
      *
      * @param string $sql The SQL query.
