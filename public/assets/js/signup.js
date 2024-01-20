@@ -94,12 +94,14 @@ function getLocation(address, zipcode, city) {
     .then((response) => response.json())
     .then((data) => {
       if (data && data.length > 0) {
-        var latitude = data[0].lat;
-        var longitude = data[0].lon;
+        let latitude = data[0].lat;
+        let longitude = data[0].lon;
         document.getElementById("lat").setAttribute("value", latitude);
         document.getElementById("lon").setAttribute("value", longitude);
       } else {
         console.log("Location not found");
+        document.getElementById("lat").setAttribute("value", -1);
+        document.getElementById("lon").setAttribute("value", -1);
       }
     })
     .catch((error) => {

@@ -1,12 +1,6 @@
 <?php
 
-namespace models;
-
-require_once(__DIR__ . '/../Model.php');
-require_once(__DIR__ . '/../Dals/Db.php');
-require_once(__DIR__ . '/../Dals/MapDAL.php');
-
-class Map extends Model
+class Map
 {
     const EARTH_RADIUS = 6371;
     const EARTH_CIRCUMFERENCE = self::EARTH_RADIUS * 2 * M_PI;
@@ -30,9 +24,12 @@ class Map extends Model
      * @param array $usersPoints points des utilisateurs a vérifier
      * @return array distance entre les points
      */
-    static public function haversineDistanceList(array $myPoints, array $usersPoints, float $maxDistance): array
+    public static function haversineDistanceList(array $myPoints, array $usersPoints, float $maxDistance): array
     {
         $distances = [];
+        if (!$maxDistance) {
+            $maxDistance = 10000;
+        }
 
         foreach ($myPoints as $myLatLon) {
             foreach ($usersPoints as $currUser) {
@@ -63,8 +60,39 @@ class Map extends Model
         return $distances;
     }
 
-    function getCloseUsers($myPoints, $close, $distance)
+    /**
+     * @param $lat
+     * @param $lon
+     * @param $distance
+     * @return bool|array
+     */
+    static public function getCloseUsers($lat, $lon, $distance): bool|array
     {
-        return MapDAL::getCloseUsers($myPoints, $close, $distance);
+        // Validation des données d'entrée
+        $lat = filter_var($lat, FILTER_VALIDATE_FLOAT);
+        $lon = filter_var($lon, FILTER_VALIDATE_FLOAT);
+        $distance = filter_var($distance, FILTER_VALIDATE_FLOAT);
+
+        if ($lat === false || $lon === false || $distance === false) {
+            return false;
+        }
+
+        // petite marge d'erreur
+        $distanceAdjustment = 1 / Map::calculerDistanceLongitude($lat);
+        $distance = ($distance + 1) * $distanceAdjustment;
+
+        return DB::fetch(
+            "SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, latitude, longitude FROM utilisateurs "
+                . "JOIN points ON utilisateurs.idPoint = points.idPoint "
+                . "WHERE (points.latitude BETWEEN :lat1 AND :lat2) "
+                . "AND (points.longitude BETWEEN :lon1 AND :lon2) "
+                . "AND idRole != 1 AND compteActif = 1",
+            [
+                'lat1' => strval($lat - $distance),
+                'lat2' => strval($lat + $distance),
+                'lon1' => strval($lon - $distance),
+                'lon2' => strval($lon + $distance),
+            ]
+        );
     }
 }

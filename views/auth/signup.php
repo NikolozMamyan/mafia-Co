@@ -1,7 +1,6 @@
 <!-- signup.php -->
 
 <?php
-
 require_once base_path('views/components/headDev.php');
 
 // require_once(__DIR__ . '/../controllers/AuthController.php');
@@ -29,8 +28,8 @@ require_once base_path('views/components/headDev.php');
         <div class="container-fluid">
 
             <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php routeEcho($page === 'register' ? 'register.store' : 'modifySignup.update') ?>" method="POST" enctype="multipart/form-data">
-                <input type="number" step="any" id="lat" name="latitude" value="<?php ec(isset($point) ? $point->getLatitude() : ''); ?>" hidden>
-                <input type="number" step="any" id="lon" name="longitude" value="<?php ec(isset($point) ? $point->getLongitude() : ''); ?>" hidden>
+                <input type="text" id="lat" name="latitude" value="<?php ec(isset($point) ? $point->getLatitude() : ''); ?>" hidden>
+                <input type="text" id="lon" name="longitude" value="<?php ec(isset($point) ? $point->getLongitude() : ''); ?>" hidden>
                 <!-- btn close -->
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">

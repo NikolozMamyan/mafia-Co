@@ -136,8 +136,10 @@ class AuthController extends Controller
             'comment' => $comment,
         ];
 
+        self::validateLatLon($latitude, $longitude);
+
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
+        if (!$this->validateCredentials($password, $passwordConfirm)  or !$CGU) {
             redirectToRouteAndExit('register');
         }
 
@@ -203,8 +205,8 @@ class AuthController extends Controller
 
         // Create new user
         $result = DB::statement(
-            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, idItineraire, idPoint, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, :idPoint, :idRole);",
+            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, compteActif, idItineraire, idPoint, idRole)"
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, 1, :idPoint, :idRole);",
             [
                 'firstName' => $user->getPrenomUtilisateur(),
                 'lastName' => $user->getNomUtilisateur(),
@@ -244,6 +246,8 @@ class AuthController extends Controller
         // Clear old
         unset($_SESSION['old']);
 
+        $this->ValidatePicture($photo);
+
         $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
@@ -276,6 +280,8 @@ class AuthController extends Controller
         $dataItineraire['debutCours'] = $_POST['timeStart'];
         $dataItineraire['finCours'] = $_POST['timeEnd'];
         $dataItineraire['infoComplementaire'] = $_POST['comment'];
+
+        self::validateLatLon($latitude, $longitude);
 
         $idRole = DB::fetch(
             "SELECT idRole FROM Roles WHERE labelRole = :labelRole",
@@ -372,7 +378,7 @@ class AuthController extends Controller
     {
         // Validation
         if (
-            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8,}$/', $password) or
+            !preg_match('/^(?=(.*[a-z]){2})(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]){2}).{12,}$/', $password) or
             $password !== $passwordConfirm
         ) {
             return false;
@@ -390,9 +396,18 @@ class AuthController extends Controller
     protected function ValidatePicture($photo)
     {
         $targetDir = __DIR__ . "/../../storage/";
+        $originalFileName = basename($photo);
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Check if the file already exists
+        if (file_exists($targetFile)) {
+            $uniqueIdentifier = uniqid();
+            $newFileName = pathinfo($originalFileName, PATHINFO_FILENAME) . '_' . $uniqueIdentifier . '.' . $imageFileType;
+            $targetFile = $targetDir . $newFileName;
+            $photo = $newFileName;
+        }
 
         // Check if the file already exists
         if (file_exists($targetFile)) {
@@ -516,5 +531,14 @@ class AuthController extends Controller
                 'longitude' => $longitude,
             ]
         );
+    }
+
+    public static function validateLatLon($latitude, $longitude)
+    {
+        if ($latitude == -1 or $longitude == -1) {
+            dd('err');
+            errors("l'adresse n'est pas valide");
+            redirectToRouteAndExit('profil');
+        }
     }
 }
