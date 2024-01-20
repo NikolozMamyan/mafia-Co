@@ -64,6 +64,9 @@ class SearchController extends Controller
 
         if ($whereSearchSQL) {
             $whereSearchSQL = ' WHERE ' . $whereSearchSQL;
+            $whereSearchSQL .= ' AND utilisateurs.idUtilisateur <> ' . $currentUser['idUtilisateur'];
+        } else {
+            $whereSearchSQL .= ' WHERE utilisateurs.idUtilisateur <> ' . $currentUser['idUtilisateur'];
         }
 
 
