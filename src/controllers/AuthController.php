@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Auth;
 use DB;
+use Exception;
 use App\Models\Point;
 use App\Models\User;
 use App\Models\Itineraire;
@@ -136,8 +137,10 @@ class AuthController extends Controller
             'comment' => $comment,
         ];
 
+        //dd($this->validateCredentials($password, $passwordConfirm));
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
+        if (!$this->validateCredentials($password, $passwordConfirm) or !$CGU) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectToRouteAndExit('register');
         }
 
@@ -246,9 +249,10 @@ class AuthController extends Controller
 
         $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
-        success('Vous êtes maintenant connecté.');
-        redirectToRouteAndExit('profil');
+        //success('Vous êtes maintenant enregister.');
+        redirectToRouteAndExit('login');
     }
+
 
     public function update()
     {
@@ -359,6 +363,7 @@ class AuthController extends Controller
         redirectToRouteAndExit('login');
     }
 
+    
 
     /**
      * Validate user credentials.
@@ -372,7 +377,7 @@ class AuthController extends Controller
     {
         // Validation
         if (
-            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8,}$/', $password) or
+            !preg_match('/^(?=(.*[a-z]){2})(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]){2}).{12,}$/', $password) or
             $password !== $passwordConfirm
         ) {
             return false;
@@ -415,6 +420,8 @@ class AuthController extends Controller
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk === false) {
             errors("Sorry, your file was not uploaded.");
+
+
         } else {
             // If everything is fine, try to upload the file
             if (is_uploaded_file($_FILES["photo"]["tmp_name"]) && move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {

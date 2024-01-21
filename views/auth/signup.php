@@ -5,7 +5,8 @@
 require_once base_path('views/components/headDev.php');
 
 // require_once(__DIR__ . '/../controllers/AuthController.php');
-
+isset($_SESSION) ; unset($_SESSION)  ;
+//dd($_SESSION);  
 ?>
 
 <body id="signupPage">
