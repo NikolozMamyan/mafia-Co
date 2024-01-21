@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use Auth;
 use DB;
-use Exception;
 use App\Models\Point;
 use App\Models\User;
 use App\Models\Itineraire;
@@ -137,10 +136,10 @@ class AuthController extends Controller
             'comment' => $comment,
         ];
 
-        //dd($this->validateCredentials($password, $passwordConfirm));
+        self::validateLatLon($latitude, $longitude);
+
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$CGU) {
-            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+        if (!$this->validateCredentials($password, $passwordConfirm)  or !$CGU) {
             redirectToRouteAndExit('register');
         }
 
@@ -206,8 +205,8 @@ class AuthController extends Controller
 
         // Create new user
         $result = DB::statement(
-            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, idItineraire, idPoint, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, :idPoint, :idRole);",
+            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, compteActif, idItineraire, idPoint, idRole)"
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, 1, :idPoint, :idRole);",
             [
                 'firstName' => $user->getPrenomUtilisateur(),
                 'lastName' => $user->getNomUtilisateur(),
@@ -247,12 +246,13 @@ class AuthController extends Controller
         // Clear old
         unset($_SESSION['old']);
 
+        $this->ValidatePicture($photo);
+
         $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
-        //success('Vous êtes maintenant enregister.');
-        redirectToRouteAndExit('login');
+        success('Vous êtes maintenant connecté.');
+        redirectToRouteAndExit('profil');
     }
-
 
     public function update()
     {
@@ -280,6 +280,8 @@ class AuthController extends Controller
         $dataItineraire['debutCours'] = $_POST['timeStart'];
         $dataItineraire['finCours'] = $_POST['timeEnd'];
         $dataItineraire['infoComplementaire'] = $_POST['comment'];
+
+        self::validateLatLon($latitude, $longitude);
 
         $idRole = DB::fetch(
             "SELECT idRole FROM Roles WHERE labelRole = :labelRole",
@@ -363,7 +365,6 @@ class AuthController extends Controller
         redirectToRouteAndExit('login');
     }
 
-    
 
     /**
      * Validate user credentials.
@@ -395,9 +396,18 @@ class AuthController extends Controller
     protected function ValidatePicture($photo)
     {
         $targetDir = __DIR__ . "/../../storage/";
+        $originalFileName = basename($photo);
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Check if the file already exists
+        if (file_exists($targetFile)) {
+            $uniqueIdentifier = uniqid();
+            $newFileName = pathinfo($originalFileName, PATHINFO_FILENAME) . '_' . $uniqueIdentifier . '.' . $imageFileType;
+            $targetFile = $targetDir . $newFileName;
+            $photo = $newFileName;
+        }
 
         // Check if the file already exists
         if (file_exists($targetFile)) {
@@ -420,8 +430,6 @@ class AuthController extends Controller
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk === false) {
             errors("Sorry, your file was not uploaded.");
-
-
         } else {
             // If everything is fine, try to upload the file
             if (is_uploaded_file($_FILES["photo"]["tmp_name"]) && move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
@@ -523,5 +531,13 @@ class AuthController extends Controller
                 'longitude' => $longitude,
             ]
         );
+    }
+
+    public static function validateLatLon($latitude, $longitude)
+    {
+        if ($latitude == -1 or $longitude == -1) {
+            errors("l'adresse n'est pas valide");
+            redirectToRouteAndExit('profil');
+        }
     }
 }

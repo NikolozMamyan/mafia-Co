@@ -54,6 +54,7 @@ class ComposerStaticInit07803b3a4610d9868b38f322b67d6374
         'Auth' => __DIR__ . '/../..' . '/helpers/class/Auth.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DB' => __DIR__ . '/../..' . '/helpers/class/Db.php',
+        'Map' => __DIR__ . '/../..' . '/helpers/class/Map.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Route' => __DIR__ . '/../..' . '/helpers/class/Route.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',

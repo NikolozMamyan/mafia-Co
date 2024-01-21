@@ -11,6 +11,7 @@ return array(
     'Auth' => $baseDir . '/helpers/class/Auth.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DB' => $baseDir . '/helpers/class/Db.php',
+    'Map' => $baseDir . '/helpers/class/Map.php',
     'PhpToken' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
     'Route' => $baseDir . '/helpers/class/Route.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
