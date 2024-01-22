@@ -1,9 +1,11 @@
 //Primary Color
-$ColorPrincipal100 : #D9CDEA;
+$ColorPrincipal100 : rgb(217, 205, 234);
 $ColorPrincipal200 : #B69FD6;
 $ColorPrincipal300 : #8F6DC0;
 $ColorPrincipal400 : #6D46A4;
 $ColorPrincipal500 : #4C3172;
+
+$colorPrincipal100Opacity80:rgba(232, 223, 245, 0.8);
 $colorPrincipal200Opacity80:rgba(217,205,234,80%);
 
 
@@ -14,3 +16,5 @@ $colorSecondary600 : #42C0FF;
 //white
 $colorWhite :rgb(255,255,255);
 $colorWhiteOpacity80 :rgba(255,255,255,80%);
+
+$colorBlack : #000;

@@ -1,0 +1,53 @@
+.profilePic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 0;
+}
+
+.profilePic-sm {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  padding: 0;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.roundedPlus {
+  border-radius: 15px;
+}
+
+.title__card--h2 {
+  font-size: small;
+}
+.a__unstyled{
+  text-decoration: none;
+  
+}
+.a__unstyled li {
+  font-size: 0.8em;
+}
+@media (max-width: 768px) {
+  .profilePic {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    padding: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .profilePic {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    padding: 0;
+  }
+}

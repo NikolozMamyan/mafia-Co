@@ -1,10 +1,91 @@
-.bg__section--signup{
-  background:$colorWhiteOpacity80;
-  
- }
- .color__title{
+#signupPageheader {
+  margin-bottom: 4em;
+}
+
+#signupPage header img {
+  width: clamp(200px, 65vw, 280px);
+  padding: 2rem;
+}
+
+.color__title {
   color: $ColorPrincipal500;
-  border-width: 2px 0 ;
-  border-color:  $ColorPrincipal500 ;
+  border-width: 2px 0;
+  border-color: $ColorPrincipal500 ;
   border-style: solid;
- }
+}
+
+.title__signup {
+  color: $ColorPrincipal500;
+  border-bottom: solid 1px $ColorPrincipal500;
+
+}
+
+.border {
+  border: 2px solid red;
+}
+
+.bg__roundP--100 {
+  background-color: var(--secondary-color);
+  border: 2px solid #DDD5E8;
+  border-radius: 4px;
+}
+
+.flag__style {
+  width: 25px;
+  height: 25px;
+}
+
+.btn-group-toggle label {
+  margin-bottom: 0;
+}
+
+.btn__color {
+  background-color: #c5c2c2;
+  color: #fff;
+}
+
+.btn__color.checked {
+  background-color: $ColorPrincipal500;
+  color: #fff;
+}
+
+
+#signupPage form input[type="text"],input[type="password"],input[type="file"] {
+  font-size: 1.5rem;
+  background-color: #fff;
+  border: 0;
+  padding: 0.5em 0.5em;
+  display: block;
+  width: 100%;
+  margin: 0.6em auto 1em;
+  border-radius: 4px;
+}
+
+
+.test {
+  border: 2px solid red;
+}
+.btn__btn--submit{
+  margin-top: 2em;
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.bg__btn--submit{
+  background-color:$ColorPrincipal500 ;
+}
+.title__h3 {
+  font-size: 1em;
+  color: $ColorPrincipal500;
+}
+.btn-group-toggle label{
+  font-size: 0.85em;
+}
+@media (max-width: 455px) {
+  .btn__media {
+    flex-direction: column;
+  }
+
+}

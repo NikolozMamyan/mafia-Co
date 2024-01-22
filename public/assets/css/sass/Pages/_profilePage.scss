@@ -1,4 +1,246 @@
-#map { 
-    height: 400px; 
-    width: 500px;
+#map {
+  height: 400px;
+  width: auto;
+}
+
+.map-container {
+  z-index: 5;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.leaflet-routing-container {
+  display: none;
+}
+
+// .mapButton {
+//   margin-top: 5px;
+//   background-color: $ColorPrincipal100;
+//   border: 1px solid $ColorPrincipal500;
+// }
+
+// .mapButton img {
+//   height: 45px;
+// }
+
+// .mapButton:hover {
+//   background-color: $ColorPrincipal400;
+// }
+
+// .mapButton .active {
+//   background-color: $ColorPrincipal400;
+// }
+
+// .text-nodec {
+//   text-decoration: none;
+// }
+
+.bg-P500 {
+  background-color: $ColorPrincipal500;
+  color: $colorWhite;
+}
+
+// .bg-P400 {
+//   background-color: $ColorPrincipal400;
+//   color: $colorWhite;
+// }
+
+// .bg-P300 {
+//   background-color: $ColorPrincipal300;
+//   color: $colorWhite;
+// }
+
+// .bg-P200 {
+//   background-color: $ColorPrincipal200;
+//   color: $colorBlack;
+// }
+
+// .bg-P200-o {
+//   background-color: $colorPrincipal200Opacity80;
+//   color: $colorBlack;
+// }
+
+// .bg-W {
+//   background-color: $colorWhite;
+//   color: $colorBlack;
+// }
+
+// .text-P500-border {
+//   color: $ColorPrincipal500;
+//   border-top: 1px solid $ColorPrincipal500;
+//   border-bottom: 1px solid $ColorPrincipal500;
+//   margin-top: 2px;
+// }
+
+// .text-P500 {
+//   color: $ColorPrincipal500;
+// }
+
+// .bld {
+//   font-weight: bold;
+// }
+
+// .bgimg {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: auto;
+//   z-index: -1000;
+// }
+
+// .desktop-image-profile {
+//   content: "";
+//   display: block;
+//   background-image: linear-gradient(rgba(255, 255, 255, 0.5),
+//       rgba(255, 255, 255, 0.5)),
+//     url("../images/desktopBGcar_driving-bro.svg");
+//   background-repeat: no-repeat;
+//   background-size: auto;
+//   background-position: center;
+//   min-height: 80vh;
+// }
+
+// .btn__text {
+//   display: block;
+// }
+
+// .btn__icon {
+//   display: none;
+// }
+
+// @media (max-width: 576px) {
+//   .btn__text {
+//     display: none;
+//   }
+
+//   .btn__icon {
+//     display: block;
+//   }
+// }
+/* Page Mon profil
+--------------------------------------------- */
+
+#hello-user {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px 1fr;
+  gap: 1em;
+  margin: 2em auto 3em;
+}
+
+#hello-user img {
+  border-radius: 50px;
+}
+
+#hello-user p:first-of-type {
+  font-size: 130%;
+  margin: 0 auto;
+}
+
+#hello-user p:last-of-type {
+  margin: 0.5em 0;
+}
+
+#user-details {
+  display: grid;
+  gap: 1em;
+  line-height: 1.5;
+}
+
+#user-infos,
+#user-itinerary {
+  background-color: var(--secondary-color);
+  border: 2px solid #ddd5e8;
+  border-radius: 4px;
+  padding: 2em 1em;
+}
+
+a.edit-icon {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 2rem;
+  padding: 0.3em;
+  float: right;
+  line-height: 1;
+}
+
+a.edit-icon:hover,
+a.edit-icon:focus {
+  background-color: var(--text-color);
+}
+
+#user-details h2 {
+  margin: 0 auto 1em;
+}
+
+#user-details h3 {
+  margin-bottom: 0;
+}
+
+#user-details p {
+  margin-top: 0.5em;
+}
+
+#user-map {
+  margin: 3em auto;
+}
+
+#user-map ul {
+  display: grid;
+  gap: 0.4em;
+  margin-bottom: 2em;
+}
+
+#user-map button {
+  padding: 0.8em 1em;
+  margin: 0 auto;
+  border: 0;
+  font-size: 105%;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: #a4a4a4;
+  color: #fff;
+}
+
+#user-map button:not(.active):hover,
+#user-map button:not(.active):focus {
+  background-color: #6e6e6e;
+}
+
+#user-map button.active {
+  background-color: var(--primary-color);
+}
+
+#user-map button i {
+  font-size: 130%;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+#deconnexion a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+  color: #ffffff;
+}
+
+#deconnexion a:link {
+  color: #ffffff;
+  outline: none;
+  text-decoration: none;
+}
+
+#deconnexion a:hover {
+  outline: none;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: var(--primary-color);
+}
+
+.map-container #map{
+  height: 400px;
 }

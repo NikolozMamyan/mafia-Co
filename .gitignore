@@ -1,0 +1,14 @@
+# IDE
+.idea/
+.vscode/
+
+# Dev local
+docker/
+
+docker-compose.yml
+
+.env
+public/dashboard/creationDatabase.sql
+
+
+/vendor/
