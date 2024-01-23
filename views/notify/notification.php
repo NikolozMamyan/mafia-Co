@@ -23,7 +23,7 @@
                         <div class="col-12 col-md-6 col-lg-4 col-xxl-3 my-2">
                             <div class="bg-P500 rounded">
                                 <a href="#" class="container-fluid px-3 d-inline-flex a__unstyled text-white text-nodec">
-                                    <img src="../public/assets/images/<?php ec($notification['photoUtilisateur']); ?>" alt="Image de profile" class="profilePic-sm m-2">
+                                    <img src="<?php ec(!empty($notification['photoUtilisateur']) ?: "assets/images/covoiturage-cci-photo-profil-default-100x100.webp"); ?>" alt="Image de profile" class="profilePic-sm m-2">
                                     <ul class="text-center pt-3">
                                         <li>
                                             <h3><?php ec($notification['nomUtilisateur'] . ' ' . $notification['prenomUtilisateur']); ?></h3>

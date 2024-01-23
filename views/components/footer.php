@@ -3,16 +3,21 @@
     <p>CCI Covoiturage est une plateforme de covoiturage dédiée aux campus CCI en Alsace (Strasbourg, Colmar, Mulhouse).</p>
 
     <nav id="nav-footer">
-        <ul>
-            <li><a href="<?php routeEcho('profil'); ?>"><i class="covoiturage-account"></i>Mon profil</a></li>
-            <li><a href="<?php routeEcho('chat'); ?>"><i class="covoiturage-messaging"></i>Ma messagerie</a></li>
-            <li><a href="<?php routeEcho('notification'); ?>"><i class="covoiturage-notification"></i>Mes notifications</a></li>
-            <li><a href="<?php routeEcho('search'); ?>"><i class="covoiturage-search"></i>Rechercher</a></li>
-            <li><a href="<?php routeEcho('supportIndex'); ?>"><i class="covoiturage-support"></i>Support technique</a></li>
-            <?php if (Auth::getCurrentUser()['idRole'] === 1) : ?>
-                <li><a href="<?php routeEcho('admin'); ?>"><i class=""></i>Tableau de bord administrateur</a></li>
-            <?php endif ?>
-        </ul>
+
+        <?php if (!empty($_SESSION)) : ?>
+            <ul>
+                <li><a href="<?php routeEcho('profil'); ?>"><i class="covoiturage-account"></i>Mon profil</a></li>
+                <li><a href="<?php routeEcho('chat'); ?>"><i class="covoiturage-messaging"></i>Ma messagerie</a></li>
+                <li><a href="<?php routeEcho('notification'); ?>"><i class="covoiturage-notification"></i>Mes notifications</a></li>
+                <li><a href="<?php routeEcho('search'); ?>"><i class="covoiturage-search"></i>Rechercher</a></li>
+                <li><a href="<?php routeEcho('supportIndex'); ?>"><i class="covoiturage-support"></i>Support technique</a></li>
+                <?php if (Auth::getCurrentUser()['idRole'] === 1) : ?>
+                    <li><a href="<?php routeEcho('admin'); ?>"><i class=""></i>Tableau de bord administrateur</a></li>
+                <?php endif ?>
+            </ul>
+        <?php endif ?>
+
+
     </nav>
 
     <div id="copyright">

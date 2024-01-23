@@ -4,7 +4,12 @@
 <body>
     <header class=" container ">
 
-    <?php require_once base_path('views/components/header.php'); ?>
+        <?php if (empty($_SESSION)) : ?>
+            <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
+            <a href="<?php routeEcho('login'); ?>">Retour</a>
+        <?php else : ?>
+            <?php require_once base_path('views/components/header.php'); ?>
+        <?php endif ?>
 
     </header>
 
@@ -15,7 +20,7 @@
 
                 <p>Bienvenue sur notre application de covoiturage dédiée aux trajets entre le domicile des utilisateurs et le centre de formation. Avant d'utiliser notre service, veuillez lire attentivement les conditions générales d'utilisation ci-dessous.</p>
 
-                <h2 >1. Objet du Service</h2>
+                <h2>1. Objet du Service</h2>
                 <p>L'application de covoiturage a pour objectif de faciliter les déplacements entre le domicile des utilisateurs et le centre de formation en optimisant le regroupement d'individus dans les véhicules. Cette optimisation vise à maximiser le nombre de places occupées dans les véhicules afin de répondre aux contraintes d'accès au parking du centre de formation, nécessitant une occupation minimale de trois places dans chaque véhicule.</p>
 
                 <h2>2. Conditions d'Accès au Parking du Centre de Formation</h2>

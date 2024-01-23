@@ -46,13 +46,12 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     emailError.style.color = "red";
     passwordError.style.color = "red";
+
     if (email.value === "") {
         emailError.textContent = "**L'email est requis**";
     } else {
         emailError.textContent = "";
     }
-
-    passwordError.textContent = "";
 
     if (password.value === "") {
         passwordError.textContent = "**Le mot de passe est requis**";
