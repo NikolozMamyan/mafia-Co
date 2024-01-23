@@ -28,7 +28,7 @@
 /* Footer
 --------------------------------------------- */
 
-footer {
+body:not(#landing-page) footer {
     background-color: var(--primary-color);
     color: #FFF;
     text-align: center;

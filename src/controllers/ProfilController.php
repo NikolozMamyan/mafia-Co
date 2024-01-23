@@ -10,7 +10,12 @@ use App\Models\Point;
 
 class ProfilController extends Controller
 {
-
+    
+    /**
+     * index
+     *
+     * @return void
+     */
     public function index()
     {
         NotificationController::computeNotifications();
@@ -46,7 +51,12 @@ class ProfilController extends Controller
             $this->render('auth/login');
         }
     }
-
+    
+    /**
+     * logout
+     *
+     * @return void
+     */
     public function logout(): void
     {
         unset($_SESSION);
@@ -62,6 +72,7 @@ class ProfilController extends Controller
             "SELECT * FROM utilisateurs WHERE idUtilisateur = :idUtilisateur",
             ['idUtilisateur' => $_SESSION['current_user_id']]
         )[0];
+        
         $user->hydrate($dataUser);
         return $user;
     }
