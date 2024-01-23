@@ -58,8 +58,8 @@ form.addEventListener('submit', (e) => {
         passwordError.textContent = '**Le mot de passe est requis**';
     } else if (password.value.length < 12) {
         passwordError.textContent = '**Le mot de passe doit comporter au moins 12 caractères**';
-    } else if (password.value.length > 25) {
-        passwordError.textContent = '**Le mot de passe doit comporter moins de 25 caractères**';
+    } else if (password.value.length > 50) {
+        passwordError.textContent = '**Le mot de passe doit comporter moins de 50 caractères**';
     }
 
     if (emailError.textContent === '' && passwordError.textContent === '') {

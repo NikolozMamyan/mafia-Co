@@ -39,7 +39,7 @@ unset($_SESSION);
         </label>
         </div>
         
-        <input type="submit" name="submit" value="Connexion" />
+        <input type="submit" name="submitbtn" value="Connexion" />
       </form>
     </main>
 

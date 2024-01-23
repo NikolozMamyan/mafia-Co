@@ -11,7 +11,7 @@
 
         <!-- Partie Bonjour -->
         <section id="hello-user">
-            <img src="../storage/<?php ec($user->getPhotoUtilisateur()) ?>" alt="photo de profil de <?php ec($user->getNomUtilisateur()) ?> ">
+            <img src="<?php ec(!empty($notification['photoUtilisateur']) ?: "assets/images/covoiturage-cci-photo-profil-default-100x100.webp"); ?>" alt="photo de profil de <?php ec($user->getNomUtilisateur()) ?> ">
             <div>
                 <p>Bonjour <?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur() ?></p>
                 <p>Vous avez <a href="<?php routeEcho('chat'); ?>"><i class="covoiturage-messaging"></i><?php ec($messageCount) ?> messages</a> et <a href="<?php routeEcho('notification'); ?>"><i class="covoiturage-notification"></i><?php ec($notificationCount) ?> notifications</a> non lus.</p>
