@@ -161,7 +161,7 @@ class DB
     ): array|bool {
         return self::runQuery($sql, $params, $limit, $offset, true, $fetchType);
     }
-
+      
     /**
      * Execute a SQL statement in the database.
      *

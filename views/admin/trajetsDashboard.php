@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer/Modifier Trajet</title>
-</head>
+<?php
+namespace App\Controllers;
+
+?>
+
+<?php require_once base_path('views/components/headDev.php'); ?>
+
 <body>
-
-<h1>Créer/Modifier Trajet</h1>
-
-<form action="TraitementTrajetsDashboard.php" method="post">
+    <?php require_once base_path('views/components/header__dashboard.php'); ?>
+    <section class='container-fluid row'>
+        
+        <div class='d-flex justify-content-end mt-5 col-sm-9 order-2 order-sm-1 gap-5'>
+        <h2 class='mt-5'>Modifier un trajet</h2>
+        </div>
+        
+        <?php include_once base_path('views/components/menu__dashboard.php'); ?>
+        <div class='col-sm-6 ms-3 order-3'>
+<form action="CreationTrajetsDashboard.php" class="registration-form " method="post">
     <!-- Champs pour le formulaire -->
     <label for="depart">Adresse de départ :</label>
     <input type="text" id="depart" name="depart" required>
@@ -35,6 +41,7 @@
 
     <input type="submit" value="Enregistrer">
 </form>
-
+</div>
+</section>
 </body>
 </html>

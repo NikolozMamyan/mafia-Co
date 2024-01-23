@@ -1,5 +1,6 @@
 <header class="header__dashboard">
-        <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logo__dashboard">
+    <a href="/"> <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logo__dashboard"></a>
+       
             <nav class="navBar__dashboard">
                 <form action="" class="search__dashboard">
                     <button class="btnSearch__dashboard">
@@ -9,7 +10,7 @@
                 </form>
                 <div class="admin__dashboard">
                     <div class="admin__details">
-                        <span class="admin__name">John Doe </span>
+                        <span class="admin__name">[Admin_name]</span>
                         <br>
                         <span >Amin</span>
                     </div>
