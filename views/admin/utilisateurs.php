@@ -1,9 +1,5 @@
 <?php
 namespace App\Controllers;
-// require_once 'UserController.php';
-// use App\Controllers\AuthController;
-// require_once 'indexDashboardView.php';
-// require_once 'DashboardModel.php';
 
 ?>
 
@@ -14,7 +10,7 @@ namespace App\Controllers;
     <section class='container-fluid row'>
         
         <div class='d-flex justify-content-end mt-5 col-sm-9 order-2 order-sm-1 gap-5'>
-            <a class='user__create__dashboard' href="userCreate.php">Créer un utilisateur</a>
+            <a class='user__create__dashboard' href="createUserAdmin">Créer un utilisateur</a>
         </div>
         
         <?php include_once base_path('views/components/menu__dashboard.php'); ?>
@@ -34,6 +30,7 @@ namespace App\Controllers;
                 $userMethode = new DashboardController();
                 
                 $users = $userMethode->getUsers();
+             
                 ?>
 
 
@@ -57,7 +54,7 @@ namespace App\Controllers;
         <td class='display__none__dashboard'><?php echo isset($comments[0]['comment']) ? $comments[0]['comment'] : ''; ?> </td>
 
         <td class='user-details action__icon mt-5'>
-            <a href='editUser.php?id=<?php echo $user['idUtilisateur']; ?>'><img src='../assets/iconsDashboard/modifier.svg' alt='iconModifier'></a>
+            <a href='editUserAdmin?id=<?php echo $user['idUtilisateur']; ?>'><img src='../assets/iconsDashboard/modifier.svg' alt='iconModifier'></a>
             
             <a href='deleteUserAdmin?id=<?php echo $user['idUtilisateur']; ?>'><img src='../assets/iconsDashboard/supprimer.svg' alt='iconSupprimer'></a>
         </td>
@@ -67,9 +64,5 @@ namespace App\Controllers;
             </tbody>
         </table>
     </section>
-
-    <!-- <?php
-    // $userView->displayPagination($currentPage, $totalPages);
-    ?> -->
 </body>
 </html>

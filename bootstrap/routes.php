@@ -39,6 +39,8 @@ Route::new('/admin', DashboardController::class, 'index');
 Route::new('/adminUtilisateurs', DashboardController::class, 'utilisateurs', 'index.utilisateurs');
 Route::new('/deleteUserAdmin', DashboardController::class, 'deleteUserR', 'deleteUser');
 Route::new('/createUserAdmin', DashboardController::class, 'createUserAdmin', 'createUserAdmin');
+Route::new('/editUserAdmin', DashboardController::class, 'editUserAdmin', 'editUserAdmin');
+Route::new('/userCreateTraitment', DashboardController::class, 'userCreateTraitment', 'userCreateTraitment');
 
 
 

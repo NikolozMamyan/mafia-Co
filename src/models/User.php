@@ -370,4 +370,5 @@ class User extends Model
 
         return $userArray;
     }
+
 }
