@@ -275,7 +275,7 @@ unset($_SESSION);
 
     <script src="./assets/js/signup.js"></script>
 
-    
+
 </body>
 
 </html>

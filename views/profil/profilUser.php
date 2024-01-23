@@ -7,14 +7,14 @@
     </header>
 
     <main id="main-profil" class="container">
-        <h1 class="page-title"><?php echo($title)?></h1>
+        <h1 class="page-title"><?php echo ($title) ?></h1>
 
         <!-- Partie Bonjour -->
         <section id="hello-user">
-            <img src="<?php  $user->getPhotoUtilisateur()?>" alt="photo de profil de <?php  $user->getNomUtilisateur()?> ">
+            <img src="../storage/<?php ec($user->getPhotoUtilisateur()) ?>" alt="photo de profil de <?php ec($user->getNomUtilisateur()) ?> ">
             <div>
-                <p>Bonjour <?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur()?></p>
-                <p>Vous avez <a href=""><i class="covoiturage-messaging"></i>[nbr_message] messages</a> et <a href=""><i class="covoiturage-notification"></i>[nbr_notifications] notifications</a> non lus.</p>
+                <p>Bonjour <?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur() ?></p>
+                <p>Vous avez <a href="<?php routeEcho('chat'); ?>"><i class="covoiturage-messaging"></i><?php ec($messageCount) ?> messages</a> et <a href="<?php routeEcho('notification'); ?>"><i class="covoiturage-notification"></i><?php ec($notificationCount) ?> notifications</a> non lus.</p>
             </div>
         </section>
 
@@ -30,13 +30,13 @@
                 <p><?php echo $user->getNomUtilisateur() . ' ' . $user->getPrenomUtilisateur() ?></p>
 
                 <h3>Votre adresse email</h3>
-                <p><?php echo $user->getEmailUtilisateur()?></p>
+                <p><?php echo $user->getEmailUtilisateur() ?></p>
 
                 <h3>Votre domicile</h3>
-                <p><?php echo $user->getAdresseUtilisateur().' '.$point->getCodePostalVille().' '.$point->getNomVille()  ?></p>
+                <p><?php echo $user->getAdresseUtilisateur() . ' ' . $point->getCodePostalVille() . ' ' . $point->getNomVille()  ?></p>
 
                 <h3>Votre statut de covoitureur</h3>
-                <p><?php echo $role?></p>
+                <p><?php echo $role ?></p>
             </div>
 
             <!----------- Votre trajet quotidien ------------>

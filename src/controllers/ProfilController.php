@@ -24,6 +24,8 @@ class ProfilController extends Controller
             $role =  $this->getRoleByCurrentId($user->getIdRole());
             $point =  $this->getPointByCurrentId($user->getIdPoint());
             $arrivee = $this->getPointByCurrentId(1);
+            $notificationCount = User::getNotificationCount();
+            $messageCount = User::getMessageCount();
             // var_dump(  $itineraire);
             // exit;
             $this->render('profil/profilUser', [
@@ -35,7 +37,9 @@ class ProfilController extends Controller
                 'role' => $role,
                 'itineraireJourSemaine' => $itineraireJourSemaine,
                 'joursSemaine' => $jourSemaine,
-                'title' => $title
+                'title' => $title,
+                'notificationCount' => $notificationCount,
+                'messageCount' => $messageCount,
             ]);
         } else {
             $this->render('auth/login');
