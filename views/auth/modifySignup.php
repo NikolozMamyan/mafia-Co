@@ -86,7 +86,7 @@
                                 <div class="input-group ">
                                     <label for="your-password">votre mot de passe
                                         <input type="password" name="your-password" placeholder="Entrez ici votre mot de passe" />
-                                        <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
+                                        <!-- <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button> -->
                                     </label>
 
                                 </div>
@@ -96,7 +96,7 @@
                                 <div class="input-group ">
                                     <label for="your-password">votre mot de passe  
                                         <input type="password" name="your-password" placeholder="Confirmé votre mot de passe" />
-                                        <button id="show-hide-password"></button>
+                                        <!-- <button id="show-hide-password"></button> -->
                                     </label>
 
                                 </div>

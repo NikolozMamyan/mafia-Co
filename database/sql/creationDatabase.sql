@@ -155,3 +155,5 @@ SHOW VIEW ON cciCovoiturage.* TO 'ccicovoiturage_sqlbackup'@'localhost';
 COMMIT;
 
 SET AUTOCOMMIT = 1;
+
+

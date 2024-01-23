@@ -1,10 +1,7 @@
 <?php
 
-use models\Map;
+require_once __DIR__ . '/../helpers/class/Map.php';
 
-require_once '../models/Map/Map.php';
-
-$map = new Map();
 
 
 $distance = 10;
@@ -12,17 +9,6 @@ $myPoints = [
     ['latitude' => 48.5549148, 'longitude' => 7.7449707],
 ];
 
-$close = $map->getCloseUsers(48.5549148, 7.7449707, $distance);
-
-foreach ($close as $user) {
-    var_dump($user);
-    echo '<br><br>';
-}
-
 echo ('<br>---<br><br>');
 
-$distances = $map->haversineDistanceList($myPoints, $close, $distance);
-
-foreach ($distances as $key => $value) {
-    echo ($value['idUtilisateur'] . ' -> ' . $value['distance'] . ' km' . '<br>');
-}
+var_dump(Map::haversineDistanceList([['latitude' => 48.5549148, 'longitude' => 7.7449707]], [['latitude' => 49.5549148, 'longitude' => 7.7449707]], 3000));

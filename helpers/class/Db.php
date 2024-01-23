@@ -1,5 +1,7 @@
 <?php
 // Durand.Louis@ccicampus.fr
+//pascal.petrovic@ccicampus.fr
+//S01K12t01p05--
 /**
  * Class DB
  *
@@ -109,7 +111,6 @@ class DB
         $cols = implode(', ', $keys);
 
         // :enable, :label, :description, :brand, :price_ttc, :price_ht, :vat, :quantity, :created_at
-        $params = ':' . implode(', :', $keys);
         $params = ':' . implode(', :', $keys);
 
         return DB::statement(

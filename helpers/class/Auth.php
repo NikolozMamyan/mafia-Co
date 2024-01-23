@@ -28,7 +28,7 @@ class Auth
 
         if (self::$user === null and $id) {
             self::$user = DB::fetch(
-                "SELECT * FROM Utilisateurs WHERE idUtilisateur = :idUtilisateur LIMIT 1",
+                "SELECT * FROM Utilisateurs JOIN Points ON utilisateurs.idPoint = points.idPoint WHERE idUtilisateur = :idUtilisateur LIMIT 1",
                 ['idUtilisateur' => $id]
             );
 
@@ -43,7 +43,6 @@ class Auth
                 }
             }
         }
-
         return self::$user;
     }
 

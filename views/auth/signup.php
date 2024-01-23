@@ -1,10 +1,12 @@
 <!-- signup.php -->
 
 <?php
-
 require_once base_path('views/components/headDev.php');
-// require_once(__DIR__ . '/../controllers/AuthController.php');
 
+// require_once(__DIR__ . '/../controllers/AuthController.php');
+isset($_SESSION);
+unset($_SESSION);
+//dd($_SESSION);  
 ?>
 
 <body id="signupPage">
@@ -28,8 +30,8 @@ require_once base_path('views/components/headDev.php');
         <div class="container-fluid">
 
             <form class="form__signup border row m-2 d-flex justify-content-md-around" action="<?php routeEcho($page === 'register' ? 'register.store' : 'modifySignup.update') ?>" method="POST" enctype="multipart/form-data">
-                <input type="number" step="any" id="lat" name="latitude" value="<?php ec(isset($point) ? $point->getLatitude() : ''); ?>" hidden>
-                <input type="number" step="any" id="lon" name="longitude" value="<?php ec(isset($point) ? $point->getLongitude() : ''); ?>" hidden>
+                <input type="text" id="lat" name="latitude" value="<?php ec(isset($point) ? $point->getLatitude() : ''); ?>" hidden>
+                <input type="text" id="lon" name="longitude" value="<?php ec(isset($point) ? $point->getLongitude() : ''); ?>" hidden>
                 <!-- btn close -->
 
                 <div class="offset-sm-11 offset-10 col-sm-1 col-2 pt-md-2 mb-3 d-sm-flex justify-content-end">
@@ -41,54 +43,54 @@ require_once base_path('views/components/headDev.php');
                         <div class="row mt-2">
                             <!-- nom -->
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom01" class="form-label ps-3">Nom</label>
-                                <input type="text" class="form-control " id="validationCustom01" name="firstName" value="<?php ec(isset($user) ? $user->getNomUtilisateur() : ''); ?>" required>
+                                <label for="firstName" class="form-label ps-3">Nom</label>
+                                <input type="text" class="form-control " id="firstName" name="firstName" value="<?php ec(isset($user) ? $user->getNomUtilisateur() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     Le nom est obligatoire !
                                 </span>
                             </div>
                             <!-- prenom -->
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">Prénom</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="lastName" value="<?php ec(isset($user) ? $user->getPrenomUtilisateur() : ''); ?>" required>
+                                <label for="lastName" class="form-label ps-3">Prénom</label>
+                                <input type="text" class="form-control " id="lastName" name="lastName" value="<?php ec(isset($user) ? $user->getPrenomUtilisateur() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     Le Prénom est obligatoire !
                                 </span>
                             </div>
                             <!-- adresse -->
                             <div class="col-md-6 mb-3">
-                                <label for="Adresse" class="form-label ps-3">Adresse</label>
-                                <input type="text" class="form-control " id="Adresse" name="address" value="<?php ec(isset($user) ? $user->getAdresseUtilisateur() : ''); ?>" required>
+                                <label for="address" class="form-label ps-3">Adresse</label>
+                                <input type="text" class="form-control " id="address" name="address" value="<?php ec(isset($user) ? $user->getAdresseUtilisateur() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     L'adresse est obligatoire !
                                 </span>
                             </div>
                             <!-- code postal -->
                             <div class="col-md-2  mb-3">
-                                <label for="CP" class="form-label ps-3">CP</label>
-                                <input type="text" class="form-control " id="CP" name="zip" value="<?php ec(isset($point) ? $point->getCodePostalVille() : ''); ?>" required>
+                                <label for="zip" class="form-label ps-3">CP</label>
+                                <input type="text" class="form-control " id="zip" name="zip" value="<?php ec(isset($point) ? $point->getCodePostalVille() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     Le code postal est obligatoire !
                                 </span>
                             </div>
                             <!-- ville -->
                             <div class="col-md-4  mb-3">
-                                <label for="Ville" class="form-label ps-3">Ville</label>
-                                <input type="text" class="form-control " id="Ville" name="city" value="<?php ec(isset($point) ? $point->getNomVille() : ''); ?>" required>
+                                <label for="city" class="form-label ps-3">Ville</label>
+                                <input type="text" class="form-control " id="city" name="city" value="<?php ec(isset($point) ? $point->getNomVille() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     La ville est obligatoire !
                                 </span>
                             </div>
                             <!-- telephone -->
                             <div class="col-md-6 mb-3">
-                                <label for="" class="form-label ps-3">Téléphone</label>
-                                <input type="text" class="form-control " id="" name="tel" value="<?php ec(isset($user) ? $user->getTelUtilisateur() : ''); ?>">
+                                <label for="phone" class="form-label ps-3">Téléphone</label>
+                                <input type="text" class="form-control " id="phone" name="tel" value="<?php ec(isset($user) ? $user->getTelUtilisateur() : ''); ?>">
 
                             </div>
                             <!-- mail -->
                             <div class="col-md-6 mb-3">
-                                <label for="validationCustom02" class="form-label ps-3">Mail</label>
-                                <input type="text" class="form-control " id="validationCustom02" name="email" value="<?php ec(isset($user) ? $user->getEmailUtilisateur() : ''); ?>" required>
+                                <label for="email" class="form-label ps-3">Mail</label>
+                                <input type="text" class="form-control " id="email" name="email" value="<?php ec(isset($user) ? $user->getEmailUtilisateur() : ''); ?>" required>
                                 <span class="invalid-feedback">
                                     L'adresse email est obligatoire !
                                 </span>
@@ -98,7 +100,7 @@ require_once base_path('views/components/headDev.php');
                                 <div class="input-group ">
                                     <label for="your-password">Votre<?php ec($page === 'modify' ? ' nouveau ' : ' ') ?>mot de passe
                                         <input type="password" id="your-password" name="password" placeholder="Entrez ici votre mot de passe" />
-                                        <button id="show-hide-password-signup"><i class="covoiturage-eye"></i></button>
+                                        <span class="invalid-feedback"> Le mot de passe est obligatoire</span>
                                     </label>
                                 </div>
                             </div>
@@ -107,14 +109,16 @@ require_once base_path('views/components/headDev.php');
                                 <div class="input-group ">
                                     <label for="your-confirm">Confirmez votre<?php ec($page === 'modify' ? ' nouveau ' : ' ') ?>mot de passe
                                         <input type="password" id="your-confirm" name="password-confirm" placeholder="Confirmé votre mot de passe" />
-                                        <button id="show-hide-password"></button>
+                                        <span class="invalid-feedback">Les deux champs de mot de passe doivent être remplis !</span>
                                     </label>
 
                                 </div>
                             </div>
                             <!-- role (radio btn) -->
                             <div class="col-md-12 mb-3">
-
+                                <span class="invalid-feedback check">
+                                    Le choix du role est obligatoire !
+                                </span>
                                 <div class="form-check ">
 
                                     <input type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" value="Conducteur / Passager" <?php isset($role) ? ec($role === 'Conducteur / Passager' ? 'checked' : '') : '' ?> required>
@@ -129,9 +133,7 @@ require_once base_path('views/components/headDev.php');
                                 <div class="form-check ">
                                     <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="Passager" <?php isset($role) ? ec($role === 'Passager' ? 'checked' : '') : '' ?> required>
                                     <label class="form-check-label" for="validationFormCheck3">Passager</label>
-                                    <span class="invalid-feedback">
-                                        Le choix du role est obligatoire !
-                                    </span>
+
                                 </div>
 
                             </div>
@@ -148,12 +150,11 @@ require_once base_path('views/components/headDev.php');
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="CGU" value="yes" id="invalidCheck2" required>
                                         <label class="form-check-label " for="invalidCheck2">
-                                            Accepter les termes et <a href="conditionsGeneral.php">conditions générals d'utilisation</a>
+                                            Accepter les termes et <a href="<?php routeEcho('conditionIndex'); ?>">conditions générals d'utilisation</a>
                                         </label>
-                                        <span class="invalid-feedback">
-                                            <span class="invalid-feedback">
-                                                Le choix du role est obligatoire !
-                                            </span>Vous n'avez pas valider les thermes d'utilisation !
+
+                                        <span class="invalid-feedback-terms">
+                                            les termes et conditions sont obligatoire !
                                         </span>
                                     </div>
                                 </div>
@@ -193,6 +194,7 @@ require_once base_path('views/components/headDev.php');
                     <!-- checkbox semaine -->
                     <div class="form-group row pb-3 mt-3">
                         <h3 class="d-flex justify-content-center title__h3 mt-2">Choisir les jours de la semaine</h3>
+                        <span class="invalid-feedback .days">Choisissez au moins un jour de la semaine !</span>
                         <div class="btn-group-toggle d-flex flex-colunm flex-lg-row flex-md-column btn__media justify-content-center pt-md-2" data-toggle="buttons">
                             <label class="btn btn__color m-1 <?php isset($joursSemaine) ? ec(in_array('Lun', $joursSemaine) ? 'checked' : '') : '' ?>">
                                 <input type="checkbox" name="days[]" value="lundi" onchange="toggleCheckboxStyle(this)" <?php isset($joursSemaine) ? ec(in_array('Lun', $joursSemaine) ? 'checked' : '') : '' ?>> Lundi
@@ -215,6 +217,7 @@ require_once base_path('views/components/headDev.php');
                             <div class="">
                                 <h3 class="d-flex justify-content-center title__h3 mt-2">Choisir heure de cours</h3>
                             </div>
+                            <span class="invalid-feedback .time">Veuillez choisir à la fois l'heure de début et l\'heure de fin des cours !</span>
                             <div class="form-group row ">
                                 <!-- Première colonne -->
                                 <div class="col-6 align-self-end ">
@@ -265,12 +268,13 @@ require_once base_path('views/components/headDev.php');
 
     </main>
     <footer>
-        <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+        <a href="<?php routeEcho('conditionIndex'); ?>">Conditions générales d'utilisation</a> • <a href="<?php routeEcho('mentionIndex'); ?>">Mentions légales</a> • © CCI Covoiturage 2023
+    </footer>
     </footer>
 
 
-    <script src="assets/js/pass-show-hide.js"></script>
-    <script src="assets/js/signup.js"></script>
+    <script src="./assets/js/signup.js"></script>
+
 
 </body>
 
