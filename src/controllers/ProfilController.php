@@ -8,16 +8,24 @@ use App\Models\User;
 use App\Models\Itineraire;
 use App\Models\Point;
 
+/**
+ * Class ProfilController
+ * @package App\Controllers
+ */
 class ProfilController extends Controller
 {
-
-    public function index()
+    /**
+     * Display the user's profile page.
+     */
+    public function index(): void
     {
+        // Compute notifications before rendering the profile page
         NotificationController::computeNotifications();
 
         $currentUser = Auth::getCurrentUser();
 
         if ($currentUser) {
+            // Fetch user information and related data
             $title = 'Mon profil';
             $currentId = Auth::getSessionUserId();
             $user = $this->getUserByCurrentId($currentId);
@@ -29,6 +37,8 @@ class ProfilController extends Controller
             $arrivee = $this->getPointByCurrentId(1);
             $notificationCount = User::getNotificationCount();
             $messageCount = User::getMessageCount();
+
+            // Render the profile page with data
             $this->render('profil/profilUser', [
                 'page' => 'index',
                 'user' => $user,
@@ -43,10 +53,14 @@ class ProfilController extends Controller
                 'messageCount' => $messageCount,
             ]);
         } else {
+            // Redirect to login page if user is not authenticated
             $this->render('auth/login');
         }
     }
 
+    /**
+     * Log out the user.
+     */
     public function logout(): void
     {
         unset($_SESSION);
@@ -54,8 +68,13 @@ class ProfilController extends Controller
         redirectToRouteAndExit('login');
     }
 
-
-    protected function getUserByCurrentId($currentId)
+    /**
+     * Get user information by ID.
+     *
+     * @param $currentId
+     * @return User
+     */
+    protected function getUserByCurrentId($currentId): User
     {
         $user = new User();
         $dataUser = DB::fetch(
@@ -66,7 +85,13 @@ class ProfilController extends Controller
         return $user;
     }
 
-    protected function getItineraireByCurrentId($idItineraire)
+    /**
+     * Get itinerary information by ID.
+     *
+     * @param $idItineraire
+     * @return Itineraire
+     */
+    protected function getItineraireByCurrentId($idItineraire): Itineraire
     {
         $itineraire = new Itineraire();
         $dataItineraire = DB::fetch(
@@ -77,7 +102,13 @@ class ProfilController extends Controller
         return $itineraire;
     }
 
-    protected function getItineraireJourSemaineByCurrentId($idItineraire)
+    /**
+     * Get itinerary weekdays by ID.
+     *
+     * @param $idItineraire
+     * @return array
+     */
+    protected function getItineraireJourSemaineByCurrentId($idItineraire): array
     {
         $dataJours = DB::fetch(
             "SELECT labelJourSemaineCourt FROM itinerairejoursemaine JOIN joursemaine on itinerairejoursemaine.idJourSemaine = joursemaine.idJourSemaine WHERE idItineraire = :idItineraire",
@@ -86,7 +117,13 @@ class ProfilController extends Controller
         return $dataJours;
     }
 
-    protected function getJoursemaineByCurrentId($jours)
+    /**
+     * Get weekdays by ID.
+     *
+     * @param $jours
+     * @return array
+     */
+    protected function getJoursemaineByCurrentId($jours): array
     {
         $joursSemaine = array();
         foreach ($jours as $value) {
@@ -95,7 +132,13 @@ class ProfilController extends Controller
         return $joursSemaine;
     }
 
-    protected function getRoleByCurrentId($idRole)
+    /**
+     * Get user role by ID.
+     *
+     * @param $idRole
+     * @return string
+     */
+    protected function getRoleByCurrentId($idRole): string
     {
         $dataRole = DB::fetch(
             "SELECT labelRole FROM roles WHERE idRole = :idRole",
@@ -104,7 +147,13 @@ class ProfilController extends Controller
         return $dataRole;
     }
 
-    protected function getPointByCurrentId($idPoint)
+    /**
+     * Get point information by ID.
+     *
+     * @param $idPoint
+     * @return Point
+     */
+    protected function getPointByCurrentId($idPoint): Point
     {
         $point = new Point();
         $dataPoint = DB::fetch(

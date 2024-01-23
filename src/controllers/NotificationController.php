@@ -6,10 +6,18 @@ use DB;
 use Map;
 use Auth;
 
+/**
+ * Class NotificationController
+ * @package App\Controllers
+ */
 class NotificationController extends Controller
 {
+    /**
+     * Display the index page for notifications.
+     */
     public function index()
     {
+        // Fetch unread notifications for the current user
         $notifications = DB::fetch(
             'SELECT * FROM notifications '
                 . 'INNER JOIN utilisateurs ON notifications.idUtilisateur = utilisateurs.idUtilisateur '
@@ -19,18 +27,24 @@ class NotificationController extends Controller
                 . 'WHERE notifications.idUtilisateur = :idUtilisateur AND isReadNotification = 0',
             ['idUtilisateur' => Auth::getSessionUserId()]
         );
+
+        // Render the notification page with notification data
         $this->render('notify/notification', ['notifications' => $notifications]);
     }
 
+    /**
+     * Compute and create notifications for close users.
+     */
     public static function computeNotifications()
     {
-        //NotificationController::computeNotifications();
-
+        // Get the current user
         $currentUser = Auth::getCurrentUser();
+
+        // Get a list of close users within a certain distance
         $closeUsers = Map::haversineDistanceList([$currentUser], Map::getCloseUsers($currentUser['latitude'], $currentUser['longitude'], Map::MAX_DISTANCE), Map::MAX_DISTANCE);
 
+        // Loop through close users and create notifications if not already existing
         foreach ($closeUsers as $closeUser) {
-            //dd($currentUser, $closeUsers);
             $count = DB::fetch(
                 'SELECT COUNT(*) FROM notifications WHERE idUtilisateur = :idUtilisateur AND idUtilisateurNotif = :idUtilisateurNotif',
                 [
@@ -39,7 +53,7 @@ class NotificationController extends Controller
                 ]
             )[0]['COUNT(*)'];
 
-            //dd($count);
+            // If the notification does not exist, create it
             if (!$count) {
                 $result = DB::statement(
                     "INSERT INTO notifications(idUtilisateur, idUtilisateurNotif)"

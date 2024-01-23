@@ -13,7 +13,10 @@ class SearchController extends Controller
         $this->render('search/search');
     }
 
-    public function result()
+    /**
+     * @return void
+     */
+    public function result(): void
     {
         $currentUser = Auth::getCurrentUser();
 
@@ -93,7 +96,7 @@ class SearchController extends Controller
                 ]], [[
                     'latitude' => $user['latitude'],
                     'longitude' =>   $user['longitude']
-                ]], in_array('ville/Cp', $_POST['filter']) ? 5.5 : 10000)[0]['distance'], 2, ',', ' ');
+                ]], in_array('ville/Cp', $_POST['filter']) ? Map::MAX_DISTANCE : 10000)[0]['distance'], 2, ',', ' ');
                 $users[$key] = $user;
             }
             $_SESSION['users'] = $users;

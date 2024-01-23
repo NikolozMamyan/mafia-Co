@@ -20,9 +20,12 @@ class AuthController extends Controller
     // const URL_LOGIN = 'index.php';
     // const URL_AFTER_LOGIN = 'Profile.php';
     // const URL_AFTER_LOGOUT = 'index.php';
+
     const CCI_ADDRESS = ''; //TODO a modifier
 
+
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
+
     const MAX_PICTURE_SIZE = 1000000;
     /**
      * Display the login page.
@@ -42,6 +45,9 @@ class AuthController extends Controller
         $this->render('auth/signup', ['page' => 'register', 'title' => $title]);
     }
 
+    /**
+     * @return void
+     */
     public function modify(): void
     {
         $title = 'Modifier mes informations';
@@ -85,6 +91,9 @@ class AuthController extends Controller
         $this->render('auth/signup', ['page' => 'modify', 'user' => $user, 'itineraire' => $itineraire, 'point' => $point, 'role' => $currRole, 'joursSemaine' => $joursSemaine, 'title' => $title]);
     }
 
+    /**
+     * @return void
+     */
     public function profil(): void
     {
         $this->render('profil/profilUser');
@@ -254,6 +263,9 @@ class AuthController extends Controller
         redirectToRouteAndExit('profil');
     }
 
+    /**
+     * @return void
+     */
     public function update()
     {
         // Prepare POST
@@ -361,6 +373,9 @@ class AuthController extends Controller
     }
 
 
+    /**
+     * @return void
+     */
     protected function logout()
     {
         AUTH::removeSessionUserId();
@@ -472,6 +487,13 @@ class AuthController extends Controller
         return false;
     }
 
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return Point
+     */
     public function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
     {
         $point = $this->getPointById($zip, $city, $latitude, $longitude);
@@ -482,6 +504,13 @@ class AuthController extends Controller
         return $point;
     }
 
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return Point|false
+     */
     public function getPointById($zip, $city, string $latitude, string $longitude): Point|false
     {
 
@@ -509,6 +538,13 @@ class AuthController extends Controller
         return $point;
     }
 
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return void
+     */
     public function insertPoint($zip, $city, string $latitude, string $longitude): void
     {
         // $point = new Point(
@@ -530,6 +566,11 @@ class AuthController extends Controller
         );
     }
 
+    /**
+     * @param $latitude
+     * @param $longitude
+     * @return void
+     */
     public static function validateLatLon($latitude, $longitude)
     {
         if ($latitude == "error" or $longitude == "error") {
