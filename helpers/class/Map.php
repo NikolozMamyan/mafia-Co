@@ -27,9 +27,6 @@ class Map
     public static function haversineDistanceList(array $myPoints, array $usersPoints, float $maxDistance): array
     {
         $distances = [];
-        if (!$maxDistance) {
-            $maxDistance = 10000;
-        }
 
         foreach ($myPoints as $myLatLon) {
             foreach ($usersPoints as $currUser) {

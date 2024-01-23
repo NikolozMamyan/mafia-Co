@@ -535,9 +535,9 @@ class AuthController extends Controller
 
     public static function validateLatLon($latitude, $longitude)
     {
-        if ($latitude == -1 or $longitude == -1) {
+        if ($latitude == "error" or $longitude == "error") {
             errors("l'adresse n'est pas valide");
-            redirectToRouteAndExit('profil');
+            redirectToRouteAndExit('register');
         }
     }
 }

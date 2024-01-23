@@ -385,8 +385,8 @@ function getLocation(address, zipcode, city) {
         document.getElementById("lon").setAttribute("value", longitude);
       } else {
         console.log("Location not found");
-        document.getElementById("lat").setAttribute("value", -1);
-        document.getElementById("lon").setAttribute("value", -1);
+        document.getElementById("lat").setAttribute("value", "error");
+        document.getElementById("lon").setAttribute("value", "error");
       }
     })
     .catch((error) => {

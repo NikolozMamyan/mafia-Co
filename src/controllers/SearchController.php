@@ -93,7 +93,7 @@ class SearchController extends Controller
                 ]], [[
                     'latitude' => $user['latitude'],
                     'longitude' =>   $user['longitude']
-                ]], 0)[0]['distance'], 2, ',', ' ');
+                ]], in_array('ville/Cp', $_POST['filter']) ? 5.5 : 10000)[0]['distance'], 2, ',', ' ');
                 $users[$key] = $user;
             }
             $_SESSION['users'] = $users;
