@@ -376,7 +376,7 @@ class AuthController extends Controller
      *
      * @return bool Returns true if credentials are valid, false otherwise.
      */
-    protected function validateCredentials(string $password, string $passwordConfirm): bool
+    public function validateCredentials(string $password, string $passwordConfirm): bool
     {
         // Validation
         if (
@@ -395,7 +395,7 @@ class AuthController extends Controller
      *
      * @return bool Returns true if the picture is valid, false otherwise.
      */
-    protected function ValidatePicture($photo)
+    public function ValidatePicture($photo)
     {
         $targetDir = __DIR__ . "/../../storage/";
         $originalFileName = basename($photo);
@@ -454,7 +454,7 @@ class AuthController extends Controller
      *
      * @return mixed The ID of the point.
      */
-    protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
+    public static function getIdPoint($zip, $city, string $latitude, string $longitude)
     {
         $point = new Point();
         $point->setNomVille($city);
@@ -477,7 +477,7 @@ class AuthController extends Controller
         return false;
     }
 
-    protected function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
+    public function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
     {
         $point = $this->getPointById($zip, $city, $latitude, $longitude);
         if (!$point) {
@@ -487,7 +487,7 @@ class AuthController extends Controller
         return $point;
     }
 
-    protected function getPointById($zip, $city, string $latitude, string $longitude): Point|false
+    public function getPointById($zip, $city, string $latitude, string $longitude): Point|false
     {
 
         $tempPoint = DB::fetch(
@@ -514,7 +514,7 @@ class AuthController extends Controller
         return $point;
     }
 
-    protected function insertPoint($zip, $city, string $latitude, string $longitude): void
+    public function insertPoint($zip, $city, string $latitude, string $longitude): void
     {
         // $point = new Point(
         //     $city,

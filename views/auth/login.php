@@ -1,7 +1,10 @@
+
 <!-- login.php -->
 <?php require_once base_path('views/components/headDev.php');
-unset($_SESSION); ?>
-
+isset($_SESSION);
+unset($_SESSION);
+//dd($_SESSION);  
+?>
 
 <body id="landing-page">
 
@@ -18,20 +21,30 @@ unset($_SESSION); ?>
 
       <form class="form__login" action="<?php routeEcho('login.check'); ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
         <input type="text" name="action" value="check" hidden>
+        <div class="form-group">
         <label for="login">Votre adresse email
+        <br><span class="emailError"></span>
           <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
+          
         </label>
+        </div>
+        <div class="form-group">
         <label for="password">Votre mot de passe
-          <a href="">Mot de passe oublié ?</a>
+        
+          <a href="#" class="pwdForgotten">Mot de passe oublié ?</a>
+          <br><span class="passwordError"></span>
           <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
-          <button id="show-hide-password"><i class="covoiturage-eye"></i></button>
+          <!-- <span id="show-hide-password"><i class="covoiturage-eye"></i></span> -->
+          
         </label>
+        </div>
+        
         <input type="submit" name="submit" value="Connexion" />
       </form>
     </main>
 
     <footer>
-      <a href="">Conditions générales d'utilisation</a> • <a href="">Mentions légales</a> • © CCI Covoiturage 2023
+      <a href="<?php routeEcho('conditionIndex'); ?>">Conditions générales d'utilisation</a> • <a href="<?php routeEcho('mentionIndex'); ?>">Mentions légales</a> • © CCI Covoiturage 2023
     </footer>
 
   </section>
@@ -40,7 +53,10 @@ unset($_SESSION); ?>
   <section id="col-droite" class="desktop-only">
     <img src="assets/images/covoiturage-cci-campus-alsace-illustration-covoiturage-people.svg" alt="illustration personnages en covoiturage" />
   </section>
+
   <!-- js -->
-  <script src="assets/js/pass-show-hide.js"></script>
-  <script src="assets/js/login.js"></script>
+  <!-- <script src="./assets/js/pass-show-hide.js"></script> -->
+  <script src="./assets/js/login.js"></script>
+
+
 </body>

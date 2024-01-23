@@ -1,5 +1,7 @@
 <?php
 // Durand.Louis@ccicampus.fr
+//pascal.petrovic@ccicampus.fr
+//S01K12t01p05--
 /**
  * Class DB
  *
