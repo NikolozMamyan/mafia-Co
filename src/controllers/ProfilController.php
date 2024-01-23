@@ -81,6 +81,7 @@ class ProfilController extends Controller
             "SELECT * FROM utilisateurs WHERE idUtilisateur = :idUtilisateur",
             ['idUtilisateur' => $_SESSION['current_user_id']]
         )[0];
+
         $user->hydrate($dataUser);
         return $user;
     }

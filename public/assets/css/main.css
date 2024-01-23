@@ -108,6 +108,14 @@ table {
 
 /* Boutons et liens
 --------------------------------------------- */
+a {
+  color: var(--primary-color);
+}
+
+a:hover, a:focus {
+  color: var(--text-color);
+}
+
 a, button, input[type=submit] {
   transition: ease all 0.25s;
   cursor: pointer;
@@ -385,7 +393,7 @@ header nav ul img {
 
 /* Footer
 --------------------------------------------- */
-footer {
+body:not(#landing-page) footer {
   background-color: var(--primary-color);
   color: #FFF;
   text-align: center;
@@ -527,7 +535,7 @@ div#copyright {
   width: 100%;
   display: block;
   margin: 0;
-  background: #B69FD6;
+  background: var(--primary-color);
   border-radius: 5px;
 }
 
@@ -588,7 +596,7 @@ input#search-bar:focus::-moz-placeholder {
   text-decoration: underline;
   position: relative;
   float: right;
-  color: #4C3172;
+  color: #FFF;
 }
 .btn_more:hover {
   color: #6D46A4;
@@ -597,11 +605,11 @@ input#search-bar:focus::-moz-placeholder {
 
 @media (min-width: 768px) {
   .search-container {
-    padding-right: 150px;
+    padding-right: 170px;
   }
   .btn_more {
     top: -35px;
-    right: -170px;
+    right: -190px;
   }
 }
 @media (max-width: 768px) {
@@ -859,6 +867,10 @@ section#col-droite img {
 
 .btn-group-toggle label {
   font-size: 0.85em;
+}
+
+form.form__signup label[for=your-password], form.form__signup label[for=your-confirm] {
+  width: 100%;
 }
 
 @media (max-width: 455px) {
