@@ -1,0 +1,110 @@
+\doxysection{Auth Class Reference}
+\hypertarget{class_auth}{}\label{class_auth}\index{Auth@{Auth}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_auth_abe39ee9bd8c9467fd15bdd3da6528f3d}{get\+Current\+User}} ()
+\item 
+static \mbox{\hyperlink{class_auth_a5b28170fe1b747a684097e33417ac12c}{is\+Auth\+Or\+Redirect}} ()
+\item 
+static \mbox{\hyperlink{class_auth_aed5941271ab4abd4ec5567d8a897d274}{is\+Guest\+Or\+Redirect}} ()
+\item 
+static \mbox{\hyperlink{class_auth_a0682675a3d22272061b328c396f20697}{get\+Session\+User\+Id\+Key}} ()
+\item 
+static \mbox{\hyperlink{class_auth_a73ba0aa1f47e1266fe1b11c7e5dc44f3}{get\+Session\+User\+Id}} ()
+\item 
+static \mbox{\hyperlink{class_auth_a8930a6bbc502ffd3b0818703c9c3a490}{remove\+Session\+User\+Id}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_auth_ac795dc253e2c88377e80cb60089a25e1}{SESSION\+\_\+\+KEY}} = \textquotesingle{}current\+\_\+user\+\_\+id\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{class_auth}{Auth}
+
+Handles user authentication-\/related actions in the application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_auth_abe39ee9bd8c9467fd15bdd3da6528f3d}\label{class_auth_abe39ee9bd8c9467fd15bdd3da6528f3d} 
+\index{Auth@{Auth}!getCurrentUser@{getCurrentUser}}
+\index{getCurrentUser@{getCurrentUser}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{getCurrentUser()}{getCurrentUser()}}
+{\footnotesize\ttfamily static get\+Current\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the currently authenticated user.
+
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}null The currently authenticated user as an associative array, or null if not authenticated. 
+\end{DoxyReturn}
+\Hypertarget{class_auth_a73ba0aa1f47e1266fe1b11c7e5dc44f3}\label{class_auth_a73ba0aa1f47e1266fe1b11c7e5dc44f3} 
+\index{Auth@{Auth}!getSessionUserId@{getSessionUserId}}
+\index{getSessionUserId@{getSessionUserId}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{getSessionUserId()}{getSessionUserId()}}
+{\footnotesize\ttfamily static get\+Session\+User\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the user ID stored in the session.
+
+\begin{DoxyReturn}{Returns}
+int\texorpdfstring{$\vert$}{|}null The user ID, or null if not found in the session. 
+\end{DoxyReturn}
+\Hypertarget{class_auth_a0682675a3d22272061b328c396f20697}\label{class_auth_a0682675a3d22272061b328c396f20697} 
+\index{Auth@{Auth}!getSessionUserIdKey@{getSessionUserIdKey}}
+\index{getSessionUserIdKey@{getSessionUserIdKey}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{getSessionUserIdKey()}{getSessionUserIdKey()}}
+{\footnotesize\ttfamily static get\+Session\+User\+Id\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the session key for storing the user ID.
+
+\begin{DoxyReturn}{Returns}
+string The session key. 
+\end{DoxyReturn}
+\Hypertarget{class_auth_a5b28170fe1b747a684097e33417ac12c}\label{class_auth_a5b28170fe1b747a684097e33417ac12c} 
+\index{Auth@{Auth}!isAuthOrRedirect@{isAuthOrRedirect}}
+\index{isAuthOrRedirect@{isAuthOrRedirect}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{isAuthOrRedirect()}{isAuthOrRedirect()}}
+{\footnotesize\ttfamily static is\+Auth\+Or\+Redirect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if the user is authenticated; otherwise, redirect to the login page.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_auth_aed5941271ab4abd4ec5567d8a897d274}\label{class_auth_aed5941271ab4abd4ec5567d8a897d274} 
+\index{Auth@{Auth}!isGuestOrRedirect@{isGuestOrRedirect}}
+\index{isGuestOrRedirect@{isGuestOrRedirect}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{isGuestOrRedirect()}{isGuestOrRedirect()}}
+{\footnotesize\ttfamily static is\+Guest\+Or\+Redirect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if the user is a guest (not authenticated); otherwise, redirect to the profile page.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_auth_a8930a6bbc502ffd3b0818703c9c3a490}\label{class_auth_a8930a6bbc502ffd3b0818703c9c3a490} 
+\index{Auth@{Auth}!removeSessionUserId@{removeSessionUserId}}
+\index{removeSessionUserId@{removeSessionUserId}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{removeSessionUserId()}{removeSessionUserId()}}
+{\footnotesize\ttfamily static remove\+Session\+User\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Remove the user ID from the session.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{class_auth_ac795dc253e2c88377e80cb60089a25e1}\label{class_auth_ac795dc253e2c88377e80cb60089a25e1} 
+\index{Auth@{Auth}!SESSION\_KEY@{SESSION\_KEY}}
+\index{SESSION\_KEY@{SESSION\_KEY}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{SESSION\_KEY}{SESSION\_KEY}}
+{\footnotesize\ttfamily const SESSION\+\_\+\+KEY = \textquotesingle{}current\+\_\+user\+\_\+id\textquotesingle{}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+helpers/class/\mbox{\hyperlink{_auth_8php}{Auth.\+php}}\end{DoxyCompactItemize}

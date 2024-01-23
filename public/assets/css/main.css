@@ -108,6 +108,14 @@ table {
 
 /* Boutons et liens
 --------------------------------------------- */
+a {
+  color: var(--primary-color);
+}
+
+a:hover, a:focus {
+  color: var(--text-color);
+}
+
 a, button, input[type=submit] {
   transition: ease all 0.25s;
   cursor: pointer;
@@ -385,7 +393,7 @@ header nav ul img {
 
 /* Footer
 --------------------------------------------- */
-footer {
+body:not(#landing-page) footer {
   background-color: var(--primary-color);
   color: #FFF;
   text-align: center;
@@ -527,7 +535,7 @@ div#copyright {
   width: 100%;
   display: block;
   margin: 0;
-  background: #B69FD6;
+  background: var(--primary-color);
   border-radius: 5px;
 }
 
@@ -588,7 +596,7 @@ input#search-bar:focus::-moz-placeholder {
   text-decoration: underline;
   position: relative;
   float: right;
-  color: #4C3172;
+  color: #FFF;
 }
 .btn_more:hover {
   color: #6D46A4;
@@ -597,11 +605,11 @@ input#search-bar:focus::-moz-placeholder {
 
 @media (min-width: 768px) {
   .search-container {
-    padding-right: 150px;
+    padding-right: 170px;
   }
   .btn_more {
     top: -35px;
-    right: -170px;
+    right: -190px;
   }
 }
 @media (max-width: 768px) {
@@ -757,6 +765,23 @@ section#col-droite img {
   margin-left: -6em;
 }
 
+.modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 150px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  text-align: center;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+
 #signupPageheader {
   margin-bottom: 4em;
 }
@@ -808,24 +833,14 @@ section#col-droite img {
 }
 
 #signupPage form input[type=text], input[type=password], input[type=file] {
+  font-size: 1.5rem;
   background-color: #fff;
   border: 0;
-  padding: 1.2em 1em;
+  padding: 0.5em 0.5em;
   display: block;
   width: 100%;
-  margin: 0.6em auto 2em;
+  margin: 0.6em auto 1em;
   border-radius: 4px;
-}
-
-button#show-hide-password-signup {
-  bottom: 0;
-  position: absolute;
-  right: 0;
-  height: 92%;
-  font-size: 2.6rem;
-  border: 0;
-  padding: 0 0.5em;
-  background-color: transparent;
 }
 
 .test {
@@ -852,6 +867,10 @@ button#show-hide-password-signup {
 
 .btn-group-toggle label {
   font-size: 0.85em;
+}
+
+form.form__signup label[for=your-password], form.form__signup label[for=your-confirm] {
+  width: 100%;
 }
 
 @media (max-width: 455px) {
@@ -1431,6 +1450,17 @@ a.edit-icon:focus {
   justify-content: center;
   gap: 20px;
   font-weight: bold;
+}
+
+.userCreateAdmoin {
+  display: flex;
+  flex-direction: column;
+}
+
+.userCreateAdmoin input {
+  border: 1px solid black;
+  height: 35px;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 874px) {

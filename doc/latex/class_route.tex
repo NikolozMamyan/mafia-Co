@@ -1,0 +1,166 @@
+\doxysection{Route Class Reference}
+\hypertarget{class_route}{}\label{class_route}\index{Route@{Route}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_route_aa70dcd0f5112ddc60e6bf23c93d11f17}{get\+All\+Routes}} ()
+\item 
+static \mbox{\hyperlink{class_route_a4972ca89b63e4b285c7f33fce815443f}{get\+Route\+By\+Url}} (string \$url)
+\item 
+static \mbox{\hyperlink{class_route_a73f664a25e14029903876594d9c0de02}{get\+Url\+By\+Route\+Name}} (string \$name)
+\item 
+static \mbox{\hyperlink{class_route_a85e8f958e9554a61ae500f83f04aabcc}{new}} (string \$url, string \$class\+Full\+Name, string \$method\+Name, ?string \$name=null,)
+\item 
+static \mbox{\hyperlink{class_route_a46dccb3313c1b22d8138c7fed169bb81}{auto}} (string \$class\+Full\+Name, array \$methods, bool \$with\+Name=true)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_route_ab0c53776adec0713d14418c1a197d636}{format\+Url}} (string \$url)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static array \mbox{\hyperlink{class_route_aa17a7c8ad7c21ce9bdeaac17e332e6dc}{\$routes}} = \mbox{[}$\,$\mbox{]}
+\item 
+static array \mbox{\hyperlink{class_route_a2e615f1e8adf0fdb2d4f19189ec13c4d}{\$urls\+By\+Name}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{class_route}{Route}
+
+Represents a routing system for handling URLs and routes in a web application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_route_a46dccb3313c1b22d8138c7fed169bb81}\label{class_route_a46dccb3313c1b22d8138c7fed169bb81} 
+\index{Route@{Route}!auto@{auto}}
+\index{auto@{auto}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{auto()}{auto()}}
+{\footnotesize\ttfamily static auto (\begin{DoxyParamCaption}\item[{string}]{\$class\+Full\+Name,  }\item[{array}]{\$methods,  }\item[{bool}]{\$with\+Name = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Automatically create routes for a class based on its methods.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$class\+Full\+Name} & The full name of the class. \\
+\hline
+array & {\em \$methods} & An array of method names to create routes for. \\
+\hline
+bool & {\em \$with\+Name} & Whether to include route names or not.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_route_ab0c53776adec0713d14418c1a197d636}\label{class_route_ab0c53776adec0713d14418c1a197d636} 
+\index{Route@{Route}!formatUrl@{formatUrl}}
+\index{formatUrl@{formatUrl}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{formatUrl()}{formatUrl()}}
+{\footnotesize\ttfamily static format\+Url (\begin{DoxyParamCaption}\item[{string}]{\$url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Format a given URL by trimming, adding a leading \textquotesingle{}/\textquotesingle{}, and removing trailing \textquotesingle{}/\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & The URL to format.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The formatted URL.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If the URL is invalid. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_route_aa70dcd0f5112ddc60e6bf23c93d11f17}\label{class_route_aa70dcd0f5112ddc60e6bf23c93d11f17} 
+\index{Route@{Route}!getAllRoutes@{getAllRoutes}}
+\index{getAllRoutes@{getAllRoutes}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{getAllRoutes()}{getAllRoutes()}}
+{\footnotesize\ttfamily static get\+All\+Routes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get all registered routes.
+
+\begin{DoxyReturn}{Returns}
+array An array containing all registered routes. 
+\end{DoxyReturn}
+\Hypertarget{class_route_a4972ca89b63e4b285c7f33fce815443f}\label{class_route_a4972ca89b63e4b285c7f33fce815443f} 
+\index{Route@{Route}!getRouteByUrl@{getRouteByUrl}}
+\index{getRouteByUrl@{getRouteByUrl}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{getRouteByUrl()}{getRouteByUrl()}}
+{\footnotesize\ttfamily static get\+Route\+By\+Url (\begin{DoxyParamCaption}\item[{string}]{\$url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get route information based on the provided URL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & The URL for which to retrieve the route information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}null An array containing route information or null if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_route_a73f664a25e14029903876594d9c0de02}\label{class_route_a73f664a25e14029903876594d9c0de02} 
+\index{Route@{Route}!getUrlByRouteName@{getUrlByRouteName}}
+\index{getUrlByRouteName@{getUrlByRouteName}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{getUrlByRouteName()}{getUrlByRouteName()}}
+{\footnotesize\ttfamily static get\+Url\+By\+Route\+Name (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the URL for a route based on its name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & The name of the route.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The URL corresponding to the route name.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If the route name is not found. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_route_a85e8f958e9554a61ae500f83f04aabcc}\label{class_route_a85e8f958e9554a61ae500f83f04aabcc} 
+\index{Route@{Route}!new@{new}}
+\index{new@{new}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{new()}{new()}}
+{\footnotesize\ttfamily static new (\begin{DoxyParamCaption}\item[{string}]{\$url,  }\item[{string}]{\$class\+Full\+Name,  }\item[{string}]{\$method\+Name,  }\item[{?string}]{\$name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a new route and register it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$url} & The URL pattern for the route. \\
+\hline
+string & {\em \$class\+Full\+Name} & The full name of the class handling the route. \\
+\hline
+string & {\em \$method\+Name} & The method within the class to handle the route. \\
+\hline
+string | null & {\em \$name} & Optional\+: The name of the route.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{class_route_aa17a7c8ad7c21ce9bdeaac17e332e6dc}\label{class_route_aa17a7c8ad7c21ce9bdeaac17e332e6dc} 
+\index{Route@{Route}!\$routes@{\$routes}}
+\index{\$routes@{\$routes}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{\$routes}{\$routes}}
+{\footnotesize\ttfamily array \$routes = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_route_a2e615f1e8adf0fdb2d4f19189ec13c4d}\label{class_route_a2e615f1e8adf0fdb2d4f19189ec13c4d} 
+\index{Route@{Route}!\$urlsByName@{\$urlsByName}}
+\index{\$urlsByName@{\$urlsByName}!Route@{Route}}
+\doxysubsubsection{\texorpdfstring{\$urlsByName}{\$urlsByName}}
+{\footnotesize\ttfamily array \$urls\+By\+Name = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+helpers/class/\mbox{\hyperlink{_route_8php}{Route.\+php}}\end{DoxyCompactItemize}

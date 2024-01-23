@@ -1,0 +1,292 @@
+\doxysection{Auth\+Controller Class Reference}
+\hypertarget{class_app_1_1_controllers_1_1_auth_controller}{}\label{class_app_1_1_controllers_1_1_auth_controller}\index{AuthController@{AuthController}}
+Inheritance diagram for Auth\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_app_1_1_controllers_1_1_auth_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_aa311da27ba5706f5710cea7706c8eae1}{login}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_acc294a6cc8e69743746820e3d15e3f78}{register}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a021577391b5dbf3fc9594af050bd7b76}{modify}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_adc7dfc99b62010000f7e628c63a4039f}{profil}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a98e4b7b7529a9a5f6d7e96909cba8bfe}{store}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a842e4774e3b3601a005b995c02f7e883}{update}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a5fb1933974ac9aae8c7ac4d3344caca6}{check}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a426db5f8fa6a5e718633a62319b98c69}{validate\+Credentials}} (string \$password, string \$password\+Confirm)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_ac5652d70a781aa5e2d0371f1880c5083}{Validate\+Picture}} (\$photo)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_ac04d898cae207b8b7d56e225b6467c57}{get\+Or\+Set\+Point}} (\$zip, \$city, string \$latitude, string \$longitude)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_aeeb2d0a4a6302778ef279bbdc70e24f4}{get\+Point\+By\+Id}} (\$zip, \$city, string \$latitude, string \$longitude)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a4ca175a2bd59591f388441282d4d48c9}{insert\+Point}} (\$zip, \$city, string \$latitude, string \$longitude)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_app_1_1_controllers_1_1_controller}{Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_controller_a2ce9ac60d2f9d2ca9231275f10798712}{render}} (string \$view, array \$data=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a244eac668e5fab361c387cb648dd785f}{get\+Id\+Point}} (\$zip, \$city, string \$latitude, string \$longitude)
+\item 
+static \mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_ad756bfabc05a1b8bb028882eea263ffa}{validate\+Lat\+Lon}} (\$latitude, \$longitude)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a4a0823b635cd08acb2124ad963b29389}{CCI\+\_\+\+ADDRESS}} = \textquotesingle{}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_aff2a7d0720817676430d687191b2c663}{ALLOWED\+\_\+\+EXTENSIONS}} = \mbox{[}"{}jpg"{}, "{}jpeg"{}, "{}png"{}, "{}gif"{}\mbox{]}
+\item 
+const \mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a84951dab55b1249f9eab4f4c7a29e4f5}{MAX\+\_\+\+PICTURE\+\_\+\+SIZE}} = 1000000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_auth_controller_a082405d89acd6835c3a7c7a08a7adbab}{logout}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_app_1_1_controllers_1_1_controller}{Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_controller_a11d4d53bb11082f40b4abfc2d61a229c}{get\+Views\+Base\+Path}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class Auth\+Controller
+
+Handles authentication-\/related actions in the application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a5fb1933974ac9aae8c7ac4d3344caca6}\label{class_app_1_1_controllers_1_1_auth_controller_a5fb1933974ac9aae8c7ac4d3344caca6} 
+\index{AuthController@{AuthController}!check@{check}}
+\index{check@{check}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check user credentials during login. \Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a244eac668e5fab361c387cb648dd785f}\label{class_app_1_1_controllers_1_1_auth_controller_a244eac668e5fab361c387cb648dd785f} 
+\index{AuthController@{AuthController}!getIdPoint@{getIdPoint}}
+\index{getIdPoint@{getIdPoint}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{getIdPoint()}{getIdPoint()}}
+{\footnotesize\ttfamily static get\+Id\+Point (\begin{DoxyParamCaption}\item[{}]{\$zip,  }\item[{}]{\$city,  }\item[{string}]{\$latitude,  }\item[{string}]{\$longitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the ID of a point based on zip code, city, latitude, and longitude.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$zip} & The zip code. \\
+\hline
+string & {\em \$city} & The city name. \\
+\hline
+string & {\em \$latitude} & The latitude. \\
+\hline
+string & {\em \$longitude} & The longitude.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The ID of the point. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_ac04d898cae207b8b7d56e225b6467c57}\label{class_app_1_1_controllers_1_1_auth_controller_ac04d898cae207b8b7d56e225b6467c57} 
+\index{AuthController@{AuthController}!getOrSetPoint@{getOrSetPoint}}
+\index{getOrSetPoint@{getOrSetPoint}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{getOrSetPoint()}{getOrSetPoint()}}
+{\footnotesize\ttfamily get\+Or\+Set\+Point (\begin{DoxyParamCaption}\item[{}]{\$zip,  }\item[{}]{\$city,  }\item[{string}]{\$latitude,  }\item[{string}]{\$longitude }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em \$zip} & \\
+\hline
+ & {\em \$city} & \\
+\hline
+string & {\em \$latitude} & \\
+\hline
+string & {\em \$longitude} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_aeeb2d0a4a6302778ef279bbdc70e24f4}\label{class_app_1_1_controllers_1_1_auth_controller_aeeb2d0a4a6302778ef279bbdc70e24f4} 
+\index{AuthController@{AuthController}!getPointById@{getPointById}}
+\index{getPointById@{getPointById}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{getPointById()}{getPointById()}}
+{\footnotesize\ttfamily get\+Point\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$zip,  }\item[{}]{\$city,  }\item[{string}]{\$latitude,  }\item[{string}]{\$longitude }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em \$zip} & \\
+\hline
+ & {\em \$city} & \\
+\hline
+string & {\em \$latitude} & \\
+\hline
+string & {\em \$longitude} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point\texorpdfstring{$\vert$}{|}false 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a4ca175a2bd59591f388441282d4d48c9}\label{class_app_1_1_controllers_1_1_auth_controller_a4ca175a2bd59591f388441282d4d48c9} 
+\index{AuthController@{AuthController}!insertPoint@{insertPoint}}
+\index{insertPoint@{insertPoint}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{insertPoint()}{insertPoint()}}
+{\footnotesize\ttfamily insert\+Point (\begin{DoxyParamCaption}\item[{}]{\$zip,  }\item[{}]{\$city,  }\item[{string}]{\$latitude,  }\item[{string}]{\$longitude }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em \$zip} & \\
+\hline
+ & {\em \$city} & \\
+\hline
+string & {\em \$latitude} & \\
+\hline
+string & {\em \$longitude} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_aa311da27ba5706f5710cea7706c8eae1}\label{class_app_1_1_controllers_1_1_auth_controller_aa311da27ba5706f5710cea7706c8eae1} 
+\index{AuthController@{AuthController}!login@{login}}
+\index{login@{login}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Display the login page. \Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a082405d89acd6835c3a7c7a08a7adbab}\label{class_app_1_1_controllers_1_1_auth_controller_a082405d89acd6835c3a7c7a08a7adbab} 
+\index{AuthController@{AuthController}!logout@{logout}}
+\index{logout@{logout}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a021577391b5dbf3fc9594af050bd7b76}\label{class_app_1_1_controllers_1_1_auth_controller_a021577391b5dbf3fc9594af050bd7b76} 
+\index{AuthController@{AuthController}!modify@{modify}}
+\index{modify@{modify}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily modify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_adc7dfc99b62010000f7e628c63a4039f}\label{class_app_1_1_controllers_1_1_auth_controller_adc7dfc99b62010000f7e628c63a4039f} 
+\index{AuthController@{AuthController}!profil@{profil}}
+\index{profil@{profil}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{profil()}{profil()}}
+{\footnotesize\ttfamily profil (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_acc294a6cc8e69743746820e3d15e3f78}\label{class_app_1_1_controllers_1_1_auth_controller_acc294a6cc8e69743746820e3d15e3f78} 
+\index{AuthController@{AuthController}!register@{register}}
+\index{register@{register}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Display the registration page. \Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a98e4b7b7529a9a5f6d7e96909cba8bfe}\label{class_app_1_1_controllers_1_1_auth_controller_a98e4b7b7529a9a5f6d7e96909cba8bfe} 
+\index{AuthController@{AuthController}!store@{store}}
+\index{store@{store}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily store (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Handle user registration. gestion du formulaire signup \Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a842e4774e3b3601a005b995c02f7e883}\label{class_app_1_1_controllers_1_1_auth_controller_a842e4774e3b3601a005b995c02f7e883} 
+\index{AuthController@{AuthController}!update@{update}}
+\index{update@{update}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a426db5f8fa6a5e718633a62319b98c69}\label{class_app_1_1_controllers_1_1_auth_controller_a426db5f8fa6a5e718633a62319b98c69} 
+\index{AuthController@{AuthController}!validateCredentials@{validateCredentials}}
+\index{validateCredentials@{validateCredentials}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{validateCredentials()}{validateCredentials()}}
+{\footnotesize\ttfamily validate\+Credentials (\begin{DoxyParamCaption}\item[{string}]{\$password,  }\item[{string}]{\$password\+Confirm }\end{DoxyParamCaption})}
+
+Validate user credentials.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$password} & The user\textquotesingle{}s password. \\
+\hline
+string & {\em \$password\+Confirm} & The confirmed password.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if credentials are valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_ad756bfabc05a1b8bb028882eea263ffa}\label{class_app_1_1_controllers_1_1_auth_controller_ad756bfabc05a1b8bb028882eea263ffa} 
+\index{AuthController@{AuthController}!validateLatLon@{validateLatLon}}
+\index{validateLatLon@{validateLatLon}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{validateLatLon()}{validateLatLon()}}
+{\footnotesize\ttfamily static validate\+Lat\+Lon (\begin{DoxyParamCaption}\item[{}]{\$latitude,  }\item[{}]{\$longitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$latitude} & \\
+\hline
+{\em \$longitude} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_ac5652d70a781aa5e2d0371f1880c5083}\label{class_app_1_1_controllers_1_1_auth_controller_ac5652d70a781aa5e2d0371f1880c5083} 
+\index{AuthController@{AuthController}!ValidatePicture@{ValidatePicture}}
+\index{ValidatePicture@{ValidatePicture}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{ValidatePicture()}{ValidatePicture()}}
+{\footnotesize\ttfamily Validate\+Picture (\begin{DoxyParamCaption}\item[{}]{\$photo }\end{DoxyParamCaption})}
+
+Validate user-\/uploaded profile picture.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$photo} & The file name of the uploaded picture.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if the picture is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_aff2a7d0720817676430d687191b2c663}\label{class_app_1_1_controllers_1_1_auth_controller_aff2a7d0720817676430d687191b2c663} 
+\index{AuthController@{AuthController}!ALLOWED\_EXTENSIONS@{ALLOWED\_EXTENSIONS}}
+\index{ALLOWED\_EXTENSIONS@{ALLOWED\_EXTENSIONS}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{ALLOWED\_EXTENSIONS}{ALLOWED\_EXTENSIONS}}
+{\footnotesize\ttfamily const ALLOWED\+\_\+\+EXTENSIONS = \mbox{[}"{}jpg"{}, "{}jpeg"{}, "{}png"{}, "{}gif"{}\mbox{]}}
+
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a4a0823b635cd08acb2124ad963b29389}\label{class_app_1_1_controllers_1_1_auth_controller_a4a0823b635cd08acb2124ad963b29389} 
+\index{AuthController@{AuthController}!CCI\_ADDRESS@{CCI\_ADDRESS}}
+\index{CCI\_ADDRESS@{CCI\_ADDRESS}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{CCI\_ADDRESS}{CCI\_ADDRESS}}
+{\footnotesize\ttfamily const CCI\+\_\+\+ADDRESS = \textquotesingle{}\textquotesingle{}}
+
+\Hypertarget{class_app_1_1_controllers_1_1_auth_controller_a84951dab55b1249f9eab4f4c7a29e4f5}\label{class_app_1_1_controllers_1_1_auth_controller_a84951dab55b1249f9eab4f4c7a29e4f5} 
+\index{AuthController@{AuthController}!MAX\_PICTURE\_SIZE@{MAX\_PICTURE\_SIZE}}
+\index{MAX\_PICTURE\_SIZE@{MAX\_PICTURE\_SIZE}!AuthController@{AuthController}}
+\doxysubsubsection{\texorpdfstring{MAX\_PICTURE\_SIZE}{MAX\_PICTURE\_SIZE}}
+{\footnotesize\ttfamily const MAX\+\_\+\+PICTURE\+\_\+\+SIZE = 1000000}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Controllers/\mbox{\hyperlink{_auth_controller_8php}{Auth\+Controller.\+php}}\end{DoxyCompactItemize}

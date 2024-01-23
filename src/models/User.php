@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Auth;
 use DB;
 
 /**
@@ -369,5 +370,23 @@ class User extends Model
         $userArray = parent::toArray();
 
         return $userArray;
+    }
+
+    public static function getNotificationCount(): int
+    {
+        $count = DB::fetch(
+            'SELECT COUNT(*) FROM notifications WHERE idUtilisateur = :idUtilisateur AND isReadNotification = 0',
+            ['idUtilisateur' => Auth::getSessionUserId()]
+        )[0]['COUNT(*)'];
+        return $count;
+    }
+
+    public static function getMessageCount(): int
+    {
+        $count = DB::fetch(
+            'SELECT COUNT(*) FROM messages WHERE idUtilisateur = :idUtilisateur AND isReadMessage = 0',
+            ['idUtilisateur' => Auth::getSessionUserId()]
+        )[0]['COUNT(*)'];
+        return $count;
     }
 }

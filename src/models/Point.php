@@ -74,7 +74,7 @@ class Point extends Model
     // Setter method for latitude
     public function setLatitude($latitude): void
     {
-        $this->setFields('latitude', $latitude);
+        $this->setFields('latitude',$latitude);
     }
 
     // Getter method for longitude
@@ -86,7 +86,7 @@ class Point extends Model
     // Setter method for longitude
     public function setLongitude($longitude): void
     {
-        $this->setFields('longitude', $longitude);
+        $this->setFields('longitude',$longitude);
     }
 
     // Méthode pour obtenir les données du point sous forme de tableau

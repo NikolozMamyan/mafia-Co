@@ -2,19 +2,32 @@
 
 namespace App\Controllers;
 
+/**
+ * Class OtherController
+ * @package App\Controllers
+ */
 class OtherController extends Controller
 {
-    public function conditionIndex()
+    /**
+     * Display the index page for general conditions.
+     */
+    public function conditionIndex(): void
     {
         $this->render('other/conditionsGeneral');
     }
 
-    public function mentionIndex()
+    /**
+     * Display the index page for legal mentions.
+     */
+    public function mentionIndex(): void
     {
         $this->render('other/mentionLegale');
     }
 
-    public function supportIndex()
+    /**
+     * Display the index page for contacting support.
+     */
+    public function supportIndex(): void
     {
         $this->render('other/contactSupport');
     }

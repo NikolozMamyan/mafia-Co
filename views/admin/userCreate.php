@@ -17,7 +17,7 @@ include_once "../../views/header__dashboard.php";
 include_once "../../views/menu__dashboard.php";
 ?>
 <div class='col-sm-6 ms-3 order-3'>
-<form action="traitement.php" method="post" enctype="multipart/form-data" class="registration-form">
+<form action="CreationUtilisateurDashbaord.php" method="post" enctype="multipart/form-data" class="registration-form">
     <div class="user__create ">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required class="form-input">

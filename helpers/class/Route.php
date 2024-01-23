@@ -51,7 +51,7 @@ class Route
      */
     public static function getUrlByRouteName(string $name): string
     {
-        return self::$urlsByName[$name] ?? throw new Exception('Route name "'.$name.'" not found.');
+        return self::$urlsByName[$name] ?? throw new Exception('Route name "' . $name . '" not found.');
     }
 
     /**
@@ -108,10 +108,10 @@ class Route
         foreach ($methods as $method) {
             $method = strtolower($method);
 
-            $url = $className.'/'.$method;
+            $url = $className . '/' . $method;
 
             $name = $withName
-                ? $className.'.'.$method
+                ? $className . '.' . $method
                 : null;
 
             self::new($url, $classFullName, $method, $name);
@@ -139,7 +139,7 @@ class Route
 
         // Add first "/"
         if ($url[0] !== '/') {
-            $url = '/'.$url;
+            $url = '/' . $url;
         }
 
         // Remove last "/"

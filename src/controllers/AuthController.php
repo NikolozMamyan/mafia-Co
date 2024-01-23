@@ -20,9 +20,12 @@ class AuthController extends Controller
     // const URL_LOGIN = 'index.php';
     // const URL_AFTER_LOGIN = 'Profile.php';
     // const URL_AFTER_LOGOUT = 'index.php';
+
     const CCI_ADDRESS = ''; //TODO a modifier
 
+
     const ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png", "gif"];
+
     const MAX_PICTURE_SIZE = 1000000;
     /**
      * Display the login page.
@@ -42,6 +45,9 @@ class AuthController extends Controller
         $this->render('auth/signup', ['page' => 'register', 'title' => $title]);
     }
 
+    /**
+     * @return void
+     */
     public function modify(): void
     {
         $title = 'Modifier mes informations';
@@ -85,6 +91,9 @@ class AuthController extends Controller
         $this->render('auth/signup', ['page' => 'modify', 'user' => $user, 'itineraire' => $itineraire, 'point' => $point, 'role' => $currRole, 'joursSemaine' => $joursSemaine, 'title' => $title]);
     }
 
+    /**
+     * @return void
+     */
     public function profil(): void
     {
         $this->render('profil/profilUser');
@@ -136,8 +145,10 @@ class AuthController extends Controller
             'comment' => $comment,
         ];
 
+        self::validateLatLon($latitude, $longitude);
+
         // Validation
-        if (!$this->validateCredentials($password, $passwordConfirm) or !$this->ValidatePicture($photo) or !$CGU) {
+        if (!$this->validateCredentials($password, $passwordConfirm)  or !$CGU) {
             redirectToRouteAndExit('register');
         }
 
@@ -203,8 +214,8 @@ class AuthController extends Controller
 
         // Create new user
         $result = DB::statement(
-            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, idItineraire, idPoint, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, :idPoint, :idRole);",
+            "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, compteActif, idItineraire, idPoint, idRole)"
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, 1, :idItineraire, :idPoint, :idRole);",
             [
                 'firstName' => $user->getPrenomUtilisateur(),
                 'lastName' => $user->getNomUtilisateur(),
@@ -244,12 +255,17 @@ class AuthController extends Controller
         // Clear old
         unset($_SESSION['old']);
 
+        $this->ValidatePicture($photo);
+
         $_SESSION[Auth::getSessionUserIdKey()] = $user->getIdUtilisateur();
         // Message + Redirection
         success('Vous êtes maintenant connecté.');
         redirectToRouteAndExit('profil');
     }
 
+    /**
+     * @return void
+     */
     public function update()
     {
         // Prepare POST
@@ -277,6 +293,8 @@ class AuthController extends Controller
         $dataItineraire['finCours'] = $_POST['timeEnd'];
         $dataItineraire['infoComplementaire'] = $_POST['comment'];
 
+        self::validateLatLon($latitude, $longitude);
+
         $idRole = DB::fetch(
             "SELECT idRole FROM Roles WHERE labelRole = :labelRole",
             ['labelRole' => $role]
@@ -289,11 +307,13 @@ class AuthController extends Controller
         )[0];
 
         if (
-            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm)) ||
-            (!empty($photo) && !$this->validatePicture($photo))
+            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm))
         ) {
             redirectToRouteAndExit('modify');
         }
+
+        $this->validatePicture($photo);
+
 
         $dataUser['motDePasseUtilisateur'] = password_hash($password, PASSWORD_DEFAULT);
 
@@ -353,6 +373,9 @@ class AuthController extends Controller
     }
 
 
+    /**
+     * @return void
+     */
     protected function logout()
     {
         AUTH::removeSessionUserId();
@@ -368,11 +391,11 @@ class AuthController extends Controller
      *
      * @return bool Returns true if credentials are valid, false otherwise.
      */
-    protected function validateCredentials(string $password, string $passwordConfirm): bool
+    public function validateCredentials(string $password, string $passwordConfirm): bool
     {
         // Validation
         if (
-            !preg_match('/^(?=.*[a-z]{2})(?=.*[A-Z]{2})(?=.*\d{2})(?=.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]{2}).{8,}$/', $password) or
+            !preg_match('/^(?=(.*[a-z]){2})(?=(.*[A-Z]){2})(?=(.*\d){2})(?=(.*[!@#$%^&*()_\-+[\]{}|;:,.<>?]){2}).{12,}$/', $password) or
             $password !== $passwordConfirm
         ) {
             return false;
@@ -387,18 +410,22 @@ class AuthController extends Controller
      *
      * @return bool Returns true if the picture is valid, false otherwise.
      */
-    protected function ValidatePicture($photo)
+    public function ValidatePicture($photo)
     {
         $targetDir = __DIR__ . "/../../storage/";
+        $originalFileName = basename($photo);
         $targetFile = $targetDir . basename($photo);
         $uploadOk = true;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Check if the file already exists
         if (file_exists($targetFile)) {
-            errors("Sorry, the file already exists.");
-            $uploadOk = false;
+            $uniqueIdentifier = uniqid();
+            $newFileName = pathinfo($originalFileName, PATHINFO_FILENAME) . '_' . $uniqueIdentifier . '.' . $imageFileType;
+            $targetFile = $targetDir . $newFileName;
+            $photo = $newFileName;
         }
+
 
         // Check the file size (you can adjust this value)
         if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {
@@ -437,7 +464,7 @@ class AuthController extends Controller
      *
      * @return mixed The ID of the point.
      */
-    protected static function getIdPoint($zip, $city, string $latitude, string $longitude)
+    public static function getIdPoint($zip, $city, string $latitude, string $longitude)
     {
         $point = new Point();
         $point->setNomVille($city);
@@ -460,7 +487,14 @@ class AuthController extends Controller
         return false;
     }
 
-    protected function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return Point
+     */
+    public function getOrSetPoint($zip, $city, string $latitude, string $longitude): Point
     {
         $point = $this->getPointById($zip, $city, $latitude, $longitude);
         if (!$point) {
@@ -470,7 +504,14 @@ class AuthController extends Controller
         return $point;
     }
 
-    protected function getPointById($zip, $city, string $latitude, string $longitude): Point|false
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return Point|false
+     */
+    public function getPointById($zip, $city, string $latitude, string $longitude): Point|false
     {
 
         $tempPoint = DB::fetch(
@@ -497,7 +538,14 @@ class AuthController extends Controller
         return $point;
     }
 
-    protected function insertPoint($zip, $city, string $latitude, string $longitude): void
+    /**
+     * @param $zip
+     * @param $city
+     * @param string $latitude
+     * @param string $longitude
+     * @return void
+     */
+    public function insertPoint($zip, $city, string $latitude, string $longitude): void
     {
         // $point = new Point(
         //     $city,
@@ -516,5 +564,18 @@ class AuthController extends Controller
                 'longitude' => $longitude,
             ]
         );
+    }
+
+    /**
+     * @param $latitude
+     * @param $longitude
+     * @return void
+     */
+    public static function validateLatLon($latitude, $longitude)
+    {
+        if ($latitude == "error" or $longitude == "error") {
+            errors("l'adresse n'est pas valide");
+            redirectToRouteAndExit('register');
+        }
     }
 }

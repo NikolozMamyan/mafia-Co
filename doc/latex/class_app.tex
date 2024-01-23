@@ -1,0 +1,111 @@
+\doxysection{App Class Reference}
+\hypertarget{class_app}{}\label{class_app}\index{App@{App}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_a2fa4dae8124d7f7788112898baa0a616}{report}} (Exception\texorpdfstring{$\vert$}{|}string \$exception)
+\item 
+static \mbox{\hyperlink{class_app_a5288118dcddfa99fe9b3aae27702c347}{report\+Silent}} (Exception\texorpdfstring{$\vert$}{|}string \$exception)
+\item 
+static \mbox{\hyperlink{class_app_a8002f7699e4d9352ddefb8613fe11d15}{is\+Debug}} ()
+\item 
+static \mbox{\hyperlink{class_app_a191e26bc789af7f3dc38b138fb7bef12}{terminate}} ()
+\item 
+static \mbox{\hyperlink{class_app_a7166a1dbef39ee5a6bcabf6bca93a654}{get\+Locale}} ()
+\item 
+static \mbox{\hyperlink{class_app_aac66f874078bfe98bc54dcd7441a0ad1}{set\+Locale}} (string \$locale)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{class_app}{App}
+
+Handles application-\/wide functionalities. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_a7166a1dbef39ee5a6bcabf6bca93a654}\label{class_app_a7166a1dbef39ee5a6bcabf6bca93a654} 
+\index{App@{App}!getLocale@{getLocale}}
+\index{getLocale@{getLocale}!App@{App}}
+\doxysubsubsection{\texorpdfstring{getLocale()}{getLocale()}}
+{\footnotesize\ttfamily static get\+Locale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the current application locale.
+
+\begin{DoxyReturn}{Returns}
+string The current application locale. 
+\end{DoxyReturn}
+\Hypertarget{class_app_a8002f7699e4d9352ddefb8613fe11d15}\label{class_app_a8002f7699e4d9352ddefb8613fe11d15} 
+\index{App@{App}!isDebug@{isDebug}}
+\index{isDebug@{isDebug}!App@{App}}
+\doxysubsubsection{\texorpdfstring{isDebug()}{isDebug()}}
+{\footnotesize\ttfamily static is\+Debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if the application is in debug mode.
+
+\begin{DoxyReturn}{Returns}
+bool Returns true if the application is in debug mode, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_app_a2fa4dae8124d7f7788112898baa0a616}\label{class_app_a2fa4dae8124d7f7788112898baa0a616} 
+\index{App@{App}!report@{report}}
+\index{report@{report}!App@{App}}
+\doxysubsubsection{\texorpdfstring{report()}{report()}}
+{\footnotesize\ttfamily static report (\begin{DoxyParamCaption}\item[{Exception\texorpdfstring{$\vert$}{|}string}]{\$exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Report an exception and terminate the application (if in debug mode).
+
+
+\begin{DoxyParams}[1]{Parameters}
+Exception | string & {\em \$exception} & The exception or error message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_a5288118dcddfa99fe9b3aae27702c347}\label{class_app_a5288118dcddfa99fe9b3aae27702c347} 
+\index{App@{App}!reportSilent@{reportSilent}}
+\index{reportSilent@{reportSilent}!App@{App}}
+\doxysubsubsection{\texorpdfstring{reportSilent()}{reportSilent()}}
+{\footnotesize\ttfamily static report\+Silent (\begin{DoxyParamCaption}\item[{Exception\texorpdfstring{$\vert$}{|}string}]{\$exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Report an exception silently (without terminating the application).
+
+
+\begin{DoxyParams}[1]{Parameters}
+Exception | string & {\em \$exception} & The exception or error message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_aac66f874078bfe98bc54dcd7441a0ad1}\label{class_app_aac66f874078bfe98bc54dcd7441a0ad1} 
+\index{App@{App}!setLocale@{setLocale}}
+\index{setLocale@{setLocale}!App@{App}}
+\doxysubsubsection{\texorpdfstring{setLocale()}{setLocale()}}
+{\footnotesize\ttfamily static set\+Locale (\begin{DoxyParamCaption}\item[{string}]{\$locale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set the application locale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$locale} & The new application locale.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_a191e26bc789af7f3dc38b138fb7bef12}\label{class_app_a191e26bc789af7f3dc38b138fb7bef12} 
+\index{App@{App}!terminate@{terminate}}
+\index{terminate@{terminate}!App@{App}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily static terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Terminate the application by removing errors, success messages, and old data from the session.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+helpers/class/\mbox{\hyperlink{helpers_2class_2app_8php}{App.\+php}}\end{DoxyCompactItemize}

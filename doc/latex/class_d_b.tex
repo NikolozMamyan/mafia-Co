@@ -1,0 +1,195 @@
+\doxysection{DB Class Reference}
+\hypertarget{class_d_b}{}\label{class_d_b}\index{DB@{DB}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_d_b_a38cf6caf7e0d9540360bfe07ba167e54}{get\+DB}} ()
+\item 
+static \mbox{\hyperlink{class_d_b_ac1c15c00792d53e169acfe9b5ef187ac}{update}} (string \$table, array \$data, int\texorpdfstring{$\vert$}{|}string\texorpdfstring{$\vert$}{|}null \$identifier=null, \$identifier\+Name=\textquotesingle{}id\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_d_b_afaffc1f483c6e64acac95582a123a088}{insert}} (string \$table, array \$data)
+\item 
+static \mbox{\hyperlink{class_d_b_afa58f247c3b2675f9c9c858bb62f4828}{fetch}} (string \$sql, array \$params=\mbox{[}$\,$\mbox{]}, ?int \$limit=null, ?int \$offset=null, int \$fetch\+Type=PDO\+::\+FETCH\+\_\+\+ASSOC,)
+\item 
+static \mbox{\hyperlink{class_d_b_adeadb37f30537a264f407228c3b7b488}{fetch\+All}} (string \$sql, array \$params=\mbox{[}$\,$\mbox{]}, ?int \$limit=null, ?int \$offset=null, int \$fetch\+Type=PDO\+::\+FETCH\+\_\+\+ASSOC,)
+\item 
+static \mbox{\hyperlink{class_d_b_ac0ca4ac7c34869bc0e24a7fc0e15e97c}{statement}} (string \$sql, array \$params=\mbox{[}$\,$\mbox{]}, ?int \$limit=null, ?int \$offset=null,)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_d_b_a0bc565be8056d4271bb002803fcdf80f}{run\+Query}} (string \$sql, array \$params=\mbox{[}$\,$\mbox{]}, ?int \$limit=null, ?int \$offset=null, bool \$fetch\+Mode=true, int \$fetch\+Type=PDO\+::\+FETCH\+\_\+\+ASSOC,)
+\item 
+static \mbox{\hyperlink{class_d_b_aa1a106753941f7dbf85fe87044444ba1}{connection}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{class_d_b}{DB}
+
+Handles database operations for the application. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_d_b_aa1a106753941f7dbf85fe87044444ba1}\label{class_d_b_aa1a106753941f7dbf85fe87044444ba1} 
+\index{DB@{DB}!connection@{connection}}
+\index{connection@{connection}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{connection()}{connection()}}
+{\footnotesize\ttfamily PDO null \$db The PDO database connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Establish a connection to the database.
+
+\begin{DoxyReturn}{Returns}
+PDO\texorpdfstring{$\vert$}{|}null Returns a PDO database connection or null on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_afa58f247c3b2675f9c9c858bb62f4828}\label{class_d_b_afa58f247c3b2675f9c9c858bb62f4828} 
+\index{DB@{DB}!fetch@{fetch}}
+\index{fetch@{fetch}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{fetch()}{fetch()}}
+{\footnotesize\ttfamily static fetch (\begin{DoxyParamCaption}\item[{string}]{\$sql,  }\item[{array}]{\$params = {\ttfamily \mbox{[}\mbox{]}},  }\item[{?int}]{\$limit = {\ttfamily null},  }\item[{?int}]{\$offset = {\ttfamily null},  }\item[{int}]{\$fetch\+Type = {\ttfamily PDO\+:\+:FETCH\+\_\+ASSOC} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Fetch a single row from the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & The SQL query. \\
+\hline
+array & {\em \$params} & The parameters for the query. \\
+\hline
+int | null & {\em \$limit} & The maximum number of rows to return. \\
+\hline
+int | null & {\em \$offset} & The offset of the first row to return. \\
+\hline
+int & {\em \$fetch\+Type} & The fetch style (PDO\+::\+FETCH\+\_\+\+ASSOC by default).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false Returns an associative array on success, false on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_adeadb37f30537a264f407228c3b7b488}\label{class_d_b_adeadb37f30537a264f407228c3b7b488} 
+\index{DB@{DB}!fetchAll@{fetchAll}}
+\index{fetchAll@{fetchAll}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{fetchAll()}{fetchAll()}}
+{\footnotesize\ttfamily static fetch\+All (\begin{DoxyParamCaption}\item[{string}]{\$sql,  }\item[{array}]{\$params = {\ttfamily \mbox{[}\mbox{]}},  }\item[{?int}]{\$limit = {\ttfamily null},  }\item[{?int}]{\$offset = {\ttfamily null},  }\item[{int}]{\$fetch\+Type = {\ttfamily PDO\+:\+:FETCH\+\_\+ASSOC} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Fetch all rows from the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & The SQL query. \\
+\hline
+array & {\em \$params} & The parameters for the query. \\
+\hline
+int | null & {\em \$limit} & The maximum number of rows to return. \\
+\hline
+int | null & {\em \$offset} & The offset of the first row to return. \\
+\hline
+int & {\em \$fetch\+Type} & The fetch style (PDO\+::\+FETCH\+\_\+\+ASSOC by default).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}false Returns an array of associative arrays on success, false on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_a38cf6caf7e0d9540360bfe07ba167e54}\label{class_d_b_a38cf6caf7e0d9540360bfe07ba167e54} 
+\index{DB@{DB}!getDB@{getDB}}
+\index{getDB@{getDB}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{getDB()}{getDB()}}
+{\footnotesize\ttfamily static get\+DB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the PDO database connection.
+
+\begin{DoxyReturn}{Returns}
+PDO The PDO database connection. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_afaffc1f483c6e64acac95582a123a088}\label{class_d_b_afaffc1f483c6e64acac95582a123a088} 
+\index{DB@{DB}!insert@{insert}}
+\index{insert@{insert}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily static insert (\begin{DoxyParamCaption}\item[{string}]{\$table,  }\item[{array}]{\$data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Insert a new record into the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & The table name. \\
+\hline
+array & {\em \$data} & The data to insert.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true on success, false on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_a0bc565be8056d4271bb002803fcdf80f}\label{class_d_b_a0bc565be8056d4271bb002803fcdf80f} 
+\index{DB@{DB}!runQuery@{runQuery}}
+\index{runQuery@{runQuery}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{runQuery()}{runQuery()}}
+{\footnotesize\ttfamily static run\+Query (\begin{DoxyParamCaption}\item[{string}]{\$sql,  }\item[{array}]{\$params = {\ttfamily \mbox{[}\mbox{]}},  }\item[{?int}]{\$limit = {\ttfamily null},  }\item[{?int}]{\$offset = {\ttfamily null},  }\item[{bool}]{\$fetch\+Mode = {\ttfamily true},  }\item[{int}]{\$fetch\+Type = {\ttfamily PDO\+:\+:FETCH\+\_\+ASSOC} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Run a SQL query in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & The SQL query. \\
+\hline
+array & {\em \$params} & The parameters for the query. \\
+\hline
+int | null & {\em \$limit} & The maximum number of rows to return. \\
+\hline
+int | null & {\em \$offset} & The offset of the first row to return. \\
+\hline
+bool & {\em \$fetch\+Mode} & Whether to fetch rows or not. \\
+\hline
+int & {\em \$fetch\+Type} & The fetch style (PDO\+::\+FETCH\+\_\+\+ASSOC by default).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array\texorpdfstring{$\vert$}{|}bool\texorpdfstring{$\vert$}{|}int Returns an array of associative arrays, false, or the number of affected rows. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_ac0ca4ac7c34869bc0e24a7fc0e15e97c}\label{class_d_b_ac0ca4ac7c34869bc0e24a7fc0e15e97c} 
+\index{DB@{DB}!statement@{statement}}
+\index{statement@{statement}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{statement()}{statement()}}
+{\footnotesize\ttfamily static statement (\begin{DoxyParamCaption}\item[{string}]{\$sql,  }\item[{array}]{\$params = {\ttfamily \mbox{[}\mbox{]}},  }\item[{?int}]{\$limit = {\ttfamily null},  }\item[{?int}]{\$offset = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Execute a SQL statement in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$sql} & The SQL query. \\
+\hline
+array & {\em \$params} & The parameters for the query. \\
+\hline
+int | null & {\em \$limit} & The maximum number of rows to return. \\
+\hline
+int | null & {\em \$offset} & The offset of the first row to return.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int\texorpdfstring{$\vert$}{|}false Returns the number of affected rows on success, false on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_d_b_ac1c15c00792d53e169acfe9b5ef187ac}\label{class_d_b_ac1c15c00792d53e169acfe9b5ef187ac} 
+\index{DB@{DB}!update@{update}}
+\index{update@{update}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily static update (\begin{DoxyParamCaption}\item[{string}]{\$table,  }\item[{array}]{\$data,  }\item[{int\texorpdfstring{$\vert$}{|}string\texorpdfstring{$\vert$}{|}null}]{\$identifier = {\ttfamily null},  }\item[{}]{\$identifier\+Name = {\ttfamily \textquotesingle{}id\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Update a record in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$table} & The table name. \\
+\hline
+array & {\em \$data} & The data to update. \\
+\hline
+int | string | null & {\em \$identifier} & The identifier of the record to update. \\
+\hline
+string & {\em \$identifier\+Name} & The name of the identifier column.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+helpers/class/\mbox{\hyperlink{_db_8php}{Db.\+php}}\end{DoxyCompactItemize}

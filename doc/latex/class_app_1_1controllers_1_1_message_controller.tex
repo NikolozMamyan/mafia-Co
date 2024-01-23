@@ -1,0 +1,61 @@
+\doxysection{Message\+Controller Class Reference}
+\hypertarget{class_app_1_1controllers_1_1_message_controller}{}\label{class_app_1_1controllers_1_1_message_controller}\index{MessageController@{MessageController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1controllers_1_1_message_controller_a26e1531cf742c67ee45b44c0e1c8b30f}{chat\+Box}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1controllers_1_1_message_controller_a2f30b586ae86b506234bbaae341b2f85}{get\+Latest\+Messages}} (int \$user\+Id)
+\item 
+\mbox{\hyperlink{class_app_1_1controllers_1_1_message_controller_adfb8b8552b44a58c84a7817165d176ce}{send\+Message}} (int \$sender\+Id, int \$recipient\+Id, string \$content)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1controllers_1_1_message_controller_a26e1531cf742c67ee45b44c0e1c8b30f}\label{class_app_1_1controllers_1_1_message_controller_a26e1531cf742c67ee45b44c0e1c8b30f} 
+\index{MessageController@{MessageController}!chatBox@{chatBox}}
+\index{chatBox@{chatBox}!MessageController@{MessageController}}
+\doxysubsubsection{\texorpdfstring{chatBox()}{chatBox()}}
+{\footnotesize\ttfamily chat\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_app_1_1controllers_1_1_message_controller_a2f30b586ae86b506234bbaae341b2f85}\label{class_app_1_1controllers_1_1_message_controller_a2f30b586ae86b506234bbaae341b2f85} 
+\index{MessageController@{MessageController}!getLatestMessages@{getLatestMessages}}
+\index{getLatestMessages@{getLatestMessages}!MessageController@{MessageController}}
+\doxysubsubsection{\texorpdfstring{getLatestMessages()}{getLatestMessages()}}
+{\footnotesize\ttfamily get\+Latest\+Messages (\begin{DoxyParamCaption}\item[{int}]{\$user\+Id }\end{DoxyParamCaption})}
+
+Méthode pour récupérer les derniers messages entre un utilisateur et ses contacts
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$user\+Id} & ID de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Liste des derniers messages 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1controllers_1_1_message_controller_adfb8b8552b44a58c84a7817165d176ce}\label{class_app_1_1controllers_1_1_message_controller_adfb8b8552b44a58c84a7817165d176ce} 
+\index{MessageController@{MessageController}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!MessageController@{MessageController}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily send\+Message (\begin{DoxyParamCaption}\item[{int}]{\$sender\+Id,  }\item[{int}]{\$recipient\+Id,  }\item[{string}]{\$content }\end{DoxyParamCaption})}
+
+Méthode pour envoyer un message à un contact
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$sender\+Id} & ID de l\textquotesingle{}expéditeur \\
+\hline
+int & {\em \$recipient\+Id} & ID du destinataire \\
+\hline
+string & {\em \$content} & Contenu du message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Succès de l\textquotesingle{}envoi du message 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Controllers/\mbox{\hyperlink{_message_controller_8php}{Message\+Controller.\+php}}\end{DoxyCompactItemize}

@@ -131,6 +131,15 @@ padding: 15px;
     gap: 20px;
     font-weight: bold;
 }
+.userCreateAdmoin{
+    display:  flex;
+    flex-direction: column;
+}
+.userCreateAdmoin input{
+    border: 1px solid black;
+    height: 35px;
+    border-radius: 5px;
+}
 
 @media only screen and (max-width: 874px) {
     .header__dashboard{

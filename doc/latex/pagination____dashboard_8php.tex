@@ -1,0 +1,40 @@
+\doxysection{views/components/pagination\+\_\+\+\_\+dashboard.php File Reference}
+\hypertarget{pagination____dashboard_8php}{}\label{pagination____dashboard_8php}\index{views/components/pagination\_\_dashboard.php@{views/components/pagination\_\_dashboard.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pagination____dashboard_8php_a047170d6020a882807665812a27e2525}{\$sql}} = "{}SELECT COUNT(\texorpdfstring{$\ast$}{*}) as total FROM utilisateurs"{}
+\item 
+\mbox{\hyperlink{pagination____dashboard_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result}} = \$db-\/$>$query(\$sql)
+\item 
+\mbox{\hyperlink{pagination____dashboard_8php_aa1d731aa570613e5bcff831bb10e9b87}{\$row}} = \$result-\/$>$fetch(PDO\+::\+FETCH\+\_\+\+ASSOC)
+\item 
+\mbox{\hyperlink{pagination____dashboard_8php_a9d270d95ca53a5ae61ad917752416d12}{\$total\+Pages}} = ceil(\$row\mbox{[}\textquotesingle{}total\textquotesingle{}\mbox{]} / \$items\+Per\+Page)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{pagination____dashboard_8php_a112ef069ddc0454086e3d1e6d8d55d07}\label{pagination____dashboard_8php_a112ef069ddc0454086e3d1e6d8d55d07} 
+\index{pagination\_\_dashboard.php@{pagination\_\_dashboard.php}!\$result@{\$result}}
+\index{\$result@{\$result}!pagination\_\_dashboard.php@{pagination\_\_dashboard.php}}
+\doxysubsubsection{\texorpdfstring{\$result}{\$result}}
+{\footnotesize\ttfamily \$result = \$db-\/$>$query(\$sql)}
+
+\Hypertarget{pagination____dashboard_8php_aa1d731aa570613e5bcff831bb10e9b87}\label{pagination____dashboard_8php_aa1d731aa570613e5bcff831bb10e9b87} 
+\index{pagination\_\_dashboard.php@{pagination\_\_dashboard.php}!\$row@{\$row}}
+\index{\$row@{\$row}!pagination\_\_dashboard.php@{pagination\_\_dashboard.php}}
+\doxysubsubsection{\texorpdfstring{\$row}{\$row}}
+{\footnotesize\ttfamily \$row = \$result-\/$>$fetch(PDO\+::\+FETCH\+\_\+\+ASSOC)}
+
+\Hypertarget{pagination____dashboard_8php_a047170d6020a882807665812a27e2525}\label{pagination____dashboard_8php_a047170d6020a882807665812a27e2525} 
+\index{pagination\_\_dashboard.php@{pagination\_\_dashboard.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!pagination\_\_dashboard.php@{pagination\_\_dashboard.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{\$sql}}
+{\footnotesize\ttfamily \$sql = "{}SELECT COUNT(\texorpdfstring{$\ast$}{*}) as total FROM utilisateurs"{}}
+
+\Hypertarget{pagination____dashboard_8php_a9d270d95ca53a5ae61ad917752416d12}\label{pagination____dashboard_8php_a9d270d95ca53a5ae61ad917752416d12} 
+\index{pagination\_\_dashboard.php@{pagination\_\_dashboard.php}!\$totalPages@{\$totalPages}}
+\index{\$totalPages@{\$totalPages}!pagination\_\_dashboard.php@{pagination\_\_dashboard.php}}
+\doxysubsubsection{\texorpdfstring{\$totalPages}{\$totalPages}}
+{\footnotesize\ttfamily \$total\+Pages = ceil(\$row\mbox{[}\textquotesingle{}total\textquotesingle{}\mbox{]} / \$items\+Per\+Page)}
+
