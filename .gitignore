@@ -11,4 +11,4 @@ docker-compose.yml
 public/dashboard/creationDatabase.sql
 
 
-/vendor/
+vendor/

@@ -1,0 +1,97 @@
+\doxysection{Map Class Reference}
+\hypertarget{class_map}{}\label{class_map}\index{Map@{Map}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_map_a1751e0e83ccf4736312395a26d32e8cc}{calculer\+Distance\+Longitude}} (float \$latitude\+Degres)
+\item 
+static \mbox{\hyperlink{class_map_aec9f4ea44d9e6d6863123dabc97a70ae}{haversine\+Distance\+List}} (array \$my\+Points, array \$users\+Points, float \$max\+Distance)
+\item 
+static \mbox{\hyperlink{class_map_ae56208dd02a25f2114e9dabb0c009850}{get\+Close\+Users}} (\$lat, \$lon, \$distance)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_map_a27ae83028fe41d12b56a57e2f670b3fb}{MAX\+\_\+\+DISTANCE}} = 5.\+5
+\item 
+const \mbox{\hyperlink{class_map_aabaad7a967695e8a9cce7a62bd266873}{EARTH\+\_\+\+RADIUS}} = 6371
+\item 
+const \mbox{\hyperlink{class_map_ab38dc2031d95a04dfb738a5dfb2e27ac}{EARTH\+\_\+\+CIRCUMFERENCE}} = self\+::\+EARTH\+\_\+\+RADIUS \texorpdfstring{$\ast$}{*} 2 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_a1751e0e83ccf4736312395a26d32e8cc}\label{class_map_a1751e0e83ccf4736312395a26d32e8cc} 
+\index{Map@{Map}!calculerDistanceLongitude@{calculerDistanceLongitude}}
+\index{calculerDistanceLongitude@{calculerDistanceLongitude}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{calculerDistanceLongitude()}{calculerDistanceLongitude()}}
+{\footnotesize\ttfamily static calculer\+Distance\+Longitude (\begin{DoxyParamCaption}\item[{float}]{\$latitude\+Degres }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+float & {\em \$latitude\+Degres} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float\texorpdfstring{$\vert$}{|}int valeur de 1 degre de longitude a une latitude donnée 
+\end{DoxyReturn}
+\Hypertarget{class_map_ae56208dd02a25f2114e9dabb0c009850}\label{class_map_ae56208dd02a25f2114e9dabb0c009850} 
+\index{Map@{Map}!getCloseUsers@{getCloseUsers}}
+\index{getCloseUsers@{getCloseUsers}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getCloseUsers()}{getCloseUsers()}}
+{\footnotesize\ttfamily static get\+Close\+Users (\begin{DoxyParamCaption}\item[{}]{\$lat,  }\item[{}]{\$lon,  }\item[{}]{\$distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$lat} & \\
+\hline
+{\em \$lon} & \\
+\hline
+{\em \$distance} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\texorpdfstring{$\vert$}{|}array 
+\end{DoxyReturn}
+\Hypertarget{class_map_aec9f4ea44d9e6d6863123dabc97a70ae}\label{class_map_aec9f4ea44d9e6d6863123dabc97a70ae} 
+\index{Map@{Map}!haversineDistanceList@{haversineDistanceList}}
+\index{haversineDistanceList@{haversineDistanceList}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{haversineDistanceList()}{haversineDistanceList()}}
+{\footnotesize\ttfamily static haversine\+Distance\+List (\begin{DoxyParamCaption}\item[{array}]{\$my\+Points,  }\item[{array}]{\$users\+Points,  }\item[{float}]{\$max\+Distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$my\+Points} & points sur le trajet de la personne \\
+\hline
+array & {\em \$users\+Points} & points des utilisateurs a vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array distance entre les points 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{class_map_ab38dc2031d95a04dfb738a5dfb2e27ac}\label{class_map_ab38dc2031d95a04dfb738a5dfb2e27ac} 
+\index{Map@{Map}!EARTH\_CIRCUMFERENCE@{EARTH\_CIRCUMFERENCE}}
+\index{EARTH\_CIRCUMFERENCE@{EARTH\_CIRCUMFERENCE}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{EARTH\_CIRCUMFERENCE}{EARTH\_CIRCUMFERENCE}}
+{\footnotesize\ttfamily const EARTH\+\_\+\+CIRCUMFERENCE = self\+::\+EARTH\+\_\+\+RADIUS \texorpdfstring{$\ast$}{*} 2 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI}
+
+\Hypertarget{class_map_aabaad7a967695e8a9cce7a62bd266873}\label{class_map_aabaad7a967695e8a9cce7a62bd266873} 
+\index{Map@{Map}!EARTH\_RADIUS@{EARTH\_RADIUS}}
+\index{EARTH\_RADIUS@{EARTH\_RADIUS}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{EARTH\_RADIUS}{EARTH\_RADIUS}}
+{\footnotesize\ttfamily const EARTH\+\_\+\+RADIUS = 6371}
+
+\Hypertarget{class_map_a27ae83028fe41d12b56a57e2f670b3fb}\label{class_map_a27ae83028fe41d12b56a57e2f670b3fb} 
+\index{Map@{Map}!MAX\_DISTANCE@{MAX\_DISTANCE}}
+\index{MAX\_DISTANCE@{MAX\_DISTANCE}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{MAX\_DISTANCE}{MAX\_DISTANCE}}
+{\footnotesize\ttfamily const MAX\+\_\+\+DISTANCE = 5.\+5}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+helpers/class/\mbox{\hyperlink{_map_8php}{Map.\+php}}\end{DoxyCompactItemize}

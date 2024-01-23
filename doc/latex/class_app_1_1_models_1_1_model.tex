@@ -1,0 +1,257 @@
+\doxysection{Model Class Reference}
+\hypertarget{class_app_1_1_models_1_1_model}{}\label{class_app_1_1_models_1_1_model}\index{Model@{Model}}
+Inheritance diagram for Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_app_1_1_models_1_1_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_aa02306a5f1b8f5dff3b54dd510fd00af}{\+\_\+\+\_\+construct}} (array \$data=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_a4ffd29b37acdf3a126f9d79d63f1e04e}{hydrate}} (array \$data)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_ada2f4fd9afd2d828ff6a6b8b4f3e41ea}{format\+Date}} (?string \$date)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_ad0a8934bb4c625528094df2b70db69a8}{format\+Date\+Time}} (string \$date\+Time)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_aadd44410774f6d786775cea92581e53c}{save}} (string \$table\+Name=null, string \$id\+Name=null, bool \$forced=false)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_a98755ced9234f0d1cc8d0c1db8dc944e}{get\+Changed\+Fields}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_a658defb34762c8f40085aec87e16ba1a}{to\+Array}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_a95fec3be88d1e13bbdfbb02b13e0e074}{prepare\+Created\+At}} (string\texorpdfstring{$\vert$}{|}Date\+Time\texorpdfstring{$\vert$}{|}null \$created\+\_\+at)
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_model_ad7a57f0fdc4dcd22f2b8e1ab562ee421}{set\+Fields}} (\$name, \$value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_model_ab4c70f0db5b4e7005f4acf8f9444c374}{static\+Delete}} (int \$id)
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_model_af36e452062f59422e41398ea7ed12702}{find\+By\+Id}} (int \$id, array \$table\+Info, array \$order\+Join=\mbox{[}$\,$\mbox{]}, array \$where\+Info=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_app_1_1_models_1_1_model_a9080012eea751990031cfbb59d168c22}{CREATED\+\_\+\+AT\+\_\+\+FORMAT}} = \textquotesingle{}Y-\/m-\/d H\+:i\+:s\textquotesingle{}
+\item 
+array \mbox{\hyperlink{class_app_1_1_models_1_1_model_a6b6adc465c91160537c3f385c1a362c8}{\$changed\+Fields}} = \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{class_app_1_1_models_1_1_model_a89c530213f1a606b2ce4f815274e2d41}{\$id\+Utilisateur}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_app_1_1_models_1_1_model_a6c9b06b5c4aab93003056f95d59d5f2e}{\$child\+Table\+Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_app_1_1_models_1_1_model_aa02306a5f1b8f5dff3b54dd510fd00af}\label{class_app_1_1_models_1_1_model_aa02306a5f1b8f5dff3b54dd510fd00af} 
+\index{Model@{Model}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$data = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+Constructeur de la classe Model
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & Données à hydrater \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_models_1_1_model_a13bdffdd926f26b825ea57066334ff01}\label{class_app_1_1_models_1_1_model_a13bdffdd926f26b825ea57066334ff01} 
+\index{Model@{Model}!delete@{delete}}
+\index{delete@{delete}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode pour supprimer les données de la base de données
+
+\begin{DoxyReturn}{Returns}
+bool Succès de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_af36e452062f59422e41398ea7ed12702}\label{class_app_1_1_models_1_1_model_af36e452062f59422e41398ea7ed12702} 
+\index{Model@{Model}!findById@{findById}}
+\index{findById@{findById}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{findById()}{findById()}}
+{\footnotesize\ttfamily static find\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{array}]{\$table\+Info,  }\item[{array}]{\$order\+Join = {\ttfamily \mbox{[}\mbox{]}},  }\item[{array}]{\$where\+Info = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_app_1_1_models_1_1_model_ada2f4fd9afd2d828ff6a6b8b4f3e41ea}\label{class_app_1_1_models_1_1_model_ada2f4fd9afd2d828ff6a6b8b4f3e41ea} 
+\index{Model@{Model}!formatDate@{formatDate}}
+\index{formatDate@{formatDate}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{formatDate()}{formatDate()}}
+{\footnotesize\ttfamily format\+Date (\begin{DoxyParamCaption}\item[{?string}]{\$date }\end{DoxyParamCaption})}
+
+Méthode pour formater une date selon le format requis
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | null & {\em \$date} & Date à formater \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Date formatée 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_ad0a8934bb4c625528094df2b70db69a8}\label{class_app_1_1_models_1_1_model_ad0a8934bb4c625528094df2b70db69a8} 
+\index{Model@{Model}!formatDateTime@{formatDateTime}}
+\index{formatDateTime@{formatDateTime}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{formatDateTime()}{formatDateTime()}}
+{\footnotesize\ttfamily format\+Date\+Time (\begin{DoxyParamCaption}\item[{string}]{\$date\+Time }\end{DoxyParamCaption})}
+
+Méthode pour formater une date et/ou une heure selon le format requis
+
+
+\begin{DoxyParams}[1]{Parameters}
+Date\+Time | string | null & {\em \$date\+Time} & Date/heure à formater \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Date/heure formatée 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_a98755ced9234f0d1cc8d0c1db8dc944e}\label{class_app_1_1_models_1_1_model_a98755ced9234f0d1cc8d0c1db8dc944e} 
+\index{Model@{Model}!getChangedFields@{getChangedFields}}
+\index{getChangedFields@{getChangedFields}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getChangedFields()}{getChangedFields()}}
+{\footnotesize\ttfamily get\+Changed\+Fields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode pour obtenir uniquement les champs modifiés
+
+\begin{DoxyReturn}{Returns}
+array Champs modifiés 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_a4ffd29b37acdf3a126f9d79d63f1e04e}\label{class_app_1_1_models_1_1_model_a4ffd29b37acdf3a126f9d79d63f1e04e} 
+\index{Model@{Model}!hydrate@{hydrate}}
+\index{hydrate@{hydrate}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{hydrate()}{hydrate()}}
+{\footnotesize\ttfamily hydrate (\begin{DoxyParamCaption}\item[{array}]{\$data }\end{DoxyParamCaption})}
+
+Méthode pour hydrater l\textquotesingle{}objet à partir d\textquotesingle{}un tableau associatif
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & Données à hydrater \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_app_1_1_models_1_1_model_a95fec3be88d1e13bbdfbb02b13e0e074}\label{class_app_1_1_models_1_1_model_a95fec3be88d1e13bbdfbb02b13e0e074} 
+\index{Model@{Model}!prepareCreatedAt@{prepareCreatedAt}}
+\index{prepareCreatedAt@{prepareCreatedAt}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{prepareCreatedAt()}{prepareCreatedAt()}}
+{\footnotesize\ttfamily prepare\+Created\+At (\begin{DoxyParamCaption}\item[{string\texorpdfstring{$\vert$}{|}Date\+Time\texorpdfstring{$\vert$}{|}null}]{\$created\+\_\+at }\end{DoxyParamCaption})}
+
+prepare\+Created\+At
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$created\+\_\+at} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_aadd44410774f6d786775cea92581e53c}\label{class_app_1_1_models_1_1_model_aadd44410774f6d786775cea92581e53c} 
+\index{Model@{Model}!save@{save}}
+\index{save@{save}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily save (\begin{DoxyParamCaption}\item[{string}]{\$table\+Name = {\ttfamily null},  }\item[{string}]{\$id\+Name = {\ttfamily null},  }\item[{bool}]{\$forced = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Méthode pour sauvegarder ou mettre à jour les données dans la base de données
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$forced} & Indique si la mise à jour est forcée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Succès de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_ad7a57f0fdc4dcd22f2b8e1ab562ee421}\label{class_app_1_1_models_1_1_model_ad7a57f0fdc4dcd22f2b8e1ab562ee421} 
+\index{Model@{Model}!setFields@{setFields}}
+\index{setFields@{setFields}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{setFields()}{setFields()}}
+{\footnotesize\ttfamily set\+Fields (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+set\+Fields
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$name} & \\
+\hline
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_ab4c70f0db5b4e7005f4acf8f9444c374}\label{class_app_1_1_models_1_1_model_ab4c70f0db5b4e7005f4acf8f9444c374} 
+\index{Model@{Model}!staticDelete@{staticDelete}}
+\index{staticDelete@{staticDelete}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{staticDelete()}{staticDelete()}}
+{\footnotesize\ttfamily static static\+Delete (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Méthode statique pour supprimer un enregistrement par ID de la base de données
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & ID de l\textquotesingle{}enregistrement à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Succès de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_models_1_1_model_a658defb34762c8f40085aec87e16ba1a}\label{class_app_1_1_models_1_1_model_a658defb34762c8f40085aec87e16ba1a} 
+\index{Model@{Model}!toArray@{toArray}}
+\index{toArray@{toArray}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{toArray()}{toArray()}}
+{\footnotesize\ttfamily to\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode pour convertir les données d\textquotesingle{}objet en tableau associatif
+
+\begin{DoxyReturn}{Returns}
+array Données d\textquotesingle{}objet sous forme de tableau 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_app_1_1_models_1_1_itineraire_a658defb34762c8f40085aec87e16ba1a}{Itineraire}}, \mbox{\hyperlink{class_app_1_1_models_1_1_point_a658defb34762c8f40085aec87e16ba1a}{Point}}, and \mbox{\hyperlink{class_app_1_1_models_1_1_user_a658defb34762c8f40085aec87e16ba1a}{User}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{class_app_1_1_models_1_1_model_a6b6adc465c91160537c3f385c1a362c8}\label{class_app_1_1_models_1_1_model_a6b6adc465c91160537c3f385c1a362c8} 
+\index{Model@{Model}!\$changedFields@{\$changedFields}}
+\index{\$changedFields@{\$changedFields}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{\$changedFields}{\$changedFields}}
+{\footnotesize\ttfamily array \$changed\+Fields = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_app_1_1_models_1_1_model_a6c9b06b5c4aab93003056f95d59d5f2e}\label{class_app_1_1_models_1_1_model_a6c9b06b5c4aab93003056f95d59d5f2e} 
+\index{Model@{Model}!\$childTableName@{\$childTableName}}
+\index{\$childTableName@{\$childTableName}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{\$childTableName}{\$childTableName}}
+{\footnotesize\ttfamily string \$child\+Table\+Name\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_app_1_1_models_1_1_model_a89c530213f1a606b2ce4f815274e2d41}\label{class_app_1_1_models_1_1_model_a89c530213f1a606b2ce4f815274e2d41} 
+\index{Model@{Model}!\$idUtilisateur@{\$idUtilisateur}}
+\index{\$idUtilisateur@{\$idUtilisateur}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{\$idUtilisateur}{\$idUtilisateur}}
+{\footnotesize\ttfamily int \$id\+Utilisateur\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_app_1_1_models_1_1_model_a9080012eea751990031cfbb59d168c22}\label{class_app_1_1_models_1_1_model_a9080012eea751990031cfbb59d168c22} 
+\index{Model@{Model}!CREATED\_AT\_FORMAT@{CREATED\_AT\_FORMAT}}
+\index{CREATED\_AT\_FORMAT@{CREATED\_AT\_FORMAT}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{CREATED\_AT\_FORMAT}{CREATED\_AT\_FORMAT}}
+{\footnotesize\ttfamily const CREATED\+\_\+\+AT\+\_\+\+FORMAT = \textquotesingle{}Y-\/m-\/d H\+:i\+:s\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Models/\mbox{\hyperlink{_model_8php}{Model.\+php}}\end{DoxyCompactItemize}

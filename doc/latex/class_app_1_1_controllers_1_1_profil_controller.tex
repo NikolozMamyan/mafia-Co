@@ -1,0 +1,156 @@
+\doxysection{Profil\+Controller Class Reference}
+\hypertarget{class_app_1_1_controllers_1_1_profil_controller}{}\label{class_app_1_1_controllers_1_1_profil_controller}\index{ProfilController@{ProfilController}}
+Inheritance diagram for Profil\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_app_1_1_controllers_1_1_profil_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_a149eb92716c1084a935e04a8d95f7347}{index}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_a082405d89acd6835c3a7c7a08a7adbab}{logout}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_app_1_1_controllers_1_1_controller}{Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_controller_a2ce9ac60d2f9d2ca9231275f10798712}{render}} (string \$view, array \$data=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_aff4b03f2cb09cf751487830bd68e7f74}{get\+User\+By\+Current\+Id}} (\$current\+Id)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_a99049464be90fdd67c016de412ef6eaf}{get\+Itineraire\+By\+Current\+Id}} (\$id\+Itineraire)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_abee2e52eea9bfe867f3e04c400ed5e6d}{get\+Itineraire\+Jour\+Semaine\+By\+Current\+Id}} (\$id\+Itineraire)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_adeab9567c8c88667e5ba608f96091e99}{get\+Joursemaine\+By\+Current\+Id}} (\$jours)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_a68b815ce5a675fc8bc9b372adb4170ab}{get\+Role\+By\+Current\+Id}} (\$id\+Role)
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_profil_controller_aa96a1b08e64429b1c7bc786f0c6cdfbe}{get\+Point\+By\+Current\+Id}} (\$id\+Point)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_app_1_1_controllers_1_1_controller}{Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controllers_1_1_controller_a11d4d53bb11082f40b4abfc2d61a229c}{get\+Views\+Base\+Path}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_a99049464be90fdd67c016de412ef6eaf}\label{class_app_1_1_controllers_1_1_profil_controller_a99049464be90fdd67c016de412ef6eaf} 
+\index{ProfilController@{ProfilController}!getItineraireByCurrentId@{getItineraireByCurrentId}}
+\index{getItineraireByCurrentId@{getItineraireByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getItineraireByCurrentId()}{getItineraireByCurrentId()}}
+{\footnotesize\ttfamily get\+Itineraire\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$id\+Itineraire }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get itinerary information by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$id\+Itineraire} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Itineraire 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_abee2e52eea9bfe867f3e04c400ed5e6d}\label{class_app_1_1_controllers_1_1_profil_controller_abee2e52eea9bfe867f3e04c400ed5e6d} 
+\index{ProfilController@{ProfilController}!getItineraireJourSemaineByCurrentId@{getItineraireJourSemaineByCurrentId}}
+\index{getItineraireJourSemaineByCurrentId@{getItineraireJourSemaineByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getItineraireJourSemaineByCurrentId()}{getItineraireJourSemaineByCurrentId()}}
+{\footnotesize\ttfamily get\+Itineraire\+Jour\+Semaine\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$id\+Itineraire }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get itinerary weekdays by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$id\+Itineraire} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_adeab9567c8c88667e5ba608f96091e99}\label{class_app_1_1_controllers_1_1_profil_controller_adeab9567c8c88667e5ba608f96091e99} 
+\index{ProfilController@{ProfilController}!getJoursemaineByCurrentId@{getJoursemaineByCurrentId}}
+\index{getJoursemaineByCurrentId@{getJoursemaineByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getJoursemaineByCurrentId()}{getJoursemaineByCurrentId()}}
+{\footnotesize\ttfamily get\+Joursemaine\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$jours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get weekdays by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$jours} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_aa96a1b08e64429b1c7bc786f0c6cdfbe}\label{class_app_1_1_controllers_1_1_profil_controller_aa96a1b08e64429b1c7bc786f0c6cdfbe} 
+\index{ProfilController@{ProfilController}!getPointByCurrentId@{getPointByCurrentId}}
+\index{getPointByCurrentId@{getPointByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getPointByCurrentId()}{getPointByCurrentId()}}
+{\footnotesize\ttfamily get\+Point\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$id\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get point information by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$id\+Point} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_a68b815ce5a675fc8bc9b372adb4170ab}\label{class_app_1_1_controllers_1_1_profil_controller_a68b815ce5a675fc8bc9b372adb4170ab} 
+\index{ProfilController@{ProfilController}!getRoleByCurrentId@{getRoleByCurrentId}}
+\index{getRoleByCurrentId@{getRoleByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getRoleByCurrentId()}{getRoleByCurrentId()}}
+{\footnotesize\ttfamily get\+Role\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$id\+Role }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get user role by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$id\+Role} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_aff4b03f2cb09cf751487830bd68e7f74}\label{class_app_1_1_controllers_1_1_profil_controller_aff4b03f2cb09cf751487830bd68e7f74} 
+\index{ProfilController@{ProfilController}!getUserByCurrentId@{getUserByCurrentId}}
+\index{getUserByCurrentId@{getUserByCurrentId}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{getUserByCurrentId()}{getUserByCurrentId()}}
+{\footnotesize\ttfamily get\+User\+By\+Current\+Id (\begin{DoxyParamCaption}\item[{}]{\$current\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get user information by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$current\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_controllers_1_1_profil_controller_a149eb92716c1084a935e04a8d95f7347}\label{class_app_1_1_controllers_1_1_profil_controller_a149eb92716c1084a935e04a8d95f7347} 
+\index{ProfilController@{ProfilController}!index@{index}}
+\index{index@{index}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Display the user\textquotesingle{}s profile page. \Hypertarget{class_app_1_1_controllers_1_1_profil_controller_a082405d89acd6835c3a7c7a08a7adbab}\label{class_app_1_1_controllers_1_1_profil_controller_a082405d89acd6835c3a7c7a08a7adbab} 
+\index{ProfilController@{ProfilController}!logout@{logout}}
+\index{logout@{logout}!ProfilController@{ProfilController}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Log out the user. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Controllers/\mbox{\hyperlink{_profil_controller_8php}{Profil\+Controller.\+php}}\end{DoxyCompactItemize}

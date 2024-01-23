@@ -1,0 +1,42 @@
+\doxysection{public/index.php File Reference}
+\hypertarget{public_2index_8php}{}\label{public_2index_8php}\index{public/index.php@{public/index.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{public_2index_8php_acf215f34a917d014776ce684a9ee8909}{\$url}} = \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{public_2index_8php_af4105acdee5d34dc96c2aec4058b81f9}{\$route}} = Route\+::get\+Route\+By\+Url(\$url)
+\item 
+if(\$route) \mbox{\hyperlink{public_2index_8php_a71ec23b59e7449f1a6e1c3e297b82155}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{public_2index_8php_af4105acdee5d34dc96c2aec4058b81f9}\label{public_2index_8php_af4105acdee5d34dc96c2aec4058b81f9} 
+\index{index.php@{index.php}!\$route@{\$route}}
+\index{\$route@{\$route}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$route}{\$route}}
+{\footnotesize\ttfamily \$route = Route\+::get\+Route\+By\+Url(\$url)}
+
+Attempt to find a route based on the provided URL. \Hypertarget{public_2index_8php_acf215f34a917d014776ce684a9ee8909}\label{public_2index_8php_acf215f34a917d014776ce684a9ee8909} 
+\index{index.php@{index.php}!\$url@{\$url}}
+\index{\$url@{\$url}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$url}{\$url}}
+{\footnotesize\ttfamily \$url = \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}REQUEST\+\_\+\+URI\textquotesingle{}\mbox{]}}
+
+Get the current URL from the server request. \Hypertarget{public_2index_8php_a71ec23b59e7449f1a6e1c3e297b82155}\label{public_2index_8php_a71ec23b59e7449f1a6e1c3e297b82155} 
+\index{index.php@{index.php}!else@{else}}
+\index{else@{else}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if ( \$route) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ http\_response\_code(404)}
+
+\end{DoxyCode}
+If a route is found, attempt to execute the corresponding controller method. Create a new instance of the controller associated with the route.
+
+Check if the method exists in the controller and execute it.
