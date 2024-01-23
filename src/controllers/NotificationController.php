@@ -9,10 +9,14 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        $notification = DB::statement(
-            'SELECT * FROM notifications WHERE idUtilisateur = :idUtilisateur AND isReadNotification = 0',
+        $notifications = DB::fetch(
+            'SELECT * FROM notifications '
+                . 'INNER JOIN utilisateurs ON notifications.idUtilisateur = utilisateurs.idUtilisateur '
+                . 'INNER JOIN roles ON utilisateurs.idRole = roles.idRole '
+                . 'INNER JOIN points ON utilisateurs.idpoint = points.idpoint '
+                . 'WHERE notifications.idUtilisateur = :idUtilisateur AND isReadNotification = 0',
             ['idUtilisateur' => Auth::getSessionUserId()]
         );
-        $this->render('notify/notification', ['notification' => $notification]);
+        $this->render('notify/notification', ['notifications' => $notifications]);
     }
 }

@@ -295,11 +295,13 @@ class AuthController extends Controller
         )[0];
 
         if (
-            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm)) ||
-            (!empty($photo) && !$this->validatePicture($photo))
+            (!empty($password) && !empty($passwordConfirm) && !$this->validateCredentials($password, $passwordConfirm))
         ) {
             redirectToRouteAndExit('modify');
         }
+
+        $this->validatePicture($photo);
+
 
         $dataUser['motDePasseUtilisateur'] = password_hash($password, PASSWORD_DEFAULT);
 
