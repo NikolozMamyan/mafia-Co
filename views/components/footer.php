@@ -12,7 +12,7 @@
                 <li><a href="<?php routeEcho('search'); ?>"><i class="covoiturage-search"></i>Rechercher</a></li>
                 <li><a href="<?php routeEcho('supportIndex'); ?>"><i class="covoiturage-support"></i>Support technique</a></li>
                 <?php if (Auth::getCurrentUser()['idRole'] === 1) : ?>
-                    <li><a href="<?php routeEcho('admin'); ?>"><i class=""></i>Tableau de bord administrateur</a></li>
+                    <li><a href="<?php routeEcho('index'); ?>"><i class=""></i>Tableau de bord administrateur</a></li>
                 <?php endif ?>
             </ul>
         <?php endif ?>
