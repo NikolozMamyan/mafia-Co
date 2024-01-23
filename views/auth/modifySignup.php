@@ -6,12 +6,12 @@
 <header class=" container mb-5">
 <?php require_once base_path('views/components/header.php'); ?>
     </header>
-    <main>
+    <main class="container">
         <section class="container-fluid ">
             <div class="row ">
                 <!-- titre -->
                 <div class="col my-3 text-center ">
-                    <h2 class="pb-3 title__signup ">Modifier mes informations</h2>
+                    <h1 class="page-title pb-3 title__signup ">Modifier mes informations</h1>
                 </div>
             </div>
         </section>

@@ -1,4 +1,3 @@
-
 <!-- login.php -->
 <?php require_once base_path('views/components/headDev.php');
 isset($_SESSION);
@@ -19,26 +18,26 @@ unset($_SESSION);
       <p>Rejoignez notre communauté de covoitureurs en vous connectant ou en vous inscrivant !</p>
       <p id="message-inscription">Pas encore inscrit ? <a href="<?php routeEcho('register'); ?>">Créez votre compte en quelques minutes !</a></p>
 
-      <form class="form__login" action="<?php routeEcho('login.check'); ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form class="form__login" action="<?php routeEcho('login.check'); ?>" method="POST" enctype="multipart/form-data" autocomplete="off" name="loginForm">
         <input type="text" name="action" value="check" hidden>
         <div class="form-group">
-        <label for="login">Votre adresse email
-        <br><span class="emailError"></span>
-          <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
-          
-        </label>
+          <label for="login">Votre adresse email
+            <br><span class="emailError"></span>
+            <input type="email" name="login" placeholder="Entrez ici votre adresse email" />
+
+          </label>
         </div>
         <div class="form-group">
-        <label for="password">Votre mot de passe
-        
-          <a href="#" class="pwdForgotten">Mot de passe oublié ?</a>
-          <br><span class="passwordError"></span>
-          <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
-          <!-- <span id="show-hide-password"><i class="covoiturage-eye"></i></span> -->
-          
-        </label>
+          <label for="password">Votre mot de passe
+
+            <a href="#" class="pwdForgotten">Mot de passe oublié ?</a>
+            <br><span class="passwordError"></span>
+            <input type="password" name="password" placeholder="Entrez ici votre mot de passe" />
+            <!-- <span id="show-hide-password"><i class="covoiturage-eye"></i></span> -->
+
+          </label>
         </div>
-        
+
         <input type="submit" name="submitbtn" value="Connexion" />
       </form>
     </main>

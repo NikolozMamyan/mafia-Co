@@ -127,6 +127,14 @@
   
   /* Boutons et liens
   --------------------------------------------- */
+
+  a {
+    color: var(--primary-color);
+  }
+
+  a:hover, a:focus {
+    color: var(--text-color);
+  }
   
   a, button, input[type="submit"] {
       transition: ease all 0.25s;

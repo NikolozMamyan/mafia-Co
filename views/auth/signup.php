@@ -9,21 +9,26 @@ unset($_SESSION);
 //dd($_SESSION);  
 ?>
 
-<body id="signupPage">
-    <header>
+<?php if ($page === 'register') : ?>
+    <body id="signupPage">
+<?php else : ?>
+    <body>
+<?php endif ?>
+
+    <header class="container">
 
         <?php if ($page === 'register') : ?>
-            <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
+            <img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" />
         <?php else : ?>
             <?php require_once base_path('views/components/header.php'); ?>
         <?php endif ?>
     </header>
-    <main>
+    <main class="container">
         <section class="container-fluid ">
             <div class="row ">
                 <!-- titre -->
                 <div class="col mb-3 text-center ">
-                    <h2 class="pb-3 title__signup "><?php echo ($title) ?></h2>
+                        <h1 class="pb-3 title__signup page-title"><?php echo ($title) ?></h1>
                 </div>
             </div>
         </section>
@@ -115,7 +120,7 @@ unset($_SESSION);
                                 </div>
                             </div>
                             <!-- role (radio btn) -->
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-12 mb-5 mt-4">
                                 <span class="invalid-feedback check">
                                     Le choix du role est obligatoire !
                                 </span>
@@ -150,11 +155,11 @@ unset($_SESSION);
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="CGU" value="yes" id="invalidCheck2" required>
                                         <label class="form-check-label " for="invalidCheck2">
-                                            Accepter les termes et <a href="<?php routeEcho('conditionIndex'); ?>">conditions générals d'utilisation</a>
+                                            J'accepte les termes et <a href="<?php routeEcho('conditionIndex'); ?>">conditions générales d'utilisation</a>
                                         </label>
 
                                         <span class="invalid-feedback-terms">
-                                            les termes et conditions sont obligatoire !
+                                            
                                         </span>
                                     </div>
                                 </div>
@@ -165,7 +170,7 @@ unset($_SESSION);
                 <!-- section itineraire hebdo-->
                 <section class="col-md-5 border bg__roundP--100  ">
                     <div class="row mb-3 ">
-                        <h3 class="d-flex justify-content-center title__h3 mt-2">Votre point de départ et d'arrivé</h3>
+                        <h3 class="d-flex justify-content-center title__h3 mt-2">Votre point de départ et d'arrivée</h3>
                         <div class="col-md-5 row">
                             <label class="offset-2 col-10 py-2" for="">Départ</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
@@ -183,7 +188,7 @@ unset($_SESSION);
                             <img src="assets/images/arrows-up-down-solid.svg" class='flag__style mt-3 ms-3' alt="Fleche noire">
                         </div>
                         <div class="col-md-5 row">
-                            <label class="offset-2 col-10 py-2" for="">Arrivé</label>
+                            <label class="offset-2 col-10 py-2" for="">Arrivée</label>
                             <span class='col-2 p-1 d-flex justify-content-center'>
                                 <img src="assets/images/flagR.svg" class='flag__style ' alt="Drapeau Rogue">
                             </span>
@@ -260,8 +265,10 @@ unset($_SESSION);
                 </div>
 
                 <!-- link login -->
-                <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="<?php routeEcho('login'); ?>">Connectez-vous </a>
-                </div>
+                <?php if ($page === 'register') : ?>
+                    <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="<?php routeEcho('login'); ?>">Connectez-vous </a>
+                    <?php endif ?>
+                    </div>
             </form>
 
         </div>

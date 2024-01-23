@@ -83,6 +83,13 @@
 .btn-group-toggle label{
   font-size: 0.85em;
 }
+
+form.form__signup label[for=your-password], form.form__signup label[for=your-confirm] {
+  width: 100%;
+}
+
+
+
 @media (max-width: 455px) {
   .btn__media {
     flex-direction: column;
