@@ -1,5 +1,6 @@
 <header class="header__dashboard">
-        <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logo__dashboard">
+    <a href="/"> <img src="../assets/iconsDashboard/LogoCCI.svg" alt="Logo" class="logo__dashboard"></a>
+       
             <nav class="navBar__dashboard">
                 <form action="" class="search__dashboard">
                     <button class="btnSearch__dashboard">

@@ -20,6 +20,7 @@ class DashboardController extends Controller
     {
         $this->render('admin/index');
     }
+
     public function utilisateurs(): void
     {
         $this->render('admin/utilisateurs');
@@ -29,6 +30,7 @@ class DashboardController extends Controller
     {
         $this->render('admin/fromTraitement/deleteUserAdmin');
     }
+
     public function createUserAdmin(): void
     {
         $this->render('admin/createUserAdmin');
@@ -38,11 +40,22 @@ class DashboardController extends Controller
     {
         $this->render('admin/editUserAdmin');
     }
+
     public function   userCreateTraitment(): void
     {
         $this->render('admin/fromTraitement/userCreateTraitment');
     }
-  
+    public function trajetsDashboard(): void
+    {
+        $this->render('admin/trajetsDashboard');
+    }
+   
+    public function logout(): void
+    {
+        unset($_SESSION);
+        session_destroy();
+        redirectToRouteAndExit('login');
+    }
 
     public function getTotalUsers() {
         $query = "SELECT COUNT(*) AS total FROM utilisateurs";

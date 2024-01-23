@@ -84,12 +84,13 @@ class Map
                 . "JOIN points ON utilisateurs.idPoint = points.idPoint "
                 . "WHERE (points.latitude BETWEEN :lat1 AND :lat2) "
                 . "AND (points.longitude BETWEEN :lon1 AND :lon2) "
-                . "AND idRole != 1 AND compteActif = 1",
+                . "AND idRole != 1 AND compteActif = 1 AND idUtilisateur <> :idUtilisateur",
             [
                 'lat1' => strval($lat - $distance),
                 'lat2' => strval($lat + $distance),
                 'lon1' => strval($lon - $distance),
                 'lon2' => strval($lon + $distance),
+                'idUtilisateur' => Auth::getSessionUserId(),
             ]
         );
     }

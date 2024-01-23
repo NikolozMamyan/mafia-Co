@@ -260,8 +260,10 @@ unset($_SESSION);
                 </div>
 
                 <!-- link login -->
-                <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="<?php routeEcho('login'); ?>">Connectez-vous </a>
-                </div>
+                <?php if ($page === 'register') : ?>
+                    <div class="link offset-md-10 col-md-2 mb-5">Déjà inscrit? <a href="<?php routeEcho('login'); ?>">Connectez-vous </a>
+                    <?php endif ?>
+                    </div>
             </form>
 
         </div>

@@ -13,7 +13,7 @@ class ProfilController extends Controller
 
     public function index()
     {
-        //NotificationController::computeNotifications();
+        NotificationController::computeNotifications();
 
         $currentUser = Auth::getCurrentUser();
 
@@ -29,8 +29,6 @@ class ProfilController extends Controller
             $arrivee = $this->getPointByCurrentId(1);
             $notificationCount = User::getNotificationCount();
             $messageCount = User::getMessageCount();
-            // var_dump(  $itineraire);
-            // exit;
             $this->render('profil/profilUser', [
                 'page' => 'index',
                 'user' => $user,
@@ -48,6 +46,7 @@ class ProfilController extends Controller
             $this->render('auth/login');
         }
     }
+
     public function logout(): void
     {
         unset($_SESSION);

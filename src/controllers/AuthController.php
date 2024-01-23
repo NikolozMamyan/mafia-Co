@@ -411,11 +411,6 @@ class AuthController extends Controller
             $photo = $newFileName;
         }
 
-        // Check if the file already exists
-        if (file_exists($targetFile)) {
-            errors("Sorry, the file already exists.");
-            $uploadOk = false;
-        }
 
         // Check the file size (you can adjust this value)
         if ($_FILES["photo"]["size"] > self::MAX_PICTURE_SIZE) {

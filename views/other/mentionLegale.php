@@ -4,7 +4,12 @@
 <body>
     <header class=" container ">
 
-        <?php require_once base_path('views/components/header.php'); ?>
+        <?php if (empty($_SESSION)) : ?>
+            <h1><img src="assets/images/covoiturage-cci-campus-alsace-logo_defonce-noire.svg" alt="logo cci covoiturage" /></h1>
+            <a href="<?php routeEcho('login'); ?>">Retour</a>
+        <?php else : ?>
+            <?php require_once base_path('views/components/header.php'); ?>
+        <?php endif ?>
 
     </header>
 

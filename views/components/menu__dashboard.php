@@ -4,10 +4,10 @@
         <ul class="menu__dashboard">
             <li><a class="a__dashboard" href="admin"> <img src="../assets/iconsDashboard/Dashboard.svg" alt="Home"><span> Dashboard</span></a></li>
             <li><a class="a__dashboard"  href="adminUtilisateurs"> <img src="../assets/iconsDashboard/people.svg" alt="Utilisateurs"> <span> Utilisateurs</span></a></li>
-            <li><a class="a__dashboard"  href="../dashboard/trajetsDashboard.php"> <img src="../assets/iconsDashboard/folder-open.svg" alt="Trajets"> <span> Trajets</span></a></li>
+            <li><a class="a__dashboard"  href=""> <img src="../assets/iconsDashboard/folder-open.svg" alt="Trajets"> <span> Trajets</span></a></li>
             <li><a class="a__dashboard"  href="#"> <img src="../assets/iconsDashboard/message.svg" alt="Message"> <span> Messages</span></a></li>
-            <li><a class="a__dashboard"  href="#"> <img src="../assets/iconsDashboard/setting-2.svg" alt="Parametres"> <span> Parametres</span></a></li>
+            <li><a class="a__dashboard"  href="conditionGeneral"> <img src="../assets/iconsDashboard/setting-2.svg" alt="Parametres"> <span> Parametres</span></a></li>
         </ul>
-        <li class="deconnexion__dashboard" ><a class="a__dashboard"  href="#"> <img  src="../assets/iconsDashboard/logout.svg" alt="Deconnexion"> <span> Deconnexion</span></a></li>
+        <li class="deconnexion__dashboard" ><a class="a__dashboard"  href="<?php routeEcho('logout'); ?>"> <img  src="../assets/iconsDashboard/logout.svg" alt="Deconnexion"> <span> Deconnexion</span></a></li>
         </div>
     </main>
