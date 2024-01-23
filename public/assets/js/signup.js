@@ -433,8 +433,12 @@ function getLocation(address, zipcode, city) {
             if (data && data.length > 0) {
                 let latitude = data[0].lat;
                 let longitude = data[0].lon;
-                document.getElementById("lat").setAttribute("value", latitude);
-                document.getElementById("lon").setAttribute("value", longitude);
+                document
+                    .getElementById("lat")
+                    .setAttribute("value", latitude.substring(0, 15));
+                document
+                    .getElementById("lon")
+                    .setAttribute("value", longitude.substring(0, 15));
             } else {
                 console.log("Location not found");
                 document.getElementById("lat").setAttribute("value", "error");

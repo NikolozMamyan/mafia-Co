@@ -23,6 +23,10 @@
         <section id="user-details">
             <!-- Vos informations personnelles -->
             <div id="user-infos">
+                <input type="text" value="<?php echo ($point->getLatitude()) ?>" id="latitude" hidden>
+                <input type="text" value="<?php echo ($point->getLongitude()) ?>" id="longitude" hidden>
+
+
                 <a class="edit-icon" href="<?php routeEcho('modify'); ?>"><i class="covoiturage-pencil"></i></a>
                 <h2>Vos informations personnelles</h2>
 
