@@ -2,6 +2,7 @@
 
 class Map
 {
+    const MAX_DISTANCE = 5.5;
     const EARTH_RADIUS = 6371;
     const EARTH_CIRCUMFERENCE = self::EARTH_RADIUS * 2 * M_PI;
 

@@ -206,7 +206,7 @@ class AuthController extends Controller
         // Create new user
         $result = DB::statement(
             "INSERT INTO utilisateurs(nomUtilisateur, prenomUtilisateur, adresseUtilisateur, telUtilisateur, emailUtilisateur, motDePasseUtilisateur, photoUtilisateur, compteActif, idItineraire, idPoint, idRole)"
-                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, :idItineraire, 1, :idPoint, :idRole);",
+                . " VALUE(:firstName, :lastName, :address, :tel, :email, :password, :photo, 1, :idItineraire, :idPoint, :idRole);",
             [
                 'firstName' => $user->getPrenomUtilisateur(),
                 'lastName' => $user->getNomUtilisateur(),

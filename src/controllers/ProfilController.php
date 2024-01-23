@@ -13,7 +13,10 @@ class ProfilController extends Controller
 
     public function index()
     {
+        //NotificationController::computeNotifications();
+
         $currentUser = Auth::getCurrentUser();
+
         if ($currentUser) {
             $title = 'Mon profil';
             $currentId = Auth::getSessionUserId();
