@@ -1,5 +1,5 @@
 <?php
-
+//./vendor/bin/phpunit tests/AuthControllerTest.php
 use PHPUnit\Framework\TestCase;
 use App\Controllers\AuthController;
 

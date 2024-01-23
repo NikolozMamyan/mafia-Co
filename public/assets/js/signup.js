@@ -52,10 +52,10 @@ function validateAddress() {
     showErrorMessage('L\'adresse doit comporter entre 2 et 50 caractères !', 'address');
     return false;
   }
-  if (!adresseRegex.test(address)) {
-    showErrorMessage('L\'adresse est invalide', 'address');
-    return false;
-  }
+  // if (!adresseRegex.test(address)) {
+  //   showErrorMessage('L\'adresse est invalide', 'address');
+  //   return false;
+  // }
 
   hideErrorMessage('address');
   return true;
